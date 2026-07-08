@@ -1,0 +1,68 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+
+@theme {
+    --font-sans: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    
+    /* Titan Precision v2 Colors */
+    --color-primary: #c4c1fb;
+    --color-on-primary: #2d2a5b;
+    --color-primary-container: #1e1b4b;
+    --color-on-primary-container: #8683ba;
+    
+    --color-secondary: #ffb690;
+    --color-on-secondary: #552100;
+    --color-secondary-container: #ec6a06;
+    --color-on-secondary-container: #4a1c00;
+
+    --color-tertiary: #c3c0ff;
+    --color-on-tertiary: #1f00a4;
+    --color-tertiary-container: #14007a;
+    --color-on-tertiary-container: #7d77ff;
+
+    --color-background: #101415;
+    --color-on-background: #e0e3e5;
+
+    --color-surface: #101415;
+    --color-on-surface: #e0e3e5;
+    --color-surface-dim: #101415;
+    --color-surface-bright: #363a3b;
+    
+    --color-surface-container-lowest: #0b0f10;
+    --color-surface-container-low: #191c1e;
+    --color-surface-container: #1d2022;
+    --color-surface-container-high: #272a2c;
+    --color-surface-container-highest: #323537;
+    
+    --color-on-surface-variant: #c8c5d0;
+    --color-outline: #928f9a;
+    --color-outline-variant: #47464f;
+
+    --color-error: #ffb4ab;
+    --color-error-container: #93000a;
+    --color-on-error: #690005;
+    --color-on-error-container: #ffdad6;
+
+    --color-tertiary-fixed-dim: #c3c0ff;
+    --color-secondary-fixed-dim: #ffb690;
+    --color-primary-fixed-dim: #c4c1fb;
+    --color-secondary-fixed: #ffdbca;
+    --color-tertiary-fixed: #e3dfff;
+    --color-primary-fixed: #e3dfff;
+
+    /* Spacing */
+    --spacing-margin-mobile: 16px;
+    --spacing-gutter: 24px;
+    --spacing-safe-area-ar: 64px;
+    --spacing-margin-desktop: 48px;
+    --spacing-base-unit: 4px;
+    --spacing-container-max: 1280px;
+
+    /* Border Radius */
+    --radius-lg: 0.5rem;
+    --radius-xl: 0.75rem;
+    --radius-full: 9999px;
+}
+
