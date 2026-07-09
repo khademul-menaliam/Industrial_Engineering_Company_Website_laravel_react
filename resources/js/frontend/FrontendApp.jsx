@@ -11,7 +11,6 @@ import Careers from './pages/Careers';
 import Portfolio from './pages/Portfolio';
 import Contact from './pages/Contact';
 import FAQ from './pages/FAQ';
-import Pricing from './pages/Pricing';
 
 export default function FrontendApp() {
     return (
@@ -28,7 +27,6 @@ export default function FrontendApp() {
                     <Route path="/portfolio" element={<Portfolio />} />
                     <Route path="/contact" element={<Contact />} />
                     <Route path="/faq" element={<FAQ />} />
-                    <Route path="/pricing" element={<Pricing />} />
                 </Routes>
             </div>
             <Footer />

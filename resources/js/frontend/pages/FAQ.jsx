@@ -31,11 +31,11 @@ export default function FAQ() {
     };
 
     return (
-        <div className="py-24 bg-surface max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+        <div className="py-24 bg-background max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
             <div className="text-center mb-16">
-                <span className="text-secondary font-semibold text-xs tracking-widest uppercase">Support & Compliance</span>
-                <h1 className="text-white font-bold text-3xl md:text-5xl uppercase tracking-tight mt-4">Frequently Asked Questions</h1>
-                <p class="text-on-surface-variant text-base md:text-lg max-w-xl mx-auto mt-4">
+                <span className="text-tertiary font-bold text-xs tracking-widest uppercase font-mono">Support & Compliance</span>
+                <h1 className="text-primary font-bold text-3xl md:text-5xl uppercase tracking-tight mt-4">Frequently Asked Questions</h1>
+                <p className="text-on-surface-variant text-base md:text-lg max-w-xl mx-auto mt-4 leading-relaxed">
                     Technical details, compliance protocols, and system integration specs for Titan Precision v2 solutions.
                 </p>
             </div>
@@ -44,13 +44,13 @@ export default function FAQ() {
                 {faqs.map((faq, index) => (
                     <div 
                         key={index} 
-                        className="bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden transition-all duration-300 hover:border-primary/50"
+                        className="bg-white rounded-xl border border-outline-variant/30 overflow-hidden transition-all duration-300 hover:border-tertiary"
                     >
                         <button
                             onClick={() => toggleFaq(index)}
-                            className="w-full flex justify-between items-center p-6 text-left text-white font-semibold focus:outline-none"
+                            className="w-full flex justify-between items-center p-6 text-left text-primary font-semibold focus:outline-none"
                         >
-                            <span className="text-lg md:text-xl font-medium tracking-tight">{faq.question}</span>
+                            <span className="text-base md:text-lg font-bold uppercase tracking-tight leading-tight">{faq.question}</span>
                             <span className="material-symbols-outlined text-primary transition-transform duration-300" style={{ transform: activeIndex === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
                                 keyboard_arrow_down
                             </span>
@@ -62,7 +62,7 @@ export default function FAQ() {
                                 opacity: activeIndex === index ? 1 : 0
                             }}
                         >
-                            <p className="p-6 pt-0 text-on-surface-variant text-base leading-relaxed border-t border-outline-variant/10">
+                            <p className="p-6 pt-0 text-on-surface-variant text-sm leading-relaxed border-t border-outline-variant/10">
                                 {faq.answer}
                             </p>
                         </div>

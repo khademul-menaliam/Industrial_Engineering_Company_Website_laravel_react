@@ -37,7 +37,7 @@
             </div>
         @endif
 
-        <form method="POST" action="/admin/login" class="space-y-6">
+        <form method="POST" action="/titan-secure/login" class="space-y-6">
             @csrf
 
             <!-- Email Input -->

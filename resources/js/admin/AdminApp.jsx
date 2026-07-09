@@ -76,7 +76,7 @@ export default function AdminApp() {
                     </div>
                     
                     <a
-                        href="/admin/logout"
+                        href="/titan-secure/logout"
                         className="flex items-center gap-3.5 px-4 py-3 rounded-lg text-sm font-semibold tracking-wide text-error hover:bg-error-container/10 transition-all"
                     >
                         <span class="material-symbols-outlined text-lg">logout</span>
