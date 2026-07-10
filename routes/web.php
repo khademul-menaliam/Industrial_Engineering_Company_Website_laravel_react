@@ -5,9 +5,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 
-// Public API Route
+// Public API Routes
 Route::get('/api/home', [HomeController::class, 'index']);
+Route::get('/api/services', [ServiceController::class, 'index']);
+Route::get('/api/services/{slug}', [ServiceController::class, 'show']);
 
 // Authentication Routes
 Route::get('/titan-secure/login', [AuthController::class, 'showLogin'])->name('login');
@@ -49,6 +53,15 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/projects', [AdminHomeController::class, 'storeProject']);
         Route::post('/projects/{id}', [AdminHomeController::class, 'updateProject']);
         Route::delete('/projects/{id}', [AdminHomeController::class, 'destroyProject']);
+    });
+
+    // Secure API endpoints for Admin Services Manager
+    Route::prefix('api/admin/services')->group(function () {
+        Route::get('/', [AdminServiceController::class, 'index']);
+        Route::post('/settings', [AdminServiceController::class, 'updateSettings']);
+        Route::post('/', [AdminServiceController::class, 'store']);
+        Route::post('/{id}', [AdminServiceController::class, 'update']);
+        Route::delete('/{id}', [AdminServiceController::class, 'destroy']);
     });
 
     Route::get('/titan-secure', function () {

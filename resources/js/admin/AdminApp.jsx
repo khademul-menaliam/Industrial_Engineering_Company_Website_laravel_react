@@ -9,6 +9,7 @@ import Notifications from './pages/Notifications';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import HomepageManager from './pages/HomepageManager';
+import ServicesManager from './pages/ServicesManager';
 
 export default function AdminApp() {
     const location = useLocation();
@@ -16,6 +17,7 @@ export default function AdminApp() {
     const navItems = [
         { name: 'Dashboard', path: '/', icon: 'dashboard' },
         { name: 'Home Page', path: '/homepage', icon: 'edit_document' },
+        { name: 'Services Page', path: '/services-manager', icon: 'room_service' },
         { name: 'Products', path: '/products', icon: 'inventory_2' },
         { name: 'Orders', path: '/orders', icon: 'shopping_cart' },
         { name: 'Users', path: '/users', icon: 'group' },
@@ -118,6 +120,7 @@ export default function AdminApp() {
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/homepage" element={<HomepageManager />} />
+                        <Route path="/services-manager" element={<ServicesManager />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/orders" element={<Orders />} />
                         <Route path="/users" element={<Users />} />

@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
+import ServiceDetail from './pages/ServiceDetail';
 import HowWeWork from './pages/HowWeWork';
 import Clients from './pages/Clients';
 import Careers from './pages/Careers';
@@ -21,6 +22,7 @@ export default function FrontendApp() {
                     <Route path="/" element={<Home />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/services" element={<Services />} />
+                    <Route path="/services/:slug" element={<ServiceDetail />} />
                     <Route path="/how-we-work" element={<HowWeWork />} />
                     <Route path="/clients" element={<Clients />} />
                     <Route path="/careers" element={<Careers />} />
