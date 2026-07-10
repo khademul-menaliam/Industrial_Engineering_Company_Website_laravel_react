@@ -59,6 +59,13 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('api/admin/services')->group(function () {
         Route::get('/', [AdminServiceController::class, 'index']);
         Route::post('/settings', [AdminServiceController::class, 'updateSettings']);
+        
+        // Categories CRUD (literal routes first)
+        Route::post('/categories', [AdminServiceController::class, 'storeCategory']);
+        Route::post('/categories/{id}', [AdminServiceController::class, 'updateCategory']);
+        Route::delete('/categories/{id}', [AdminServiceController::class, 'destroyCategory']);
+
+        // Services CRUD (wildcard routes last)
         Route::post('/', [AdminServiceController::class, 'store']);
         Route::post('/{id}', [AdminServiceController::class, 'update']);
         Route::delete('/{id}', [AdminServiceController::class, 'destroy']);

@@ -12,6 +12,48 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // 0. Create service_categories table
+        Schema::create('service_categories', function (Blueprint $table) {
+            $table->id();
+            $table->string('slug')->unique();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->integer('sort_order')->default(0);
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
+        });
+
+        // Seed default service_categories
+        DB::table('service_categories')->insert([
+            [
+                'slug' => 'consulting',
+                'name' => 'Consulting Services',
+                'description' => 'Deploying elite technical expertise for complex industrial feasibility and architectural planning.',
+                'sort_order' => 1,
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'slug' => 'dsi',
+                'name' => 'Projects (DSI)',
+                'description' => 'Full-cycle design, supply, and installation of critical suppression, HVAC, and power loops.',
+                'sort_order' => 2,
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'slug' => 'maintenance',
+                'name' => 'Maintenance & Lifecycle',
+                'description' => 'Predictive diagnostics and mechanical tuning to guarantee maximum uptime.',
+                'sort_order' => 3,
+                'is_active' => true,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
+
         // 1. Create services table
         Schema::create('services', function (Blueprint $table) {
             $table->id();
@@ -543,5 +585,6 @@ return new class extends Migration
     {
         Schema::dropIfExists('services');
         Schema::dropIfExists('service_settings');
+        Schema::dropIfExists('service_categories');
     }
 };

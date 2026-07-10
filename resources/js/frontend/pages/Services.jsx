@@ -20,6 +20,12 @@ const FALLBACK_CTA = {
     services_cta_description: 'Deploy our rapid-response engineering team to evaluate your facility\'s integrity.'
 };
 
+const FALLBACK_CATEGORIES_LIST = [
+    { slug: 'consulting', name: 'Consulting Services', description: 'Deploying elite technical expertise for complex industrial feasibility and architectural planning.' },
+    { slug: 'dsi', name: 'Projects (DSI)', description: 'Full-cycle design, supply, and installation of critical suppression, HVAC, and power loops.' },
+    { slug: 'maintenance', name: 'Maintenance & Lifecycle', description: 'Predictive diagnostics and mechanical tuning to guarantee maximum uptime.' }
+];
+
 const FALLBACK_SERVICES = {
     consulting: [
         {
@@ -135,6 +141,7 @@ const FALLBACK_SERVICES = {
 
 export default function Services() {
     const [categories, setCategories] = useState(FALLBACK_SERVICES);
+    const [categoriesList, setCategoriesList] = useState(FALLBACK_CATEGORIES_LIST);
     const [settings, setSettings] = useState({});
     const [loading, setLoading] = useState(true);
 
@@ -145,7 +152,11 @@ export default function Services() {
                     const data = response.data;
                     setSettings(data.settings || {});
                     
-                    // Only override if database has seeded categories
+                    if (data.categories_list && data.categories_list.length > 0) {
+                        setCategoriesList(data.categories_list);
+                    }
+
+                    // Only override categories if data has items
                     const cats = data.categories || {};
                     const newCats = {};
                     let hasData = false;
@@ -168,7 +179,7 @@ export default function Services() {
             })
             .catch(err => {
                 console.error('Error fetching dynamic services:', err);
-                setLoading(false); // Silent fallback to static mock content
+                setLoading(false); // Fallback to static mock content
             });
     }, []);
 
@@ -188,19 +199,6 @@ export default function Services() {
     const ctaTitle = getSetting('services_cta_title', FALLBACK_CTA.services_cta_title);
     const ctaDesc = getSetting('services_cta_description', FALLBACK_CTA.services_cta_description);
 
-    // Grouping variables
-    const consultingList = categories.consulting || [];
-    const dsiList = categories.dsi || [];
-    const maintenanceList = categories.maintenance || [];
-
-    // Separate featured and right stack for Projects DSI
-    const featuredDsi = dsiList.find(s => s.is_featured) || dsiList[0];
-    const rightStackDsi = dsiList.filter(s => s !== featuredDsi);
-
-    // Separate side panel and items grid for Maintenance
-    const sidePanelMaintenance = maintenanceList.find(s => s.is_featured) || maintenanceList[4]; // Generator by default
-    const gridMaintenance = maintenanceList.filter(s => s !== sidePanelMaintenance);
-
     return (
         <div className="w-full bg-background text-on-surface">
             {/* HERO / INTRO */}
@@ -214,43 +212,229 @@ export default function Services() {
                 </div>
             </section>
 
-            {/* CATEGORY 1: CONSULTING SERVICES */}
-            {consultingList.length > 0 && (
-                <section className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
-                    <div className="max-w-container-max mx-auto">
-                        <div className="flex items-center gap-4 mb-10">
-                            <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">01. Consulting Services</h2>
-                            <div className="h-px bg-outline-variant/30 flex-grow"></div>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                            {consultingList.map((service, idx) => {
-                                const isColSpan2 = service.is_col_span_2 || (idx === consultingList.length - 1 && consultingList.length % 3 === 2);
-                                if (isColSpan2) {
-                                    return (
-                                        <div key={service.id || idx} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300 md:col-span-2 lg:col-span-2">
-                                            <div className="flex flex-col md:flex-row h-full">
-                                                <div className="md:w-5/12 h-48 md:h-auto bg-surface-container-low overflow-hidden relative">
+            {/* DYNAMIC CATEGORIES LOOP */}
+            {categoriesList.map((cat, catIdx) => {
+                const serviceList = categories[cat.slug] || [];
+                if (serviceList.length === 0) return null;
+
+                const stepNum = String(catIdx + 1).padStart(2, '0');
+
+                if (cat.slug === 'consulting') {
+                    return (
+                        <section key={cat.slug} className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+                            <div className="max-w-container-max mx-auto">
+                                <div className="flex items-center gap-4 mb-10">
+                                    <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
+                                        {stepNum}. {cat.name}
+                                    </h2>
+                                    <div className="h-px bg-outline-variant/30 flex-grow"></div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                    {serviceList.map((service, idx) => {
+                                        const isColSpan2 = service.is_col_span_2 || (idx === serviceList.length - 1 && serviceList.length % 3 === 2);
+                                        if (isColSpan2) {
+                                            return (
+                                                <div key={service.id || idx} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300 md:col-span-2 lg:col-span-2">
+                                                    <div className="flex flex-col md:flex-row h-full">
+                                                        <div className="md:w-5/12 h-48 md:h-auto bg-surface-container-low overflow-hidden relative">
+                                                            <img 
+                                                                alt={service.title} 
+                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0" 
+                                                                src={service.image} 
+                                                            />
+                                                            <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-md">
+                                                                <span className="material-symbols-outlined text-xl">{service.icon || 'air'}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="md:w-7/12 p-6 md:p-8 flex flex-col justify-center">
+                                                            <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{service.title}</h3>
+                                                            <p className="text-xs text-secondary leading-relaxed mb-6">{service.short_description}</p>
+                                                            <Link className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono" to={`/services/${service.slug}`}>
+                                                                Explore Solution <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+                                                            </Link>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+                                        return (
+                                            <div key={service.id || idx} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300">
+                                                <div className="h-44 bg-surface-container-low overflow-hidden relative">
                                                     <img 
                                                         alt={service.title} 
                                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0" 
                                                         src={service.image} 
                                                     />
                                                     <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-md">
-                                                        <span className="material-symbols-outlined text-xl">{service.icon || 'air'}</span>
+                                                        <span className="material-symbols-outlined text-xl">{service.icon || 'settings'}</span>
                                                     </div>
                                                 </div>
-                                                <div className="md:w-7/12 p-6 md:p-8 flex flex-col justify-center">
+                                                <div className="p-6 flex flex-col flex-grow">
                                                     <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{service.title}</h3>
-                                                    <p className="text-xs text-secondary leading-relaxed mb-6">{service.short_description}</p>
+                                                    <p className="text-xs text-secondary leading-relaxed mb-6 flex-grow">{service.short_description}</p>
                                                     <Link className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono" to={`/services/${service.slug}`}>
-                                                        Explore Solution <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
+                                                        View Details <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
                                                     </Link>
                                                 </div>
                                             </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        </section>
+                    );
+                }
+
+                if (cat.slug === 'dsi') {
+                    const featuredDsi = serviceList.find(s => s.is_featured) || serviceList[0];
+                    const rightStackDsi = serviceList.filter(s => s !== featuredDsi);
+                    return (
+                        <section key={cat.slug} className="py-20 bg-white border-y border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
+                            <div className="max-w-container-max mx-auto">
+                                <div className="flex items-center gap-4 mb-10">
+                                    <h2 className="text-xs font-bold text-tertiary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
+                                        {stepNum}. {cat.name}
+                                    </h2>
+                                    <div className="h-px bg-outline-variant/30 flex-grow"></div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+                                    {/* Featured Card */}
+                                    {featuredDsi && (
+                                        <div className="md:col-span-7 group relative rounded-lg overflow-hidden shadow-sm border border-outline-variant/20 aspect-[16/9] md:aspect-auto flex flex-col justify-end min-h-[350px]">
+                                            <img 
+                                                alt={featuredDsi.title} 
+                                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" 
+                                                src={featuredDsi.image} 
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
+                                            <div className="relative p-6 md:p-8 z-10 w-full">
+                                                {featuredDsi.tag && (
+                                                    <span className="bg-tertiary text-white px-2.5 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider mb-3 inline-block font-mono">
+                                                        {featuredDsi.tag}
+                                                    </span>
+                                                )}
+                                                <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{featuredDsi.title}</h3>
+                                                <p className="text-gray-300 text-xs max-w-md leading-relaxed mb-6">{featuredDsi.short_description}</p>
+                                                <Link className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded text-[11px] font-bold uppercase tracking-widest transition-colors backdrop-blur-sm font-mono" to={`/services/${featuredDsi.slug}`}>
+                                                    View Project Details
+                                                </Link>
+                                            </div>
                                         </div>
-                                    );
-                                }
-                                return (
+                                    )}
+
+                                    {/* Right Stack */}
+                                    <div className="md:col-span-5 flex flex-col gap-4">
+                                        {rightStackDsi.map((service, idx) => (
+                                            <div key={service.id || idx} className="bg-background p-4 rounded-lg flex flex-col sm:flex-row gap-4 border border-outline-variant/30 group hover:border-tertiary transition-all duration-300">
+                                                <div className="w-full sm:w-24 h-36 sm:h-24 flex-shrink-0 rounded overflow-hidden bg-surface-container-low">
+                                                    {service.image && (
+                                                        <img 
+                                                            alt={service.title} 
+                                                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" 
+                                                            src={service.image} 
+                                                        />
+                                                    )}
+                                                </div>
+                                                <div className="flex flex-col justify-center flex-grow">
+                                                    <div className="flex items-center gap-2 mb-1">
+                                                        <span className="material-symbols-outlined text-tertiary text-sm">{service.icon || 'settings'}</span>
+                                                        <h4 className="font-bold text-primary text-sm uppercase tracking-tight">{service.title}</h4>
+                                                    </div>
+                                                    <p className="text-[11px] text-secondary leading-relaxed mb-2 line-clamp-2">{service.short_description}</p>
+                                                    <Link className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary mt-auto font-mono flex items-center gap-1" to={`/services/${service.slug}`}>
+                                                        Explore <span className="material-symbols-outlined text-[10px]">arrow_forward</span>
+                                                    </Link>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    );
+                }
+
+                if (cat.slug === 'maintenance') {
+                    const sidePanelMaintenance = serviceList.find(s => s.is_featured) || serviceList[serviceList.length - 1];
+                    const gridMaintenance = serviceList.filter(s => s !== sidePanelMaintenance);
+                    return (
+                        <section key={cat.slug} className="py-20 bg-surface px-margin-mobile md:px-margin-desktop">
+                            <div className="max-w-container-max mx-auto">
+                                <div className="flex items-center gap-4 mb-10">
+                                    <h2 className="text-xs font-bold text-secondary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
+                                        {stepNum}. {cat.name}
+                                    </h2>
+                                    <div className="h-px bg-outline-variant/30 flex-grow"></div>
+                                </div>
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                                    {/* High-Contrast Side Panel */}
+                                    {sidePanelMaintenance && (
+                                        <div className="lg:col-span-4 bg-primary p-8 rounded-lg text-white shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+                                            <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                                                <span className="material-symbols-outlined text-[120px]">{sidePanelMaintenance.icon || 'settings_suggest'}</span>
+                                            </div>
+                                            <div>
+                                                <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">{zeroDowntimeTitle}</h3>
+                                                <p className="text-gray-300 text-xs mb-10 leading-relaxed">
+                                                    {zeroDowntimeDesc}
+                                                </p>
+                                            </div>
+                                            <Link to={`/services/${sidePanelMaintenance.slug}`} className="w-full text-center bg-tertiary text-white py-3.5 rounded font-mono font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-md">
+                                                View details
+                                            </Link>
+                                        </div>
+                                    )}
+
+                                    {/* Main Grid */}
+                                    <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        {gridMaintenance.map((service, idx) => {
+                                            const isLast = idx === gridMaintenance.length - 1 && gridMaintenance.length % 2 === 1;
+                                            return (
+                                                <div 
+                                                    key={service.id || idx} 
+                                                    className={`bg-white rounded-lg overflow-hidden flex group hover:shadow-md border border-outline-variant/30 transition-all duration-300 min-h-[6rem] ${isLast ? 'sm:col-span-2' : ''}`}
+                                                >
+                                                    <img 
+                                                        alt={service.title} 
+                                                        className={`object-cover grayscale group-hover:grayscale-0 transition-all duration-500 shrink-0 ${isLast ? 'w-1/4 hidden sm:block' : 'w-1/3'}`} 
+                                                        src={service.image} 
+                                                    />
+                                                    <div className="p-4 flex flex-col justify-center relative flex-grow">
+                                                        <span className="material-symbols-outlined text-tertiary text-xl absolute right-4 top-4 opacity-30 group-hover:opacity-100 transition-opacity">
+                                                            {service.icon || 'settings_suggest'}
+                                                        </span>
+                                                        <h4 className="text-sm font-bold text-primary mb-1 uppercase tracking-tight max-w-[85%]">{service.title}</h4>
+                                                        <Link className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary font-mono mt-1" to={`/services/${service.slug}`}>
+                                                            Details
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    );
+                }
+
+                // Standard New Categories Layout
+                return (
+                    <section key={cat.slug} className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+                        <div className="max-w-container-max mx-auto">
+                            <div className="flex items-center gap-4 mb-10">
+                                <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
+                                    {stepNum}. {cat.name}
+                                </h2>
+                                <div className="h-px bg-outline-variant/30 flex-grow"></div>
+                            </div>
+                            {cat.description && (
+                                <p className="text-sm text-secondary mb-8 -mt-6 max-w-3xl leading-relaxed">
+                                    {cat.description}
+                                </p>
+                            )}
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                {serviceList.map((service, idx) => (
                                     <div key={service.id || idx} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300">
                                         <div className="h-44 bg-surface-container-low overflow-hidden relative">
                                             <img 
@@ -270,135 +454,12 @@ export default function Services() {
                                             </Link>
                                         </div>
                                     </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-                </section>
-            )}
-
-            {/* CATEGORY 2: PROJECTS (DESIGN, SUPPLY & INSTALLATION) */}
-            {dsiList.length > 0 && (
-                <section className="py-20 bg-white border-y border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
-                    <div className="max-w-container-max mx-auto">
-                        <div className="flex items-center gap-4 mb-10">
-                            <h2 className="text-xs font-bold text-tertiary uppercase tracking-[0.3em] flex-shrink-0 font-mono">02. Projects (DSI)</h2>
-                            <div className="h-px bg-outline-variant/30 flex-grow"></div>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                            {/* Featured Card */}
-                            {featuredDsi && (
-                                <div className="md:col-span-7 group relative rounded-lg overflow-hidden shadow-sm border border-outline-variant/20 aspect-[16/9] md:aspect-auto flex flex-col justify-end min-h-[350px]">
-                                    <img 
-                                        alt={featuredDsi.title} 
-                                        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" 
-                                        src={featuredDsi.image} 
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
-                                    <div className="relative p-6 md:p-8 z-10 w-full">
-                                        {featuredDsi.tag && (
-                                            <span className="bg-tertiary text-white px-2.5 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider mb-3 inline-block font-mono">
-                                                {featuredDsi.tag}
-                                            </span>
-                                        )}
-                                        <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{featuredDsi.title}</h3>
-                                        <p className="text-gray-300 text-xs max-w-md leading-relaxed mb-6">{featuredDsi.short_description}</p>
-                                        <Link className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded text-[11px] font-bold uppercase tracking-widest transition-colors backdrop-blur-sm font-mono" to={`/services/${featuredDsi.slug}`}>
-                                            View Project Details
-                                        </Link>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Right Stack */}
-                            <div className="md:col-span-5 flex flex-col gap-4">
-                                {rightStackDsi.map((service, idx) => (
-                                    <div key={service.id || idx} className="bg-background p-4 rounded-lg flex flex-col sm:flex-row gap-4 border border-outline-variant/30 group hover:border-tertiary transition-all duration-300">
-                                        <div className="w-full sm:w-24 h-36 sm:h-24 flex-shrink-0 rounded overflow-hidden bg-surface-container-low">
-                                            {service.image && (
-                                                <img 
-                                                    alt={service.title} 
-                                                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" 
-                                                    src={service.image} 
-                                                />
-                                            )}
-                                        </div>
-                                        <div className="flex flex-col justify-center flex-grow">
-                                            <div className="flex items-center gap-2 mb-1">
-                                                <span className="material-symbols-outlined text-tertiary text-sm">{service.icon || 'settings'}</span>
-                                                <h4 className="font-bold text-primary text-sm uppercase tracking-tight">{service.title}</h4>
-                                            </div>
-                                            <p className="text-[11px] text-secondary leading-relaxed mb-2 line-clamp-2">{service.short_description}</p>
-                                            <Link className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary mt-auto font-mono flex items-center gap-1" to={`/services/${service.slug}`}>
-                                                Explore <span className="material-symbols-outlined text-[10px]">arrow_forward</span>
-                                            </Link>
-                                        </div>
-                                    </div>
                                 ))}
                             </div>
                         </div>
-                    </div>
-                </section>
-            )}
-
-            {/* CATEGORY 3: MAINTENANCE & LIFECYCLE */}
-            {maintenanceList.length > 0 && (
-                <section className="py-20 bg-surface px-margin-mobile md:px-margin-desktop">
-                    <div className="max-w-container-max mx-auto">
-                        <div className="flex items-center gap-4 mb-10">
-                            <h2 className="text-xs font-bold text-secondary uppercase tracking-[0.3em] flex-shrink-0 font-mono">03. Maintenance &amp; Lifecycle</h2>
-                            <div className="h-px bg-outline-variant/30 flex-grow"></div>
-                        </div>
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                            {/* High-Contrast Side Panel */}
-                            {sidePanelMaintenance && (
-                                <div className="lg:col-span-4 bg-primary p-8 rounded-lg text-white shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[300px]">
-                                    <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
-                                        <span className="material-symbols-outlined text-[120px]">{sidePanelMaintenance.icon || 'settings_suggest'}</span>
-                                    </div>
-                                    <div>
-                                        <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">{zeroDowntimeTitle}</h3>
-                                        <p className="text-gray-300 text-xs mb-10 leading-relaxed">
-                                            {zeroDowntimeDesc}
-                                        </p>
-                                    </div>
-                                    <Link to={`/services/${sidePanelMaintenance.slug}`} className="w-full text-center bg-tertiary text-white py-3.5 rounded font-mono font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-md">
-                                        View generator details
-                                    </Link>
-                                </div>
-                            )}
-
-                            {/* Main Grid */}
-                            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {gridMaintenance.map((service, idx) => {
-                                    const isLast = idx === gridMaintenance.length - 1 && gridMaintenance.length % 2 === 1;
-                                    return (
-                                        <div 
-                                            key={service.id || idx} 
-                                            className={`bg-white rounded-lg overflow-hidden flex group hover:shadow-md border border-outline-variant/30 transition-all duration-300 min-h-[6rem] ${isLast ? 'sm:col-span-2' : ''}`}
-                                        >
-                                            <img 
-                                                alt={service.title} 
-                                                className={`object-cover grayscale group-hover:grayscale-0 transition-all duration-500 shrink-0 ${isLast ? 'w-1/4 hidden sm:block' : 'w-1/3'}`} 
-                                                src={service.image} 
-                                            />
-                                            <div className="p-4 flex flex-col justify-center relative flex-grow">
-                                                <span className="material-symbols-outlined text-tertiary text-xl absolute right-4 top-4 opacity-30 group-hover:opacity-100 transition-opacity">
-                                                    {service.icon || 'settings_suggest'}
-                                                </span>
-                                                <h4 className="text-sm font-bold text-primary mb-1 uppercase tracking-tight max-w-[85%]">{service.title}</h4>
-                                                <Link className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary font-mono mt-1" to={`/services/${service.slug}`}>
-                                                    Details
-                                                </Link>
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            )}
+                    </section>
+                );
+            })}
 
             {/* CTA SECTION */}
             <section className="py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-16">

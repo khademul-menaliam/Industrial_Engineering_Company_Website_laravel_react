@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Service;
+use App\Models\ServiceCategory;
 use App\Models\ServiceSetting;
 use Illuminate\Http\JsonResponse;
 
@@ -13,6 +14,11 @@ class ServiceController extends Controller
      */
     public function index(): JsonResponse
     {
+        $categories = ServiceCategory::where('is_active', true)
+            ->orderBy('sort_order')
+            ->orderBy('id')
+            ->get();
+
         $services = Service::where('is_active', true)
             ->orderBy('sort_order')
             ->orderBy('id')
@@ -20,14 +26,17 @@ class ServiceController extends Controller
 
         $settings = ServiceSetting::all()->pluck('value', 'key');
 
+        // Group services by category slug
+        $grouped = [];
+        foreach ($categories as $cat) {
+            $grouped[$cat->slug] = $services->where('category', $cat->slug)->values();
+        }
+
         return response()->json([
             'success' => true,
             'settings' => $settings,
-            'categories' => [
-                'consulting' => $services->where('category', 'consulting')->values(),
-                'dsi' => $services->where('category', 'dsi')->values(),
-                'maintenance' => $services->where('category', 'maintenance')->values(),
-            ]
+            'categories_list' => $categories,
+            'categories' => $grouped
         ]);
     }
 
