@@ -1,8 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
+    const slides = [
+        {
+            title: "Your Vision, Our Engineering",
+            subtitle: "Providing innovative industrial engineering solutions",
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB-6-3cLDaU4VnChB7GYvXsbKGYaUSQp89TQMzPFB2mzN9h-twN_Ik0ERIwTHZl893AhxwYuDeJBpUz_Te3v4QodSCkIvOPT4LnqBzdD0xXzqao4xu7LGVMFi8uDk1RBAsAJ8WD6DoBrWMGYs0GS3ublBRyMlah8JfpIBCDpwl9bHchg3y6SZtECGaEZkc2Mq0LVkK9FWsDRzeGdczTiwZ-nDj601wiOgkjf4xBXx3abFizvqvfErfR"
+        },
+        {
+            title: "Consulting & Projects",
+            subtitle: "Expertise in MEP design, simulation, and installations.",
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBZE8ooXcXGVdrAES5GxRjh2CbqkMapDOF7dPJO0EizqB5HwnYkoP812ufBh9eDJLrWeOc9HJFtnI7OGWxseciPJNt_tlS7z419VPOkGA7HM6htH-CeHOzR9fEGL59fSKItgd4SctPKTUVbJoU7g9DqjJw8JwJ8hhF2UQYz2eCXKhp61qfcNiLRBfBWi9L8ZxPisTO8hwxpoh-sP-exJvu6JnUbPrhtHvqUh9zGIYvbtTTvpk-ixIR8"
+        },
+        {
+            title: "Maintenance & Services",
+            subtitle: "Reliable support for all industrial systems.",
+            image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCxNuCaKpqaQ6E_QgXmtqTDHTvGXSdnnvvUJhny8QurhM1VLR9QtwmeNmgxJmmQGNGurQTtjdzuPdr5aMD0-URR7PfF2vAQhZgWb1BZCnPSgjZvBaWwULpTylYeYxN8r0ZBpATwKE45Bl_c-Qcpm-ovPo7p4HEl4siRfB-mp3IpftkCDbGlo1ucRsd6ZBCoNGk6AHGDtxAe3puRuacOxzOvTDoEUC7ll8mcbLudulRlfK6i1eEB-Wqa"
+        }
+    ];
+
+    const [currentSlide, setCurrentSlide] = useState(0);
     const [isSubmitted, setIsSubmitted] = useState(false);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentSlide((prev) => (prev + 1) % slides.length);
+        }, 5000);
+        return () => clearInterval(timer);
+    }, []);
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
@@ -15,23 +41,48 @@ export default function Home() {
 
     return (
         <div className="w-full">
-            {/* Hero Section */}
-            <section className="relative w-full h-[600px] flex items-center justify-center">
-                <div 
-                    className="absolute inset-0 bg-cover bg-center" 
-                    style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuDJ9042T9W5hW6Q2itLxV_f2FRp-hmhNZ8FHXxdlsE94rXExdO8oNa0b5jjZe12UZFOjGNBb6lg3nHCHO3QsfUPAjy0eJt3K0uuyqJonzGpPirh7flFyRb1bdcNFOSse7omgEmoyH6nYimUXFp1jIdOU7TH8T5o1CeCwjchhQmoKvz5jEgcRiuPsQIDEQJajL5PLDORMKfplIE28eazhJ__YRVfnYmsykQ50N7_OHtX8WR7jj01kMfI')" }}
-                ></div>
-                <div className="absolute inset-0 bg-primary opacity-65"></div>
-                <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop text-center flex flex-col items-center gap-6">
-                    <h1 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl max-w-4xl uppercase tracking-tight">
-                        Industrial Fire Safety &amp; Engineering Management
-                    </h1>
-                    <p className="text-base md:text-lg text-surface-container-high max-w-2xl leading-relaxed">
-                        Precision-engineered fire protection, compliance, and industrial maintenance for high-stakes environments.
-                    </p>
-                    <Link to="/services" className="bg-tertiary text-white text-xs font-mono font-bold px-8 py-4 rounded uppercase tracking-widest hover:bg-opacity-90 transition-colors mt-4">
-                        EXPLORE SERVICES
-                    </Link>
+            {/* Hero Section with Slider */}
+            <section className="relative w-full h-[600px] overflow-hidden bg-primary" id="hero-slider">
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`absolute inset-0 w-full h-full flex items-center justify-center transition-opacity duration-1000 ${
+                            currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
+                        }`}
+                    >
+                        <div 
+                            className="absolute inset-0 bg-cover bg-center" 
+                            style={{ backgroundImage: `url('${slide.image}')` }}
+                        ></div>
+                        <div className="absolute inset-0 bg-primary opacity-65"></div>
+                        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop text-center flex flex-col items-center gap-6">
+                            <h1 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl max-w-4xl uppercase tracking-tight">
+                                {slide.title}
+                            </h1>
+                            <p className="text-base md:text-lg text-surface-container-high max-w-2xl leading-relaxed">
+                                {slide.subtitle}
+                            </p>
+                            <Link 
+                                to="/services" 
+                                className="bg-tertiary text-white text-xs font-mono font-bold px-8 py-4 rounded uppercase tracking-widest hover:bg-opacity-90 transition-colors mt-4"
+                            >
+                                EXPLORE SERVICES
+                            </Link>
+                        </div>
+                    </div>
+                ))}
+
+                {/* Navigation Dots */}
+                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+                    {slides.map((_, index) => (
+                        <button
+                            key={index}
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                currentSlide === index ? 'bg-tertiary w-6' : 'bg-white/40 hover:bg-white'
+                            }`}
+                            onClick={() => setCurrentSlide(index)}
+                        ></button>
+                    ))}
                 </div>
             </section>
 
@@ -208,6 +259,7 @@ export default function Home() {
                             </div>
                             <div className="p-6">
                                 <h3 className="text-base font-bold mb-4 text-primary uppercase tracking-tight">Structural Systems</h3>
+                   
                                 <ul className="space-y-2 mb-6 font-mono text-xs text-on-surface-variant">
                                     <li className="flex items-center gap-2">
                                         <span className="material-symbols-outlined text-primary text-lg" style={{ fontVariationSettings: "'FILL' 1" }}>architecture</span>
