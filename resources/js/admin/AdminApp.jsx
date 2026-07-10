@@ -12,6 +12,7 @@ import HomepageManager from './pages/HomepageManager';
 import ServicesManager from './pages/ServicesManager';
 import ContactManager from './pages/ContactManager';
 import CareersManager from './pages/CareersManager';
+import AboutManager from './pages/AboutManager';
 
 export default function AdminApp() {
     const location = useLocation();
@@ -20,6 +21,7 @@ export default function AdminApp() {
         { name: 'Dashboard', path: '/', icon: 'dashboard' },
         { name: 'Home Page', path: '/homepage', icon: 'edit_document' },
         { name: 'Services Page', path: '/services-manager', icon: 'room_service' },
+        { name: 'About Page', path: '/about-manager', icon: 'info' },
         { name: 'Contact Page', path: '/contact-manager', icon: 'contact_mail' },
         { name: 'Careers Page', path: '/careers-manager', icon: 'work' },
         { name: 'Products', path: '/products', icon: 'inventory_2' },
@@ -125,6 +127,7 @@ export default function AdminApp() {
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/homepage" element={<HomepageManager />} />
                         <Route path="/services-manager" element={<ServicesManager />} />
+                        <Route path="/about-manager" element={<AboutManager />} />
                         <Route path="/contact-manager" element={<ContactManager />} />
                         <Route path="/careers-manager" element={<CareersManager />} />
                         <Route path="/products" element={<Products />} />

@@ -14,6 +14,10 @@ use App\Http\Controllers\CareersPageController;
 use App\Http\Controllers\Admin\ContactManagerController as AdminContactManagerController;
 use App\Http\Controllers\Admin\CareersManagerController as AdminCareersManagerController;
 
+// Dynamic About Page Controllers
+use App\Http\Controllers\AboutPageController;
+use App\Http\Controllers\Admin\AboutManagerController as AdminAboutManagerController;
+
 // Public API Routes
 Route::get('/api/home', [HomeController::class, 'index']);
 Route::get('/api/services', [ServiceController::class, 'index']);
@@ -24,6 +28,9 @@ Route::get('/api/contact', [ContactPageController::class, 'index']);
 Route::post('/api/contact/submit', [ContactPageController::class, 'submit']);
 Route::get('/api/careers', [CareersPageController::class, 'index']);
 Route::post('/api/careers/apply', [CareersPageController::class, 'apply']);
+
+// Public Dynamic About API Route
+Route::get('/api/about', [AboutPageController::class, 'index']);
 
 // Authentication Routes
 Route::get('/titan-secure/login', [AuthController::class, 'showLogin'])->name('login');
@@ -97,6 +104,32 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/vacancies/{id}', [AdminCareersManagerController::class, 'updateVacancy']);
         Route::delete('/vacancies/{id}', [AdminCareersManagerController::class, 'destroyVacancy']);
         Route::delete('/applications/{id}', [AdminCareersManagerController::class, 'destroyApplication']);
+    });
+
+    // Secure API endpoints for Admin About Manager
+    Route::prefix('api/admin/about')->group(function () {
+        Route::get('/', [AdminAboutManagerController::class, 'index']);
+        Route::post('/settings', [AdminAboutManagerController::class, 'updateSettings']);
+        
+        // Pillars CRUD
+        Route::post('/pillars', [AdminAboutManagerController::class, 'storePillar']);
+        Route::post('/pillars/{id}', [AdminAboutManagerController::class, 'updatePillar']);
+        Route::delete('/pillars/{id}', [AdminAboutManagerController::class, 'destroyPillar']);
+
+        // Advisors CRUD
+        Route::post('/advisors', [AdminAboutManagerController::class, 'storeAdvisor']);
+        Route::post('/advisors/{id}', [AdminAboutManagerController::class, 'updateAdvisor']);
+        Route::delete('/advisors/{id}', [AdminAboutManagerController::class, 'destroyAdvisor']);
+
+        // Team CRUD
+        Route::post('/team', [AdminAboutManagerController::class, 'storeTeamMember']);
+        Route::post('/team/{id}', [AdminAboutManagerController::class, 'updateTeamMember']);
+        Route::delete('/team/{id}', [AdminAboutManagerController::class, 'destroyTeamMember']);
+
+        // Milestones CRUD
+        Route::post('/milestones', [AdminAboutManagerController::class, 'storeMilestone']);
+        Route::post('/milestones/{id}', [AdminAboutManagerController::class, 'updateMilestone']);
+        Route::delete('/milestones/{id}', [AdminAboutManagerController::class, 'destroyMilestone']);
     });
 
     Route::get('/titan-secure', function () {
