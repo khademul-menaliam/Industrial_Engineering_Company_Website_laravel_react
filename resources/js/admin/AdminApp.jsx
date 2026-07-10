@@ -10,6 +10,8 @@ import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import HomepageManager from './pages/HomepageManager';
 import ServicesManager from './pages/ServicesManager';
+import ContactManager from './pages/ContactManager';
+import CareersManager from './pages/CareersManager';
 
 export default function AdminApp() {
     const location = useLocation();
@@ -18,6 +20,8 @@ export default function AdminApp() {
         { name: 'Dashboard', path: '/', icon: 'dashboard' },
         { name: 'Home Page', path: '/homepage', icon: 'edit_document' },
         { name: 'Services Page', path: '/services-manager', icon: 'room_service' },
+        { name: 'Contact Page', path: '/contact-manager', icon: 'contact_mail' },
+        { name: 'Careers Page', path: '/careers-manager', icon: 'work' },
         { name: 'Products', path: '/products', icon: 'inventory_2' },
         { name: 'Orders', path: '/orders', icon: 'shopping_cart' },
         { name: 'Users', path: '/users', icon: 'group' },
@@ -44,7 +48,7 @@ export default function AdminApp() {
                     </div>
 
                     {/* Navigation */}
-                    <nav className="p-4 space-y-1.5">
+                    <nav className="p-4 space-y-1.5 font-medium">
                         {navItems.map((item) => {
                             const isActive = location.pathname === item.path;
                             return (
@@ -83,7 +87,7 @@ export default function AdminApp() {
                         href="/titan-secure/logout"
                         className="flex items-center gap-3.5 px-4 py-3 rounded-lg text-sm font-semibold tracking-wide text-error hover:bg-error-container/10 transition-all"
                     >
-                        <span class="material-symbols-outlined text-lg">logout</span>
+                        <span className="material-symbols-outlined text-lg">logout</span>
                         Sign Out
                     </a>
                 </div>
@@ -121,6 +125,8 @@ export default function AdminApp() {
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/homepage" element={<HomepageManager />} />
                         <Route path="/services-manager" element={<ServicesManager />} />
+                        <Route path="/contact-manager" element={<ContactManager />} />
+                        <Route path="/careers-manager" element={<CareersManager />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/orders" element={<Orders />} />
                         <Route path="/users" element={<Users />} />

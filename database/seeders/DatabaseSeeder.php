@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             HomeSeeder::class,
             ServiceSeeder::class,
+            ContactAndCareersSeeder::class,
         ]);
     }
 }

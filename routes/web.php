@@ -8,10 +8,22 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 
+// Dynamic Contact & Careers Controllers
+use App\Http\Controllers\ContactPageController;
+use App\Http\Controllers\CareersPageController;
+use App\Http\Controllers\Admin\ContactManagerController as AdminContactManagerController;
+use App\Http\Controllers\Admin\CareersManagerController as AdminCareersManagerController;
+
 // Public API Routes
 Route::get('/api/home', [HomeController::class, 'index']);
 Route::get('/api/services', [ServiceController::class, 'index']);
 Route::get('/api/services/{slug}', [ServiceController::class, 'show']);
+
+// Public Dynamic Contact & Careers API Routes
+Route::get('/api/contact', [ContactPageController::class, 'index']);
+Route::post('/api/contact/submit', [ContactPageController::class, 'submit']);
+Route::get('/api/careers', [CareersPageController::class, 'index']);
+Route::post('/api/careers/apply', [CareersPageController::class, 'apply']);
 
 // Authentication Routes
 Route::get('/titan-secure/login', [AuthController::class, 'showLogin'])->name('login');
@@ -69,6 +81,22 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/', [AdminServiceController::class, 'store']);
         Route::post('/{id}', [AdminServiceController::class, 'update']);
         Route::delete('/{id}', [AdminServiceController::class, 'destroy']);
+    });
+
+    // Secure API endpoints for Admin Contact Manager
+    Route::prefix('api/admin/contact')->group(function () {
+        Route::get('/', [AdminContactManagerController::class, 'index']);
+        Route::post('/settings', [AdminContactManagerController::class, 'updateSettings']);
+        Route::delete('/inquiries/{id}', [AdminContactManagerController::class, 'destroyInquiry']);
+    });
+
+    // Secure API endpoints for Admin Careers Manager
+    Route::prefix('api/admin/careers')->group(function () {
+        Route::get('/', [AdminCareersManagerController::class, 'index']);
+        Route::post('/vacancies', [AdminCareersManagerController::class, 'storeVacancy']);
+        Route::post('/vacancies/{id}', [AdminCareersManagerController::class, 'updateVacancy']);
+        Route::delete('/vacancies/{id}', [AdminCareersManagerController::class, 'destroyVacancy']);
+        Route::delete('/applications/{id}', [AdminCareersManagerController::class, 'destroyApplication']);
     });
 
     Route::get('/titan-secure', function () {
