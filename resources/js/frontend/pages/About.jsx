@@ -36,6 +36,21 @@ const TEAM_MEMBERS = [
     }
 ];
 
+const ADVISORS = [
+    {
+        name: 'Dr. Aris Thorne',
+        role: 'Senior Structural Advisor',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDdqOTYnupjt5nefsPJfgjHM5HMSix_-gvu2_5cythhmuUcLI2PfYVTXEqEZoZ1zb_BJZFAqoKaO2V0Qm4QtjwKvcQwn1kVOunWU27xyjnDCZ1wxDwRNnBYPoQKmoaWg5knYpTELkqiYZPebgLV8ILc_SWCdQGmp7eaKshtYnYqq6CUgfmd6b1qfwjuahdRa5B3RSc9AR0An4EpvfDAh5TPWyEcrXzVj2G4N-irBFJVrqv46azTwU5Xdg',
+        message: 'Engineering safety is an iterative process of mathematical validation and material stress audits. We build the science that keeps cities standing.'
+    },
+    {
+        name: 'Dame Clara Dupont',
+        role: 'Industrial Compliance Advisor',
+        image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB8yelI8zz3zZB_xOggCH44uFkZOchwr5JoCd_YwatDrH8n2bP7Fv04diGqoMNBFVXOMmzVXMm1Khsv2cD2J-0JkNKh8F3_z7DomR998JD4YQYPZ_UjxrXmIWGtoML1XMieoQUBHmdn4yp6fpzuwCxQHLj5ZUUIbQEb27rxJabHV_br09iEBSL1zbTfFXr_Y5NDva3iJXgqTJTFje6DCSKeQv2KRfD1T_jtIJ1E2FNjMq3V1JFqmuYHBw',
+        message: 'Compliance with NFPA and international ISO standards is not a checklist, but the blueprint of modern infrastructure. Trust is built on compliance.'
+    }
+];
+
 const MILESTONES = [
     {
         year: '2024',
@@ -55,8 +70,6 @@ const MILESTONES = [
 ];
 
 export default function About() {
-    const [hoveredMember, setHoveredMember] = useState(null);
-
     return (
         <div className="w-full bg-[#fafbfc]">
             {/* Hero Banner */}
@@ -114,6 +127,7 @@ export default function About() {
                                 <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed">Successfully delivering industrial infrastructure solutions internationally.</p>
                             </div>
                             <div className="pt-6">
+                                className="text-tertiary font-bold text-5xl block font-mono"
                                 <span className="text-tertiary font-bold text-5xl block font-mono">15</span>
                                 <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">Compliance Patents</span>
                                 <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed">Proprietary mathematical algorithms for fluid dynamics and safety zones.</p>
@@ -123,9 +137,63 @@ export default function About() {
                 </div>
             </section>
 
-            {/* NEW: MESSAGE FROM LEADERSHIP */}
-            <section className="bg-primary text-white py-24">
-                <div className="max-w-container-max mx-auto px-margin-desktop">
+            {/* Strategic Pillars (Core Directives) - MOVED BEFORE MESSAGE FROM LEADERSHIP */}
+            <section className="py-24 px-margin-desktop bg-surface-container-low border-t border-b border-outline-variant/30">
+                <div className="max-w-container-max mx-auto">
+                    <div className="text-center mb-16">
+                        <span className="text-tertiary text-xs font-bold tracking-widest mb-4 block uppercase font-mono">CORE DIRECTIVES</span>
+                        <h2 className="text-3xl font-bold text-primary uppercase tracking-tight">Strategic Pillars</h2>
+                        <div className="w-24 h-1.5 bg-tertiary mx-auto mt-4 rounded-full"></div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {/* Mission */}
+                        <div className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
+                            <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
+                                <span className="material-symbols-outlined text-2xl">rocket_launch</span>
+                            </div>
+                            <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">Mission</h3>
+                            <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
+                                To provide high-precision engineering and safety solutions that accelerate global industrial progress through technical innovation and structural excellence.
+                            </p>
+                        </div>
+                        {/* Vision */}
+                        <div className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
+                            <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
+                                <span className="material-symbols-outlined text-2xl">visibility</span>
+                            </div>
+                            <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">Vision</h3>
+                            <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
+                                To be the most trusted global partner in infrastructure engineering, redefining the limits of technical precision and safety in an evolving world.
+                            </p>
+                        </div>
+                        {/* Values */}
+                        <div className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
+                            <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
+                                <span className="material-symbols-outlined text-2xl">verified</span>
+                            </div>
+                            <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">Values</h3>
+                            <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
+                                Integrity, reliability, and precision. We hold ourselves accountable for every weld, every line of code, and every safety protocol we deploy.
+                            </p>
+                        </div>
+                        {/* Safety Policy */}
+                        <div className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
+                            <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
+                                <span className="material-symbols-outlined text-2xl">local_fire_department</span>
+                            </div>
+                            <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">Safety Policy</h3>
+                            <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
+                                Uncompromising adherence to international fire safety frameworks and a total commitment to zero-defect execution in all life safety deliverables.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* MESSAGE FROM LEADERSHIP */}
+            <section className="bg-primary text-white py-24 border-b border-white/10">
+                <div className="max-w-container-max mx-auto px-margin-desktop space-y-16">
+                    {/* CEO Message */}
                     <div className="bg-surface/5 border border-white/10 rounded-xl p-8 md:p-16 shadow-2xl flex flex-col lg:flex-row items-center gap-12">
                         {/* Grayscale to color portrait */}
                         <div className="w-full lg:w-1/3 flex justify-center shrink-0">
@@ -161,10 +229,31 @@ export default function About() {
                             </div>
                         </div>
                     </div>
+
+                    {/* NEW: 2 ADVISORS MESSAGES */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8">
+                        {ADVISORS.map((advisor, index) => (
+                            <div key={index} className="bg-surface/5 border border-white/10 rounded-xl p-8 shadow-xl flex flex-col sm:flex-row gap-6 items-center sm:items-start group hover:border-tertiary transition-all duration-300">
+                                <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-white/20 shadow-lg">
+                                    <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src={advisor.image} alt={advisor.name} />
+                                </div>
+                                <div className="flex-grow space-y-3 text-center sm:text-left">
+                                    <span className="material-symbols-outlined text-tertiary text-2xl opacity-40 select-none block" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
+                                    <p className="text-xs sm:text-sm text-white/80 leading-relaxed italic">
+                                        "{advisor.message}"
+                                    </p>
+                                    <div className="pt-2">
+                                        <h4 className="text-sm font-bold text-white uppercase">{advisor.name}</h4>
+                                        <p className="text-[10px] text-tertiary font-mono uppercase tracking-wider mt-0.5">{advisor.role}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </section>
 
-            {/* NEW: OUR TEAM DETAILS */}
+            {/* OUR LEADERSHIP TEAM (COMPACT LAYOUT WITH SMALLER IMAGES) */}
             <section className="py-24 px-margin-desktop max-w-container-max mx-auto">
                 <div className="text-center mb-16">
                     <span className="text-tertiary text-xs font-bold tracking-[.25em] mb-4 block uppercase font-mono">Expert Personnel</span>
@@ -172,37 +261,34 @@ export default function About() {
                     <div className="w-24 h-1.5 bg-tertiary mx-auto mt-4 rounded-full"></div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                {/* Reduced Image size & Horizontal Side-by-Side Detail Layout */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {TEAM_MEMBERS.map((member, index) => (
                         <div 
                             key={index}
-                            className="bg-white border border-outline-variant/30 rounded-xl overflow-hidden shadow-sm flex flex-col h-full hover:shadow-xl hover:border-primary transition-all duration-300 transform hover:-translate-y-1"
-                            onMouseEnter={() => setHoveredMember(index)}
-                            onMouseLeave={() => setHoveredMember(null)}
+                            className="bg-white border border-outline-variant/30 rounded-xl p-6 flex flex-col sm:flex-row items-center sm:items-start gap-6 hover:shadow-xl hover:border-primary transition-all duration-300"
                         >
-                            <div className="h-64 overflow-hidden relative bg-surface-container">
+                            {/* Smaller circular headshot */}
+                            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shrink-0 border-2 border-outline-variant/50 shadow-md">
                                 <img 
-                                    className={`w-full h-full object-cover grayscale transition-all duration-500 ${hoveredMember === index ? 'scale-105 grayscale-0' : ''}`} 
+                                    className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" 
                                     alt={member.name} 
                                     src={member.image} 
                                 />
-                                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-75"></div>
-                                <div className="absolute bottom-4 left-4 right-4">
+                            </div>
+
+                            {/* Technical Details */}
+                            <div className="flex-grow space-y-3 text-center sm:text-left">
+                                <div>
                                     <span className="bg-tertiary text-white text-[9px] font-bold uppercase px-2 py-0.5 rounded font-mono tracking-wider">
                                         {member.role}
                                     </span>
+                                    <h4 className="font-bold text-primary uppercase text-lg tracking-tight mt-2">{member.name}</h4>
                                 </div>
-                            </div>
-
-                            <div className="p-6 flex-grow flex flex-col justify-between space-y-4">
-                                <div>
-                                    <h4 className="font-bold text-primary uppercase text-base tracking-tight mb-1">{member.name}</h4>
-                                    <p className="text-xs text-on-surface-variant leading-relaxed font-light">
-                                        {member.bio}
-                                    </p>
-                                </div>
-
-                                <div className="flex items-center gap-4 pt-4 border-t border-outline-variant/20 mt-auto font-mono text-[10px] text-on-surface-variant">
+                                <p className="text-xs text-on-surface-variant leading-relaxed font-light">
+                                    {member.bio}
+                                </p>
+                                <div className="flex items-center justify-center sm:justify-start gap-4 pt-2 font-mono text-[9px] text-on-surface-variant border-t border-outline-variant/10">
                                     <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-tertiary transition-colors">
                                         <span className="material-symbols-outlined text-sm">link</span> LINKEDIN
                                     </a>
@@ -216,7 +302,7 @@ export default function About() {
                 </div>
             </section>
 
-            {/* NEW: HISTORICAL TIMELINE */}
+            {/* HISTORICAL TIMELINE */}
             <section className="py-24 bg-surface-container-low border-t border-b border-outline-variant/30">
                 <div className="max-w-4xl mx-auto px-margin-desktop">
                     <div className="text-center mb-16">
@@ -247,57 +333,6 @@ export default function About() {
                                 </div>
                             </div>
                         ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* Strategic Pillars */}
-            <section className="py-24 px-margin-desktop max-w-container-max mx-auto">
-                <div className="text-center mb-16">
-                    <span className="text-tertiary text-xs font-bold tracking-widest mb-4 block uppercase font-mono">CORE DIRECTIVES</span>
-                    <h2 className="text-3xl font-bold text-primary uppercase tracking-tight">Strategic Pillars</h2>
-                    <div className="w-24 h-1.5 bg-tertiary mx-auto mt-4 rounded-full"></div>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {/* Mission */}
-                    <div className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
-                        <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
-                            <span className="material-symbols-outlined text-2xl">rocket_launch</span>
-                        </div>
-                        <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">Mission</h3>
-                        <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
-                            To provide high-precision engineering and safety solutions that accelerate global industrial progress through technical innovation and structural excellence.
-                        </p>
-                    </div>
-                    {/* Vision */}
-                    <div className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
-                        <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
-                            <span className="material-symbols-outlined text-2xl">visibility</span>
-                        </div>
-                        <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">Vision</h3>
-                        <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
-                            To be the most trusted global partner in infrastructure engineering, redefining the limits of technical precision and safety in an evolving world.
-                        </p>
-                    </div>
-                    {/* Values */}
-                    <div className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
-                        <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
-                            <span className="material-symbols-outlined text-2xl">verified</span>
-                        </div>
-                        <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">Values</h3>
-                        <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
-                            Integrity, reliability, and precision. We hold ourselves accountable for every weld, every line of code, and every safety protocol we deploy.
-                        </p>
-                    </div>
-                    {/* Safety Policy */}
-                    <div className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
-                        <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
-                            <span className="material-symbols-outlined text-2xl">local_fire_department</span>
-                        </div>
-                        <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">Safety Policy</h3>
-                        <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
-                            Uncompromising adherence to international fire safety frameworks and a total commitment to zero-defect execution in all life safety deliverables.
-                        </p>
                     </div>
                 </div>
             </section>
