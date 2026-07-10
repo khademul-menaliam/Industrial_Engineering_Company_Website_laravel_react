@@ -156,6 +156,12 @@ export default function HomepageManager() {
         handleFormChange('items', updated);
     };
 
+    const getEndpoint = (type) => {
+        if (type === 'process') return 'processes';
+        if (type === 'competency') return 'competencies';
+        return type + 's';
+    };
+
     const handleSaveItem = async (e) => {
         e.preventDefault();
         setSaving(true);
@@ -186,7 +192,7 @@ export default function HomepageManager() {
                 submitData.append('image', imageFile);
             }
 
-            let endpoint = `/admin/home/${type}s`;
+            let endpoint = `/admin/home/${getEndpoint(type)}`;
             if (!isNew) {
                 endpoint += `/${id}`;
             }
@@ -212,7 +218,7 @@ export default function HomepageManager() {
         if (!window.confirm(`Are you sure you want to delete this ${type}?`)) return;
         setSaving(true);
         try {
-            await api.delete(`/admin/home/${type}s/${id}`);
+            await api.delete(`/admin/home/${getEndpoint(type)}/${id}`);
             showToast(`${type.charAt(0).toUpperCase() + type.slice(1)} deleted successfully.`);
             fetchHomepageData();
         } catch (error) {
@@ -489,19 +495,21 @@ export default function HomepageManager() {
                                                     {proc.is_active ? 'Active' : 'Inactive'}
                                                 </span>
                                             </td>
-                                            <td className="p-3 text-right flex justify-end gap-1">
-                                                <button
-                                                    onClick={() => openEditModal('process', proc)}
-                                                    className="text-primary hover:bg-primary/10 p-1.5 rounded transition-colors flex items-center"
-                                                >
-                                                    <span className="material-symbols-outlined text-sm">edit</span>
-                                                </button>
-                                                <button
-                                                    onClick={() => handleDeleteItem('process', proc.id)}
-                                                    className="text-error hover:bg-error/10 p-1.5 rounded transition-colors flex items-center"
-                                                >
-                                                    <span className="material-symbols-outlined text-sm">delete</span>
-                                                </button>
+                                            <td className="p-3 text-right">
+                                                <div className="flex justify-end gap-1">
+                                                    <button
+                                                        onClick={() => openEditModal('process', proc)}
+                                                        className="text-primary hover:bg-primary/10 p-1.5 rounded transition-colors flex items-center"
+                                                    >
+                                                        <span className="material-symbols-outlined text-sm">edit</span>
+                                                    </button>
+                                                    <button
+                                                        onClick={() => handleDeleteItem('process', proc.id)}
+                                                        className="text-error hover:bg-error/10 p-1.5 rounded transition-colors flex items-center"
+                                                    >
+                                                        <span className="material-symbols-outlined text-sm">delete</span>
+                                                    </button>
+                                                </div>
                                             </td>
                                         </tr>
                                     ))}
@@ -560,7 +568,7 @@ export default function HomepageManager() {
 
                         <div className="grid md:grid-cols-2 gap-6">
                             {leaders.map(leader => (
-                                <div key={leader.id} className="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/20 flex gap-4 items-start justify-between">
+                                <div key={leader.id} className="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/20 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
                                     <div className="flex gap-4">
                                         <div className="w-20 h-20 rounded overflow-hidden bg-cover bg-center shrink-0 border border-outline-variant/20" style={{ backgroundImage: `url('${leader.image}')` }}></div>
                                         <div>
@@ -569,16 +577,16 @@ export default function HomepageManager() {
                                             <p className="text-xs text-on-surface-variant italic mt-2 line-clamp-3">"{leader.quote}"</p>
                                         </div>
                                     </div>
-                                    <div className="flex flex-col gap-1 shrink-0">
+                                    <div className="flex sm:flex-col gap-2 shrink-0 self-end sm:self-center">
                                         <button
                                             onClick={() => openEditModal('leader', leader)}
-                                            className="text-primary hover:bg-primary/10 p-1.5 rounded transition-colors"
+                                            className="text-primary hover:bg-primary/10 p-1.5 rounded transition-colors flex items-center justify-center"
                                         >
                                             <span className="material-symbols-outlined text-sm">edit</span>
                                         </button>
                                         <button
                                             onClick={() => handleDeleteItem('leader', leader.id)}
-                                            className="text-error hover:bg-error/10 p-1.5 rounded transition-colors"
+                                            className="text-error hover:bg-error/10 p-1.5 rounded transition-colors flex items-center justify-center"
                                         >
                                             <span className="material-symbols-outlined text-sm">delete</span>
                                         </button>
