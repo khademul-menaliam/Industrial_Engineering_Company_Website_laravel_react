@@ -13,7 +13,7 @@
     @viteReactRefresh
     @vite(['resources/css/app.css', 'resources/js/admin.jsx'])
 </head>
-<body class="bg-surface text-on-surface font-sans antialiased">
+<body class="bg-surface text-on-surface font-sans antialiased admin-body">
     <div id="admin-app"></div>
 </body>
 </html>

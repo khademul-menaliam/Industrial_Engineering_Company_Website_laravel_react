@@ -66,3 +66,23 @@
     --radius-full: 9999px;
 }
 
+/* Premium Dark Mode variables specifically for Admin Control Panel */
+.admin-body {
+    --color-background: #0b1519;
+    --color-on-background: #e1e3e4;
+    --color-surface: #111d23;
+    --color-on-surface: #e1e3e4;
+    --color-surface-container-lowest: #0b1519;
+    --color-surface-container-low: #152229;
+    --color-surface-container: #19272f;
+    --color-surface-container-high: #1d2c35;
+    --color-surface-container-highest: #22323c;
+    --color-on-surface-variant: #c3c7ca;
+    --color-outline: #8d9aa1;
+    --color-outline-variant: #43474a;
+    
+    /* Override primary to a premium high-contrast accent in the admin area */
+    --color-primary: #0284c7;
+    --color-on-primary: #ffffff;
+}
+

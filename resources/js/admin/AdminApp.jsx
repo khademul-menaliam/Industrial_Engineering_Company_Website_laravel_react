@@ -8,12 +8,14 @@ import Analytics from './pages/Analytics';
 import Notifications from './pages/Notifications';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
+import HomepageManager from './pages/HomepageManager';
 
 export default function AdminApp() {
     const location = useLocation();
 
     const navItems = [
         { name: 'Dashboard', path: '/', icon: 'dashboard' },
+        { name: 'Home Page', path: '/homepage', icon: 'edit_document' },
         { name: 'Products', path: '/products', icon: 'inventory_2' },
         { name: 'Orders', path: '/orders', icon: 'shopping_cart' },
         { name: 'Users', path: '/users', icon: 'group' },
@@ -115,6 +117,7 @@ export default function AdminApp() {
                 <main className="flex-grow p-8 overflow-y-auto">
                     <Routes>
                         <Route path="/" element={<Dashboard />} />
+                        <Route path="/homepage" element={<HomepageManager />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/orders" element={<Orders />} />
                         <Route path="/users" element={<Users />} />
