@@ -86,3 +86,22 @@
     --color-on-primary: #ffffff;
 }
 
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-content {
+  display: flex;
+  animation: marquee 50s linear infinite;
+  min-width: 100%;
+  flex-shrink: 0;
+}
+.marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}

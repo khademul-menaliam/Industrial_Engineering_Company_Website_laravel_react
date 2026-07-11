@@ -170,7 +170,7 @@ export default function Home() {
     const activeLeaders = apiData?.leaders?.length ? apiData.leaders : defaultLeaders;
     const activeCompetencies = apiData?.competencies?.length ? apiData.competencies : defaultCompetencies;
     const activeProjects = apiData?.projects?.length ? apiData.projects : defaultProjects;
-    const activeClients = apiData?.settings?.clients_list || defaultSettings.clients_list;
+    const activeClientsData = apiData?.clients?.length ? apiData.clients : [];
 
     const getSetting = (key) => apiData?.settings?.[key] || defaultSettings[key];
 
@@ -390,17 +390,45 @@ export default function Home() {
             </section>
 
             {/* Client Directory Section */}
-            <section className="py-16 bg-surface-container px-margin-desktop w-full border-y border-outline-variant/30">
-                <div className="max-w-container-max mx-auto text-center">
-                    <h3 className="text-[11px] font-mono font-bold text-secondary uppercase tracking-widest mb-8">
+            <section className="pt-8 pb-12 bg-surface-container w-full border-y border-outline-variant/190 overflow-hidden">
+                <div className="max-w-container-max mx-auto text-center px-margin-desktop">
+                    <h3 className="text-[11px] font-mono font-bold text-secondary uppercase tracking-widest mb-6">
                         {getSetting('clients_section_title')}
                     </h3>
-                    <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale font-mono text-sm font-bold text-primary">
-                        {activeClients.map((client, index) => (
-                            <span key={index}>{client}</span>
-                        ))}
-                    </div>
                 </div>
+                {activeClientsData.length > 0 ? (
+                    <div className="w-full opacity-70 hover:opacity-100 transition-opacity marquee-container">
+                        <div className="marquee-content">
+                            {activeClientsData.map((client, index) => (
+                                <Link 
+                                    to="/clients" 
+                                    key={`group1-${index}`} 
+                                    className="flex items-center gap-4 px-6 md:px-10 mx-2 grayscale hover:grayscale-0 transition-all duration-300"
+                                >
+                                    <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
+                                    <span className="font-mono text-base font-bold text-primary">{client.name}</span>
+                                </Link>
+                            ))}
+                        </div>
+                        <div className="marquee-content" aria-hidden="true">
+                            {activeClientsData.map((client, index) => (
+                                <Link 
+                                    to="/clients" 
+                                    key={`group2-${index}`} 
+                                    className="flex items-center gap-2 px-6 md:px-10 mx-2 grayscale hover:grayscale-0 transition-all duration-300"
+                                    tabIndex={-1}
+                                >
+                                    <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
+                                    <span className="font-mono text-base font-bold text-primary">{client.name}</span>
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
+                ) : (
+                    <div className="max-w-container-max mx-auto text-center px-margin-desktop">
+                        <p className="text-secondary text-sm">No clients to display.</p>
+                    </div>
+                )}
             </section>
 
             {/* Contact & Consultation Section */}

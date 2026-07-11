@@ -38,6 +38,8 @@ class HomeController extends Controller
             }
         }
 
+        $clients = \App\Models\Client::where('is_active', true)->orderBy('order', 'asc')->get();
+
         return response()->json([
             'slides' => $slides,
             'services' => $services,
@@ -46,6 +48,7 @@ class HomeController extends Controller
             'competencies' => $competencies,
             'projects' => $projects,
             'settings' => $settings,
+            'clients' => $clients,
         ]);
     }
 }
