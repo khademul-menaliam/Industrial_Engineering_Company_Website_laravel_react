@@ -22,6 +22,10 @@ use App\Http\Controllers\Admin\AboutManagerController as AdminAboutManagerContro
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\Admin\FaqManagerController as AdminFaqManagerController;
 
+// Client Controllers
+use App\Http\Controllers\ClientPageController;
+use App\Http\Controllers\Admin\ClientManagerController as AdminClientManagerController;
+
 // Public API Routes
 Route::get('/api/home', [HomeController::class, 'index']);
 Route::get('/api/services', [ServiceController::class, 'index']);
@@ -38,6 +42,9 @@ Route::get('/api/about', [AboutPageController::class, 'index']);
 
 // Public FAQ API Route
 Route::get('/api/faqs', [FaqController::class, 'index']);
+
+// Public Client API Route
+Route::get('/api/clients', [ClientPageController::class, 'index']);
 
 // Authentication Routes
 Route::get('/titan-secure/login', [AuthController::class, 'showLogin'])->name('login');
@@ -145,6 +152,14 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/', [AdminFaqManagerController::class, 'store']);
         Route::post('/{id}', [AdminFaqManagerController::class, 'update']);
         Route::delete('/{id}', [AdminFaqManagerController::class, 'destroy']);
+    });
+
+    // Secure API endpoints for Admin Client Manager
+    Route::prefix('api/admin/clients')->group(function () {
+        Route::get('/', [AdminClientManagerController::class, 'index']);
+        Route::post('/', [AdminClientManagerController::class, 'store']);
+        Route::post('/{id}', [AdminClientManagerController::class, 'update']);
+        Route::delete('/{id}', [AdminClientManagerController::class, 'destroy']);
     });
 
     Route::get('/titan-secure', function () {

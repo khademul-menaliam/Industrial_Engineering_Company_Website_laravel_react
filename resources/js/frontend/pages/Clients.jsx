@@ -1,51 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 export default function Clients() {
-    const clients = [
-        {
-            name: "AEROSPACE DYNAMICS",
-            logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCHhM5CQyNf-2wpSWD8R0GRIJWthECM38zcvUA4eDyEC3dkutMx7IUbxoGAFXvGWXRWLbuyHMm3KZn_AVmQtJ3CgvNCua0OPC9F9PEANdvLUQbWDY-ycan0q1J_BZPL_bdhmOwncJ6muFjKVDSEYZx9_Wzsfp1z_9Pi9PiL8IUYnpI4MaE05Fv14_uG0TEhNWb09OBXedhek01qEdYmIQtWsL4fH7bP6bkyn851veCw9p-kO6Sb13aExw",
-            desc: "Propulsion system structural validation and ISO compliance.",
-            type: "VIEW PROJECTS",
-            icon: "open_in_new"
-        },
-        {
-            name: "GLO-ENERGY CORP",
-            logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuC2t7mHdDsUpx9X8QfasEhqOmYyi89miODolxNLpG-fqSHU4SO7HSLdoOu9miBdtvt2_5qCywDtW0xvB5EfkRyGX6gYjVSJ4EupcKOrlrkmLU-8zANSlbtYy5eB4pAlnGtETh-dYz7jRSSSNpIINvNudAGf84iZhxWNhe2P_GgtwEZ2LZRxTzoTz74k6zESWh46juEXGGQjmQI1d_FgtWv7ivxQRBhQvx7n-PEQnZPH4Sc9-X-rwB4U5w",
-            desc: "Grid-scale storage facility design and site assessment.",
-            type: "CASE STUDY",
-            icon: "description"
-        },
-        {
-            name: "QUANTUM SYSTEMS",
-            logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCl_vI4k33CjhKur-zT_xiyt6ZBXK96nqRwVG9383xgCWaoz4vJ9U8nCAKXL2iDrv5zr8QNqjljZ8n00JtthTi71ucjtANJ8gh6c_-jgCDY_GWQGYgFIPuyuoFqL6-60kg-nmphwH41Pl6ZUH9eWAnBuHYDsljjI7uJE4COwmv5rNZ4JjRkesS2pIOGfNW6Q8qtwQpcnetPRHL2H4fieKz5GYVhIAvR6jvqP7nuWqYAffmRtThqpKyWKQ",
-            desc: "Clean-room infrastructure for semiconductor fabrication.",
-            type: "VIEW PROJECTS",
-            icon: "open_in_new"
-        },
-        {
-            name: "OCEANIC LOGISTICS",
-            logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuB8jOlw_bpKvZEP3b_URBhFla7hGkihRmohwfdnGS5MHYf0DfFrAHvQqVpptkqZXdUKEBWfeEsgRg3M60bQgKW99Gs0toCtyI0swh8Hk9UxqdVNf5ULpVsqsQ9v-GpgwQlrJPZHmHN2-35SGYaL9uLDXPDS-aql9kdu1cPb7YIqn2Bxn0-Cr7aV1--JVpDbVc9JsVIhRQ9UIRqA2l5SQVO79V0E2bAmJODVJV-GpQ1E6sqMHTN6K9pLIw",
-            desc: "Deep-water terminal stress analysis and reinforcement.",
-            type: "CASE STUDY",
-            icon: "description"
-        },
-        {
-            name: "AUTO-BOTICS INC",
-            logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuB3qKpYsyUZ5Nb802lmmNk8UjHn-O6aCO5_mxIyAvaL8Fw8YtNTr-jJ8R3aLUqJyPMAK6ywJDY6EK3M-m5dMBFSaA6AUhuXwCFWrWAZ0PRtYtDSrMP-DGTgxo8QOzcsFNIOmeDpERpYhgzaUyufwlNxi4Eeo7s3aFrRZGgg4XixjxEATSgHHbw8U0G17h42ne-YKsUZjkqxNS4T8wE3emYwGD0E2zVi4REVdcFm5KAF2_hr34VtJvIZyA",
-            desc: "Automated assembly line precision calibration.",
-            type: "VIEW PROJECTS",
-            icon: "open_in_new"
-        },
-        {
-            name: "CIVIL-CORE INT",
-            logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuD4wEJk53uFhVFtqPlZ8W1N0Cf372TlJQqp5Iqzo30pqjoxc3hMjp2vk-9a0BXXY4dhZ7J8CfHVt1CPOh6r5jasYRHpKk_qIdlbfzTinUiFBrABz5sEHFAGEoeE27dlF9EVFio1qNTrVM2nL0t-jWHkNX6LjN7bLTSFFSOiDH4ZplZjvqOCqlRqIzs1IWZPbATLmgvFYHA3txRa74adEbGLdyv1nUDZOGs1K8ShW6bi3c3Fm62DePzUMA",
-            desc: "Smart-city infrastructure and structural health monitoring.",
-            type: "CASE STUDY",
-            icon: "description"
-        }
-    ];
+    const [currentPage, setCurrentPage] = useState(1);
+    const [clients, setClients] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const ITEMS_PER_PAGE = 3;
+
+    useEffect(() => {
+        axios.get('/api/clients')
+            .then(res => {
+                if (res.data.success) {
+                    setClients(res.data.clients || []);
+                }
+            })
+            .catch(err => {
+                console.error("Failed to fetch clients", err);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
 
     const testimonials = [
         {
@@ -68,16 +44,30 @@ export default function Clients() {
         }
     ];
 
+    const totalPages = Math.ceil(clients.length / ITEMS_PER_PAGE);
+    const paginatedClients = clients.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
+    if (loading) {
+        return (
+            <div className="w-full h-[60vh] flex items-center justify-center bg-surface-container-lowest">
+                <span className="material-symbols-outlined animate-spin text-tertiary text-4xl">autorenew</span>
+            </div>
+        );
+    }
+
     return (
         <div className="w-full">
             {/* Hero Section */}
-            <section className="relative overflow-hidden py-24 md:py-32 bg-surface-container-lowest border-b border-outline-variant">
-                <div className="relative max-w-container-max mx-auto px-margin-desktop text-center">
-                    <span className="inline-block px-4 py-1 rounded bg-[#ffdad6] text-[#ba1a1a] text-[11px] mb-8 font-bold font-mono">GLOBAL IMPACT • V2</span>
-                    <h1 className="text-primary font-bold text-4xl md:text-5xl uppercase mb-6 tracking-tight">Strategic Partnerships</h1>
-                    <p className="max-w-2xl mx-auto text-on-surface-variant text-base leading-relaxed">
-                        Collaborating with global industry leaders to engineer mission-critical solutions across aerospace, high-tech infrastructure, and sustainable energy.
-                    </p>
+            <section className="relative h-[350px] md:h-[400px] flex items-center bg-primary overflow-hidden">
+                <div className="absolute inset-0 opacity-40">
+                    <div className="w-full h-full bg-center bg-cover" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvuTpPHQiUF8AWDoCwA4kqw_PO_GQciyHYZ8UcxUpNMoSTKtKgmeCsjUtPRy9N_6fmkTxz4wHWCiinoDWX5xGH3XndC_T9cZGpZR7GmNCH6bkTai9vH9HeYpxzDGiJaSE3nHS83YN11K6NdHITWQUDqojLbj9_zLg1jRpabOHsEcdKnNG5Gukd7eGD8EIz3yd68DpqgwQx9MU0oECY1nTFkgeWhf4LkQDGSzS0qckA3BZRYTyKCTQsTw')" }}></div>
+                </div>
+                <div className="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+                    <div className="max-w-2xl text-white">
+                        <p className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant">GLOBAL IMPACT • V2</p>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight uppercase">Strategic Partnerships</h1>
+                        <p className="text-lg text-primary-fixed font-medium max-w-lg leading-relaxed">Collaborating with global industry leaders to engineer mission-critical solutions across aerospace, high-tech infrastructure, and sustainable energy.</p>
+                    </div>
                 </div>
             </section>
 
@@ -89,14 +79,10 @@ export default function Clients() {
                             <h2 className="text-tertiary text-xs font-bold uppercase tracking-widest font-mono mb-2">PARTNERS &amp; CLIENTS</h2>
                             <h3 className="text-2xl font-bold text-primary uppercase">Technical Ecosystem</h3>
                         </div>
-                        <a className="text-primary text-xs font-bold uppercase tracking-widest hover:text-tertiary transition-colors flex items-center gap-2 group font-mono" href="#">
-                            VIEW ALL PARTNERS 
-                            <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
-                        </a>
                     </div>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {clients.map((c, i) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="client-grid">
+                        {paginatedClients.map((c, i) => (
                             <div key={i} className="bg-surface-container-lowest border border-outline-variant hover:border-tertiary group p-8 rounded flex flex-col h-full hover:shadow-lg transition-all duration-300">
                                 <div className="flex items-center justify-center h-24 mb-8">
                                     <img className="max-h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100" alt={c.name} src={c.logo} />
@@ -104,13 +90,56 @@ export default function Clients() {
                                 <h4 className="text-base font-bold text-primary mb-2 uppercase">{c.name}</h4>
                                 <p className="text-on-surface-variant text-xs mb-8 flex-grow leading-relaxed">{c.desc}</p>
                                 <div className="flex gap-4">
-                                    <a className="text-tertiary font-mono text-[11px] font-bold flex items-center gap-1 hover:underline" href="#">
+                                    <Link to="/project-demo" className="text-tertiary font-mono text-[11px] font-bold flex items-center gap-1 hover:underline">
                                         {c.type} <span className="material-symbols-outlined text-sm">{c.icon}</span>
-                                    </a>
+                                    </Link>
                                 </div>
                             </div>
                         ))}
                     </div>
+
+                    {totalPages > 1 && (
+                        <div className="mt-12 flex justify-center items-center gap-2 font-mono text-xs">
+                            <button 
+                                disabled={currentPage === 1}
+                                onClick={() => {
+                                    setCurrentPage(prev => Math.max(prev - 1, 1));
+                                    document.getElementById('client-grid')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className="px-4 py-2.5 rounded border border-outline-variant hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white"
+                            >
+                                <span className="material-symbols-outlined text-sm">chevron_left</span> Prev
+                            </button>
+                            
+                            {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNum => (
+                                <button
+                                    key={pageNum}
+                                    onClick={() => {
+                                        setCurrentPage(pageNum);
+                                        document.getElementById('client-grid')?.scrollIntoView({ behavior: 'smooth' });
+                                    }}
+                                    className={`w-10 h-10 rounded font-bold transition-all ${
+                                        currentPage === pageNum
+                                            ? 'bg-primary text-white shadow-md'
+                                            : 'bg-surface-container-lowest border border-outline-variant hover:border-primary text-primary'
+                                    }`}
+                                >
+                                    {pageNum}
+                                </button>
+                            ))}
+
+                            <button 
+                                disabled={currentPage === totalPages}
+                                onClick={() => {
+                                    setCurrentPage(prev => Math.min(prev + 1, totalPages));
+                                    document.getElementById('client-grid')?.scrollIntoView({ behavior: 'smooth' });
+                                }}
+                                className="px-4 py-2.5 rounded border border-outline-variant hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white"
+                            >
+                                Next <span className="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
 
@@ -140,6 +169,20 @@ export default function Clients() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Call to Action */}
+            <section className="py-24 bg-primary text-white text-center relative overflow-hidden">
+                <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
+                <div className="max-w-3xl mx-auto px-margin-desktop relative z-10">
+                    <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6">Partner With Us</h2>
+                    <p className="text-primary-fixed mb-10 leading-relaxed max-w-xl mx-auto text-base">
+                        Whether you need structural validation, infrastructure design, or comprehensive site assessments, our engineering team is ready to assist.
+                    </p>
+                    <Link to="/contact" className="px-10 py-4 bg-tertiary text-white text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all rounded shadow-sm inline-flex items-center gap-2">
+                        Get In Touch <span className="material-symbols-outlined">arrow_forward</span>
+                    </Link>
                 </div>
             </section>
         </div>
