@@ -156,6 +156,17 @@ Route::middleware(['auth'])->group(function () {
 
     // Secure API endpoints for Admin Client Manager
     Route::prefix('api/admin/clients')->group(function () {
+        // Settings
+        Route::get('/settings', [AdminClientManagerController::class, 'getSettings']);
+        Route::post('/settings', [AdminClientManagerController::class, 'updateSettings']);
+        
+        // Testimonials
+        Route::get('/testimonials', [AdminClientManagerController::class, 'getTestimonials']);
+        Route::post('/testimonials', [AdminClientManagerController::class, 'storeTestimonial']);
+        Route::post('/testimonials/{id}', [AdminClientManagerController::class, 'updateTestimonial']);
+        Route::delete('/testimonials/{id}', [AdminClientManagerController::class, 'destroyTestimonial']);
+
+        // Clients
         Route::get('/', [AdminClientManagerController::class, 'index']);
         Route::post('/', [AdminClientManagerController::class, 'store']);
         Route::post('/{id}', [AdminClientManagerController::class, 'update']);
