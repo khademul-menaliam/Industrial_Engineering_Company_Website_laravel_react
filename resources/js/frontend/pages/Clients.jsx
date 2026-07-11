@@ -8,7 +8,7 @@ export default function Clients() {
     const [settings, setSettings] = useState({});
     const [testimonials, setTestimonials] = useState([]);
     const [loading, setLoading] = useState(true);
-    const ITEMS_PER_PAGE = 3;
+    const ITEMS_PER_PAGE = 6;
 
     useEffect(() => {
         axios.get('/api/clients')
@@ -64,14 +64,14 @@ export default function Clients() {
                         </div>
                     </div>
                     
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="client-grid">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6" id="client-grid">
                         {paginatedClients.map((c, i) => (
-                            <div key={i} className="bg-surface-container-lowest border border-outline-variant hover:border-tertiary group p-8 rounded flex flex-col h-full hover:shadow-lg transition-all duration-300">
-                                <div className="flex items-center justify-center h-24 mb-8">
-                                    <img className="max-h-12 w-auto grayscale group-hover:grayscale-0 transition-all duration-300 opacity-60 group-hover:opacity-100" alt={c.name} src={c.logo} />
+                            <div key={i} className="bg-surface-container-lowest border border-outline-variant hover:border-tertiary group p-6 rounded flex flex-col h-full hover:shadow-lg transition-all duration-300">
+                                <div className="flex items-center justify-center h-28 mb-6">
+                                    <img className="max-h-20 max-w-[80%] object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100" alt={c.name} src={c.logo} />
                                 </div>
                                 <h4 className="text-base font-bold text-primary mb-2 uppercase">{c.name}</h4>
-                                <p className="text-on-surface-variant text-xs mb-8 flex-grow leading-relaxed">{c.desc}</p>
+                                <p className="text-on-surface-variant text-sm mb-6 flex-grow leading-relaxed">{c.desc}</p>
                                 <div className="flex gap-4">
                                     <Link to="/project-demo" className="text-tertiary font-mono text-[11px] font-bold flex items-center gap-1 hover:underline">
                                         {c.type} <span className="material-symbols-outlined text-sm">{c.icon}</span>
@@ -81,7 +81,7 @@ export default function Clients() {
                         ))}
                     </div>
 
-                    {totalPages > 1 && (
+                    {totalPages >= 1 && (
                         <div className="mt-12 flex justify-center items-center gap-2 font-mono text-xs">
                             <button 
                                 disabled={currentPage === 1}
