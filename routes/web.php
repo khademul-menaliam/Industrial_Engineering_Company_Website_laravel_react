@@ -18,6 +18,10 @@ use App\Http\Controllers\Admin\CareersManagerController as AdminCareersManagerCo
 use App\Http\Controllers\AboutPageController;
 use App\Http\Controllers\Admin\AboutManagerController as AdminAboutManagerController;
 
+// FAQ Controllers
+use App\Http\Controllers\FaqController;
+use App\Http\Controllers\Admin\FaqManagerController as AdminFaqManagerController;
+
 // Public API Routes
 Route::get('/api/home', [HomeController::class, 'index']);
 Route::get('/api/services', [ServiceController::class, 'index']);
@@ -31,6 +35,9 @@ Route::post('/api/careers/apply', [CareersPageController::class, 'apply']);
 
 // Public Dynamic About API Route
 Route::get('/api/about', [AboutPageController::class, 'index']);
+
+// Public FAQ API Route
+Route::get('/api/faqs', [FaqController::class, 'index']);
 
 // Authentication Routes
 Route::get('/titan-secure/login', [AuthController::class, 'showLogin'])->name('login');
@@ -130,6 +137,14 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/milestones', [AdminAboutManagerController::class, 'storeMilestone']);
         Route::post('/milestones/{id}', [AdminAboutManagerController::class, 'updateMilestone']);
         Route::delete('/milestones/{id}', [AdminAboutManagerController::class, 'destroyMilestone']);
+    });
+
+    // Secure API endpoints for Admin FAQ Manager
+    Route::prefix('api/admin/faqs')->group(function () {
+        Route::get('/', [AdminFaqManagerController::class, 'index']);
+        Route::post('/', [AdminFaqManagerController::class, 'store']);
+        Route::post('/{id}', [AdminFaqManagerController::class, 'update']);
+        Route::delete('/{id}', [AdminFaqManagerController::class, 'destroy']);
     });
 
     Route::get('/titan-secure', function () {

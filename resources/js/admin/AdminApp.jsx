@@ -13,6 +13,7 @@ import ServicesManager from './pages/ServicesManager';
 import ContactManager from './pages/ContactManager';
 import CareersManager from './pages/CareersManager';
 import AboutManager from './pages/AboutManager';
+import FaqManager from './pages/FaqManager';
 
 export default function AdminApp() {
     const location = useLocation();
@@ -24,6 +25,7 @@ export default function AdminApp() {
         { name: 'About Page', path: '/about-manager', icon: 'info' },
         { name: 'Contact Page', path: '/contact-manager', icon: 'contact_mail' },
         { name: 'Careers Page', path: '/careers-manager', icon: 'work' },
+        { name: 'FAQ Page', path: '/faq-manager', icon: 'quiz' },
         { name: 'Products', path: '/products', icon: 'inventory_2' },
         { name: 'Orders', path: '/orders', icon: 'shopping_cart' },
         { name: 'Users', path: '/users', icon: 'group' },
@@ -130,6 +132,7 @@ export default function AdminApp() {
                         <Route path="/about-manager" element={<AboutManager />} />
                         <Route path="/contact-manager" element={<ContactManager />} />
                         <Route path="/careers-manager" element={<CareersManager />} />
+                        <Route path="/faq-manager" element={<FaqManager />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/orders" element={<Orders />} />
                         <Route path="/users" element={<Users />} />

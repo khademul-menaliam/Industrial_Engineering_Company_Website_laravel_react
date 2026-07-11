@@ -1,30 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function FAQ() {
     const [activeIndex, setActiveIndex] = useState(null);
+    const [faqs, setFaqs] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-    const faqs = [
-        {
-            question: "What industries do you specialize in?",
-            answer: "Titan Precision v2 specializes in heavy industries, structural infrastructure, fire safety engineering (MEP), and industrial automation. We engineer systems that require extreme precision and strict safety compliance."
-        },
-        {
-            question: "Are your designs compliant with international standards?",
-            answer: "Yes, all our engineering systems are built to meet and exceed global regulatory standards, including ISO 9001:2015, NFPA codes for fire safety, and regional seismic and environmental requirements."
-        },
-        {
-            question: "How do you ensure quality control during development?",
-            answer: "We use predictive digital twin modeling, advanced CAD technologies, and rigorous physical stress tests. Our quality protocols ensure zero-tolerance for component failure."
-        },
-        {
-            question: "Can we integrate your automated robotics systems with existing workflows?",
-            answer: "Absolutely. Our specialized automation team designs custom PLC/SCADA interfaces to integrate state-of-the-art industrial robotics directly into your legacy pipelines."
-        },
-        {
-            question: "How do I request a project audit or tender?",
-            answer: "You can reach out through our Secure Portal on the Contact page, or initiate a direct Project Tender inquiry. Our engineering directors will evaluate your requirements and provide compliance specs."
-        }
-    ];
+    useEffect(() => {
+        const fetchFaqs = async () => {
+            try {
+                const response = await fetch('/api/faqs');
+                const result = await response.json();
+                if (result.success) {
+                    setFaqs(result.data);
+                }
+            } catch (error) {
+                console.error("Error fetching FAQs:", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchFaqs();
+    }, []);
 
     const toggleFaq = (index) => {
         setActiveIndex(activeIndex === index ? null : index);
