@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             ContactAndCareersSeeder::class,
             AboutSeeder::class,
+            FaqSeeder::class,
         ]);
     }
 }
