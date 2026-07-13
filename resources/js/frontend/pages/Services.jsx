@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 // Static Fallbacks for robustness
@@ -183,6 +183,23 @@ export default function Services() {
             });
     }, []);
 
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (!loading && hash) {
+            const id = hash.replace('#', '');
+            setTimeout(() => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 200);
+        } else if (!loading && !hash) {
+            window.scrollTo(0, 0);
+        }
+    }, [hash, loading]);
+
+
     // Helper to get text setting with fallback
     const getSetting = (key, fallback) => {
         return settings[key] !== undefined && settings[key] !== null ? settings[key] : fallback;
@@ -221,7 +238,7 @@ export default function Services() {
 
                 if (cat.slug === 'consulting') {
                     return (
-                        <section key={cat.slug} className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+                        <section key={cat.slug} id={cat.slug} className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
                             <div className="max-w-container-max mx-auto">
                                 <div className="flex items-center gap-4 mb-10">
                                     <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
@@ -289,7 +306,7 @@ export default function Services() {
                     const featuredDsi = serviceList.find(s => s.is_featured) || serviceList[0];
                     const rightStackDsi = serviceList.filter(s => s !== featuredDsi);
                     return (
-                        <section key={cat.slug} className="py-20 bg-white border-y border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
+                        <section key={cat.slug} id={cat.slug} className="py-20 bg-white border-y border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
                             <div className="max-w-container-max mx-auto">
                                 <div className="flex items-center gap-4 mb-10">
                                     <h2 className="text-xs font-bold text-tertiary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
@@ -358,7 +375,7 @@ export default function Services() {
                     const sidePanelMaintenance = serviceList.find(s => s.is_featured) || serviceList[serviceList.length - 1];
                     const gridMaintenance = serviceList.filter(s => s !== sidePanelMaintenance);
                     return (
-                        <section key={cat.slug} className="py-20 bg-surface px-margin-mobile md:px-margin-desktop">
+                        <section key={cat.slug} id={cat.slug} className="py-20 bg-surface px-margin-mobile md:px-margin-desktop">
                             <div className="max-w-container-max mx-auto">
                                 <div className="flex items-center gap-4 mb-10">
                                     <h2 className="text-xs font-bold text-secondary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
@@ -420,7 +437,7 @@ export default function Services() {
 
                 // Standard New Categories Layout
                 return (
-                    <section key={cat.slug} className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+                    <section key={cat.slug} id={cat.slug} className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
                         <div className="max-w-container-max mx-auto">
                             <div className="flex items-center gap-4 mb-10">
                                 <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">

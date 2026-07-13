@@ -232,24 +232,32 @@ export default function Home() {
                         {getSetting('capabilities_section_subtitle')}
                     </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {activeServices.map((service, index) => (
-                        <div key={service.id || index} className="bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden group hover:border-primary transition-colors duration-300">
-                            <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${service.image}')` }}></div>
-                            <div className="p-6 flex flex-col gap-3">
-                                <div className="flex items-center gap-2 text-primary">
-                                    <span className="material-symbols-outlined text-tertiary" style={{ fontVariationSettings: "'FILL' 1" }}>
-                                        {service.icon}
-                                    </span>
-                                    <h3 className="text-base font-bold uppercase tracking-tight">{service.title}</h3>
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {activeServices.map((service, index) => {
+                        const serviceTargets = ['/services#consulting', '/services#dsi', '/services#maintenance'];
+                        const targetLink = serviceTargets[index] || '/services';
+                        return (
+                            <Link 
+                                to={targetLink}
+                                key={service.id || index} 
+                                className="block bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden group hover:border-primary transition-colors duration-300"
+                            >
+                                <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${service.image}')` }}></div>
+                                <div className="p-6 flex flex-col gap-3">
+                                    <div className="flex items-center gap-2 text-primary">
+                                        <span className="material-symbols-outlined text-tertiary" style={{ fontVariationSettings: "'FILL' 1" }}>
+                                            {service.icon}
+                                        </span>
+                                        <h3 className="text-base font-bold uppercase tracking-tight">{service.title}</h3>
+                                    </div>
+                                    <div 
+                                         className="text-xs text-on-surface-variant leading-relaxed rich-text"
+                                         dangerouslySetInnerHTML={{ __html: service.description }}
+                                    />
                                 </div>
-                                <div 
-                                     className="text-xs text-on-surface-variant leading-relaxed rich-text"
-                                     dangerouslySetInnerHTML={{ __html: service.description }}
-                                />
-                            </div>
-                        </div>
-                    ))}
+                            </Link>
+                        );
+                    })}
                 </div>
             </section>
 
