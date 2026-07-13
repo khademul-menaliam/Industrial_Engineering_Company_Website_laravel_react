@@ -105,3 +105,34 @@
 .marquee-container:hover .marquee-content {
   animation-play-state: paused;
 }
+
+/* Style for custom rich text content */
+.rich-text ul, .rich-text-editor-body ul {
+    list-style-type: disc !important;
+    margin-left: 1.5rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+.rich-text ol, .rich-text-editor-body ol {
+    list-style-type: decimal !important;
+    margin-left: 1.5rem !important;
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+.rich-text li, .rich-text-editor-body li {
+    margin-top: 0.25rem !important;
+    margin-bottom: 0.25rem !important;
+}
+.rich-text p, .rich-text-editor-body p {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
+/* Rich Text Editor Placeholder styling */
+.rich-text-editor-body:empty::before {
+    content: attr(placeholder);
+    color: #4c616c;
+    pointer-events: none;
+    display: block;
+}
+

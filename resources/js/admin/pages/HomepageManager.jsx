@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api/axios';
+import RichTextEditor from '../components/RichTextEditor';
+
+const stripHtml = (html) => {
+    if (!html) return '';
+    return html.replace(/<[^>]*>/g, '');
+};
+
 
 export default function HomepageManager() {
     const [loading, setLoading] = useState(true);
@@ -308,7 +315,7 @@ export default function HomepageManager() {
                                     </div>
                                     <div className="p-4 space-y-2">
                                         <h4 className="font-bold text-white uppercase text-sm line-clamp-1">{slide.title}</h4>
-                                        <p className="text-xs text-on-surface-variant line-clamp-2">{slide.subtitle}</p>
+                                        <p className="text-xs text-on-surface-variant line-clamp-2">{stripHtml(slide.subtitle)}</p>
                                     </div>
                                 </div>
                                 <div className="p-4 border-t border-outline-variant/10 flex justify-end gap-2 bg-surface-container-low">
@@ -403,7 +410,7 @@ export default function HomepageManager() {
                                         </div>
                                         <div className="p-4 space-y-2">
                                             <h4 className="font-bold text-white uppercase text-sm">{service.title}</h4>
-                                            <p className="text-xs text-on-surface-variant line-clamp-3">{service.description}</p>
+                                            <p className="text-xs text-on-surface-variant line-clamp-3">{stripHtml(service.description)}</p>
                                         </div>
                                     </div>
                                     <div className="p-4 border-t border-outline-variant/10 flex justify-end gap-2 bg-surface-container-low">
@@ -486,7 +493,7 @@ export default function HomepageManager() {
                                         <tr key={proc.id} className="hover:bg-surface-container-low transition-all">
                                             <td className="p-3 font-bold text-tertiary">{proc.step_number}</td>
                                             <td className="p-3 font-semibold">{proc.title}</td>
-                                            <td className="p-3 text-xs text-on-surface-variant max-w-xs truncate">{proc.description}</td>
+                                            <td className="p-3 text-xs text-on-surface-variant max-w-xs truncate">{stripHtml(proc.description)}</td>
                                             <td className="p-3">{proc.sort_order}</td>
                                             <td className="p-3">
                                                 <span className={`px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider ${
@@ -574,7 +581,7 @@ export default function HomepageManager() {
                                         <div>
                                             <h4 className="font-bold text-white text-sm">{leader.name}</h4>
                                             <p className="text-[10px] text-tertiary font-mono uppercase font-bold tracking-wider mt-0.5">{leader.title}</p>
-                                            <p className="text-xs text-on-surface-variant italic mt-2 line-clamp-3">"{leader.quote}"</p>
+                                            <p className="text-xs text-on-surface-variant italic mt-2 line-clamp-3">"{stripHtml(leader.quote)}"</p>
                                         </div>
                                     </div>
                                     <div className="flex sm:flex-col gap-2 shrink-0 self-end sm:self-center">
@@ -761,7 +768,7 @@ export default function HomepageManager() {
                                         </div>
                                         <div className="p-4 space-y-2">
                                             <h4 className="font-bold text-white uppercase text-sm line-clamp-1">{proj.title}</h4>
-                                            <p className="text-xs text-on-surface-variant line-clamp-3 leading-relaxed">{proj.description}</p>
+                                            <p className="text-xs text-on-surface-variant line-clamp-3 leading-relaxed">{stripHtml(proj.description)}</p>
                                             <div className="pt-2 text-[10px] text-tertiary font-mono-data font-bold">LINK: {proj.link}</div>
                                         </div>
                                     </div>
@@ -1049,19 +1056,23 @@ export default function HomepageManager() {
                             {/* Descriptions / Subtitles / Quotes */}
                             {['slide', 'service', 'leader', 'process', 'project'].includes(editingItem.type) && (
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">
+                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono mb-1">
                                         {editingItem.type === 'slide' ? 'Subtitle' : editingItem.type === 'leader' ? 'Personal Quote' : 'Description'}
                                     </label>
-                                    <textarea
-                                        required
-                                        value={formData.subtitle || formData.description || formData.quote || ''}
-                                        onChange={e => {
+                                    <RichTextEditor
+                                        value={
+                                            editingItem.type === 'slide' 
+                                                ? (formData.subtitle || '') 
+                                                : editingItem.type === 'leader' 
+                                                    ? (formData.quote || '') 
+                                                    : (formData.description || '')
+                                        }
+                                        onChange={value => {
                                             const field = editingItem.type === 'slide' ? 'subtitle' : editingItem.type === 'leader' ? 'quote' : 'description';
-                                            handleFormChange(field, e.target.value);
+                                            handleFormChange(field, value);
                                         }}
-                                        rows="3"
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
-                                    ></textarea>
+                                        placeholder={`Enter ${editingItem.type === 'slide' ? 'subtitle' : editingItem.type === 'leader' ? 'quote' : 'description'}...`}
+                                    />
                                 </div>
                             )}
 
