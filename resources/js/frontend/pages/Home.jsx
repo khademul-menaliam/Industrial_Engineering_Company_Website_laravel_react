@@ -181,12 +181,11 @@ export default function Home() {
                 {slides.map((slide, index) => (
                     <div
                         key={slide.id || index}
-                        className={`absolute inset-0 w-full h-full flex items-center justify-center transition-opacity duration-1000 ${
-                            currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
-                        }`}
+                        className={`absolute inset-0 w-full h-full flex items-center justify-center transition-opacity duration-1000 ${currentSlide === index ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none z-0'
+                            }`}
                     >
-                        <div 
-                            className="absolute inset-0 bg-cover bg-center" 
+                        <div
+                            className="absolute inset-0 bg-cover bg-center"
                             style={{ backgroundImage: `url('${slide.image}')` }}
                         ></div>
                         <div className="absolute inset-0 bg-primary opacity-65"></div>
@@ -194,12 +193,12 @@ export default function Home() {
                             <h1 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl max-w-4xl uppercase tracking-tight">
                                 {slide.title}
                             </h1>
-                            <div 
+                            <div
                                 className="text-base md:text-lg text-surface-container-high max-w-2xl leading-relaxed rich-text"
                                 dangerouslySetInnerHTML={{ __html: slide.subtitle }}
                             />
-                            <Link 
-                                to="/services" 
+                            <Link
+                                to="/services"
                                 className="bg-tertiary text-white text-xs font-mono font-bold px-8 py-4 rounded uppercase tracking-widest hover:bg-opacity-90 transition-colors mt-4"
                             >
                                 EXPLORE SERVICES
@@ -213,9 +212,8 @@ export default function Home() {
                     {slides.map((_, index) => (
                         <button
                             key={index}
-                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                currentSlide === index ? 'bg-tertiary w-6' : 'bg-white/40 hover:bg-white'
-                            }`}
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index ? 'bg-tertiary w-6' : 'bg-white/40 hover:bg-white'
+                                }`}
                             onClick={() => setCurrentSlide(index)}
                         ></button>
                     ))}
@@ -232,14 +230,14 @@ export default function Home() {
                         {getSetting('capabilities_section_subtitle')}
                     </p>
                 </div>
-                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {activeServices.map((service, index) => {
                         const serviceTargets = ['/services#consulting', '/services#dsi', '/services#maintenance'];
                         const targetLink = serviceTargets[index] || '/services';
                         return (
-                            <Link 
+                            <Link
                                 to={targetLink}
-                                key={service.id || index} 
+                                key={service.id || index}
                                 className="block bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden group hover:border-primary transition-colors duration-300"
                             >
                                 <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${service.image}')` }}></div>
@@ -250,9 +248,9 @@ export default function Home() {
                                         </span>
                                         <h3 className="text-base font-bold uppercase tracking-tight">{service.title}</h3>
                                     </div>
-                                    <div 
-                                         className="text-xs text-on-surface-variant leading-relaxed rich-text"
-                                         dangerouslySetInnerHTML={{ __html: service.description }}
+                                    <div
+                                        className="text-xs text-on-surface-variant leading-relaxed rich-text"
+                                        dangerouslySetInnerHTML={{ __html: service.description }}
                                     />
                                 </div>
                             </Link>
@@ -270,15 +268,14 @@ export default function Home() {
                     <div className="flex flex-col md:flex-row justify-between items-start gap-6 relative">
                         {activeProcesses.map((process, index) => (
                             <div key={process.id || index} className="flex-1 flex flex-col items-center text-center relative z-10">
-                                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold mb-3 border-2 border-surface-container ${
-                                    index === activeProcesses.length - 1 ? 'bg-tertiary text-white shadow-md' : 'bg-primary text-white'
-                                }`}>
+                                <div className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold mb-3 border-2 border-surface-container ${index === activeProcesses.length - 1 ? 'bg-tertiary text-white shadow-md' : 'bg-primary text-white'
+                                    }`}>
                                     {process.step_number}
                                 </div>
                                 <h4 className="text-sm font-bold text-on-surface mb-1 uppercase tracking-wider">{process.title}</h4>
-                                <div 
-                                     className="text-xs text-secondary leading-relaxed rich-text"
-                                     dangerouslySetInnerHTML={{ __html: process.description }}
+                                <div
+                                    className="text-xs text-secondary leading-relaxed rich-text"
+                                    dangerouslySetInnerHTML={{ __html: process.description }}
                                 />
                             </div>
                         ))}
@@ -304,10 +301,10 @@ export default function Home() {
                             </div>
                             <div>
                                 <span className="material-symbols-outlined text-primary text-3xl mb-2 opacity-50">format_quote</span>
-                                <div 
-                                     className="text-xs italic text-on-surface-variant mb-4 leading-relaxed rich-text"
-                                     dangerouslySetInnerHTML={{ __html: leader.quote.startsWith('"') && leader.quote.endsWith('"') ? leader.quote : `"${leader.quote}"` }}
-                                 />
+                                <div
+                                    className="text-xs italic text-on-surface-variant mb-4 leading-relaxed rich-text"
+                                    dangerouslySetInnerHTML={{ __html: leader.quote.startsWith('"') && leader.quote.endsWith('"') ? leader.quote : `"${leader.quote}"` }}
+                                />
                                 <div>
                                     <h4 className="text-sm font-bold text-primary uppercase tracking-tight">{leader.name}</h4>
                                     <p className="text-[10px] text-tertiary uppercase tracking-widest font-mono mt-1 font-bold">{leader.title}</p>
@@ -354,13 +351,12 @@ export default function Home() {
                                                 </li>
                                             ))}
                                         </ul>
-                                        <Link 
-                                            to={comp.button_link || '/services'} 
-                                            className={`w-full py-3 rounded ${
-                                                index === 0 ? 'bg-tertiary text-white' : 'border border-primary text-primary hover:bg-surface-container'
-                                            } font-mono font-bold text-xs hover:bg-opacity-90 transition-all flex justify-center items-center gap-1 uppercase tracking-wider`}
+                                        <Link
+                                            to={comp.button_link || '/services'}
+                                            className={`w-full py-3 rounded ${index === 0 ? 'bg-tertiary text-white' : 'border border-primary text-primary hover:bg-surface-container'
+                                                } font-mono font-bold text-xs hover:bg-opacity-90 transition-all flex justify-center items-center gap-1 uppercase tracking-wider`}
                                         >
-                                            {comp.button_text || 'View Details'} 
+                                            {comp.button_text || 'View Details'}
                                             {index === 0 ? (
                                                 <span className="material-symbols-outlined text-sm">bolt</span>
                                             ) : (
@@ -393,10 +389,10 @@ export default function Home() {
                             </div>
                             <div className="p-6">
                                 <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{project.title}</h3>
-                                <div 
-                                     className="text-xs text-on-surface-variant mb-4 leading-relaxed rich-text"
-                                     dangerouslySetInnerHTML={{ __html: project.description }}
-                                 />
+                                <div
+                                    className="text-xs text-on-surface-variant mb-4 leading-relaxed rich-text"
+                                    dangerouslySetInnerHTML={{ __html: project.description }}
+                                />
                                 <Link className="inline-flex items-center gap-1 text-tertiary font-mono text-[11px] font-bold hover:text-primary transition-colors uppercase tracking-wider" to={project.link || '/portfolio'}>
                                     Read Case Study <span className="material-symbols-outlined text-sm">arrow_forward</span>
                                 </Link>
@@ -417,9 +413,9 @@ export default function Home() {
                     <div className="w-full opacity-70 hover:opacity-100 transition-opacity marquee-container">
                         <div className="marquee-content">
                             {activeClientsData.map((client, index) => (
-                                <Link 
-                                    to="/clients" 
-                                    key={`group1-${index}`} 
+                                <Link
+                                    to="/clients"
+                                    key={`group1-${index}`}
                                     className="flex items-center gap-4 px-6 md:px-10 mx-2 grayscale hover:grayscale-0 transition-all duration-300"
                                 >
                                     <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
@@ -429,9 +425,9 @@ export default function Home() {
                         </div>
                         <div className="marquee-content" aria-hidden="true">
                             {activeClientsData.map((client, index) => (
-                                <Link 
-                                    to="/clients" 
-                                    key={`group2-${index}`} 
+                                <Link
+                                    to="/clients"
+                                    key={`group2-${index}`}
                                     className="flex items-center gap-2 px-6 md:px-10 mx-2 grayscale hover:grayscale-0 transition-all duration-300"
                                     tabIndex={-1}
                                 >
