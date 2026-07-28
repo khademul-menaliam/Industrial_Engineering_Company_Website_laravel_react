@@ -7,7 +7,7 @@ export default function Navbar() {
 
     return (
         <header className="w-full top-0 sticky shadow-lg bg-[#111d23] z-50">
-            <nav className="flex justify-between items-center w-full px-margin-desktop max-w-container-max mx-auto h-20">
+            <nav className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
                 <Link to="/" className="flex items-center gap-2 whitespace-nowrap">
                     <span className="material-symbols-outlined text-tertiary-fixed-dim text-3xl">architecture</span>
                     <div className="font-headline-lg text-xl font-bold text-white tracking-tighter uppercase">
@@ -67,8 +67,8 @@ export default function Navbar() {
             )}
 
             {/* Mobile Menu Drawer */}
-            <div className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#111d23] border-l border-white/10 z-50 shadow-2xl p-6 transition-transform duration-300 ease-in-out lg:hidden flex flex-col justify-between ${
-                isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            <div className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#111d23] border-l border-white/10 z-50 shadow-2xl p-6 transition-all duration-300 ease-in-out lg:hidden flex flex-col justify-between ${
+                isMobileMenuOpen ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-full opacity-0 pointer-events-none'
             }`}>
                 <div>
                     {/* Header */}

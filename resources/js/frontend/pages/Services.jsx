@@ -251,7 +251,7 @@ export default function Services() {
                                         const isColSpan2 = service.is_col_span_2 || (idx === serviceList.length - 1 && serviceList.length % 3 === 2);
                                         if (isColSpan2) {
                                             return (
-                                                <div key={service.id || idx} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300 md:col-span-2 lg:col-span-2">
+                                                <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300 md:col-span-2 lg:col-span-2">
                                                     <div className="flex flex-col md:flex-row h-full">
                                                         <div className="md:w-5/12 h-48 md:h-auto bg-surface-container-low overflow-hidden relative">
                                                             <img 
@@ -266,16 +266,16 @@ export default function Services() {
                                                         <div className="md:w-7/12 p-6 md:p-8 flex flex-col justify-center">
                                                             <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{service.title}</h3>
                                                             <p className="text-xs text-secondary leading-relaxed mb-6">{service.short_description}</p>
-                                                            <Link className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono" to={`/services/${service.slug}`}>
+                                                            <span className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono">
                                                                 Explore Solution <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
-                                                            </Link>
+                                                            </span>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                </Link>
                                             );
                                         }
                                         return (
-                                            <div key={service.id || idx} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300">
+                                            <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300">
                                                 <div className="h-44 bg-surface-container-low overflow-hidden relative">
                                                     <img 
                                                         alt={service.title} 
@@ -289,11 +289,11 @@ export default function Services() {
                                                 <div className="p-6 flex flex-col flex-grow">
                                                     <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{service.title}</h3>
                                                     <p className="text-xs text-secondary leading-relaxed mb-6 flex-grow">{service.short_description}</p>
-                                                    <Link className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono" to={`/services/${service.slug}`}>
+                                                    <span className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono">
                                                         View Details <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
-                                                    </Link>
+                                                    </span>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         );
                                     })}
                                 </div>
@@ -317,7 +317,7 @@ export default function Services() {
                                 <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
                                     {/* Featured Card */}
                                     {featuredDsi && (
-                                        <div className="md:col-span-7 group relative rounded-lg overflow-hidden shadow-sm border border-outline-variant/20 aspect-[16/9] md:aspect-auto flex flex-col justify-end min-h-[350px]">
+                                        <Link key={featuredDsi.id || 'featured'} to={`/services/${featuredDsi.slug}`} className="md:col-span-7 group relative rounded-lg overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col justify-end min-h-[350px] md:min-h-auto md:aspect-[16/9]">
                                             <img 
                                                 alt={featuredDsi.title} 
                                                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" 
@@ -332,17 +332,17 @@ export default function Services() {
                                                 )}
                                                 <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{featuredDsi.title}</h3>
                                                 <p className="text-gray-300 text-xs max-w-md leading-relaxed mb-6">{featuredDsi.short_description}</p>
-                                                <Link className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded text-[11px] font-bold uppercase tracking-widest transition-colors backdrop-blur-sm font-mono" to={`/services/${featuredDsi.slug}`}>
+                                                <span className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded text-[11px] font-bold uppercase tracking-widest transition-colors backdrop-blur-sm font-mono w-fit">
                                                     View Project Details
-                                                </Link>
+                                                </span>
                                             </div>
-                                        </div>
+                                        </Link>
                                     )}
 
                                     {/* Right Stack */}
                                     <div className="md:col-span-5 flex flex-col gap-4">
                                         {rightStackDsi.map((service, idx) => (
-                                            <div key={service.id || idx} className="bg-background p-4 rounded-lg flex flex-col sm:flex-row gap-4 border border-outline-variant/30 group hover:border-tertiary transition-all duration-300">
+                                            <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-background p-4 rounded-lg flex flex-col sm:flex-row gap-4 border border-outline-variant/30 group hover:border-tertiary transition-all duration-300">
                                                 <div className="w-full sm:w-24 h-36 sm:h-24 flex-shrink-0 rounded overflow-hidden bg-surface-container-low">
                                                     {service.image && (
                                                         <img 
@@ -358,11 +358,11 @@ export default function Services() {
                                                         <h4 className="font-bold text-primary text-sm uppercase tracking-tight">{service.title}</h4>
                                                     </div>
                                                     <p className="text-[11px] text-secondary leading-relaxed mb-2 line-clamp-2">{service.short_description}</p>
-                                                    <Link className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary mt-auto font-mono flex items-center gap-1" to={`/services/${service.slug}`}>
+                                                    <span className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary mt-auto font-mono flex items-center gap-1">
                                                         Explore <span className="material-symbols-outlined text-[10px]">arrow_forward</span>
-                                                    </Link>
+                                                    </span>
                                                 </div>
-                                            </div>
+                                            </Link>
                                         ))}
                                     </div>
                                 </div>
@@ -386,7 +386,7 @@ export default function Services() {
                                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                                     {/* High-Contrast Side Panel */}
                                     {sidePanelMaintenance && (
-                                        <div className="lg:col-span-4 bg-primary p-8 rounded-lg text-white shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+                                        <Link to={`/services/${sidePanelMaintenance.slug}`} className="lg:col-span-4 bg-primary p-8 rounded-lg text-white shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[300px]">
                                             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                                                 <span className="material-symbols-outlined text-[120px]">{sidePanelMaintenance.icon || 'settings_suggest'}</span>
                                             </div>
@@ -396,10 +396,10 @@ export default function Services() {
                                                     {zeroDowntimeDesc}
                                                 </p>
                                             </div>
-                                            <Link to={`/services/${sidePanelMaintenance.slug}`} className="w-full text-center bg-tertiary text-white py-3.5 rounded font-mono font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-md">
+                                            <span className="w-full text-center bg-tertiary text-white py-3.5 rounded font-mono font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-md">
                                                 View details
-                                            </Link>
-                                        </div>
+                                            </span>
+                                        </Link>
                                     )}
 
                                     {/* Main Grid */}
@@ -407,8 +407,9 @@ export default function Services() {
                                         {gridMaintenance.map((service, idx) => {
                                             const isLast = idx === gridMaintenance.length - 1 && gridMaintenance.length % 2 === 1;
                                             return (
-                                                <div 
+                                                <Link 
                                                     key={service.id || idx} 
+                                                    to={`/services/${service.slug}`}
                                                     className={`bg-white rounded-lg overflow-hidden flex group hover:shadow-md border border-outline-variant/30 transition-all duration-300 min-h-[6rem] ${isLast ? 'sm:col-span-2' : ''}`}
                                                 >
                                                     <img 
@@ -421,11 +422,11 @@ export default function Services() {
                                                             {service.icon || 'settings_suggest'}
                                                         </span>
                                                         <h4 className="text-sm font-bold text-primary mb-1 uppercase tracking-tight max-w-[85%]">{service.title}</h4>
-                                                        <Link className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary font-mono mt-1" to={`/services/${service.slug}`}>
+                                                        <span className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary font-mono mt-1">
                                                             Details
-                                                        </Link>
+                                                        </span>
                                                     </div>
-                                                </div>
+                                                </Link>
                                             );
                                         })}
                                     </div>
@@ -452,7 +453,7 @@ export default function Services() {
                             )}
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {serviceList.map((service, idx) => (
-                                    <div key={service.id || idx} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300">
+                                    <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300">
                                         <div className="h-44 bg-surface-container-low overflow-hidden relative">
                                             <img 
                                                 alt={service.title} 
@@ -466,11 +467,11 @@ export default function Services() {
                                         <div className="p-6 flex flex-col flex-grow">
                                             <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{service.title}</h3>
                                             <p className="text-xs text-secondary leading-relaxed mb-6 flex-grow">{service.short_description}</p>
-                                            <Link className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono" to={`/services/${service.slug}`}>
+                                            <span className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono">
                                                 View Details <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
-                                            </Link>
+                                            </span>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </div>
