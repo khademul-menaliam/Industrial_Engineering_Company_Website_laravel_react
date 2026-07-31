@@ -887,6 +887,46 @@ export default function HomepageManager() {
                         </div>
                     </div>
 
+                    {/* Footer Offices Section */}
+                    <div className="bg-surface rounded-xl border border-outline-variant/30 p-6 space-y-4">
+                        <h3 className="font-bold text-lg uppercase tracking-wider text-white">Footer Offices & Contact</h3>
+                        <div className="grid md:grid-cols-2 gap-4">
+                            <div className="space-y-1">
+                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono mb-1">Corporate Office Address</label>
+                                <RichTextEditor
+                                    value={settings.footer_corporate_office || ''}
+                                    onChange={value => handleSettingChange('footer_corporate_office', value)}
+                                    placeholder="Enter corporate office address..."
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono mb-1">Registered Office Address</label>
+                                <RichTextEditor
+                                    value={settings.footer_registered_office || ''}
+                                    onChange={value => handleSettingChange('footer_registered_office', value)}
+                                    placeholder="Enter registered office address..."
+                                />
+                            </div>
+                            <div className="space-y-1 md:col-span-2">
+                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Footer Email Address</label>
+                                <input
+                                    type="email"
+                                    value={settings.footer_email || ''}
+                                    onChange={e => handleSettingChange('footer_email', e.target.value)}
+                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                />
+                            </div>
+                            <div className="space-y-1 md:col-span-2">
+                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono mb-1">Footer Company Description</label>
+                                <RichTextEditor
+                                    value={settings.footer_description || ''}
+                                    onChange={value => handleSettingChange('footer_description', value)}
+                                    placeholder="Enter footer company description..."
+                                />
+                            </div>
+                        </div>
+                    </div>
+
                     {/* Bottom CTA Block */}
                     <div className="bg-surface rounded-xl border border-outline-variant/30 p-6 space-y-4">
                         <h3 className="font-bold text-lg uppercase tracking-wider text-white">Call To Action (CTA) Section</h3>
