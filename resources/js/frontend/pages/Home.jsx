@@ -265,7 +265,7 @@ export default function Home() {
                     <h2 className="text-2xl md:text-3xl font-bold text-primary mb-16 text-center uppercase tracking-tight">
                         {getSetting('process_section_title')}
                     </h2>
-                    <div className="flex flex-col md:flex-row justify-between items-start gap-6 relative">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-6 relative">
                         {activeProcesses.map((process, index) => (
                             <div key={process.id || index} className="flex-1 flex flex-col items-center text-center relative z-10">
                                 <div className={`w-12 h-12 rounded-full flex items-center justify-center font-mono text-xs font-bold mb-3 border-2 border-surface-container ${index === activeProcesses.length - 1 ? 'bg-tertiary text-white shadow-md' : 'bg-primary text-white'
