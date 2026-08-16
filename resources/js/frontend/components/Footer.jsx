@@ -36,7 +36,7 @@ export default function Footer() {
                         <img 
                             src="/logo.png" 
                             alt="AR Engineering Logo" 
-                            className="h-14 w-auto object-contain rounded" 
+                            className="h-14 w-auto object-contain rounded -ml-3 -mr-2" 
                         />
                         Engineering
                     </div>

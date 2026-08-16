@@ -7,12 +7,12 @@ export default function Navbar() {
 
     return (
         <header className="w-full top-0 sticky shadow-lg bg-[#111d23] z-50">
-            <nav className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
-                <Link to="/" className="flex items-center whitespace-nowrap">
+            <nav className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20 ">
+                <Link to="/" className="flex items-center whitespace-nowrap gap-1">
                     <img 
                         src="/logo.png" 
                         alt="AR Engineering Logo" 
-                        className="h-10 w-auto object-contain rounded mt-2" 
+                        className="h-10 w-auto object-contain rounded mt-2 -ml-2 -mr-1" 
                         style={{ filter: "invert(1)" }}
                     />
                     <div className="font-headline-lg text-xl font-bold text-white tracking-tighter uppercase">
@@ -78,11 +78,11 @@ export default function Navbar() {
                 <div>
                     {/* Header */}
                     <div className="flex items-center justify-between mb-8">
-                        <Link to="/" className="flex items-center whitespace-nowrap" onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link to="/" className="flex items-center whitespace-nowrap gap-1" onClick={() => setIsMobileMenuOpen(false)}>
                             <img 
                                 src="/logo.png" 
                                 alt="AR Engineering Logo" 
-                                className="h-10 w-auto object-contain rounded" 
+                                className="h-10 w-auto object-contain rounded -ml-2 -mr-1" 
                                 style={{ filter: "invert(1)" }}
                             />
                             <span className="font-headline-lg text-lg font-bold text-white tracking-tighter uppercase mb-2">
