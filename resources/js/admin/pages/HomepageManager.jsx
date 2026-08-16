@@ -924,6 +924,64 @@ export default function HomepageManager() {
                                     placeholder="Enter footer company description..."
                                 />
                             </div>
+                            
+                            {/* Social Media Links */}
+                            <div className="space-y-1 md:col-span-2 pt-6 border-t border-outline-variant/20">
+                                <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-2">Social Media Links</h4>
+                                <p className="text-xs text-on-surface-variant mb-4 font-mono-data">Provide URLs to your corporate social media pages. Leave blank to hide the icon from the footer.</p>
+                                <div className="grid md:grid-cols-2 gap-4">
+                                    <div className="space-y-1">
+                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Facebook Page URL</label>
+                                        <input
+                                            type="url"
+                                            value={settings.social_facebook || ''}
+                                            onChange={e => handleSettingChange('social_facebook', e.target.value)}
+                                            placeholder="https://facebook.com/your-page"
+                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">LinkedIn Company URL</label>
+                                        <input
+                                            type="url"
+                                            value={settings.social_linkedin || ''}
+                                            onChange={e => handleSettingChange('social_linkedin', e.target.value)}
+                                            placeholder="https://linkedin.com/company/your-company"
+                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Twitter / X URL</label>
+                                        <input
+                                            type="url"
+                                            value={settings.social_twitter || ''}
+                                            onChange={e => handleSettingChange('social_twitter', e.target.value)}
+                                            placeholder="https://x.com/your-handle"
+                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">YouTube Channel URL</label>
+                                        <input
+                                            type="url"
+                                            value={settings.social_youtube || ''}
+                                            onChange={e => handleSettingChange('social_youtube', e.target.value)}
+                                            placeholder="https://youtube.com/c/your-channel"
+                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        />
+                                    </div>
+                                    <div className="space-y-1">
+                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Instagram Profile URL</label>
+                                        <input
+                                            type="url"
+                                            value={settings.social_instagram || ''}
+                                            onChange={e => handleSettingChange('social_instagram', e.target.value)}
+                                            placeholder="https://instagram.com/your-profile"
+                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
