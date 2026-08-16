@@ -48,7 +48,7 @@ export default function AdminApp() {
                             shield_with_heart
                         </span>
                         <div className="flex flex-col">
-                            <span className="font-bold text-white uppercase text-sm tracking-widest">Titan Control</span>
+                            <span className="font-bold text-white uppercase text-sm tracking-widest">AR Engineering Control</span>
                             <span className="text-[10px] text-on-surface-variant font-mono-data uppercase tracking-widest">System Administrator</span>
                         </div>
                     </div>
@@ -90,7 +90,7 @@ export default function AdminApp() {
                     </div>
                     
                     <a
-                        href="/titan-secure/logout"
+                        href="/admin-portal/logout"
                         className="flex items-center gap-3.5 px-4 py-3 rounded-lg text-sm font-semibold tracking-wide text-error hover:bg-error-container/10 transition-all"
                     >
                         <span className="material-symbols-outlined text-lg">logout</span>

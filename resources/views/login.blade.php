@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Titan Precision v2 | Admin Login</title>
+    <title>AR Engineering | Admin Login</title>
     
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
@@ -21,7 +21,7 @@
     <div class="relative z-20 w-full max-w-md p-10 bg-surface-container-lowest/80 backdrop-blur-md rounded-xl border border-outline-variant/30 shadow-2xl">
         <div class="text-center mb-8">
             <div class="inline-block px-4 py-1 bg-secondary-container/10 border border-secondary-container/30 rounded-full mb-4">
-                <span class="text-secondary font-semibold text-xs tracking-widest uppercase">Titan Security Portal</span>
+                <span class="text-secondary font-semibold text-xs tracking-widest uppercase">AR Engineering Security Portal</span>
             </div>
             <h2 class="text-2xl font-bold uppercase tracking-tight text-white">System Access</h2>
             <p class="text-on-surface-variant text-sm mt-2">Enter your admin credentials to sign in</p>
@@ -37,7 +37,7 @@
             </div>
         @endif
 
-        <form method="POST" action="/titan-secure/login" class="space-y-6">
+        <form method="POST" action="/admin-portal/login" class="space-y-6">
             @csrf
 
             <!-- Email Input -->

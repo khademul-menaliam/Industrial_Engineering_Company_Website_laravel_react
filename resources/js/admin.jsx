@@ -5,7 +5,7 @@ import AdminApp from './admin/AdminApp';
 
 ReactDOM.createRoot(document.getElementById('admin-app')).render(
     <React.StrictMode>
-        <BrowserRouter basename="/titan-secure">
+        <BrowserRouter basename="/admin-portal">
             <AdminApp />
         </BrowserRouter>
     </React.StrictMode>

@@ -33,7 +33,7 @@ export default function FAQ() {
                 <span className="text-tertiary font-bold text-xs tracking-widest uppercase font-mono">Support & Compliance</span>
                 <h1 className="text-primary font-bold text-3xl md:text-5xl uppercase tracking-tight mt-4">Frequently Asked Questions</h1>
                 <p className="text-on-surface-variant text-base md:text-lg max-w-xl mx-auto mt-4 leading-relaxed">
-                    Technical details, compliance protocols, and system integration specs for Titan Precision v2 solutions.
+                    Technical details, compliance protocols, and system integration specs for AR Engineering solutions.
                 </p>
             </div>
 

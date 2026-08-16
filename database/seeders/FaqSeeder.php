@@ -15,7 +15,7 @@ class FaqSeeder extends Seeder
         $faqs = [
             [
                 'question' => 'What industries do you specialize in?',
-                'answer' => 'Titan Precision v2 specializes in heavy industries, structural infrastructure, fire safety engineering (MEP), and industrial automation. We engineer systems that require extreme precision and strict safety compliance.',
+                'answer' => 'AR Engineering specializes in heavy industries, structural infrastructure, fire safety engineering (MEP), and industrial automation. We engineer systems that require extreme precision and strict safety compliance.',
                 'order' => 1,
             ],
             [

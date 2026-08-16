@@ -102,7 +102,7 @@ export default function Portfolio() {
                         <img alt="Industrial skyscraper" className="w-full h-full object-cover opacity-60 grayscale scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqxw8R5zcWj6stHhCB5a9GS0nhwCrOdnK-3wNnjMvEC8vFPPEuxcCiLZ1SUqceW1C7GoIB7q587h3NaUarTGuATxEBJDoEuEavrc3A0FaWveKQzVzsY92ss4MCsoz4CNnhWAjn-wEeMlwuIpE8wxDSOE4EQir42EETMCx1PUwyP9SqwinNM6TwS0WGoF5I4-Hkesu11DKLQMhXoam-VJaNrB7oIUZtDwY3z1uIUMjjwQiaMw0FJOTIww" />
                         <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent flex flex-col justify-center p-margin-desktop">
                             <span className="text-white text-xs font-mono border-l-2 border-tertiary pl-4 mb-4 uppercase tracking-[0.2em]">Deployment: OCT 2024</span>
-                            <h2 className="text-white font-bold text-4xl md:text-5xl mb-6 uppercase leading-tight tracking-tight">INDUSTRIAL FIRE GRID<br /><span className="text-tertiary">TITAN PRECISION</span></h2>
+                            <h2 className="text-white font-bold text-4xl md:text-5xl mb-6 uppercase leading-tight tracking-tight">INDUSTRIAL FIRE GRID<br /><span className="text-tertiary">AR ENGINEERING</span></h2>
                         </div>
                     </div>
                     {/* Right: Technical Data Cards */}
@@ -118,7 +118,7 @@ export default function Portfolio() {
                             </div>
                             <div className="bg-white p-6">
                                 <span className="text-outline text-[10px] font-mono uppercase block mb-2">Core Protocol</span>
-                                <span className="text-primary font-bold text-base uppercase">Titan v2 / Sentinel</span>
+                                <span className="text-primary font-bold text-base uppercase">AR Engineering / Sentinel</span>
                             </div>
                             <div className="bg-white p-6">
                                 <span className="text-outline text-[10px] font-mono uppercase block mb-2">Status</span>
@@ -135,7 +135,7 @@ export default function Portfolio() {
                             </div>
                             <div className="border-l-4 border-tertiary pl-6">
                                 <h4 className="text-primary font-bold uppercase mb-2">Precision Engineering Solution</h4>
-                                <p className="text-on-surface-variant">Implementation of Titan Precision framework v2—modular, liquid-cooled structure with high-efficiency superconductors and AI sensory layer for isolation within 12ms.</p>
+                                <p className="text-on-surface-variant">Implementation of AR Engineering framework v2—modular, liquid-cooled structure with high-efficiency superconductors and AI sensory layer for isolation within 12ms.</p>
                             </div>
                         </div>
                         {/* Stats Bar */}

@@ -11,7 +11,7 @@ const FALLBACK_SETTINGS = {
     contact_address: "1280 Engineering Plaza\nSuite 400, Industrial District\nChicago, IL 60601",
     contact_phone: '+1 (800) 555-0192',
     contact_phone_hours: 'Mon - Fri: 8:00 AM - 6:00 PM CST',
-    contact_email: 'contact@titanprecision.com',
+    contact_email: 'info@arengineeringbd.com',
     contact_map_image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBxU7jTojfIGAD6pxvJSGDir2eB2D-tRFcfxCAfIMdI8aTEwS8z1PbjiaCDajjAknsLj1zOS3AFQ_LpHUky4Tfe7YsTKCltIvvEyF2Jv6K1K9pxmT80GNP8Dr-6SQImvY8i-hOA8RsIHrlByMI2rbargNC0ELEb77OjQpUrDQ2DTd2zMwEVyifZ_amef2R4LVlIxQZcjmGAIG8VYZhK9e-GoybaRkNkN4g2wzmHI4rQb_vSBGE_re5Q3Q',
     contact_response_time: '< 12 HOURS',
 };
@@ -90,7 +90,7 @@ export default function Contact() {
                 <div className="mb-16">
                     <h2 className="text-xs font-bold uppercase tracking-widest text-[#4c616c] mb-4">{getVal('contact_subtitle')}</h2>
                     <h1 className="text-4xl md:text-5xl font-bold text-primary mb-6 uppercase tracking-tight">
-                        {getVal('contact_title')} <span className="text-tertiary">Titan Precision v2</span>
+                        {getVal('contact_title')} <span className="text-tertiary">AR Engineering</span>
                     </h1>
                     <div className="w-24 h-1.5 bg-tertiary rounded-full"></div>
                 </div>

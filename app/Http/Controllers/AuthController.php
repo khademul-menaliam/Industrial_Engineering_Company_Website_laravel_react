@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function showLogin()
     {
         if (Auth::check()) {
-            return redirect()->intended('/titan-secure');
+            return redirect()->intended('/admin-portal');
         }
         return view('login');
     }
@@ -30,7 +30,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended('/titan-secure');
+            return redirect()->intended('/admin-portal');
         }
 
         return back()->withErrors([
@@ -48,6 +48,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/titan-secure/login');
+        return redirect('/admin-portal/login');
     }
 }

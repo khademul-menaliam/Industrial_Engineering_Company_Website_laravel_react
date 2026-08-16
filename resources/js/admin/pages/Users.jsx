@@ -2,10 +2,10 @@ import React from 'react';
 
 export default function Users() {
     const users = [
-        { name: 'David Richardson', email: 'david@titanprecision-v2.com', role: 'CEO / Board Director', status: 'Active', location: 'HQ - London' },
-        { name: 'Dr. Elena Vance', email: 'elena.vance@titanprecision-v2.com', role: 'Senior Strategic Advisor', status: 'Active', location: 'Research Lab - Munich' },
+        { name: 'David Richardson', email: 'david@arengineeringbd.com', role: 'CEO / Board Director', status: 'Active', location: 'HQ - London' },
+        { name: 'Dr. Elena Vance', email: 'elena.vance@arengineeringbd.com', role: 'Senior Strategic Advisor', status: 'Active', location: 'Research Lab - Munich' },
         { name: 'Marcus Brody', email: 'marcus@apexheavy.com', role: 'Client Representative', status: 'Active', location: 'Apex - New York' },
-        { name: 'Sarah Connor', email: 'sarah.c@titanprecision-v2.com', role: 'Lead Fire Safety Engineer', status: 'On Site', location: 'Refinery - Texas' },
+        { name: 'Sarah Connor', email: 'sarah.c@arengineeringbd.com', role: 'Lead Fire Safety Engineer', status: 'On Site', location: 'Refinery - Texas' },
         { name: 'John Doe', email: 'john.doe@gmail.com', role: 'Staff Auditor', status: 'Suspended', location: 'Remote' },
     ];
 

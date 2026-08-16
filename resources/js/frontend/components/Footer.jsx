@@ -46,7 +46,7 @@ export default function Footer() {
                         <img 
                             src="/logo.png" 
                             alt="AR Engineering Logo" 
-                            className="h-14 w-auto object-contain rounded -ml-3 -mr-2" 
+                            className="h-14 w-auto object-contain rounded -ml-3 -mr-2 mr-1" 
                         />
                         Engineering
                     </div>
@@ -133,7 +133,20 @@ export default function Footer() {
                 </div>
             </div>
             <div className="w-full border-t border-outline-variant/20 py-8 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-                <span className="font-mono text-[11px] text-on-surface-variant/70 uppercase tracking-widest">© 2026 AR ENGINEERING</span>
+                <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                    <span className="font-mono text-[11px] text-on-surface-variant/70 uppercase tracking-widest">© 2026 AR ENGINEERING</span>
+                    <span className="font-mono text-[10px] text-on-surface-variant/50 uppercase tracking-widest flex items-center gap-1">
+                        | DEVELOPED BY{' '}
+                        <a 
+                            href="https://khademul-dev.netlify.app/" 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="text-tertiary hover:underline font-bold"
+                        >
+                            Khademul Islam
+                        </a>
+                    </span>
+                </div>
                 <div className="flex gap-6">
                     <span className="flex items-center gap-2 text-on-surface-variant text-[10px] font-bold uppercase tracking-widest">
                         <span className="material-symbols-outlined text-tertiary text-lg">verified</span> SYSTEM ENCRYPTED

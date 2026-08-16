@@ -165,7 +165,7 @@ export default function Careers() {
                                 <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-tertiary"></span>
                             </h2>
                             <p className="mt-8 text-on-surface-variant leading-relaxed text-sm">
-                                Titan Precision is an industrial leader in structural engineering. We seek individuals who value mathematical precision, operational reliability, and uncompromising safety standards.
+                                AR Engineering is an industrial leader in structural engineering. We seek individuals who value mathematical precision, operational reliability, and uncompromising safety standards.
                             </p>
                         </div>
                         <div className="space-y-6">
