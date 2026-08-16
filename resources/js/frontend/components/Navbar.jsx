@@ -8,15 +8,20 @@ export default function Navbar() {
     return (
         <header className="w-full top-0 sticky shadow-lg bg-[#111d23] z-50">
             <nav className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
-                <Link to="/" className="flex items-center gap-2 whitespace-nowrap">
-                    <span className="material-symbols-outlined text-tertiary-fixed-dim text-3xl">architecture</span>
+                <Link to="/" className="flex items-center whitespace-nowrap">
+                    <img 
+                        src="/logo.png" 
+                        alt="AR Engineering Logo" 
+                        className="h-10 w-auto object-contain rounded mt-2" 
+                        style={{ filter: "invert(1)" }}
+                    />
                     <div className="font-headline-lg text-xl font-bold text-white tracking-tighter uppercase">
-                        Ar <span className="text-tertiary">Engineering</span>
+                        <span className="text-tertiary">Engineering</span>
                     </div>
                 </Link>
                 
                 {/* Desktop Navigation */}
-                <div className="hidden lg:flex items-center gap-6">
+                <div className="hidden lg:flex items-center gap-4">
                     <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/services">Services</Link>
                     <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/portfolio">Projects</Link>
                     <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/clients">Testimonials</Link>
@@ -24,7 +29,7 @@ export default function Navbar() {
                     
                     {/* Company Dropdown */}
                     <div className="relative group py-2">
-                        <button className="flex items-center gap-1 text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap cursor-pointer">
+                        <button className="flex items-center text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap cursor-pointer">
                             Company
                             <span className="material-symbols-outlined text-sm select-none">keyboard_arrow_down</span>
                         </button>
@@ -39,11 +44,11 @@ export default function Navbar() {
                 </div>
                 
                 {/* Desktop Download Button & Mobile Toggle */}
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2">
                     <a 
                         href="/AR_Engineering_Profile.pdf"
                         download
-                        className="hidden lg:block bg-white/10 text-white border border-white/20 px-6 py-2.5 rounded text-xs font-bold uppercase tracking-widest hover:bg-white/20 hover:border-white/40 transition-all duration-200 whitespace-nowrap"
+                        className="hidden lg:block bg-white/10 text-white border border-white/20 px-4 py-2.5 rounded text-xs font-bold uppercase tracking-widest hover:bg-white/20 hover:border-white/40 transition-all duration-200 whitespace-nowrap"
                     >
                         Download Profile
                     </a>
@@ -73,10 +78,15 @@ export default function Navbar() {
                 <div>
                     {/* Header */}
                     <div className="flex items-center justify-between mb-8">
-                        <Link to="/" className="flex items-center gap-2 whitespace-nowrap" onClick={() => setIsMobileMenuOpen(false)}>
-                            <span className="material-symbols-outlined text-tertiary-fixed-dim text-2xl">architecture</span>
-                            <span className="font-headline-lg text-lg font-bold text-white tracking-tighter uppercase">
-                                Ar <span className="text-tertiary">Engineering</span>
+                        <Link to="/" className="flex items-center whitespace-nowrap" onClick={() => setIsMobileMenuOpen(false)}>
+                            <img 
+                                src="/logo.png" 
+                                alt="AR Engineering Logo" 
+                                className="h-10 w-auto object-contain rounded" 
+                                style={{ filter: "invert(1)" }}
+                            />
+                            <span className="font-headline-lg text-lg font-bold text-white tracking-tighter uppercase mb-2">
+                                <span className="text-tertiary">Engineering</span>
                             </span>
                         </Link>
                         <button 

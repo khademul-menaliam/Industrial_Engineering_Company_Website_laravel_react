@@ -32,9 +32,13 @@ export default function Footer() {
         <footer className="w-full bg-surface-container-low border-t border-outline-variant/30">
             <div className="w-full py-20 px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
                 <div className="col-span-1">
-                    <div className="font-display-lg text-xl font-bold text-primary mb-6 uppercase tracking-tighter flex items-center gap-2">
-                        <span className="material-symbols-outlined text-tertiary">architecture</span>
-                        Ar Engineering
+                    <div className="font-display-lg text-xl font-bold text-primary mb-2 uppercase tracking-tighter flex items-center">
+                        <img 
+                            src="/logo.png" 
+                            alt="AR Engineering Logo" 
+                            className="h-14 w-auto object-contain rounded" 
+                        />
+                        Engineering
                     </div>
                     <div 
                         className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-8 rich-text"
