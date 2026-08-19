@@ -9,6 +9,7 @@ export default function SystemCommands() {
     const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [confirmText, setConfirmText] = useState('');
     const [commandToConfirm, setCommandToConfirm] = useState(null);
+    const [customCommand, setCustomCommand] = useState('');
     const terminalEndRef = useRef(null);
 
     // Secondary password protection states
@@ -164,6 +165,15 @@ export default function SystemCommands() {
                     bg: 'bg-error/10',
                     isDangerous: true,
                 },
+                {
+                    key: 'db_seed',
+                    title: 'Run Database Seeders',
+                    command: 'php artisan db:seed --force',
+                    desc: 'Safely runs seeders to update the system details (such as CEO message, contact, team members) without deleting user data.',
+                    icon: 'history_edu',
+                    color: 'text-emerald-400',
+                    bg: 'bg-emerald-500/10',
+                },
             ]
         },
         {
@@ -223,6 +233,48 @@ export default function SystemCommands() {
         try {
             const response = await api.post('/admin/commands/run', { 
                 command: commandKey,
+                console_password: consolePassword
+            });
+            const data = response.data;
+
+            if (data.success) {
+                addLog('output', data.output);
+                addLog('success', `Success: ${data.message || 'Command executed.'}`);
+            } else {
+                addLog('error', data.output || 'No output details provided.');
+                addLog('error', `Execution failed: ${data.message || 'Error occurred.'}`);
+            }
+        } catch (error) {
+            console.error('Artisan Command Error:', error);
+            if (error.response?.status === 401) {
+                setIsAuthenticated(false);
+                localStorage.removeItem('console_password');
+                alert('Console session expired or password updated. Please re-authenticate.');
+                return;
+            }
+            const errorMsg = error.response?.data?.output || error.response?.data?.message || error.message;
+            addLog('error', errorMsg);
+            addLog('error', `Fatal: Command execution aborted.`);
+        } finally {
+            setRunningCommand(null);
+        }
+    };
+
+    const handleCustomCommandSubmit = async (e) => {
+        e.preventDefault();
+        if (!customCommand.trim()) return;
+
+        const cmdText = customCommand.trim();
+        setCustomCommand('');
+        
+        setRunningCommand('custom');
+        addLog('input', `guest@ar-system-admin:~$ ${cmdText}`);
+        addLog('info', `Starting custom command execution: ${cmdText}...`);
+
+        try {
+            const response = await api.post('/admin/commands/run', { 
+                command: 'custom',
+                custom_command: cmdText,
                 console_password: consolePassword
             });
             const data = response.data;
@@ -513,12 +565,20 @@ export default function SystemCommands() {
                             })}
                             <div ref={terminalEndRef} />
                             
-                            {/* Blinking prompt line when idle */}
+                            {/* Interactive prompt line when idle */}
                             {!runningCommand && (
-                                <div className="flex items-center gap-1.5 text-sky-400 font-bold select-none pt-2">
-                                    <span>guest@ar-system-admin:~$</span>
-                                    <span className="w-1.5 h-3.5 bg-sky-400 animate-pulse inline-block"></span>
-                                </div>
+                                <form onSubmit={handleCustomCommandSubmit} className="flex items-center gap-1.5 text-sky-400 font-bold pt-2 w-full">
+                                    <span className="shrink-0 select-none">guest@ar-system-admin:~$</span>
+                                    <input
+                                        type="text"
+                                        value={customCommand}
+                                        onChange={(e) => setCustomCommand(e.target.value)}
+                                        placeholder="Type artisan command (e.g. route:list) and press Enter..."
+                                        className="bg-transparent text-white focus:outline-none border-none p-0 m-0 w-full font-mono text-xs select-text placeholder-white/20"
+                                        disabled={runningCommand !== null}
+                                        autoFocus
+                                    />
+                                </form>
                             )}
 
                             {/* Loader when running */}

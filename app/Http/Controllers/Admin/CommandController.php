@@ -64,6 +64,11 @@ class CommandController extends Controller
             'params' => ['--seed' => true, '--force' => true],
             'title' => 'Database Fresh & Seed'
         ],
+        'db_seed' => [
+            'command' => 'db:seed',
+            'params' => ['--force' => true],
+            'title' => 'Database Seeding'
+        ],
         'storage_link' => [
             'command' => 'storage:link',
             'params' => [],
@@ -73,6 +78,11 @@ class CommandController extends Controller
             'command' => 'npm_run_build',
             'params' => [],
             'title' => 'Build Assets (Vite)'
+        ],
+        'custom' => [
+            'command' => 'custom',
+            'params' => [],
+            'title' => 'Custom Artisan Command'
         ],
     ];
 
@@ -108,6 +118,50 @@ class CommandController extends Controller
         $commandConfig = $this->allowedCommands[$key];
         $command = $commandConfig['command'];
         $params = $commandConfig['params'];
+
+        if ($key === 'custom') {
+            $request->validate([
+                'custom_command' => 'required|string',
+            ]);
+
+            $customCmd = $request->input('custom_command');
+            
+            // Clean command string
+            $customCmd = trim($customCmd);
+            if (str_starts_with($customCmd, 'php artisan ')) {
+                $customCmd = substr($customCmd, 12);
+            } elseif (str_starts_with($customCmd, 'artisan ')) {
+                $customCmd = substr($customCmd, 8);
+            } elseif (str_starts_with($customCmd, 'php ')) {
+                $customCmd = substr($customCmd, 4);
+            }
+            $customCmd = trim($customCmd);
+
+            try {
+                Log::info("Admin user initiated execution of custom Artisan command: {$customCmd}");
+                
+                $exitCode = Artisan::call($customCmd);
+                $output = Artisan::output();
+
+                return response()->json([
+                    'success' => $exitCode === 0,
+                    'exit_code' => $exitCode,
+                    'output' => $output ?: 'Command executed successfully with no output.',
+                    'message' => "Custom command executed successfully."
+                ]);
+            } catch (\Throwable $e) {
+                Log::error("Error running custom Artisan command '{$customCmd}': " . $e->getMessage(), [
+                    'exception' => $e
+                ]);
+
+                return response()->json([
+                    'success' => false,
+                    'exit_code' => 500,
+                    'output' => $e->getMessage() . "\n" . $e->getTraceAsString(),
+                    'message' => "Failed to execute custom command '{$customCmd}'."
+                ], 500);
+            }
+        }
 
         if ($key === 'npm_run_build') {
             try {
