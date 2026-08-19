@@ -37,7 +37,7 @@ export default function HomepageManager() {
     const fetchHomepageData = async () => {
         setLoading(true);
         try {
-            const response = await api.get('/home');
+            const response = await api.get('/home?admin=1');
             setSlides(response.data.slides || []);
             setServices(response.data.services || []);
             setProcesses(response.data.processes || []);
@@ -307,11 +307,9 @@ export default function HomepageManager() {
                                         <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data">
                                             Order: {slide.sort_order}
                                         </div>
-                                        {!slide.is_active && (
-                                            <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-xs font-bold text-error uppercase tracking-wider">
-                                                Inactive
-                                            </div>
-                                        )}
+                                        <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data font-bold ${slide.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                            {slide.is_active ? 'Active' : 'Inactive'}
+                                        </div>
                                     </div>
                                     <div className="p-4 space-y-2">
                                         <h4 className="font-bold text-white uppercase text-sm line-clamp-1">{slide.title}</h4>
@@ -402,11 +400,9 @@ export default function HomepageManager() {
                                             <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data">
                                                 Order: {service.sort_order}
                                             </div>
-                                            {!service.is_active && (
-                                                <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-xs font-bold text-error uppercase tracking-wider">
-                                                    Inactive
-                                                </div>
-                                            )}
+                                            <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data font-bold ${service.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                                {service.is_active ? 'Active' : 'Inactive'}
+                                            </div>
                                         </div>
                                         <div className="p-4 space-y-2">
                                             <h4 className="font-bold text-white uppercase text-sm">{service.title}</h4>
@@ -577,7 +573,11 @@ export default function HomepageManager() {
                             {leaders.map(leader => (
                                 <div key={leader.id} className="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/20 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
                                     <div className="flex gap-4">
-                                        <div className="w-20 h-20 rounded overflow-hidden bg-cover bg-center shrink-0 border border-outline-variant/20" style={{ backgroundImage: `url('${leader.image}')` }}></div>
+                                        <div className="w-20 h-20 rounded overflow-hidden bg-cover bg-center shrink-0 border border-outline-variant/20 relative" style={{ backgroundImage: `url('${leader.image}')` }}>
+                                            <div className={`absolute bottom-1 left-1 backdrop-blur-sm px-1 py-0.5 rounded text-[8px] text-white font-mono-data font-bold ${leader.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                                {leader.is_active ? 'Active' : 'Inactive'}
+                                            </div>
+                                        </div>
                                         <div>
                                             <h4 className="font-bold text-white text-sm">{leader.name}</h4>
                                             <p className="text-[10px] text-tertiary font-mono uppercase font-bold tracking-wider mt-0.5">{leader.title}</p>
@@ -669,6 +669,9 @@ export default function HomepageManager() {
                                             <div className="h-32 bg-cover bg-center relative" style={{ backgroundImage: `url('${comp.image}')` }}>
                                                 <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data">
                                                     Order: {comp.sort_order}
+                                                </div>
+                                                <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data font-bold ${comp.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                                    {comp.is_active ? 'Active' : 'Inactive'}
                                                 </div>
                                             </div>
                                             <div className="p-4 space-y-3">
@@ -765,6 +768,9 @@ export default function HomepageManager() {
                                             <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data">
                                                 Order: {proj.sort_order}
                                             </div>
+                                            <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data font-bold ${proj.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                                {proj.is_active ? 'Active' : 'Inactive'}
+                                            </div>
                                         </div>
                                         <div className="p-4 space-y-2">
                                             <h4 className="font-bold text-white uppercase text-sm line-clamp-1">{proj.title}</h4>
@@ -798,7 +804,71 @@ export default function HomepageManager() {
             {/* TAB CONTENT: General Settings, Clients, CTA, and Contact Info */}
             {activeTab === 'settings' && (
                 <form onSubmit={handleSettingsSubmit} className="space-y-6">
-                    {/* Trusted Clients Settings */}
+                    {/* Welcome Section Settings */}
+                    <div className="bg-surface rounded-xl border border-outline-variant/30 p-6 space-y-4">
+                        <div>
+                            <h3 className="font-bold text-lg uppercase tracking-wider text-white">Homepage Welcome Section</h3>
+                            <p className="text-xs text-on-surface-variant mt-1">Manage the title, tagline, and details for the introduction welcome section.</p>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="space-y-1">
+                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Section Title</label>
+                                <input
+                                    type="text"
+                                    value={settings.welcome_section_title || ''}
+                                    onChange={e => handleSettingChange('welcome_section_title', e.target.value)}
+                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                />
+                            </div>
+                            <div className="space-y-1">
+                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Section Tagline</label>
+                                <input
+                                    type="text"
+                                    value={settings.welcome_section_tagline || ''}
+                                    onChange={e => handleSettingChange('welcome_section_tagline', e.target.value)}
+                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                />
+                            </div>
+                        </div>
+                        <div className="space-y-1">
+                            <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Paragraph 1</label>
+                            <textarea
+                                value={settings.welcome_section_p1 || ''}
+                                onChange={e => handleSettingChange('welcome_section_p1', e.target.value)}
+                                rows="2"
+                                className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Paragraph 2</label>
+                            <textarea
+                                value={settings.welcome_section_p2 || ''}
+                                onChange={e => handleSettingChange('welcome_section_p2', e.target.value)}
+                                rows="3"
+                                className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                            />
+                        </div>
+                        <div className="space-y-1">
+                            <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Paragraph 3</label>
+                            <textarea
+                                value={settings.welcome_section_p3 || ''}
+                                onChange={e => handleSettingChange('welcome_section_p3', e.target.value)}
+                                rows="3"
+                                className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                            />
+                        </div>
+                        <div className="pt-2">
+                            <button
+                                type="submit"
+                                disabled={saving}
+                                className="px-5 py-2.5 bg-primary hover:brightness-110 disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded font-mono transition-all"
+                            >
+                                {saving ? 'Saving...' : 'Save Welcome Config'}
+                            </button>
+                        </div>
+                    </div>
+
+                    {/* Trusted Clients Directory */}
                     <div className="bg-surface rounded-xl border border-outline-variant/30 p-6 space-y-4">
                         <div>
                             <h3 className="font-bold text-lg uppercase tracking-wider text-white">Trusted Clients Directory</h3>
@@ -1293,7 +1363,7 @@ export default function HomepageManager() {
                                     <input
                                         type="checkbox"
                                         id="modal_is_active"
-                                        checked={formData.is_active !== false}
+                                        checked={!!formData.is_active}
                                         onChange={e => handleFormChange('is_active', e.target.checked)}
                                         className="rounded bg-surface-container border-outline-variant text-primary focus:ring-primary h-4 w-4"
                                     />

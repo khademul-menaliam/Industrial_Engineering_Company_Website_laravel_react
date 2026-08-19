@@ -93,7 +93,7 @@ class HomeController extends Controller
             'subtitle' => $request->input('subtitle'),
             'image' => $imagePath,
             'sort_order' => $request->input('sort_order', $slide->sort_order),
-            'is_active' => $request->input('is_active', $slide->is_active),
+            'is_active' => $request->has('is_active') ? $request->boolean('is_active') : $slide->is_active,
         ]);
 
         return response()->json(['message' => 'Slide updated successfully.', 'slide' => $slide]);
@@ -157,7 +157,7 @@ class HomeController extends Controller
             'icon' => $request->input('icon'),
             'image' => $imagePath,
             'sort_order' => $request->input('sort_order', $service->sort_order),
-            'is_active' => $request->input('is_active', $service->is_active),
+            'is_active' => $request->has('is_active') ? $request->boolean('is_active') : $service->is_active,
         ]);
 
         return response()->json(['message' => 'Service updated successfully.', 'service' => $service]);
@@ -211,7 +211,7 @@ class HomeController extends Controller
             'title' => $request->input('title'),
             'description' => $request->input('description'),
             'sort_order' => $request->input('sort_order', $process->sort_order),
-            'is_active' => $request->input('is_active', $process->is_active),
+            'is_active' => $request->has('is_active') ? $request->boolean('is_active') : $process->is_active,
         ]);
 
         return response()->json(['message' => 'Process step updated successfully.', 'process' => $process]);
@@ -275,7 +275,7 @@ class HomeController extends Controller
             'quote' => $request->input('quote'),
             'image' => $imagePath,
             'sort_order' => $request->input('sort_order', $leader->sort_order),
-            'is_active' => $request->input('is_active', $leader->is_active),
+            'is_active' => $request->has('is_active') ? $request->boolean('is_active') : $leader->is_active,
         ]);
 
         return response()->json(['message' => 'Leader profile updated successfully.', 'leader' => $leader]);
@@ -343,7 +343,7 @@ class HomeController extends Controller
             'button_text' => $request->input('button_text', $competency->button_text),
             'button_link' => $request->input('button_link', $competency->button_link),
             'sort_order' => $request->input('sort_order', $competency->sort_order),
-            'is_active' => $request->input('is_active', $competency->is_active),
+            'is_active' => $request->has('is_active') ? $request->boolean('is_active') : $competency->is_active,
         ]);
 
         return response()->json(['message' => 'Competency updated successfully.', 'competency' => $competency]);
@@ -407,7 +407,7 @@ class HomeController extends Controller
             'image' => $imagePath,
             'link' => $request->input('link', $project->link),
             'sort_order' => $request->input('sort_order', $project->sort_order),
-            'is_active' => $request->input('is_active', $project->is_active),
+            'is_active' => $request->has('is_active') ? $request->boolean('is_active') : $project->is_active,
         ]);
 
         return response()->json(['message' => 'Project updated successfully.', 'project' => $project]);

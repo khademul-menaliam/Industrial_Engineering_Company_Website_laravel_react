@@ -105,8 +105,8 @@ class HomeSeeder extends Seeder
         $processes = [
             [
                 'step_number' => '01',
-                'title' => 'Consultation',
-                'description' => 'Risk assessment & site analysis',
+                'title' => 'Client Requirement & Site Survey',
+                'description' => 'Initial consultation, requirement gathering, site analysis',
                 'sort_order' => 1,
                 'is_active' => true,
                 'created_at' => $now,
@@ -114,8 +114,8 @@ class HomeSeeder extends Seeder
             ],
             [
                 'step_number' => '02',
-                'title' => 'Design',
-                'description' => 'CAD modeling & system engineering',
+                'title' => 'BIM Modeling & Design',
+                'description' => 'Digital building model, shop drawings, system design',
                 'sort_order' => 2,
                 'is_active' => true,
                 'created_at' => $now,
@@ -123,8 +123,8 @@ class HomeSeeder extends Seeder
             ],
             [
                 'step_number' => '03',
-                'title' => 'Installation',
-                'description' => 'Precision mechanical deployment',
+                'title' => 'Documentation & Approval',
+                'description' => 'Shop drawings, technical submittals',
                 'sort_order' => 3,
                 'is_active' => true,
                 'created_at' => $now,
@@ -132,8 +132,8 @@ class HomeSeeder extends Seeder
             ],
             [
                 'step_number' => '04',
-                'title' => 'Inspection',
-                'description' => 'Rigorous safety compliance auditing',
+                'title' => 'Procurement & Supply',
+                'description' => 'Equipment procurement, materials sourcing',
                 'sort_order' => 4,
                 'is_active' => true,
                 'created_at' => $now,
@@ -141,8 +141,8 @@ class HomeSeeder extends Seeder
             ],
             [
                 'step_number' => '05',
-                'title' => 'Maintenance',
-                'description' => 'Ongoing 24/7 technical oversight',
+                'title' => 'Installation & Commissioning',
+                'description' => 'On-site deployment, testing, commissioning',
                 'sort_order' => 5,
                 'is_active' => true,
                 'created_at' => $now,
@@ -176,8 +176,18 @@ class HomeSeeder extends Seeder
                 'name' => 'Prof. Dr. Md. Shahidur Rahman',
                 'title' => 'Advisor',
                 'quote' => 'It is a privilege to be associated with AR Engineering as an Advisor. Since its inception, the company has demonstrated a remarkable commitment to excellence, innovation, and professional integrity in delivering engineering solutions.',
-                'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuB6BlPBCRMJPlatpTIEpHMp_Qin1P514yu10fGxWT8RCgzgoxzfNiAixjZyyzruYkGHVQ5RjH0OBEc_KxD_hB3qcSwgxBXfCTdz75xqcQlWtmJnDVoVu7OJ9_8DQHmlEU1UMzGztma2yOZJNdmDHaGbntYYSAK2eccHc0A0NiIuJRImByMag29_G6K1EVot-b3ZHvp7O_PPDZ8Lu7dPLc2J8a7Q4Qw5LAllNFz5l83u3GMtrCZy6h2wdw',
+                'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuDdqOTYnupjt5nefsPJfgjHM5HMSix_-gvu2_5cythhmuUcLI2PfYVTXEqEZoZ1zb_BJZFAqoKaO2V0Qm4QtjwKvcQwn1kVOunWU27xyjnDCZ1wxDwRNnBYPoQKmoaWg5knYpTELkqiYZPebgLV8ILc_SWCdQGmp7eaKshtYnYqq6CUgfmd6b1qfwjuahdRa5B3RSc9AR0An4EpvfDAh5TPWyEcrXzVj2G4N-irBFJVrqv46azTwU5Xdg',
                 'sort_order' => 2,
+                'is_active' => true,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ],
+            [
+                'name' => 'Prof. Dr. Md. Mizanur Rahman, CEngr',
+                'title' => 'Advisor',
+                'quote' => 'It is a great pleasure to be associated with AR Engineering, an organization that exemplifies innovation, professionalism, and engineering excellence. In today\'s rapidly advancing technological landscape, the demand for reliable and sustainable engineering solutions is greater than ever.',
+                'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuB8yelI8zz3zZB_xOggCH44uFkZOchwr5JoCd_YwatDrH8n2bP7Fv04diGqoMNBFVXOMmzVXMm1Khsv2cD2J-0JkNKh8F3_z7DomR998JD4YQYPZ_UjxrXmIWGtoML1XMieoQUBHmdn4yp6fpzuwCxQHLj5ZUUIbQEb27rxJabHV_br09iEBSL1zbTfFXr_Y5NDva3iJXgqTJTFje6DCSKeQv2KRfD1T_jtIJ1E2FNjMq3V1JFqmuYHBw',
+                'sort_order' => 3,
                 'is_active' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
@@ -277,6 +287,11 @@ class HomeSeeder extends Seeder
 
         // Seed General Settings
         $settings = [
+            'welcome_section_title' => 'WELCOME TO AR ENGINEERING',
+            'welcome_section_tagline' => 'Engineering Excellence Through Innovation and Integrity',
+            'welcome_section_p1' => 'Welcome to AR Engineering, where innovation, precision, and reliability come together to deliver world-class engineering solutions.',
+            'welcome_section_p2' => 'Established with a commitment to excellence, AR Engineering specializes in Building Information Modeling (BIM), Mechanical, Electrical & Plumbing (MEP) engineering, Fire & Life Safety systems, industrial pump services, HVAC solutions, and other advanced engineering technologies. We proudly serve industrial, commercial, and residential sectors with tailored solutions designed to meet the highest standards of quality, safety, and performance.',
+            'welcome_section_p3' => 'Our experienced team of engineers, designers, and technicians works collaboratively to provide cost-effective, sustainable, and innovative solutions that exceed client expectations, building long-term relationships through trust, quality workmanship, and exceptional customer service.',
             'capabilities_section_title' => 'Core Engineering Capabilities',
             'capabilities_section_subtitle' => 'Engineered for absolute reliability in the most demanding industrial sectors.',
             'process_section_title' => 'Operational Methodology',

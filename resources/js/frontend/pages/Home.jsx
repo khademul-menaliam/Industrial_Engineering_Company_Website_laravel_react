@@ -104,6 +104,11 @@ const defaultProjects = [
 ];
 
 const defaultSettings = {
+    welcome_section_title: 'WELCOME TO AR ENGINEERING',
+    welcome_section_tagline: 'Engineering Excellence Through Innovation and Integrity',
+    welcome_section_p1: 'Welcome to AR Engineering, where innovation, precision, and reliability come together to deliver world-class engineering solutions.',
+    welcome_section_p2: 'Established with a commitment to excellence, AR Engineering specializes in Building Information Modeling (BIM), Mechanical, Electrical & Plumbing (MEP) engineering, Fire & Life Safety systems, industrial pump services, HVAC solutions, and other advanced engineering technologies. We proudly serve industrial, commercial, and residential sectors with tailored solutions designed to meet the highest standards of quality, safety, and performance.',
+    welcome_section_p3: 'Our experienced team of engineers, designers, and technicians works collaboratively to provide cost-effective, sustainable, and innovative solutions that exceed client expectations, building long-term relationships through trust, quality workmanship, and exceptional customer service.',
     capabilities_section_title: 'Core Engineering Capabilities',
     capabilities_section_subtitle: 'Engineered for absolute reliability in the most demanding industrial sectors.',
     process_section_title: 'Operational Methodology',
@@ -146,7 +151,7 @@ export default function Home() {
             });
     }, []);
 
-    const slides = apiData?.slides?.length ? apiData.slides : defaultSlides;
+    const slides = apiData ? apiData.slides : defaultSlides;
 
     useEffect(() => {
         if (!slides.length) return;
@@ -165,12 +170,12 @@ export default function Home() {
         }, 3000);
     };
 
-    const activeServices = apiData?.services?.length ? apiData.services : defaultServices;
-    const activeProcesses = apiData?.processes?.length ? apiData.processes : defaultProcesses;
-    const activeLeaders = apiData?.leaders?.length ? apiData.leaders : defaultLeaders;
-    const activeCompetencies = apiData?.competencies?.length ? apiData.competencies : defaultCompetencies;
-    const activeProjects = apiData?.projects?.length ? apiData.projects : defaultProjects;
-    const activeClientsData = apiData?.clients?.length ? apiData.clients : [];
+    const activeServices = apiData ? apiData.services : defaultServices;
+    const activeProcesses = apiData ? apiData.processes : defaultProcesses;
+    const activeLeaders = apiData ? apiData.leaders : defaultLeaders;
+    const activeCompetencies = apiData ? apiData.competencies : defaultCompetencies;
+    const activeProjects = apiData ? apiData.projects : defaultProjects;
+    const activeClientsData = apiData ? apiData.clients : [];
 
     const getSetting = (key) => apiData?.settings?.[key] || defaultSettings[key];
 
@@ -217,6 +222,32 @@ export default function Home() {
                             onClick={() => setCurrentSlide(index)}
                         ></button>
                     ))}
+                </div>
+            </section>
+
+            {/* Welcome Message Section */}
+            <section className="py-20 bg-surface-container-low border-b border-outline-variant/30 px-margin-desktop w-full">
+                <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div className="lg:col-span-5 space-y-4">
+                        <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">ABOUT US</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary leading-tight uppercase tracking-tight">
+                            {getSetting('welcome_section_title')}
+                        </h2>
+                        <p className="text-xs font-mono font-bold text-secondary uppercase tracking-widest pt-4">
+                            "{getSetting('welcome_section_tagline')}"
+                        </p>
+                    </div>
+                    <div className="lg:col-span-7 space-y-6 text-on-surface-variant text-sm leading-relaxed">
+                        <p className="font-semibold text-primary text-base text-justify">
+                            {getSetting('welcome_section_p1')}
+                        </p>
+                        <p className="text-justify">
+                            {getSetting('welcome_section_p2')}
+                        </p>
+                        <p className="text-justify">
+                            {getSetting('welcome_section_p3')}
+                        </p>
+                    </div>
                 </div>
             </section>
 
@@ -293,9 +324,9 @@ export default function Home() {
                         {getSetting('leadership_section_subtitle')}
                     </p>
                 </div>
-                <div className="grid md:grid-cols-2 gap-10">
+                <div className="grid md:grid-cols-3 gap-8">
                     {activeLeaders.map((leader, index) => (
-                        <div key={leader.id || index} className="bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/30 flex flex-col md:flex-row gap-6 items-center md:items-start group hover:border-primary transition-all duration-300">
+                        <div key={leader.id || index} className="bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/30 flex flex-col gap-6 items-start group hover:border-primary transition-all duration-300">
                             <div className="w-32 h-32 rounded-lg overflow-hidden flex-shrink-0 border border-outline-variant/30 group-hover:border-primary transition-colors">
                                 <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" alt={leader.name} src={leader.image} />
                             </div>
@@ -372,35 +403,37 @@ export default function Home() {
             </section>
 
             {/* Featured Projects Section */}
-            <section className="py-20 bg-surface px-margin-desktop w-full max-w-container-max mx-auto">
-                <div className="mb-16 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
-                        {getSetting('projects_section_title')}
-                    </h2>
-                    <p className="text-secondary text-sm max-w-3xl mx-auto leading-relaxed">
-                        {getSetting('projects_section_subtitle')}
-                    </p>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    {activeProjects.map((project, index) => (
-                        <div key={project.id || index} className="bg-surface-container-lowest rounded-lg overflow-hidden border border-outline-variant/30 group hover:shadow-lg transition-all duration-300">
-                            <div className="h-64 overflow-hidden relative">
-                                <img alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale" src={project.image} />
+            {activeProjects && activeProjects.length > 0 && (
+                <section className="py-20 bg-surface px-margin-desktop w-full max-w-container-max mx-auto">
+                    <div className="mb-16 text-center">
+                        <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
+                            {getSetting('projects_section_title')}
+                        </h2>
+                        <p className="text-secondary text-sm max-w-3xl mx-auto leading-relaxed">
+                            {getSetting('projects_section_subtitle')}
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        {activeProjects.map((project, index) => (
+                            <div key={project.id || index} className="bg-surface-container-lowest rounded-lg overflow-hidden border border-outline-variant/30 group hover:shadow-lg transition-all duration-300">
+                                <div className="h-64 overflow-hidden relative">
+                                    <img alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale" src={project.image} />
+                                </div>
+                                <div className="p-6">
+                                    <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{project.title}</h3>
+                                    <div
+                                        className="text-xs text-on-surface-variant mb-4 leading-relaxed rich-text"
+                                        dangerouslySetInnerHTML={{ __html: project.description }}
+                                    />
+                                    <Link className="inline-flex items-center gap-1 text-tertiary font-mono text-[11px] font-bold hover:text-primary transition-colors uppercase tracking-wider" to={project.link || '/portfolio'}>
+                                        Read Case Study <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                                    </Link>
+                                </div>
                             </div>
-                            <div className="p-6">
-                                <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{project.title}</h3>
-                                <div
-                                    className="text-xs text-on-surface-variant mb-4 leading-relaxed rich-text"
-                                    dangerouslySetInnerHTML={{ __html: project.description }}
-                                />
-                                <Link className="inline-flex items-center gap-1 text-tertiary font-mono text-[11px] font-bold hover:text-primary transition-colors uppercase tracking-wider" to={project.link || '/portfolio'}>
-                                    Read Case Study <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                                </Link>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </section>
+                        ))}
+                    </div>
+                </section>
+            )}
 
             {/* Client Directory Section */}
             <section className="pt-8 pb-12 bg-surface-container w-full border-y border-outline-variant/190 overflow-hidden">
@@ -514,6 +547,43 @@ export default function Home() {
                                 Submit Request
                             </button>
                         </form>
+                    </div>
+                </div>
+            </section>
+
+            {/* Why Choose AR Engineering Section */}
+            <section className="py-24 bg-surface-container px-margin-desktop w-full border-t border-outline-variant/30">
+                <div className="max-w-container-max mx-auto">
+                    <div className="mb-16 text-center">
+                        <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono mb-2 block">OUR ADVANTAGES</span>
+                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+                            WHY CHOOSE AR ENGINEERING
+                        </h2>
+                        <div className="h-1 w-12 bg-tertiary mx-auto mt-4"></div>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+                        {[
+                            { title: "Technical Expertise", desc: "Highly skilled engineers with extensive industry experience.", icon: "engineering" },
+                            { title: "Comprehensive Solutions", desc: "End-to-end engineering services in BIM, MEP, Fire Safety & industrial systems.", icon: "layers" },
+                            { title: "Quality Assurance", desc: "Compliance with all national and international engineering standards.", icon: "verified" },
+                            { title: "Innovation & Technology", desc: "Modern tech and advanced engineering practices for optimized solutions.", icon: "memory" },
+                            { title: "Safety First", desc: "Strong emphasis on health, safety, and environmental responsibility.", icon: "gavel" },
+                            { title: "Client-Centric Approach", desc: "Tailored solutions designed to meet your specific expectations.", icon: "supervised_user_circle" },
+                            { title: "Timely Delivery", desc: "Efficient project management ensuring on-time completion.", icon: "schedule" },
+                            { title: "Cost-Effective Solutions", desc: "Value-driven engineering services at competitive industry costs.", icon: "monetization_on" },
+                            { title: "Professional Integrity", desc: "Highest standards of ethics, transparency, and professionalism.", icon: "gavel" },
+                            { title: "Customer Satisfaction", desc: "Dedicated to building long-term relationships via exceptional support.", icon: "thumb_up" },
+                        ].map((reason, idx) => (
+                            <div key={idx} className="bg-surface-container-lowest p-6 rounded-lg border border-outline-variant/20 hover:border-tertiary hover:shadow-lg transition-all duration-300 flex flex-col gap-4">
+                                <div className="text-tertiary">
+                                    <span className="material-symbols-outlined text-3xl">{reason.icon}</span>
+                                </div>
+                                <div>
+                                    <h4 className="text-xs font-bold text-primary uppercase tracking-wider mb-2">{reason.title}</h4>
+                                    <p className="text-[11px] text-on-surface-variant leading-relaxed">{reason.desc}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
