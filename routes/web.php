@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -26,6 +28,23 @@ use App\Http\Controllers\Admin\FaqManagerController as AdminFaqManagerController
 use App\Http\Controllers\ClientPageController;
 use App\Http\Controllers\Admin\ClientManagerController as AdminClientManagerController;
 use App\Http\Controllers\Admin\CommandController as AdminCommandController;
+
+// Symlink Fallback Route for Shared Hosting
+Route::get('storage/{path}', function ($path) {
+    $filePath = storage_path('app/public/' . $path);
+
+    if (!File::exists($filePath)) {
+        abort(404);
+    }
+
+    $file = File::get($filePath);
+    $type = File::mimeType($filePath);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+})->where('path', '.*');
 
 // Public API Routes
 Route::get('/api/home', [HomeController::class, 'index']);
