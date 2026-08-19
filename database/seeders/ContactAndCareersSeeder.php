@@ -13,15 +13,7 @@ class ContactAndCareersSeeder extends Seeder
      */
     public function run(): void
     {
-        Schema::disableForeignKeyConstraints();
-
-        DB::table('applications')->truncate();
-        DB::table('vacancies')->truncate();
-        DB::table('contact_inquiries')->truncate();
-        DB::table('contact_settings')->truncate();
-
-        Schema::enableForeignKeyConstraints();
-
+        // No truncation to prevent data loss on the server.
         $now = now();
 
         // 1. Seed Contact Settings
@@ -31,27 +23,29 @@ class ContactAndCareersSeeder extends Seeder
             'contact_urgent_title' => 'URGENT: SAFETY INQUIRY',
             'contact_urgent_description' => 'For immediate structural failure concerns or site safety hazards, use our priority channel.',
             'contact_urgent_btn' => 'PRIORITY RESPONSE',
-            'contact_address' => "1280 Engineering Plaza\nSuite 400, Industrial District\nChicago, IL 60601",
-            'contact_phone' => '+1 (800) 555-0192',
+            'contact_address' => "House-15, Road -1, Block-A\nMohanagar Project, West Rampura\nDhaka-1219, Bangladesh",
+            'contact_phone' => '+880 1621 727549',
             'contact_phone_hours' => 'Mon - Fri: 8:00 AM - 6:00 PM CST',
-            'contact_email' => 'info@arengineeringbd.com',
+            'contact_email' => 'service@arengineeringbd.com',
             'contact_map_image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuBxU7jTojfIGAD6pxvJSGDir2eB2D-tRFcfxCAfIMdI8aTEwS8z1PbjiaCDajjAknsLj1zOS3AFQ_LpHUky4Tfe7YsTKCltIvvEyF2Jv6K1K9pxmT80GNP8Dr-6SQImvY8i-hOA8RsIHrlByMI2rbargNC0ELEb77OjQpUrDQ2DTd2zMwEVyifZ_amef2R4LVlIxQZcjmGAIG8VYZhK9e-GoybaRkNkN4g2wzmHI4rQb_vSBGE_re5Q3Q',
             'contact_response_time' => '< 12 HOURS',
             'contact_system_status' => 'OPERATIONAL',
         ];
 
         foreach ($settings as $key => $val) {
-            DB::table('contact_settings')->insert([
-                'key' => $key,
-                'value' => $val,
-                'group' => 'general',
-                'created_at' => $now,
-                'updated_at' => $now,
-            ]);
+            DB::table('contact_settings')->updateOrInsert(
+                ['key' => $key],
+                [
+                    'value' => $val,
+                    'group' => 'general',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]
+            );
         }
 
         // 2. Seed Vacancies
-        DB::table('vacancies')->insert([
+        $vacancies = [
             [
                 'ref' => 'AR-204',
                 'title' => 'Senior Structural Engineer',
@@ -82,6 +76,17 @@ class ContactAndCareersSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
-        ]);
+        ];
+
+        foreach ($vacancies as $v) {
+            DB::table('vacancies')->updateOrInsert(
+                ['ref' => $v['ref']],
+                array_merge($v, ['updated_at' => $now])
+            );
+        }
+
+        // Clean up old vacancies no longer in seeder
+        $refs = array_column($vacancies, 'ref');
+        DB::table('vacancies')->whereNotIn('ref', $refs)->delete();
     }
 }

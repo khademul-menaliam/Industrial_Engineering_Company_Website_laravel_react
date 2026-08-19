@@ -13,17 +13,10 @@ class ServiceSeeder extends Seeder
      */
     public function run(): void
     {
-        // Disable foreign key constraints to safely truncate tables
-        Schema::disableForeignKeyConstraints();
-        
-        DB::table('services')->truncate();
-        DB::table('service_settings')->truncate();
-        DB::table('service_categories')->truncate();
-        
-        Schema::enableForeignKeyConstraints();
+        // No truncation to prevent data loss on the server.
 
         // 1. Seed service_categories
-        DB::table('service_categories')->insert([
+        $categories = [
             [
                 'slug' => 'consulting',
                 'name' => 'Consulting Services',
@@ -51,10 +44,20 @@ class ServiceSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-        ]);
+        ];
+
+        foreach ($categories as $cat) {
+            DB::table('service_categories')->updateOrInsert(
+                ['slug' => $cat['slug']],
+                array_merge($cat, ['updated_at' => now()])
+            );
+        }
+
+        $categorySlugs = array_column($categories, 'slug');
+        DB::table('service_categories')->whereNotIn('slug', $categorySlugs)->delete();
 
         // 2. Seed service_settings
-        DB::table('service_settings')->insert([
+        $settings = [
             [
                 'key' => 'services_intro_title',
                 'value' => 'Operational Hierarchy',
@@ -111,10 +114,17 @@ class ServiceSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-        ]);
+        ];
+
+        foreach ($settings as $set) {
+            DB::table('service_settings')->updateOrInsert(
+                ['key' => $set['key']],
+                array_merge($set, ['updated_at' => now()])
+            );
+        }
 
         // 3. Seed services
-        DB::table('services')->insert([
+        $services = [
             // --- 01. CONSULTING SERVICES ---
             [
                 'category' => 'consulting',
@@ -540,6 +550,16 @@ class ServiceSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-        ]);
+        ];
+
+        foreach ($services as $srv) {
+            DB::table('services')->updateOrInsert(
+                ['slug' => $srv['slug']],
+                array_merge($srv, ['updated_at' => now()])
+            );
+        }
+
+        $serviceSlugs = array_column($services, 'slug');
+        DB::table('services')->whereNotIn('slug', $serviceSlugs)->delete();
     }
 }

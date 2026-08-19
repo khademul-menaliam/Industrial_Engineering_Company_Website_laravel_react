@@ -41,7 +41,10 @@ class FaqSeeder extends Seeder
         ];
 
         foreach ($faqs as $faq) {
-            Faq::create($faq);
+            Faq::updateOrCreate(['question' => $faq['question']], $faq);
         }
+
+        $questions = array_column($faqs, 'question');
+        Faq::whereNotIn('question', $questions)->delete();
     }
 }

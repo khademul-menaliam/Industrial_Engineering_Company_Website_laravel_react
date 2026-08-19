@@ -13,23 +13,11 @@ class HomeSeeder extends Seeder
      */
     public function run(): void
     {
-        // Disable foreign key constraints to safely truncate tables
-        Schema::disableForeignKeyConstraints();
-        
-        DB::table('home_settings')->truncate();
-        DB::table('home_projects')->truncate();
-        DB::table('home_competencies')->truncate();
-        DB::table('home_leaders')->truncate();
-        DB::table('home_processes')->truncate();
-        DB::table('home_services')->truncate();
-        DB::table('home_slides')->truncate();
-        
-        Schema::enableForeignKeyConstraints();
-
+        // No truncation to prevent data loss on the server.
         $now = now();
 
         // Seed Slides
-        DB::table('home_slides')->insert([
+        $slides = [
             [
                 'title' => 'Your Vision, Our Engineering',
                 'subtitle' => 'Providing innovative industrial engineering solutions',
@@ -57,10 +45,20 @@ class HomeSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
-        ]);
+        ];
+
+        foreach ($slides as $s) {
+            DB::table('home_slides')->updateOrInsert(
+                ['title' => $s['title']],
+                array_merge($s, ['updated_at' => $now])
+            );
+        }
+
+        $slideTitles = array_column($slides, 'title');
+        DB::table('home_slides')->whereNotIn('title', $slideTitles)->delete();
 
         // Seed Services
-        DB::table('home_services')->insert([
+        $services = [
             [
                 'title' => 'Fire Pump Installation',
                 'description' => 'Design, installation, testing, and maintenance of high-capacity fire pump systems.',
@@ -91,10 +89,20 @@ class HomeSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
-        ]);
+        ];
+
+        foreach ($services as $srv) {
+            DB::table('home_services')->updateOrInsert(
+                ['title' => $srv['title']],
+                array_merge($srv, ['updated_at' => $now])
+            );
+        }
+
+        $serviceTitles = array_column($services, 'title');
+        DB::table('home_services')->whereNotIn('title', $serviceTitles)->delete();
 
         // Seed Processes (Operational Methodology)
-        DB::table('home_processes')->insert([
+        $processes = [
             [
                 'step_number' => '01',
                 'title' => 'Consultation',
@@ -140,14 +148,24 @@ class HomeSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
-        ]);
+        ];
+
+        foreach ($processes as $proc) {
+            DB::table('home_processes')->updateOrInsert(
+                ['step_number' => $proc['step_number']],
+                array_merge($proc, ['updated_at' => $now])
+            );
+        }
+
+        $processSteps = array_column($processes, 'step_number');
+        DB::table('home_processes')->whereNotIn('step_number', $processSteps)->delete();
 
         // Seed Leaders
-        DB::table('home_leaders')->insert([
+        $leaders = [
             [
-                'name' => 'David Richardson',
-                'title' => 'Chief Executive Officer',
-                'quote' => 'Our mission is simple: to provide the structural foundation upon which global industries can thrive. Precision is not just a goal; it is our standard.',
+                'name' => 'Engr. Md. Ashikur Rahman',
+                'title' => 'Founder & CEO',
+                'quote' => 'Welcome to AR Engineering. At AR Engineering, we believe that engineering is not only about designing systems—it is about creating safe, sustainable, and innovative solutions that add value to our clients and society.',
                 'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuDdqOTYnupjt5nefsPJfgjHM5HMSix_-gvu2_5cythhmuUcLI2PfYVTXEqEZoZ1zb_BJZFAqoKaO2V0Qm4QtjwKvcQwn1kVOunWU27xyjnDCZ1wxDwRNnBYPoQKmoaWg5knYpTELkqiYZPebgLV8ILc_SWCdQGmp7eaKshtYnYqq6CUgfmd6b1qfwjuahdRa5B3RSc9AR0An4EpvfDAh5TPWyEcrXzVj2G4N-irBFJVrqv46azTwU5Xdg',
                 'sort_order' => 1,
                 'is_active' => true,
@@ -155,19 +173,29 @@ class HomeSeeder extends Seeder
                 'updated_at' => $now,
             ],
             [
-                'name' => 'Dr. Elena Vance',
-                'title' => 'Senior Strategic Advisor',
-                'quote' => 'The complexity of modern engineering requires a blend of traditional expertise and digital foresight. We provide that equilibrium.',
+                'name' => 'Prof. Dr. Md. Shahidur Rahman',
+                'title' => 'Advisor',
+                'quote' => 'It is a privilege to be associated with AR Engineering as an Advisor. Since its inception, the company has demonstrated a remarkable commitment to excellence, innovation, and professional integrity in delivering engineering solutions.',
                 'image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuB6BlPBCRMJPlatpTIEpHMp_Qin1P514yu10fGxWT8RCgzgoxzfNiAixjZyyzruYkGHVQ5RjH0OBEc_KxD_hB3qcSwgxBXfCTdz75xqcQlWtmJnDVoVu7OJ9_8DQHmlEU1UMzGztma2yOZJNdmDHaGbntYYSAK2eccHc0A0NiIuJRImByMag29_G6K1EVot-b3ZHvp7O_PPDZ8Lu7dPLc2J8a7Q4Qw5LAllNFz5l83u3GMtrCZy6h2wdw',
                 'sort_order' => 2,
                 'is_active' => true,
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
-        ]);
+        ];
+
+        foreach ($leaders as $l) {
+            DB::table('home_leaders')->updateOrInsert(
+                ['name' => $l['name']],
+                array_merge($l, ['updated_at' => $now])
+            );
+        }
+
+        $leaderNames = array_column($leaders, 'name');
+        DB::table('home_leaders')->whereNotIn('name', $leaderNames)->delete();
 
         // Seed Competencies
-        DB::table('home_competencies')->insert([
+        $competencies = [
             [
                 'title' => 'Fire Safety & MEP',
                 'items' => json_encode(['Advanced Suppression', 'NFPA Compliance Audits', 'Fire Load Management']),
@@ -201,10 +229,20 @@ class HomeSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
-        ]);
+        ];
+
+        foreach ($competencies as $comp) {
+            DB::table('home_competencies')->updateOrInsert(
+                ['title' => $comp['title']],
+                array_merge($comp, ['updated_at' => $now])
+            );
+        }
+
+        $competencyTitles = array_column($competencies, 'title');
+        DB::table('home_competencies')->whereNotIn('title', $competencyTitles)->delete();
 
         // Seed Projects
-        DB::table('home_projects')->insert([
+        $projects = [
             [
                 'title' => 'Petrochemical Facility Upgrade',
                 'description' => 'Comprehensive overhaul of fire suppression and MEP systems for a 500,000 sq ft facility.',
@@ -225,7 +263,17 @@ class HomeSeeder extends Seeder
                 'created_at' => $now,
                 'updated_at' => $now,
             ],
-        ]);
+        ];
+
+        foreach ($projects as $proj) {
+            DB::table('home_projects')->updateOrInsert(
+                ['title' => $proj['title']],
+                array_merge($proj, ['updated_at' => $now])
+            );
+        }
+
+        $projectTitles = array_column($projects, 'title');
+        DB::table('home_projects')->whereNotIn('title', $projectTitles)->delete();
 
         // Seed General Settings
         $settings = [
@@ -239,14 +287,14 @@ class HomeSeeder extends Seeder
             'projects_section_title' => 'Featured Projects',
             'projects_section_subtitle' => 'Demonstrated excellence in large-scale industrial deployments.',
             'clients_section_title' => 'Trusted by Global Industry Leaders',
-            'clients_list' => json_encode(['AERO-DYNAMICS', 'GLOBAL STEEL', 'NEXUS PETRO', 'TITAN MOTORS', 'HELIOS ENERGY']),
+            'clients_list' => json_encode(['Stylemeth San Apparels', 'Graphics Textiles Ltd.', 'Probidhi Apparels Ltd.', 'L Usine Fashion', 'Purbani Group', 'Rahman Sports Wear', 'AKH Group', 'Urmi Group', 'Standard Group', 'IRIS Group', 'BITOPI Group', 'Dekko Group', 'Envoy Group', 'Palmal Group']),
             'contact_section_title' => 'Request a Consultation',
             'contact_section_description' => 'Partner with our elite engineering team to secure and optimize your industrial operations. Fill out the form below to initiate a preliminary project assessment.',
-            'contact_headquarters_address' => "400 Industrial Way, Suite 200\nDetroit, MI 48201",
-            'contact_support_phone' => '1-800-AR-ENGINEERING',
-            'footer_corporate_office' => "House-15, Road -1, Block-A,\nMohanagar Project,West Rampura,\nDhaka-1219, Bangladesh",
-            'footer_registered_office' => "1/1/D, ShahidNajrul Islam Sharak,\nHatkhola Road, Dhaka, Bangladesh.",
-            'footer_email' => "info@arengineeringbd.com",
+            'contact_headquarters_address' => "House-15, Road -1, Block-A\nMohanagar Project, West Rampura\nDhaka-1219, Bangladesh",
+            'contact_support_phone' => '+880 1621 727549',
+            'footer_corporate_office' => "House-15, Road -1, Block-A\nMohanagar Project, West Rampura\nDhaka-1219, Bangladesh",
+            'footer_registered_office' => "1/1/D, Shahid Najrul Islam Sharak\nHatkhola Road, Dhaka, Bangladesh",
+            'footer_email' => "service@arengineeringbd.com",
             'footer_description' => "Industrial Engineering Solution Provider — Consultancy, Services, Supply & Erection.",
             'cta_section_title' => 'READY FOR AR ENGINEERING?',
             'cta_section_subtitle' => 'Consult with our elite engineering team for high-stakes industrial solutions and structural integrity audits.',
@@ -257,13 +305,15 @@ class HomeSeeder extends Seeder
         ];
 
         foreach ($settings as $key => $val) {
-            DB::table('home_settings')->insert([
-                'key' => $key,
-                'value' => $val,
-                'group' => 'general',
-                'created_at' => $now,
-                'updated_at' => $now,
-            ]);
+            DB::table('home_settings')->updateOrInsert(
+                ['key' => $key],
+                [
+                    'value' => $val,
+                    'group' => 'general',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]
+            );
         }
     }
 }
