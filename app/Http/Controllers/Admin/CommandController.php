@@ -83,7 +83,18 @@ class CommandController extends Controller
     {
         $request->validate([
             'command' => 'required|string',
+            'console_password' => 'required|string',
         ]);
+
+        $password = $request->input('console_password');
+        $expected = env('COMMAND_CONSOLE_PASSWORD', 'admin123');
+
+        if ($password !== $expected) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Invalid or expired console authorization password.'
+            ], 401);
+        }
 
         $key = $request->input('command');
 
@@ -218,5 +229,30 @@ class CommandController extends Controller
                 'message' => "Failed to execute '{$command}'."
             ], 500);
         }
+    }
+
+    /**
+     * Verify the console authorization password.
+     */
+    public function verifyPassword(Request $request): JsonResponse
+    {
+        $request->validate([
+            'password' => 'required|string',
+        ]);
+
+        $password = $request->input('password');
+        $expected = env('COMMAND_CONSOLE_PASSWORD', 'admin123');
+
+        if ($password === $expected) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Console authorized successfully.'
+            ]);
+        }
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Invalid console authorization password.'
+        ], 401);
     }
 }

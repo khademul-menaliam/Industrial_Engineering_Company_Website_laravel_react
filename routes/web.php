@@ -30,7 +30,7 @@ use App\Http\Controllers\Admin\ClientManagerController as AdminClientManagerCont
 use App\Http\Controllers\Admin\CommandController as AdminCommandController;
 
 // Symlink Fallback Route for Shared Hosting
-Route::get('storage/{path}', function ($path) {
+Route::get('{prefix}/{path}', function ($prefix, $path) {
     $filePath = storage_path('app/public/' . $path);
 
     if (!File::exists($filePath)) {
@@ -44,7 +44,7 @@ Route::get('storage/{path}', function ($path) {
     $response->header("Content-Type", $type);
 
     return $response;
-})->where('path', '.*');
+})->where('prefix', '(storage|app-media)')->where('path', '.*');
 
 // Public API Routes
 Route::get('/api/home', [HomeController::class, 'index']);
@@ -196,6 +196,7 @@ Route::middleware(['auth'])->group(function () {
     // Secure API endpoints for Admin Command Runner
     Route::prefix('api/admin/commands')->group(function () {
         Route::post('/run', [AdminCommandController::class, 'runCommand']);
+        Route::post('/verify-password', [AdminCommandController::class, 'verifyPassword']);
     });
 
     Route::get('/admin-portal', function () {
