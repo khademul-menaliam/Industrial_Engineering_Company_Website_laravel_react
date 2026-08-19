@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\FaqManagerController as AdminFaqManagerController
 // Client Controllers
 use App\Http\Controllers\ClientPageController;
 use App\Http\Controllers\Admin\ClientManagerController as AdminClientManagerController;
+use App\Http\Controllers\Admin\CommandController as AdminCommandController;
 
 // Public API Routes
 Route::get('/api/home', [HomeController::class, 'index']);
@@ -171,6 +172,11 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/', [AdminClientManagerController::class, 'store']);
         Route::post('/{id}', [AdminClientManagerController::class, 'update']);
         Route::delete('/{id}', [AdminClientManagerController::class, 'destroy']);
+    });
+
+    // Secure API endpoints for Admin Command Runner
+    Route::prefix('api/admin/commands')->group(function () {
+        Route::post('/run', [AdminCommandController::class, 'runCommand']);
     });
 
     Route::get('/admin-portal', function () {

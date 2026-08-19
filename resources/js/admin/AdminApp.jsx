@@ -15,6 +15,7 @@ import CareersManager from './pages/CareersManager';
 import AboutManager from './pages/AboutManager';
 import FaqManager from './pages/FaqManager';
 import ClientsManager from './pages/ClientsManager';
+import SystemCommands from './pages/SystemCommands';
 
 export default function AdminApp() {
     const location = useLocation();
@@ -34,6 +35,7 @@ export default function AdminApp() {
         { name: 'Analytics', path: '/analytics', icon: 'monitoring' },
         { name: 'Notifications', path: '/notifications', icon: 'notifications' },
         { name: 'Settings', path: '/settings', icon: 'settings' },
+        { name: 'System Commands', path: '/system-commands', icon: 'terminal' },
         { name: 'Profile', path: '/profile', icon: 'account_circle' },
     ];
 
@@ -142,6 +144,7 @@ export default function AdminApp() {
                         <Route path="/analytics" element={<Analytics />} />
                         <Route path="/notifications" element={<Notifications />} />
                         <Route path="/settings" element={<Settings />} />
+                        <Route path="/system-commands" element={<SystemCommands />} />
                         <Route path="/profile" element={<Profile />} />
                     </Routes>
                 </main>
