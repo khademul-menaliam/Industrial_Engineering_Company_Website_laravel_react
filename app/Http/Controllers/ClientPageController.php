@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Client;
 use App\Models\ClientSetting;
 use App\Models\ClientTestimonial;
+use App\Models\SolutionPartner;
 use Illuminate\Http\Request;
 
 class ClientPageController extends Controller
@@ -18,11 +19,14 @@ class ClientPageController extends Controller
 
         $testimonials = ClientTestimonial::where('is_active', true)->orderBy('order', 'asc')->get();
 
+        $partners = SolutionPartner::where('is_active', true)->orderBy('order', 'asc')->get();
+
         return response()->json([
             'success' => true,
             'clients' => $clients,
             'settings' => $settings,
-            'testimonials' => $testimonials
+            'testimonials' => $testimonials,
+            'partners' => $partners
         ]);
     }
 }

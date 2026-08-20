@@ -365,8 +365,14 @@ export default function Home() {
                             if (comp.items) {
                                 bulletItems = typeof comp.items === 'string' ? JSON.parse(comp.items) : comp.items;
                             }
+                            const isLastOdd = activeCompetencies.length % 2 !== 0 && index === activeCompetencies.length - 1;
                             return (
-                                <div key={comp.id || index} className="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden group hover:shadow-md border border-outline-variant/30">
+                                <div
+                                    key={comp.id || index}
+                                    className={`bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden group hover:shadow-md border border-outline-variant/30 ${
+                                        isLastOdd ? 'sm:col-span-2 lg:col-span-1 sm:justify-self-center sm:w-[calc(50%-1rem)] lg:w-full' : ''
+                                    }`}
+                                >
                                     <div className="h-48 overflow-hidden relative">
                                         <img className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt={comp.title} src={comp.image} />
                                     </div>

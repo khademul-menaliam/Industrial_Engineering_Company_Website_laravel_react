@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\ClientSetting;
 use App\Models\ClientTestimonial;
+use App\Models\SolutionPartner;
 
 class ClientManagerController extends Controller
 {
@@ -174,6 +175,68 @@ class ClientManagerController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Testimonial deleted successfully.'
+        ]);
+    }
+
+    // ================= PARTNERS =================
+    public function getPartners()
+    {
+        $partners = SolutionPartner::orderBy('order', 'asc')->paginate(10);
+        return response()->json([
+            'success' => true,
+            'data' => $partners
+        ]);
+    }
+
+    public function storePartner(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'logo' => 'required|string|max:500',
+            'type' => 'required|string|max:255',
+            'desc' => 'required|string',
+            'order' => 'integer',
+            'is_active' => 'boolean'
+        ]);
+
+        $partner = SolutionPartner::create($validated);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Solution Partner created successfully.',
+            'data' => $partner
+        ]);
+    }
+
+    public function updatePartner(Request $request, $id)
+    {
+        $partner = SolutionPartner::findOrFail($id);
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'logo' => 'required|string|max:500',
+            'type' => 'required|string|max:255',
+            'desc' => 'required|string',
+            'order' => 'integer',
+            'is_active' => 'boolean'
+        ]);
+
+        $partner->update($validated);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Solution Partner updated successfully.',
+            'data' => $partner
+        ]);
+    }
+
+    public function destroyPartner($id)
+    {
+        $partner = SolutionPartner::findOrFail($id);
+        $partner->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Solution Partner deleted successfully.'
         ]);
     }
 }

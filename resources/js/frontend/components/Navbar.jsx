@@ -24,7 +24,7 @@ export default function Navbar() {
                 <div className="hidden lg:flex items-center gap-4">
                     <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/services">Services</Link>
                     {/* <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/portfolio">Projects</Link> */}
-                    <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/clients">Testimonials</Link>
+                    <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/clients">Partners</Link>
                     <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/careers">Careers</Link>
                     
                     {/* Company Dropdown */}
@@ -119,7 +119,7 @@ export default function Navbar() {
                             to="/clients"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            Testimonials
+                            Partners
                         </Link>
                         <Link 
                             className="text-[#8d9aa1] font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap" 

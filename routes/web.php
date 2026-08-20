@@ -186,6 +186,12 @@ Route::middleware(['auth'])->group(function () {
         Route::post('/testimonials/{id}', [AdminClientManagerController::class, 'updateTestimonial']);
         Route::delete('/testimonials/{id}', [AdminClientManagerController::class, 'destroyTestimonial']);
 
+        // Partners
+        Route::get('/partners', [AdminClientManagerController::class, 'getPartners']);
+        Route::post('/partners', [AdminClientManagerController::class, 'storePartner']);
+        Route::post('/partners/{id}', [AdminClientManagerController::class, 'updatePartner']);
+        Route::delete('/partners/{id}', [AdminClientManagerController::class, 'destroyPartner']);
+
         // Clients
         Route::get('/', [AdminClientManagerController::class, 'index']);
         Route::post('/', [AdminClientManagerController::class, 'store']);

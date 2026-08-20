@@ -24,6 +24,12 @@ export default function ClientsManager() {
     const [testimonialForm, setTestimonialForm] = useState({ id: null, quote: '', author: '', role: '', avatar: '', is_active: true, order: 0 });
     const [isEditingTestimonial, setIsEditingTestimonial] = useState(false);
 
+    // States for Partners
+    const [partners, setPartners] = useState([]);
+    const [partnerPagination, setPartnerPagination] = useState(null);
+    const [partnerForm, setPartnerForm] = useState({ id: null, name: '', logo: '', type: '', desc: '', is_active: true, order: 0 });
+    const [isEditingPartner, setIsEditingPartner] = useState(false);
+
     const [deleteModal, setDeleteModal] = useState({ isOpen: false, type: null, id: null });
 
     useEffect(() => {
@@ -33,10 +39,11 @@ export default function ClientsManager() {
     const fetchData = async () => {
         setLoading(true);
         try {
-            const [clientsRes, settingsRes, testimonialsRes] = await Promise.all([
+            const [clientsRes, settingsRes, testimonialsRes, partnersRes] = await Promise.all([
                 axios.get('/api/admin/clients'),
                 axios.get('/api/admin/clients/settings'),
-                axios.get('/api/admin/clients/testimonials')
+                axios.get('/api/admin/clients/testimonials'),
+                axios.get('/api/admin/clients/partners')
             ]);
             
             if (clientsRes.data.success) {
@@ -49,6 +56,10 @@ export default function ClientsManager() {
             if (testimonialsRes.data.success) {
                 setTestimonials(testimonialsRes.data.data.data);
                 setTestimonialPagination(testimonialsRes.data.data);
+            }
+            if (partnersRes.data.success) {
+                setPartners(partnersRes.data.data.data);
+                setPartnerPagination(partnersRes.data.data);
             }
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -193,17 +204,61 @@ export default function ClientsManager() {
         }
     };
 
+    // --- Partner Functions ---
+    const fetchPartnersPage = async (pageUrl) => {
+        if (!pageUrl) return;
+        const url = new URL(pageUrl);
+        const page = url.searchParams.get('page');
+        if (page) {
+            try {
+                const res = await axios.get(`/api/admin/clients/partners?page=${page}`);
+                setPartners(res.data.data.data);
+                setPartnerPagination(res.data.data);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+    };
+
+    const handlePartnerInputChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setPartnerForm(prev => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
+    };
+
+    const handlePartnerSubmit = async (e) => {
+        e.preventDefault();
+        const url = isEditingPartner ? `/api/admin/clients/partners/${partnerForm.id}` : '/api/admin/clients/partners';
+        try {
+            const payload = { ...partnerForm, order: parseInt(partnerForm.order) || 0 };
+            const res = await axios.post(url, payload);
+            if (res.data.success) {
+                setPartnerForm({ id: null, name: '', logo: '', type: '', desc: '', is_active: true, order: 0 });
+                setIsEditingPartner(false);
+                fetchPartnersPage(`/api/admin/clients/partners?page=${partnerPagination ? partnerPagination.current_page : 1}`);
+                showToast(isEditingPartner ? 'Solution Partner updated!' : 'Solution Partner added!');
+            }
+        } catch (err) {
+            console.error(err);
+            showToast('Error saving solution partner', 'error');
+        }
+    };
+
     // --- Delete Functions ---
     const confirmDelete = async () => {
         if (!deleteModal.id) return;
         const { type, id } = deleteModal;
-        const endpoint = type === 'client' ? `/api/admin/clients/${id}` : `/api/admin/clients/testimonials/${id}`;
         
+        let endpoint = '';
+        if (type === 'client') endpoint = `/api/admin/clients/${id}`;
+        else if (type === 'testimonial') endpoint = `/api/admin/clients/testimonials/${id}`;
+        else if (type === 'partner') endpoint = `/api/admin/clients/partners/${id}`;
+
         try {
             const response = await axios.delete(endpoint);
             if (response.data.success) {
                 if (type === 'client') fetchClientsPage(`/api/admin/clients?page=${clientPagination ? clientPagination.current_page : 1}`);
-                else fetchTestimonialsPage(`/api/admin/clients/testimonials?page=${testimonialPagination ? testimonialPagination.current_page : 1}`);
+                else if (type === 'testimonial') fetchTestimonialsPage(`/api/admin/clients/testimonials?page=${testimonialPagination ? testimonialPagination.current_page : 1}`);
+                else if (type === 'partner') fetchPartnersPage(`/api/admin/clients/partners?page=${partnerPagination ? partnerPagination.current_page : 1}`);
                 showToast('Deleted successfully.');
             }
         } catch (error) {
@@ -237,7 +292,8 @@ export default function ClientsManager() {
                 {[
                     { id: 'settings', label: 'Page Settings & CTA', icon: 'settings' },
                     { id: 'clients', label: 'Manage Clients', icon: 'groups' },
-                    { id: 'testimonials', label: 'Testimonials', icon: 'format_quote' }
+                    { id: 'testimonials', label: 'Testimonials', icon: 'format_quote' },
+                    { id: 'partners', label: 'Solution Partners', icon: 'handshake' }
                 ].map(tab => (
                     <button
                         key={tab.id}
@@ -518,6 +574,100 @@ export default function ClientsManager() {
                             <div className="p-4 border-t border-outline-variant/30 flex items-center justify-center gap-2">
                                 {testimonialPagination.links.map((link, index) => (
                                     <button key={index} onClick={() => fetchTestimonialsPage(link.url)} disabled={!link.url || link.active} className={`px-3 py-1 rounded text-sm transition-colors ${link.active ? 'bg-primary text-on-primary font-bold' : 'bg-surface-container text-white hover:bg-surface-container-highest'} ${!link.url && !link.active ? 'opacity-50 cursor-not-allowed' : ''}`} dangerouslySetInnerHTML={{ __html: link.label }} />
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+
+            {/* TAB: Solution Partners */}
+            {activeTab === 'partners' && (
+                <div className="space-y-6">
+                    <div className="bg-surface p-6 rounded-2xl border border-outline-variant/30">
+                        <h3 className="text-lg font-bold text-white mb-4">{isEditingPartner ? 'Edit Solution Partner' : 'Add New Solution Partner'}</h3>
+                        <form onSubmit={handlePartnerSubmit} className="space-y-4">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-on-surface-variant mb-1">Partner Name</label>
+                                    <input type="text" name="name" value={partnerForm.name} onChange={handlePartnerInputChange} required className="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-on-surface-variant mb-1">Partner Logo URL</label>
+                                    <input type="url" name="logo" value={partnerForm.logo} onChange={handlePartnerInputChange} required className="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary" />
+                                </div>
+                            </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-sm font-medium text-on-surface-variant mb-1">Partner Type / Category</label>
+                                    <input type="text" name="type" value={partnerForm.type} onChange={handlePartnerInputChange} required className="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary" placeholder="e.g. Fire Protection System Partner" />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-on-surface-variant mb-1">Display Order</label>
+                                    <input type="number" name="order" value={partnerForm.order} onChange={handlePartnerInputChange} className="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary" />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-sm font-medium text-on-surface-variant mb-1">Description / Overview</label>
+                                <textarea name="desc" value={partnerForm.desc} onChange={handlePartnerInputChange} required rows="3" className="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary"></textarea>
+                            </div>
+                            <div className="flex gap-4">
+                                <label className="flex items-center gap-2 cursor-pointer">
+                                    <input type="checkbox" name="is_active" checked={partnerForm.is_active} onChange={handlePartnerInputChange} className="w-5 h-5 rounded border-outline-variant/50 text-primary bg-surface-container" />
+                                    <span className="text-sm font-medium text-white">Active</span>
+                                </label>
+                            </div>
+                            <div className="flex gap-3 pt-2">
+                                <button type="submit" className="px-6 py-2 bg-primary text-on-primary rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                                    {isEditingPartner ? 'Update Partner' : 'Save Partner'}
+                                </button>
+                                {isEditingPartner && (
+                                    <button type="button" onClick={() => { setIsEditingPartner(false); setPartnerForm({ id: null, name: '', logo: '', type: '', desc: '', is_active: true, order: 0 }); }} className="px-6 py-2 bg-surface-container-highest text-white rounded-lg font-semibold transition-colors">
+                                        Cancel
+                                    </button>
+                                )}
+                            </div>
+                        </form>
+                    </div>
+
+                    <div className="bg-surface rounded-2xl border border-outline-variant/30 overflow-hidden">
+                        <div className="p-6 border-b border-outline-variant/30 flex justify-between items-center">
+                            <h3 className="text-lg font-bold text-white">Manage Solution Partners</h3>
+                        </div>
+                        {partners.length === 0 ? (
+                            <div className="p-8 text-center text-on-surface-variant">No Solution Partners found.</div>
+                        ) : (
+                            <div className="divide-y divide-outline-variant/30">
+                                {partners.map(partner => (
+                                    <div key={partner.id} className="p-6 flex items-start gap-4 hover:bg-surface-container/30 transition-colors">
+                                        <div className="w-16 h-12 shrink-0 rounded bg-white p-1 flex items-center justify-center border border-outline-variant/30">
+                                            <img src={partner.logo} alt={partner.name} className="max-w-full max-h-full object-contain" />
+                                        </div>
+                                        <div className="flex-grow">
+                                            <div className="flex items-center gap-3 mb-2">
+                                                <h4 className="text-white font-bold">{partner.name}</h4>
+                                                <span className="text-xs text-tertiary uppercase font-mono">{partner.type}</span>
+                                                {!partner.is_active && <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-error/20 text-error uppercase tracking-wider">Inactive</span>}
+                                                <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-surface-container-highest text-on-surface-variant uppercase tracking-wider">Order: {partner.order}</span>
+                                            </div>
+                                            <p className="text-sm text-on-surface-variant line-clamp-2">{partner.desc}</p>
+                                        </div>
+                                        <div className="flex gap-2 shrink-0">
+                                            <button onClick={() => { setPartnerForm(partner); setIsEditingPartner(true); window.scrollTo(0, 0); }} className="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-secondary hover:text-white hover:bg-secondary transition-colors">
+                                                <span className="material-symbols-outlined text-sm">edit</span>
+                                            </button>
+                                            <button onClick={() => setDeleteModal({ isOpen: true, type: 'partner', id: partner.id })} className="w-8 h-8 rounded bg-surface-container flex items-center justify-center text-error hover:text-white hover:bg-error transition-colors">
+                                                <span className="material-symbols-outlined text-sm">delete</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                        {partnerPagination && partnerPagination.last_page > 1 && (
+                            <div className="p-4 border-t border-outline-variant/30 flex items-center justify-center gap-2">
+                                {partnerPagination.links.map((link, index) => (
+                                    <button key={index} onClick={() => fetchPartnersPage(link.url)} disabled={!link.url || link.active} className={`px-3 py-1 rounded text-sm transition-colors ${link.active ? 'bg-primary text-on-primary font-bold' : 'bg-surface-container text-white hover:bg-surface-container-highest'} ${!link.url && !link.active ? 'opacity-50 cursor-not-allowed' : ''}`} dangerouslySetInnerHTML={{ __html: link.label }} />
                                 ))}
                             </div>
                         )}
