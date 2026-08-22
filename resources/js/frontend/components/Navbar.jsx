@@ -6,7 +6,7 @@ export default function Navbar() {
     const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
 
     return (
-        <header className="w-full top-0 sticky shadow-lg bg-[#111d23] z-50">
+        <header className="w-full top-0 sticky shadow-lg bg-[#0c0f24] z-50">
             <nav className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20 ">
                 <Link to="/" className="flex items-center whitespace-nowrap gap-1">
                     <img 
@@ -33,7 +33,7 @@ export default function Navbar() {
                             Company
                             <span className="material-symbols-outlined text-sm select-none">keyboard_arrow_down</span>
                         </button>
-                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-[#111d23] border border-white/10 rounded shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200 z-50">
+                        <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-[#0c0f24] border border-white/10 rounded shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200 z-50">
                             <Link className="block px-4 py-2.5 text-[#8d9aa1] hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap" to="/about">About Us</Link>
                             <Link className="block px-4 py-2.5 text-[#8d9aa1] hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap" to="/how-we-work">How It Works</Link>
                             <Link className="block px-4 py-2.5 text-[#8d9aa1] hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap" to="/faq">FAQ</Link>
@@ -72,7 +72,7 @@ export default function Navbar() {
             )}
 
             {/* Mobile Menu Drawer */}
-            <div className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#111d23] border-l border-white/10 z-50 shadow-2xl p-6 transition-all duration-300 ease-in-out lg:hidden flex flex-col justify-between ${
+            <div className={`fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-[#0c0f24] border-l border-white/10 z-50 shadow-2xl p-6 transition-all duration-300 ease-in-out lg:hidden flex flex-col justify-between ${
                 isMobileMenuOpen ? 'translate-x-0 opacity-100 pointer-events-auto' : 'translate-x-full opacity-0 pointer-events-none'
             }`}>
                 <div>
