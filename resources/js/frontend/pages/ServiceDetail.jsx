@@ -91,7 +91,7 @@ export default function ServiceDetail() {
                             <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3 uppercase tracking-tight">
                                 {service.title}
                             </h1>
-                            <p className="text-sm md:text-base text-secondary leading-relaxed max-w-3xl">
+                            <p className="text-sm md:text-base text-secondary leading-relaxed max-w-3xl text-justify">
                                 {service.short_description}
                             </p>
                         </section>
@@ -103,7 +103,7 @@ export default function ServiceDetail() {
                                     className="w-full h-full object-cover" 
                                     alt={service.detail_title || service.title} 
                                     src={service.hero_image || service.image} 
-                                />
+                                								/>
                                 <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 border border-outline-variant/30 rounded flex items-center gap-2 shadow-md">
                                     <span className="material-symbols-outlined text-tertiary text-xs animate-pulse">
                                         fiber_manual_record
@@ -117,7 +117,7 @@ export default function ServiceDetail() {
                                 <h2 className="text-lg md:text-xl font-bold text-primary border-b border-outline-variant/30 pb-2 mb-4 uppercase tracking-tight">
                                     {service.detail_title || 'Engineering Precision & Redundancy'}
                                 </h2>
-                                <p className="text-sm text-secondary leading-relaxed mb-6 whitespace-pre-line">
+                                <p className="text-sm text-secondary leading-relaxed mb-6 whitespace-pre-line text-justify">
                                     {service.detail_description || 'No detailed specifications have been published for this service yet. Please contact our industrial headquarters for comprehensive technical blueprints and capability statements.'}
                                 </p>
                                 
@@ -139,7 +139,7 @@ export default function ServiceDetail() {
                         {/* CTA Card */}
                         <div className="bg-white border border-outline-variant/30 rounded-lg p-6 shadow-sm">
                             <h3 className="text-lg font-bold text-primary mb-3 uppercase tracking-tight">Initiate Project Assessment</h3>
-                            <p className="text-xs text-secondary leading-relaxed mb-6">
+                            <p className="text-xs text-secondary leading-relaxed mb-6 text-justify">
                                 Secure your facility with enterprise-grade industrial infrastructure. Schedule a comprehensive site audit with our engineering division.
                             </p>
                             <div className="flex flex-col gap-3">

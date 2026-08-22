@@ -51,7 +51,7 @@ export default function Footer() {
                         Engineering
                     </div>
                     <div 
-                        className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-8 rich-text"
+                        className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed mb-8 rich-text text-justify"
                         dangerouslySetInnerHTML={{ __html: settings.footer_description }}
                     />
                     <div className="flex gap-3">
@@ -112,14 +112,14 @@ export default function Footer() {
                         <div>
                             <span className="text-primary font-bold text-[10px] uppercase tracking-wider block mb-1">Corporate Office</span>
                             <div 
-                                className="leading-relaxed opacity-95 rich-text"
+                                className="leading-relaxed opacity-95 rich-text text-justify"
                                 dangerouslySetInnerHTML={{ __html: settings.footer_corporate_office ? settings.footer_corporate_office.replace(/\n/g, '<br>') : '' }}
                             />
                         </div>
                         <div>
                             <span className="text-primary font-bold text-[10px] uppercase tracking-wider block mb-1">Registered Office</span>
                             <div 
-                                className="leading-relaxed opacity-95 rich-text"
+                                className="leading-relaxed opacity-95 rich-text text-justify"
                                 dangerouslySetInnerHTML={{ __html: settings.footer_registered_office ? settings.footer_registered_office.replace(/\n/g, '<br>') : '' }}
                             />
                         </div>

@@ -101,7 +101,7 @@ export default function Contact() {
                         <span className="material-symbols-outlined text-5xl" style={{ fontVariationSettings: "'FILL' 1" }}>report_problem</span>
                         <div>
                             <h3 className="text-2xl font-bold uppercase tracking-tight">{getVal('contact_urgent_title')}</h3>
-                            <p className="text-sm opacity-95 mt-1 leading-relaxed">{getVal('contact_urgent_description')}</p>
+                            <p className="text-sm opacity-95 mt-1 leading-relaxed text-justify">{getVal('contact_urgent_description')}</p>
                         </div>
                     </div>
                     <button 

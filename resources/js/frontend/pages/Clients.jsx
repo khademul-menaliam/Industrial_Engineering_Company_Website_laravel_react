@@ -51,7 +51,7 @@ export default function Clients() {
                     <div className="max-w-2xl text-white">
                         <p className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant">{settings.hero_subtitle}</p>
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight uppercase">{settings.hero_title}</h1>
-                        <p className="text-lg text-primary-fixed font-medium max-w-lg leading-relaxed">{settings.hero_desc}</p>
+                        <p className="text-lg text-primary-fixed font-medium max-w-lg leading-relaxed text-justify">{settings.hero_desc}</p>
                     </div>
                 </div>
             </section>
@@ -70,7 +70,7 @@ export default function Clients() {
                                     <span className="material-symbols-outlined text-tertiary text-4xl mb-6 select-none" style={{ fontVariationSettings: "'FILL' 1" }}>handshake</span>
                                     <div className="flex-grow">
                                         <h3 className="text-xs font-bold text-tertiary font-mono mb-2 uppercase tracking-wide">{partner.type}</h3>
-                                        <p className="text-xs text-on-surface-variant leading-relaxed mb-10">
+                                        <p className="text-xs text-on-surface-variant leading-relaxed mb-10 text-justify">
                                             {partner.desc}
                                         </p>
                                     </div>
@@ -180,7 +180,7 @@ export default function Clients() {
                 <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
                 <div className="max-w-3xl mx-auto px-margin-desktop relative z-10">
                     <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6">{settings.cta_title}</h2>
-                    <p className="text-primary-fixed mb-10 leading-relaxed max-w-xl mx-auto text-base">
+                    <p className="text-primary-fixed mb-10 leading-relaxed max-w-xl mx-auto text-base text-justify">
                         {settings.cta_desc}
                     </p>
                     <Link to={settings.cta_button_link || "/contact"} className="px-10 py-4 bg-tertiary text-white text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all rounded shadow-sm inline-flex items-center gap-2">

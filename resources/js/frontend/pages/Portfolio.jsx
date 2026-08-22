@@ -80,7 +80,7 @@ export default function Portfolio() {
                                         <span className="text-tertiary text-xs font-bold uppercase tracking-wider">{p.category}</span>
                                         <h3 className="text-lg font-bold text-primary uppercase group-hover:text-tertiary transition-colors leading-tight">{p.title}</h3>
                                     </div>
-                                    <p className="text-on-surface-variant text-xs mb-8 line-clamp-2 leading-relaxed">{p.desc}</p>
+                                    <p className="text-on-surface-variant text-xs mb-8 line-clamp-2 leading-relaxed text-justify">{p.desc}</p>
                                     <div className="flex justify-between items-center border-t border-outline-variant/30 pt-6">
                                         <span className="text-[10px] text-outline font-bold uppercase tracking-widest font-mono">{p.years}</span>
                                         <a className="text-primary font-bold text-xs uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all font-mono" href="#detail">
@@ -131,11 +131,11 @@ export default function Portfolio() {
                         <div className="space-y-8 text-sm leading-relaxed">
                             <div className="border-l-4 border-primary pl-6">
                                 <h4 className="text-primary font-bold uppercase mb-2">The Structural Challenge</h4>
-                                <p className="text-on-surface-variant">High-voltage urban hubs face significant thermal risks. Traditional grids generate excessive heat compromising concrete integrity. Our task was a thermal overhaul of passive and active systems.</p>
+                                <p className="text-on-surface-variant text-justify">High-voltage urban hubs face significant thermal risks. Traditional grids generate excessive heat compromising concrete integrity. Our task was a thermal overhaul of passive and active systems.</p>
                             </div>
                             <div className="border-l-4 border-tertiary pl-6">
                                 <h4 className="text-primary font-bold uppercase mb-2">Precision Engineering Solution</h4>
-                                <p className="text-on-surface-variant">Implementation of AR Engineering framework v2—modular, liquid-cooled structure with high-efficiency superconductors and AI sensory layer for isolation within 12ms.</p>
+                                <p className="text-on-surface-variant text-justify">Implementation of AR Engineering framework v2—modular, liquid-cooled structure with high-efficiency superconductors and AI sensory layer for isolation within 12ms.</p>
                             </div>
                         </div>
                         {/* Stats Bar */}
@@ -161,11 +161,11 @@ export default function Portfolio() {
                     <div className="flex justify-between items-end mb-12 border-b border-outline-variant pb-6">
                         <div>
                             <h3 className="text-2xl font-bold text-primary uppercase">Operational Logs v2</h3>
-                            <p className="text-on-surface-variant mt-1 text-xs">Visual survey from initial foundation to systems deployment.</p>
+                            <p className="text-on-surface-variant mt-1 text-xs text-justify">Visual survey from initial foundation to systems deployment.</p>
                         </div>
                         <div className="flex gap-2">
                             <button className="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary hover:text-white transition-all"><span className="material-symbols-outlined">chevron_left</span></button>
-                            <button class="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary hover:text-white transition-all"><span class="material-symbols-outlined">chevron_right</span></button>
+                            <button className="w-10 h-10 flex items-center justify-center border border-outline-variant hover:bg-primary hover:text-white transition-all"><span className="material-symbols-outlined">chevron_right</span></button>
                         </div>
                     </div>
                     

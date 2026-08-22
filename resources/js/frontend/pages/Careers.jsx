@@ -150,7 +150,7 @@ export default function Careers() {
                     <div className="max-w-2xl text-white">
                         <p className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant">Employer Brand</p>
                         <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight uppercase">ENGINEERING CAREERS</h1>
-                        <p className="text-lg text-primary-fixed font-medium max-w-lg leading-relaxed">Defining structural reliability and industrial excellence for the global market.</p>
+                        <p className="text-lg text-primary-fixed font-medium max-w-lg leading-relaxed text-justify">Defining structural reliability and industrial excellence for the global market.</p>
                     </div>
                 </div>
             </section>
@@ -164,7 +164,7 @@ export default function Careers() {
                                 Why Join Us
                                 <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-tertiary"></span>
                             </h2>
-                            <p className="mt-8 text-on-surface-variant leading-relaxed text-sm">
+                            <p className="mt-8 text-on-surface-variant leading-relaxed text-sm text-justify">
                                 AR Engineering is an industrial leader in structural engineering. We seek individuals who value mathematical precision, operational reliability, and uncompromising safety standards.
                             </p>
                         </div>
@@ -173,14 +173,14 @@ export default function Careers() {
                                 <span className="material-symbols-outlined text-primary">verified</span>
                                 <div>
                                     <h4 className="font-bold text-primary uppercase text-sm tracking-wide mb-1">Industrial Standards</h4>
-                                    <p className="text-xs text-on-surface-variant">Work within a framework of rigorous ISO-certified protocols on critical national infrastructure.</p>
+                                    <p className="text-xs text-on-surface-variant text-justify">Work within a framework of rigorous ISO-certified protocols on critical national infrastructure.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4 p-5 bg-white border border-outline-variant rounded hover:border-tertiary transition-colors duration-300">
                                 <span className="material-symbols-outlined text-primary">engineering</span>
                                 <div>
                                     <h4 className="font-bold text-primary uppercase text-sm tracking-wide mb-1">Engineering Focus</h4>
-                                    <p className="text-xs text-on-surface-variant">We prioritize technical expertise over corporate fluff. Your engineering skill is your primary asset.</p>
+                                    <p className="text-xs text-on-surface-variant text-justify">We prioritize technical expertise over corporate fluff. Your engineering skill is your primary asset.</p>
                                 </div>
                             </div>
                         </div>
@@ -236,7 +236,7 @@ export default function Careers() {
                                     </span>
                                 </div>
                                 <h3 className="text-xl font-bold text-primary mb-3 uppercase tracking-tight">{vacancy.title}</h3>
-                                <p className="text-xs text-on-surface-variant mb-10 leading-relaxed">{vacancy.description}</p>
+                                <p className="text-xs text-on-surface-variant mb-10 leading-relaxed text-justify">{vacancy.description}</p>
                                 <div className="mt-auto flex items-center justify-between pt-6 border-t border-outline-variant/30">
                                     <span className="text-[11px] font-bold uppercase tracking-widest text-primary group-hover:text-tertiary transition-colors">Apply Details</span>
                                     <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">chevron_right</span>
@@ -323,17 +323,17 @@ export default function Careers() {
                     </div>
                     <div className="max-w-3xl relative z-10">
                         <h2 className="text-3xl font-bold uppercase tracking-tight mb-8">Internship Program</h2>
-                        <p className="text-base text-primary-fixed opacity-90 mb-10 leading-relaxed">
+                        <p className="text-base text-primary-fixed opacity-90 mb-10 leading-relaxed text-justify">
                             Designed for final-year engineering students. We provide 6-month immersive rotations within our structural and civil divisions to build practical technical competencies.
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12 border-l border-white/20 pl-8 font-mono">
                             <div>
                                 <h4 className="text-xs font-bold uppercase tracking-widest text-tertiary mb-2">Summer Cohort</h4>
-                                <p className="text-xs opacity-80 leading-relaxed">Applications for the 2025 cycle are currently being processed. Closing date: March 1st.</p>
+                                <p className="text-xs opacity-80 leading-relaxed text-justify">Applications for the 2025 cycle are currently being processed. Closing date: March 1st.</p>
                             </div>
                             <div>
                                 <h4 className="text-xs font-bold uppercase tracking-widest text-tertiary mb-2">Prerequisites</h4>
-                                <p className="text-xs opacity-80 leading-relaxed">Enrollment in an accredited Engineering program (Civil, Structural, or Mechanical).</p>
+                                <p className="text-xs opacity-80 leading-relaxed text-justify">Enrollment in an accredited Engineering program (Civil, Structural, or Mechanical).</p>
                             </div>
                         </div>
                         <button className="px-10 py-3 border border-white text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-200" onClick={() => handleJobCardClick('Graduate Intern Program')}>

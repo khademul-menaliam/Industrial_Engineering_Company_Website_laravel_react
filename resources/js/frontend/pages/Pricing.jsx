@@ -57,7 +57,7 @@ export default function Pricing() {
             <div className="text-center mb-16">
                 <span className="text-secondary font-semibold text-xs tracking-widest uppercase">Investment & Tenders</span>
                 <h1 className="text-white font-bold text-3xl md:text-5xl uppercase tracking-tight mt-4">Transparent Pricing Models</h1>
-                <p class="text-on-surface-variant text-base md:text-lg max-w-xl mx-auto mt-4">
+                <p className="text-on-surface-variant text-base md:text-lg max-w-xl mx-auto mt-4 text-justify">
                     Tailored engineering consulting tiers for global industrial systems and structural integrity audits.
                 </p>
             </div>
@@ -80,7 +80,7 @@ export default function Pricing() {
 
                         <div>
                             <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-2">{plan.name}</h3>
-                            <p className="text-on-surface-variant text-sm mb-6 leading-relaxed">{plan.description}</p>
+                            <p className="text-on-surface-variant text-sm mb-6 leading-relaxed text-justify">{plan.description}</p>
                             
                             <div className="flex items-baseline gap-2 mb-8">
                                 <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">{plan.price}</span>

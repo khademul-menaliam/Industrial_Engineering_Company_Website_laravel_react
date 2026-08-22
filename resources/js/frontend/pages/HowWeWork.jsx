@@ -18,7 +18,7 @@ export default function HowWeWork() {
                         <h1 className="text-primary font-bold text-4xl md:text-5xl mb-6 leading-tight uppercase tracking-tight">
                             Operational Integrity through <span className="text-tertiary underline decoration-2 underline-offset-8">Methodology.</span>
                         </h1>
-                        <p className="text-on-surface-variant max-w-xl mb-10 text-base leading-relaxed">
+                        <p className="text-on-surface-variant max-w-xl mb-10 text-base leading-relaxed text-justify">
                             A rigorous five-phase execution framework designed for high-consequence industrial environments. From initial site scanning and BIM modeling to final engineering commissioning.
                         </p>
                         <div className="flex flex-wrap gap-4">
@@ -66,7 +66,7 @@ export default function HowWeWork() {
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 01</span>
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase">Client Requirement &amp; Site Survey</h2>
-                        <p className="text-on-surface-variant text-sm leading-relaxed">
+                        <p className="text-on-surface-variant text-sm leading-relaxed text-justify">
                             Infrastructure analysis begins with client requirements and detailed site evaluations. We deploy advanced scanning and inspection techniques to build the foundational data required for exact engineering solutions.
                         </p>
                         <div className="space-y-4 pt-4 border-t border-outline-variant/30">
@@ -74,14 +74,14 @@ export default function HowWeWork() {
                                 <span className="material-symbols-outlined text-tertiary">filter_center_focus</span>
                                 <div>
                                     <h4 className="font-bold text-sm uppercase">Site Mapping</h4>
-                                    <p className="text-xs text-on-surface-variant">Full-scale spatial capture and data-driven client requirement profiling.</p>
+                                    <p className="text-xs text-on-surface-variant text-justify">Full-scale spatial capture and data-driven client requirement profiling.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
                                 <span className="material-symbols-outlined text-tertiary">fact_check</span>
                                 <div>
                                     <h4 className="font-bold text-sm uppercase">Compliance Audit</h4>
-                                    <p className="text-xs text-on-surface-variant">Aligning early requirements with global safety codes and industrial specifications.</p>
+                                    <p className="text-xs text-on-surface-variant text-justify">Aligning early requirements with global safety codes and industrial specifications.</p>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,7 @@ export default function HowWeWork() {
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 02</span>
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase">BIM Modeling &amp; Design</h2>
-                        <p className="text-on-surface-variant text-sm leading-relaxed">
+                        <p className="text-on-surface-variant text-sm leading-relaxed text-justify">
                             We design using advanced Building Information Modeling (BIM) to create precision digital twins of all Mechanical, Electrical, Plumbing (MEP), and Fire Safety layouts before execution.
                         </p>
                         <div className="grid grid-cols-2 gap-4 mt-8">
@@ -141,7 +141,7 @@ export default function HowWeWork() {
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 03</span>
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase">Documentation &amp; Approval</h2>
-                        <p className="text-on-surface-variant text-sm leading-relaxed">
+                        <p className="text-on-surface-variant text-sm leading-relaxed text-justify">
                             Drafting comprehensive shop drawings and compiling exhaustive technical submittals for regulatory clearances and client sign-offs.
                         </p>
                         <div className="space-y-4 pt-4 border-t border-outline-variant/30">
@@ -149,14 +149,14 @@ export default function HowWeWork() {
                                 <span className="material-symbols-outlined text-tertiary">description</span>
                                 <div>
                                     <h4 className="font-bold text-sm uppercase">Shop Drawings</h4>
-                                    <p className="text-xs text-on-surface-variant">Detailed drafting matching strict NFPA and BNBC system requirements.</p>
+                                    <p className="text-xs text-on-surface-variant text-justify">Detailed drafting matching strict NFPA and BNBC system requirements.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
                                 <span className="material-symbols-outlined text-tertiary">task</span>
                                 <div>
                                     <h4 className="font-bold text-sm uppercase">Technical Submittals</h4>
-                                    <p className="text-xs text-on-surface-variant">Full material catalogs, compliance sheets, and verification documentation.</p>
+                                    <p className="text-xs text-on-surface-variant text-justify">Full material catalogs, compliance sheets, and verification documentation.</p>
                                 </div>
                             </div>
                         </div>
@@ -171,7 +171,7 @@ export default function HowWeWork() {
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 04</span>
                         </div>
                         <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase">Procurement &amp; Supply</h2>
-                        <p className="text-on-surface-variant text-sm leading-relaxed">
+                        <p className="text-on-surface-variant text-sm leading-relaxed text-justify">
                             Sourcing and supplying authenticated, high-performance equipment and machinery in collaboration with global solution partners (like FIREX, NAFFCO, NITTAN, Lackeby, and Waterfall Pumps).
                         </p>
                         <div className="space-y-4 pt-4 border-t border-outline-variant/30">
@@ -179,14 +179,14 @@ export default function HowWeWork() {
                                 <span className="material-symbols-outlined text-tertiary">local_shipping</span>
                                 <div>
                                     <h4 className="font-bold text-sm uppercase">Partner Network Logistics</h4>
-                                    <p className="text-xs text-on-surface-variant">Securing and importing certified components directly from manufacture factories.</p>
+                                    <p className="text-xs text-on-surface-variant text-justify">Securing and importing certified components directly from manufacture factories.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
                                 <span className="material-symbols-outlined text-tertiary">verified_user</span>
                                 <div>
                                     <h4 className="font-bold text-sm uppercase">Quality Inspection</h4>
-                                    <p className="text-xs text-on-surface-variant">Strict validation of certifications, warranties, and physical specifications upon delivery.</p>
+                                    <p className="text-xs text-on-surface-variant text-justify">Strict validation of certifications, warranties, and physical specifications upon delivery.</p>
                                 </div>
                             </div>
                         </div>
@@ -221,7 +221,7 @@ export default function HowWeWork() {
                                 <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 05</span>
                             </div>
                             <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-tight">Installation &amp; Commissioning</h2>
-                            <p className="text-sm opacity-80 mb-10 leading-relaxed">
+                            <p className="text-sm opacity-80 mb-10 leading-relaxed text-justify">
                                 Deploying specialized execution teams to perform physical installations, followed by comprehensive testing, commissioning, and validation processes.
                             </p>
                             <Link to="/contact" className="bg-tertiary text-white font-bold px-10 py-4 uppercase text-xs tracking-widest hover:bg-tertiary-container transition-all">Request Commissioning</Link>
@@ -229,19 +229,19 @@ export default function HowWeWork() {
                         <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
                             <div className="border-t border-white/20 pt-6">
                                 <h5 className="font-bold text-sm text-tertiary mb-3 uppercase tracking-wider font-mono">01. Precision Deployment</h5>
-                                <p className="text-xs opacity-75 leading-relaxed">Expert mechanical, piping, and electrical assemblies under strict field supervision.</p>
+                                <p className="text-xs opacity-75 leading-relaxed text-justify">Expert mechanical, piping, and electrical assemblies under strict field supervision.</p>
                             </div>
                             <div className="border-t border-white/20 pt-6">
                                 <h5 className="font-bold text-sm text-tertiary mb-3 uppercase tracking-wider font-mono">02. Safety Testing</h5>
-                                <p className="text-xs opacity-75 leading-relaxed">System pressure tests, voltage verifications, and hazard simulation drills.</p>
+                                <p className="text-xs opacity-75 leading-relaxed text-justify">System pressure tests, voltage verifications, and hazard simulation drills.</p>
                             </div>
                             <div className="border-t border-white/20 pt-6">
                                 <h5 className="font-bold text-sm text-tertiary mb-3 uppercase tracking-wider font-mono">03. Official Commissioning</h5>
-                                <p className="text-xs opacity-75 leading-relaxed">Rigorous performance auditing and sign-offs for active operation.</p>
+                                <p className="text-xs opacity-75 leading-relaxed text-justify">Rigorous performance auditing and sign-offs for active operation.</p>
                             </div>
                             <div className="border-t border-white/20 pt-6">
                                 <h5 className="font-bold text-sm text-tertiary mb-3 uppercase tracking-wider font-mono">04. Operations Training</h5>
-                                <p className="text-xs opacity-75 leading-relaxed">Instructing client facility management teams on routine controls and protocols.</p>
+                                <p className="text-xs opacity-75 leading-relaxed text-justify">Instructing client facility management teams on routine controls and protocols.</p>
                             </div>
                         </div>
                     </div>

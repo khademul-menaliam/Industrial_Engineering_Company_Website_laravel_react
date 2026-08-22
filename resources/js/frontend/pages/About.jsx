@@ -171,7 +171,7 @@ export default function About() {
                         <h1 className="text-4xl md:text-6xl text-white font-bold uppercase tracking-tight leading-none">
                             {getVal('about_hero_title')}
                         </h1>
-                        <p className="text-white/80 text-base md:text-lg font-light max-w-xl leading-relaxed">
+                        <p className="text-white/80 text-base md:text-lg font-light max-w-xl leading-relaxed text-justify">
                             {getVal('about_hero_description')}
                         </p>
                         <div className="pt-8 flex flex-wrap gap-4">
@@ -192,7 +192,7 @@ export default function About() {
                                 {getVal('about_story_title')}
                             </h2>
                         </div>
-                        <div className="space-y-6 text-on-surface-variant text-sm sm:text-base leading-relaxed">
+                        <div className="space-y-6 text-on-surface-variant text-sm sm:text-base leading-relaxed text-justify">
                             <p>{getVal('about_story_p1')}</p>
                             <p>{getVal('about_story_p2')}</p>
                             <p>{getVal('about_story_p3')}</p>
@@ -207,7 +207,7 @@ export default function About() {
                                 <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat1_label')}
                                 </span>
-                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed">
+                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat1_desc')}
                                 </p>
                             </div>
@@ -218,7 +218,7 @@ export default function About() {
                                 <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat2_label')}
                                 </span>
-                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed">
+                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat2_desc')}
                                 </p>
                             </div>
@@ -229,7 +229,7 @@ export default function About() {
                                 <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat3_label')}
                                 </span>
-                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed">
+                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat3_desc')}
                                 </p>
                             </div>
@@ -255,7 +255,7 @@ export default function About() {
                                 <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">
                                     {pillar.title}
                                 </h3>
-                                <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light">
+                                <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light text-justify">
                                     {pillar.description}
                                 </p>
                             </div>
@@ -291,7 +291,7 @@ export default function About() {
                             <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight leading-relaxed">
                                 A MESSAGE FROM OUR LEADERSHIP
                             </h3>
-                            <p className="text-white/85 text-sm sm:text-base leading-relaxed">
+                            <p className="text-white/85 text-sm sm:text-base leading-relaxed text-justify">
                                 "{getVal('about_ceo_message')}"
                             </p>
                             <div className="pt-4 flex items-center gap-4">
@@ -319,7 +319,7 @@ export default function About() {
                                 </div>
                                 <div className="flex-grow space-y-3 text-center sm:text-left">
                                     <span className="material-symbols-outlined text-tertiary text-2xl opacity-40 select-none block" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-                                    <p className="text-xs sm:text-sm text-white/80 leading-relaxed italic">
+                                    <p className="text-xs sm:text-sm text-white/80 leading-relaxed italic text-justify">
                                         "{advisor.message}"
                                     </p>
                                     <div className="pt-2">
@@ -368,7 +368,7 @@ export default function About() {
                                     </span>
                                     <h4 className="font-bold text-primary uppercase text-lg tracking-tight mt-2">{member.name}</h4>
                                 </div>
-                                <p className="text-xs text-on-surface-variant leading-relaxed font-light">
+                                <p className="text-xs text-on-surface-variant leading-relaxed font-light text-justify">
                                     {member.bio}
                                 </p>
                                 <div className="flex items-center justify-center sm:justify-start gap-4 pt-2 font-mono text-[9px] text-on-surface-variant border-t border-outline-variant/10">
@@ -412,7 +412,7 @@ export default function About() {
                                     <h3 className="text-lg font-bold text-primary uppercase tracking-tight group-hover:text-tertiary transition-colors duration-300">
                                         {mile.title}
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed max-w-2xl font-light">
+                                    <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed max-w-2xl font-light text-justify">
                                         {mile.desc}
                                     </p>
                                 </div>

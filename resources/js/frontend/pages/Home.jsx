@@ -280,7 +280,7 @@ export default function Home() {
                                         <h3 className="text-base font-bold uppercase tracking-tight">{service.title}</h3>
                                     </div>
                                     <div
-                                        className="text-xs text-on-surface-variant leading-relaxed rich-text"
+                                        className="text-xs text-on-surface-variant leading-relaxed rich-text text-justify"
                                         dangerouslySetInnerHTML={{ __html: service.description }}
                                     />
                                 </div>
@@ -305,7 +305,7 @@ export default function Home() {
                                 </div>
                                 <h4 className="text-sm font-bold text-on-surface mb-1 uppercase tracking-wider">{process.title}</h4>
                                 <div
-                                    className="text-xs text-secondary leading-relaxed rich-text"
+                                    className="text-xs text-secondary leading-relaxed rich-text text-justify"
                                     dangerouslySetInnerHTML={{ __html: process.description }}
                                 />
                             </div>
@@ -333,7 +333,7 @@ export default function Home() {
                             <div>
                                 <span className="material-symbols-outlined text-primary text-3xl mb-2 opacity-50">format_quote</span>
                                 <div
-                                    className="text-xs italic text-on-surface-variant mb-4 leading-relaxed rich-text"
+                                    className="text-xs italic text-on-surface-variant mb-4 leading-relaxed rich-text text-justify"
                                     dangerouslySetInnerHTML={{ __html: leader.quote.startsWith('"') && leader.quote.endsWith('"') ? leader.quote : `"${leader.quote}"` }}
                                 />
                                 <div>
@@ -428,7 +428,7 @@ export default function Home() {
                                 <div className="p-6">
                                     <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{project.title}</h3>
                                     <div
-                                        className="text-xs text-on-surface-variant mb-4 leading-relaxed rich-text"
+                                        className="text-xs text-on-surface-variant mb-4 leading-relaxed rich-text text-justify"
                                         dangerouslySetInnerHTML={{ __html: project.description }}
                                     />
                                     <Link className="inline-flex items-center gap-1 text-tertiary font-mono text-[11px] font-bold hover:text-primary transition-colors uppercase tracking-wider" to={project.link || '/portfolio'}>
@@ -490,7 +490,7 @@ export default function Home() {
                         <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
                             {getSetting('contact_section_title')}
                         </h2>
-                        <p className="text-secondary text-sm mb-8 max-w-lg leading-relaxed">
+                        <p className="text-secondary text-sm mb-8 max-w-lg leading-relaxed text-justify">
                             {getSetting('contact_section_description')}
                         </p>
                         <div className="flex flex-col gap-6">
@@ -498,7 +498,7 @@ export default function Home() {
                                 <span className="material-symbols-outlined text-tertiary mt-1">location_on</span>
                                 <div>
                                     <h4 className="text-sm font-bold text-primary uppercase font-mono">Headquarters</h4>
-                                    <p className="text-xs text-on-surface-variant leading-relaxed mt-1">
+                                    <p className="text-xs text-on-surface-variant leading-relaxed mt-1 text-justify">
                                         {getSetting('contact_headquarters_address').split('\n').map((line, i) => (
                                             <React.Fragment key={i}>
                                                 {line}
@@ -586,7 +586,7 @@ export default function Home() {
                                 </div>
                                 <div>
                                     <h4 className="text-xs font-bold text-primary uppercase tracking-wider mb-2">{reason.title}</h4>
-                                    <p className="text-[11px] text-on-surface-variant leading-relaxed">{reason.desc}</p>
+                                    <p className="text-[11px] text-on-surface-variant leading-relaxed text-justify">{reason.desc}</p>
                                 </div>
                             </div>
                         ))}
@@ -601,7 +601,7 @@ export default function Home() {
                         <h2 className="text-2xl md:text-3xl font-bold mb-2 uppercase tracking-tight">
                             {getSetting('cta_section_title')}
                         </h2>
-                        <p className="text-on-primary-container text-xs md:text-sm max-w-xl leading-relaxed">
+                        <p className="text-on-primary-container text-xs md:text-sm max-w-xl leading-relaxed text-justify">
                             {getSetting('cta_section_subtitle')}
                         </p>
                     </div>

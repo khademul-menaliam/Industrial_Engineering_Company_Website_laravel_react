@@ -107,6 +107,10 @@
 }
 
 /* Style for custom rich text content */
+.rich-text, .rich-text-editor-body {
+    text-align: justify;
+    text-justify: inter-word;
+}
 .rich-text ul, .rich-text-editor-body ul {
     list-style-type: disc !important;
     margin-left: 1.5rem !important;
@@ -126,6 +130,8 @@
 .rich-text p, .rich-text-editor-body p {
     margin-top: 0.5rem !important;
     margin-bottom: 0.5rem !important;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Rich Text Editor Placeholder styling */
