@@ -335,51 +335,79 @@ export default function About() {
 
             {/* OUR LEADERSHIP TEAM */}
             <section className="py-24 px-margin-desktop max-w-container-max mx-auto">
+                {/* Section Header */}
                 <div className="text-center mb-16">
-                    <span className="text-tertiary text-xs font-bold tracking-[.25em] mb-4 block uppercase font-mono">Expert Personnel</span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Our Leadership Team</h2>
-                    <div className="w-24 h-1.5 bg-tertiary mx-auto mt-4 rounded-full"></div>
+                    <span className="text-tertiary text-xs font-bold tracking-[.25em] mb-4 block uppercase font-mono">
+                        Expert Personnel
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
+                        Our Leadership Team
+                    </h2>
+                    <div className="w-24 h-1.5 bg-tertiary mx-auto mt-4 rounded-full" />
                 </div>
 
+                {/* Team Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {team.map((member, index) => (
                         <div 
                             key={member.id || index}
-                            className="bg-white border border-outline-variant/30 rounded-xl p-6 flex flex-col sm:flex-row items-center sm:items-start gap-6 hover:shadow-xl hover:border-primary transition-all duration-300"
+                            className="group bg-white border border-outline-variant/30 rounded-xl p-6 sm:p-7 flex flex-col md:flex-row items-center md:items-stretch gap-6 sm:gap-7 shadow-sm hover:shadow-xl hover:border-primary transition-all duration-300"
                         >
-                            <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden shrink-0 border-2 border-outline-variant/50 shadow-md bg-[#fafbfc]">
+                            {/* Profile Image Frame */}
+                            <div className="w-full sm:w-60 md:w-52 aspect-square md:aspect-auto md:h-full min-h-[220px] rounded-xl overflow-hidden shrink-0 bg-[#fafbfc] border border-outline-variant/50 relative">
                                 {member.image ? (
                                     <img 
-                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" 
+                                        className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out" 
                                         alt={member.name} 
                                         src={member.image} 
                                     />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-outline-variant">
-                                        <span className="material-symbols-outlined text-4xl">account_circle</span>
+                                    <div className="w-full h-full flex items-center justify-center text-outline-variant bg-[#fafbfc]">
+                                        <span className="material-symbols-outlined text-5xl">account_circle</span>
                                     </div>
                                 )}
                             </div>
 
-                            <div className="flex-grow space-y-3 text-center sm:text-left">
+                            {/* Info Column */}
+                            <div className="flex-1 flex flex-col justify-center text-center md:text-left space-y-4">
                                 <div>
-                                    <span className="bg-tertiary text-white text-[9px] font-bold uppercase px-2 py-0.5 rounded font-mono tracking-wider">
+                                    {/* Role Badge */}
+                                    <span className="inline-block bg-tertiary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded font-mono tracking-wider mb-2 shadow-sm">
                                         {member.role}
                                     </span>
-                                    <h4 className="font-bold text-primary uppercase text-lg tracking-tight mt-2">{member.name}</h4>
+                                    
+                                    {/* Member Name */}
+                                    <h3 className="font-bold text-primary uppercase text-xl tracking-tight">
+                                        {member.name}
+                                    </h3>
+                                    
+                                    {/* Bio Paragraph */}
+                                    <div 
+                                        className="text-xs sm:text-sm text-on-surface-variant leading-relaxed font-light mt-3 whitespace-pre-line text-justify danger-html"
+                                        dangerouslySetInnerHTML={{ __html: member.bio }}
+                                    />
                                 </div>
-                                <p className="text-xs text-on-surface-variant leading-relaxed font-light text-justify">
-                                    {member.bio}
-                                </p>
-                                <div className="flex items-center justify-center sm:justify-start gap-4 pt-2 font-mono text-[9px] text-on-surface-variant border-t border-outline-variant/10">
+
+                                {/* Social Links Footer */}
+                                <div className="flex items-center justify-center md:justify-start gap-5 pt-3.5 font-mono text-[11px] font-semibold text-on-surface-variant border-t border-outline-variant/10">
                                     {member.linkedin && (
-                                        <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 hover:text-tertiary transition-colors">
-                                            <span className="material-symbols-outlined text-sm">link</span> LINKEDIN
+                                        <a 
+                                            href={member.linkedin} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="flex items-center gap-1.5 hover:text-tertiary transition-colors duration-200 uppercase tracking-wide"
+                                        >
+                                            <span className="material-symbols-outlined text-base">link</span>
+                                            LinkedIn
                                         </a>
                                     )}
                                     {member.email && (
-                                        <a href={`mailto:${member.email}`} className="flex items-center gap-1 hover:text-tertiary transition-colors">
-                                            <span className="material-symbols-outlined text-sm">mail</span> EMAIL
+                                        <a 
+                                            href={`mailto:${member.email}`} 
+                                            className="flex items-center gap-1.5 hover:text-tertiary transition-colors duration-200 uppercase tracking-wide"
+                                        >
+                                            <span className="material-symbols-outlined text-base">mail</span>
+                                            Email
                                         </a>
                                     )}
                                 </div>
@@ -388,6 +416,7 @@ export default function About() {
                     ))}
                 </div>
             </section>
+
 
             {/* HISTORICAL TIMELINE */}
             <section className="py-24 bg-surface-container-low border-t border-b border-outline-variant/30">
