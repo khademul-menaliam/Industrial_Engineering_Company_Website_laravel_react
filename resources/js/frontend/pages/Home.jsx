@@ -305,7 +305,7 @@ export default function Home() {
                                 </div>
                                 <h4 className="text-sm font-bold text-on-surface mb-1 uppercase tracking-wider">{process.title}</h4>
                                 <div
-                                    className="text-xs text-secondary leading-relaxed rich-text text-justify"
+                                    className="text-xs text-secondary leading-relaxed"
                                     dangerouslySetInnerHTML={{ __html: process.description }}
                                 />
                             </div>
@@ -490,10 +490,10 @@ export default function Home() {
                         <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
                             {getSetting('contact_section_title')}
                         </h2>
-                        <p className="text-secondary text-sm mb-8 max-w-lg leading-relaxed text-justify">
+                        <p className="text-secondary text-sm mb-8 leading-relaxed text-justify">
                             {getSetting('contact_section_description')}
                         </p>
-                        <div className="flex flex-col gap-6">
+                        <div className="flex flex-col sm:flex-row gap-6">
                             <div className="flex items-start gap-4">
                                 <span className="material-symbols-outlined text-tertiary mt-1">location_on</span>
                                 <div>
