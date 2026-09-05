@@ -304,7 +304,42 @@ export default function Services() {
 
                 if (cat.slug === 'dsi') {
                     const featuredDsi = serviceList.find(s => s.is_featured) || serviceList[0];
-                    const rightStackDsi = serviceList.filter(s => s !== featuredDsi);
+                    const stackDsi = serviceList.filter(s => s !== featuredDsi);
+
+                    // Row 1 fits featured card + 2 stacked cards (3 items total)
+                    const RIGHT_COL_FIT = 2;
+                    const rightStackDsi = stackDsi.slice(0, RIGHT_COL_FIT);
+                    // Remaining items render in subsequent rows (2 per row across full width)
+                    const remainingDsi = stackDsi.slice(RIGHT_COL_FIT);
+
+                    const renderDsiCard = (service, key) => (
+                        <Link 
+                            key={key} 
+                            to={`/services/${service.slug}`} 
+                            className="bg-background p-4 sm:p-5 rounded-lg flex flex-col sm:flex-row gap-4 border border-outline-variant/30 group hover:border-tertiary transition-all duration-300 hover:shadow-md flex-1 w-full"
+                        >
+                            <div className="w-full sm:w-28 md:w-32 h-36 sm:h-auto min-h-[96px] flex-shrink-0 rounded overflow-hidden bg-surface-container-low relative">
+                                {service.image && (
+                                    <img 
+                                        alt={service.title} 
+                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" 
+                                        src={service.image} 
+                                    />
+                                )}
+                            </div>
+                            <div className="flex flex-col justify-center flex-grow py-0.5">
+                                <div className="flex items-center gap-2 mb-1.5">
+                                    <span className="material-symbols-outlined text-tertiary text-base">{service.icon || 'settings'}</span>
+                                    <h4 className="font-bold text-primary text-sm uppercase tracking-tight">{service.title}</h4>
+                                </div>
+                                <p className="text-xs text-secondary leading-relaxed mb-3 line-clamp-2 text-justify">{service.short_description}</p>
+                                <span className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary mt-auto font-mono flex items-center gap-1">
+                                    Explore <span className="material-symbols-outlined text-[11px]">arrow_forward</span>
+                                </span>
+                            </div>
+                        </Link>
+                    );
+
                     return (
                         <section key={cat.slug} id={cat.slug} className="py-20 bg-white border-y border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
                             <div className="max-w-container-max mx-auto">
@@ -314,58 +349,58 @@ export default function Services() {
                                     </h2>
                                     <div className="h-px bg-outline-variant/30 flex-grow"></div>
                                 </div>
-                                <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
-                                    {/* Featured Card */}
-                                    {featuredDsi && (
-                                        <Link key={featuredDsi.id || 'featured'} to={`/services/${featuredDsi.slug}`} className="md:col-span-7 group relative rounded-lg overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col justify-end min-h-[350px] md:min-h-auto md:aspect-[16/9]">
-                                            <img 
-                                                alt={featuredDsi.title} 
-                                                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" 
-                                                src={featuredDsi.image} 
-                                            />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
-                                            <div className="relative p-6 md:p-8 z-10 w-full">
-                                                {featuredDsi.tag && (
-                                                    <span className="bg-tertiary text-white px-2.5 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider mb-3 inline-block font-mono">
-                                                        {featuredDsi.tag}
-                                                    </span>
-                                                )}
-                                                <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{featuredDsi.title}</h3>
-                                                <p className="text-gray-300 text-xs max-w-md leading-relaxed mb-6 text-justify">{featuredDsi.short_description}</p>
-                                                <span className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded text-[11px] font-bold uppercase tracking-widest transition-colors backdrop-blur-sm font-mono w-fit">
-                                                    View Project Details
-                                                </span>
-                                            </div>
-                                        </Link>
-                                    )}
 
-                                    {/* Right Stack */}
-                                    <div className="md:col-span-5 flex flex-col gap-4">
-                                        {rightStackDsi.map((service, idx) => (
-                                            <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-background p-4 rounded-lg flex flex-col sm:flex-row gap-4 border border-outline-variant/30 group hover:border-tertiary transition-all duration-300">
-                                                <div className="w-full sm:w-24 h-36 sm:h-24 flex-shrink-0 rounded overflow-hidden bg-surface-container-low">
-                                                    {service.image && (
-                                                        <img 
-                                                            alt={service.title} 
-                                                            className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" 
-                                                            src={service.image} 
-                                                        />
+                                {/* Row 1: Exactly 3 items (Featured Card on left + 2 stacked cards on right) */}
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                                    {/* Left Column: Featured Card */}
+                                    {featuredDsi && (
+                                        <div className="lg:col-span-7 flex">
+                                            <Link 
+                                                key={featuredDsi.id || 'featured'} 
+                                                to={`/services/${featuredDsi.slug}`} 
+                                                className="group relative rounded-lg overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col justify-end w-full min-h-[360px] lg:min-h-[380px]"
+                                            >
+                                                <img 
+                                                    alt={featuredDsi.title} 
+                                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" 
+                                                    src={featuredDsi.image} 
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
+                                                <div className="relative p-6 md:p-8 z-10 w-full">
+                                                    {featuredDsi.tag && (
+                                                        <span className="bg-tertiary text-white px-2.5 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider mb-3 inline-block font-mono">
+                                                            {featuredDsi.tag}
+                                                        </span>
                                                     )}
-                                                </div>
-                                                <div className="flex flex-col justify-center flex-grow">
-                                                    <div className="flex items-center gap-2 mb-1">
-                                                        <span className="material-symbols-outlined text-tertiary text-sm">{service.icon || 'settings'}</span>
-                                                        <h4 className="font-bold text-primary text-sm uppercase tracking-tight">{service.title}</h4>
-                                                    </div>
-                                                    <p className="text-[11px] text-secondary leading-relaxed mb-2 line-clamp-2 text-justify">{service.short_description}</p>
-                                                    <span className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary mt-auto font-mono flex items-center gap-1">
-                                                        Explore <span className="material-symbols-outlined text-[10px]">arrow_forward</span>
+                                                    <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{featuredDsi.title}</h3>
+                                                    <p className="text-gray-300 text-xs max-w-md leading-relaxed mb-6 text-justify">{featuredDsi.short_description}</p>
+                                                    <span className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded text-[11px] font-bold uppercase tracking-widest transition-colors backdrop-blur-sm font-mono w-fit">
+                                                        View Project Details
                                                     </span>
                                                 </div>
                                             </Link>
-                                        ))}
+                                        </div>
+                                    )}
+
+                                    {/* Right Column: Exactly 2 Cards */}
+                                    <div className="lg:col-span-5 grid grid-cols-1 md:grid-cols-2 lg:flex lg:flex-col gap-4 justify-between">
+                                        {rightStackDsi.map((service, idx) => renderDsiCard(service, service.id || `right-${idx}`))}
                                     </div>
                                 </div>
+
+                                {/* Subsequent Rows: Exactly 2 items per row across full width */}
+                                {remainingDsi.length > 0 && (
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                                        {remainingDsi.map((service, idx) => {
+                                            const isLastOdd = remainingDsi.length % 2 === 1 && idx === remainingDsi.length - 1;
+                                            return (
+                                                <div key={service.id || `remaining-${idx}`} className={`flex ${isLastOdd ? 'md:col-span-2' : ''}`}>
+                                                    {renderDsiCard(service, service.id || `remaining-card-${idx}`)}
+                                                </div>
+                                            );
+                                        })}
+                                    </div>
+                                )}
                             </div>
                         </section>
                     );
