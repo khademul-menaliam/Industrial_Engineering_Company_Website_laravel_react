@@ -194,8 +194,8 @@ export default function Home() {
                             style={{ backgroundImage: `url('${slide.image}')` }}
                         ></div>
                         <div className="absolute inset-0 bg-primary opacity-65"></div>
-                        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-desktop text-center flex flex-col items-center gap-6">
-                            <h1 className="text-white font-bold text-4xl md:text-5xl lg:text-6xl max-w-4xl uppercase tracking-tight">
+                        <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center gap-6">
+                            <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl max-w-4xl uppercase tracking-tight">
                                 {slide.title}
                             </h1>
                             <div
@@ -226,11 +226,11 @@ export default function Home() {
             </section>
 
             {/* Welcome Message Section */}
-            <section className="py-20 bg-surface-container-low border-b border-outline-variant/30 px-margin-desktop w-full">
+            <section className="py-24 bg-surface-container-low border-b border-outline-variant/30 px-margin-mobile md:px-margin-desktop w-full">
                 <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div className="lg:col-span-5 space-y-4">
                         <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">ABOUT US</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-primary leading-tight uppercase tracking-tight">
+                        <h2 className="text-2xl md:text-3xl font-bold text-primary leading-tight uppercase tracking-tight">
                             {getSetting('welcome_section_title')}
                         </h2>
                         <p className="text-xs font-mono font-bold text-secondary uppercase tracking-widest pt-4">
@@ -252,7 +252,7 @@ export default function Home() {
             </section>
 
             {/* Core Engineering Capabilities Services Section */}
-            <section className="py-20 px-margin-desktop w-full max-w-container-max mx-auto">
+            <section className="py-24 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
                 <div className="mb-16 text-center">
                     <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
                         {getSetting('capabilities_section_title')}
@@ -269,7 +269,7 @@ export default function Home() {
                             <Link
                                 to={targetLink}
                                 key={service.id || index}
-                                className="block bg-surface-container-lowest border border-outline-variant/30 rounded-lg overflow-hidden group hover:border-primary transition-colors duration-300"
+                                className="block bg-white border border-outline-variant/30 rounded overflow-hidden group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md"
                             >
                                 <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url('${service.image}')` }}></div>
                                 <div className="p-6 flex flex-col gap-3">
@@ -291,7 +291,7 @@ export default function Home() {
             </section>
 
             {/* Process Section */}
-            <section className="bg-surface-container py-20 px-margin-desktop border-y border-outline-variant/30 w-full">
+            <section className="bg-surface-container py-24 px-margin-mobile md:px-margin-desktop border-y border-outline-variant/30 w-full">
                 <div className="w-full max-w-container-max mx-auto">
                     <h2 className="text-2xl md:text-3xl font-bold text-primary mb-16 text-center uppercase tracking-tight">
                         {getSetting('process_section_title')}
@@ -315,7 +315,7 @@ export default function Home() {
             </section>
 
             {/* Strategic Leadership Section */}
-            <section className="py-20 bg-background px-margin-desktop w-full max-w-container-max mx-auto">
+            <section className="py-24 bg-background px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
                 <div className="text-center mb-16">
                     <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
                         {getSetting('leadership_section_title')}
@@ -326,8 +326,8 @@ export default function Home() {
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {activeLeaders.map((leader, index) => (
-                        <div key={leader.id || index} className="bg-surface-container-lowest p-8 rounded-lg shadow-sm border border-outline-variant/30 flex flex-col gap-6 items-start group hover:border-primary transition-all duration-300">
-                            <div className="w-32 h-32 rounded-lg overflow-hidden flex-shrink-0 border border-outline-variant/30 group-hover:border-primary transition-colors">
+                        <div key={leader.id || index} className="bg-white p-6 md:p-8 rounded border border-outline-variant/30 flex flex-col gap-6 items-start group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
+                            <div className="w-32 h-32 rounded overflow-hidden flex-shrink-0 border border-outline-variant/30 group-hover:border-primary transition-colors">
                                 <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" alt={leader.name} src={leader.image} />
                             </div>
                             <div>
@@ -347,7 +347,7 @@ export default function Home() {
             </section>
 
             {/* Core Competencies Highlight */}
-            <section className="py-20 bg-surface-container px-margin-desktop w-full border-y border-outline-variant/30">
+            <section className="py-24 bg-surface-container px-margin-mobile md:px-margin-desktop w-full border-y border-outline-variant/30">
                 <div className="max-w-container-max mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <div>
@@ -369,7 +369,7 @@ export default function Home() {
                             return (
                                 <div
                                     key={comp.id || index}
-                                    className={`bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden group hover:shadow-md border border-outline-variant/30 ${
+                                    className={`bg-white rounded border border-outline-variant/30 overflow-hidden group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md ${
                                         isLastOdd ? 'sm:col-span-2 lg:col-span-1 sm:justify-self-center sm:w-[calc(50%-1rem)] lg:w-full' : ''
                                     }`}
                                 >
@@ -390,8 +390,11 @@ export default function Home() {
                                         </ul>
                                         <Link
                                             to={comp.button_link || '/services'}
-                                            className={`w-full py-3 rounded ${index === 0 ? 'bg-tertiary text-white' : 'border border-primary text-primary hover:bg-surface-container'
-                                                } font-mono font-bold text-xs hover:bg-opacity-90 transition-all flex justify-center items-center gap-1 uppercase tracking-wider`}
+                                            className={`w-full py-3 rounded font-mono font-bold text-xs transition-all flex justify-center items-center gap-1 uppercase tracking-wider ${
+                                                index === 0
+                                                    ? 'bg-tertiary text-white hover:bg-opacity-90'
+                                                    : 'border border-primary text-primary hover:bg-surface-container'
+                                            }`}
                                         >
                                             {comp.button_text || 'View Details'}
                                             {index === 0 ? (
@@ -410,7 +413,7 @@ export default function Home() {
 
             {/* Featured Projects Section */}
             {activeProjects && activeProjects.length > 0 && (
-                <section className="py-20 bg-surface px-margin-desktop w-full max-w-container-max mx-auto">
+                <section className="py-24 bg-surface px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
                     <div className="mb-16 text-center">
                         <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
                             {getSetting('projects_section_title')}
@@ -421,7 +424,7 @@ export default function Home() {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                         {activeProjects.map((project, index) => (
-                            <div key={project.id || index} className="bg-surface-container-lowest rounded-lg overflow-hidden border border-outline-variant/30 group hover:shadow-lg transition-all duration-300">
+                            <div key={project.id || index} className="bg-white rounded overflow-hidden border border-outline-variant/30 group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
                                 <div className="h-64 overflow-hidden relative">
                                     <img alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale" src={project.image} />
                                 </div>
@@ -442,8 +445,8 @@ export default function Home() {
             )}
 
             {/* Client Directory Section */}
-            <section className="pt-8 pb-12 bg-surface-container w-full border-y border-outline-variant/190 overflow-hidden">
-                <div className="max-w-container-max mx-auto text-center px-margin-desktop">
+            <section className="py-12 bg-surface-container w-full border-y border-outline-variant/30 overflow-hidden">
+                <div className="max-w-container-max mx-auto text-center px-margin-mobile md:px-margin-desktop">
                     <h3 className="text-[11px] font-mono font-bold text-secondary uppercase tracking-widest mb-6">
                         {getSetting('clients_section_title')}
                     </h3>
@@ -477,14 +480,14 @@ export default function Home() {
                         </div>
                     </div>
                 ) : (
-                    <div className="max-w-container-max mx-auto text-center px-margin-desktop">
+                    <div className="max-w-container-max mx-auto text-center px-margin-mobile md:px-margin-desktop">
                         <p className="text-secondary text-sm">No clients to display.</p>
                     </div>
                 )}
             </section>
 
             {/* Contact & Consultation Section */}
-            <section className="py-20 bg-surface px-margin-desktop w-full max-w-container-max mx-auto">
+            <section className="py-24 bg-surface px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
                 <div className="flex flex-col lg:flex-row gap-16 items-start">
                     <div className="flex-1">
                         <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
@@ -519,9 +522,9 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="flex-1 w-full bg-surface-container-lowest p-8 rounded-lg border border-outline-variant/30 shadow-sm">
+                    <div className="flex-1 w-full bg-white p-6 md:p-8 rounded border border-outline-variant/30 shadow-none md:shadow-sm">
                         {isSubmitted && (
-                            <div className="mb-6 p-4 bg-[#cfe6f2] border border-[#b4cad6] rounded-lg text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                            <div className="mb-6 p-4 bg-secondary-container/20 border border-secondary-container/40 rounded text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                                 <span className="material-symbols-outlined">check_circle</span> Request Transmitted Successfully
                             </div>
                         )}
@@ -529,16 +532,16 @@ export default function Home() {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Full Name</label>
-                                    <input required className="w-full rounded border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2" placeholder="John Doe" type="text" />
+                                    <input required className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2 text-on-surface transition-all" placeholder="John Doe" type="text" />
                                 </div>
                                 <div>
                                     <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Email Address</label>
-                                    <input required className="w-full rounded border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2" placeholder="john@company.com" type="email" />
+                                    <input required className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2 text-on-surface transition-all" placeholder="john@company.com" type="email" />
                                 </div>
                             </div>
                             <div>
                                 <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Service Interest</label>
-                                <select required className="w-full rounded border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2">
+                                <select required className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2 text-on-surface transition-all">
                                     <option>Fire Safety &amp; MEP</option>
                                     <option>Structural Systems</option>
                                     <option>Robotics &amp; Automation</option>
@@ -547,9 +550,9 @@ export default function Home() {
                             </div>
                             <div>
                                 <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Project Details</label>
-                                <textarea required className="w-full rounded border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2" placeholder="Describe your operational needs..." rows="4"></textarea>
+                                <textarea required className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2 text-on-surface transition-all" placeholder="Describe your operational needs..." rows="4"></textarea>
                             </div>
-                            <button className="bg-tertiary text-white font-mono font-bold text-xs px-6 py-3 rounded uppercase tracking-wider hover:bg-opacity-90 transition-colors mt-2" type="submit">
+                            <button className="w-full py-4 bg-primary text-white rounded font-bold text-xs tracking-widest uppercase hover:brightness-110 shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 mt-2 cursor-pointer" type="submit">
                                 Submit Request
                             </button>
                         </form>
@@ -558,7 +561,7 @@ export default function Home() {
             </section>
 
             {/* Why Choose AR Engineering Section */}
-            <section className="py-24 bg-surface-container px-margin-desktop w-full border-t border-outline-variant/30">
+            <section className="py-24 bg-surface-container px-margin-mobile md:px-margin-desktop w-full border-t border-outline-variant/30">
                 <div className="max-w-container-max mx-auto">
                     <div className="mb-16 text-center">
                         <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono mb-2 block">OUR ADVANTAGES</span>
@@ -580,7 +583,7 @@ export default function Home() {
                             { title: "Professional Integrity", desc: "Highest standards of ethics, transparency, and professionalism.", icon: "gavel" },
                             { title: "Customer Satisfaction", desc: "Dedicated to building long-term relationships via exceptional support.", icon: "thumb_up" },
                         ].map((reason, idx) => (
-                            <div key={idx} className="bg-surface-container-lowest p-6 rounded-lg border border-outline-variant/20 hover:border-tertiary hover:shadow-lg transition-all duration-300 flex flex-col gap-4">
+                            <div key={idx} className="bg-white p-6 rounded border border-outline-variant/30 hover:border-primary transition-all duration-300 flex flex-col gap-4 shadow-none md:shadow-sm md:hover:shadow-md">
                                 <div className="text-tertiary">
                                     <span className="material-symbols-outlined text-3xl">{reason.icon}</span>
                                 </div>
@@ -595,8 +598,8 @@ export default function Home() {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20 bg-primary relative overflow-hidden w-full">
-                <div className="max-w-container-max mx-auto px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+            <section className="py-24 bg-primary relative overflow-hidden w-full">
+                <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                     <div className="text-white">
                         <h2 className="text-2xl md:text-3xl font-bold mb-2 uppercase tracking-tight">
                             {getSetting('cta_section_title')}
@@ -606,10 +609,10 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="flex flex-wrap gap-4">
-                        <Link to={getSetting('cta_primary_btn_link')} className="bg-tertiary text-white px-6 py-3 rounded font-mono font-bold text-xs hover:bg-opacity-90 transition-colors uppercase tracking-wider">
+                        <Link to={getSetting('cta_primary_btn_link')} className="bg-tertiary text-white px-8 py-4 rounded font-mono font-bold text-xs hover:bg-opacity-90 transition-colors uppercase tracking-widest whitespace-nowrap">
                             {getSetting('cta_primary_btn_text')}
                         </Link>
-                        <Link to={getSetting('cta_secondary_btn_link')} className="border border-on-primary-container text-white px-6 py-3 rounded font-mono font-bold text-xs hover:bg-white/10 transition-colors uppercase tracking-wider">
+                        <Link to={getSetting('cta_secondary_btn_link')} className="border border-white/30 text-white px-8 py-4 rounded font-mono font-bold text-xs hover:bg-white/10 transition-colors uppercase tracking-widest whitespace-nowrap">
                             {getSetting('cta_secondary_btn_text')}
                         </Link>
                     </div>
