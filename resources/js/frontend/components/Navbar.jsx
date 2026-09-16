@@ -15,7 +15,7 @@ export default function Navbar() {
                         className="h-10 w-auto object-contain rounded mt-2 -ml-2 -mr-1" 
                         style={{ filter: "invert(1)" }}
                     />
-                    <div className="font-headline-lg text-xl font-bold text-white tracking-tighter uppercase">
+                    <div className="text-xl font-bold text-white tracking-tighter uppercase">
                         <span className="text-tertiary">Engineering</span>
                     </div>
                 </Link>
@@ -85,7 +85,7 @@ export default function Navbar() {
                                 className="h-10 w-auto object-contain rounded -ml-2 -mr-1" 
                                 style={{ filter: "invert(1)" }}
                             />
-                            <span className="font-headline-lg text-lg font-bold text-white tracking-tighter uppercase mb-2">
+                            <span className="text-lg font-bold text-white tracking-tighter uppercase mb-2">
                                 <span className="text-tertiary">Engineering</span>
                             </span>
                         </Link>

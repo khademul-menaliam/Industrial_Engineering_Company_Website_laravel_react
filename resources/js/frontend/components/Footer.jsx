@@ -42,7 +42,7 @@ export default function Footer() {
         <footer className="w-full bg-midnight text-white border-t border-white/10">
             <div className="w-full py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
                 <div className="col-span-1">
-                    <div className="font-display-lg text-xl font-bold text-white mb-2 uppercase tracking-tighter flex items-center">
+                    <div className="text-xl font-bold text-white mb-2 uppercase tracking-tighter flex items-center">
                         <img 
                             src="/logo.png" 
                             alt="AR Engineering Logo" 
