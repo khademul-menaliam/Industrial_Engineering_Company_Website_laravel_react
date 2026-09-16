@@ -94,9 +94,11 @@
         font-weight: 400;
     }
 
-    h1, h2, h3, h4, h5 {
+    h1, h2, h3, h4, h5, h6 {
         font-family: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
         font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: -0.025em;
     }
 
     h1 {
