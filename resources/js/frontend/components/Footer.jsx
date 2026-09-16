@@ -52,7 +52,7 @@ export default function Footer() {
                         <span className="text-tertiary">Engineering</span>
                     </div>
                     <div 
-                        className="font-body-sm text-body-sm text-[#8d9aa1] leading-relaxed mb-8 rich-text text-justify"
+                        className="text-xs md:text-sm text-[#8d9aa1] leading-relaxed mb-8 rich-text text-justify"
                         dangerouslySetInnerHTML={{ __html: settings.footer_description }}
                     />
                     <div className="flex gap-3">
@@ -95,17 +95,17 @@ export default function Footer() {
                 </div>
                 <div className="flex flex-col gap-5">
                     <span className="text-white font-bold text-xs uppercase tracking-widest text-[11px]">Directives</span>
-                    <Link className="text-[#8d9aa1] hover:text-tertiary transition-all font-body-sm text-body-sm" to="/services">Structural Audits</Link>
-                    <Link className="text-[#8d9aa1] hover:text-tertiary transition-all font-body-sm text-body-sm" to="/services">MEP Frameworks</Link>
-                    <Link className="text-[#8d9aa1] hover:text-tertiary transition-all font-body-sm text-body-sm" to="/services">Process Control</Link>
-                    <Link className="text-[#8d9aa1] hover:text-tertiary transition-all font-body-sm text-body-sm" to="/services">Load Balancing</Link>
+                    <Link className="text-[#8d9aa1] hover:text-tertiary transition-all text-xs" to="/services">Structural Audits</Link>
+                    <Link className="text-[#8d9aa1] hover:text-tertiary transition-all text-xs" to="/services">MEP Frameworks</Link>
+                    <Link className="text-[#8d9aa1] hover:text-tertiary transition-all text-xs" to="/services">Process Control</Link>
+                    <Link className="text-[#8d9aa1] hover:text-tertiary transition-all text-xs" to="/services">Load Balancing</Link>
                 </div>
                 <div className="flex flex-col gap-5">
                     <span className="text-white font-bold text-xs uppercase tracking-widest text-[11px]">Standards</span>
-                    <a className="text-[#8d9aa1] hover:text-tertiary transition-all font-body-sm text-body-sm" href="#">ISO 9001 Management</a>
-                    <a className="text-[#8d9aa1] hover:text-tertiary transition-all font-body-sm text-body-sm" href="#">NFPA Safety Protocols</a>
-                    <a className="text-[#8d9aa1] hover:text-tertiary transition-all font-body-sm text-body-sm" href="#">OSHA Compliance</a>
-                    <a className="text-[#8d9aa1] hover:text-tertiary transition-all font-body-sm text-body-sm" href="#">EU-DIR Directives</a>
+                    <a className="text-[#8d9aa1] hover:text-tertiary transition-all text-xs" href="#">ISO 9001 Management</a>
+                    <a className="text-[#8d9aa1] hover:text-tertiary transition-all text-xs" href="#">NFPA Safety Protocols</a>
+                    <a className="text-[#8d9aa1] hover:text-tertiary transition-all text-xs" href="#">OSHA Compliance</a>
+                    <a className="text-[#8d9aa1] hover:text-tertiary transition-all text-xs" href="#">EU-DIR Directives</a>
                 </div>
                 <div className="flex flex-col gap-5">
                     <span className="text-white font-bold text-xs uppercase tracking-widest text-[11px]">Offices & Contact</span>
