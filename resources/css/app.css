@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css?family=McLaren:700|McLaren:400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baloo%20Tammudu%202:700|Baloo%20Tammudu%202:400&display=swap');
 @import 'tailwindcss';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
 
 @theme {
-    --font-sans: 'McLaren', ui-sans-serif, system-ui, sans-serif;
-    --font-heading: 'McLaren', ui-sans-serif, system-ui, sans-serif;
-    --font-body: 'McLaren', ui-sans-serif, system-ui, sans-serif;
+    --font-sans: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
+    --font-heading: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
     
-    --text-sm: 0.600rem;
-    --text-base: 0.8rem;
+    --text-sm: 0.8rem;
+    --text-base: 0.9rem;
     --text-xl: 1.066rem;
     --text-2xl: 1.421rem;
     --text-3xl: 1.894rem;
@@ -86,12 +86,12 @@
     }
 
     body {
-        font-family: 'McLaren', ui-sans-serif, system-ui, sans-serif;
+        font-family: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
         font-weight: 400;
     }
 
     h1, h2, h3, h4, h5 {
-        font-family: 'McLaren', ui-sans-serif, system-ui, sans-serif;
+        font-family: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
         font-weight: 700;
     }
 
