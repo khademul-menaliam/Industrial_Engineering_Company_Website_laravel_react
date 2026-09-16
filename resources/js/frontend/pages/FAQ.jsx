@@ -28,44 +28,57 @@ export default function FAQ() {
     };
 
     return (
-        <div className="py-24 bg-background max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-            <div className="text-center mb-16">
-                <span className="text-tertiary font-bold text-xs tracking-widest uppercase font-mono">Support & Compliance</span>
-                <h1 className="text-primary font-bold text-3xl md:text-5xl uppercase tracking-tight mt-4">Frequently Asked Questions</h1>
-                <p className="text-on-surface-variant text-base md:text-lg max-w-xl mx-auto mt-4 leading-relaxed text-justify">
-                    Technical details, compliance protocols, and system integration specs for AR Engineering solutions.
-                </p>
-            </div>
+        <div className="w-full bg-background text-on-surface">
+            <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24">
+                <div className="text-center mb-16 max-w-2xl mx-auto">
+                    <span className="text-xs font-bold uppercase tracking-widest text-tertiary font-mono mb-3 block">Support &amp; Compliance</span>
+                    <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 uppercase tracking-tight">Frequently Asked Questions</h1>
+                    <div className="w-24 h-1 bg-tertiary mx-auto mb-6"></div>
+                    <p className="text-secondary text-sm md:text-base leading-relaxed text-justify">
+                        Technical details, compliance protocols, and system integration specs for AR Engineering solutions.
+                    </p>
+                </div>
 
-            <div className="max-w-3xl mx-auto space-y-4">
-                {faqs.map((faq, index) => (
-                    <div 
-                        key={index} 
-                        className="bg-white rounded-xl border border-outline-variant/30 overflow-hidden transition-all duration-300 hover:border-tertiary"
-                    >
-                        <button
-                            onClick={() => toggleFaq(index)}
-                            className="w-full flex justify-between items-center p-6 text-left text-primary font-semibold focus:outline-none"
-                        >
-                            <span className="text-base md:text-lg font-bold uppercase tracking-tight leading-tight">{faq.question}</span>
-                            <span className="material-symbols-outlined text-primary transition-transform duration-300" style={{ transform: activeIndex === index ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-                                keyboard_arrow_down
-                            </span>
-                        </button>
-                        <div 
-                            className="transition-all duration-300 ease-in-out overflow-hidden"
-                            style={{ 
-                                maxHeight: activeIndex === index ? '200px' : '0px',
-                                opacity: activeIndex === index ? 1 : 0
-                            }}
-                        >
-                            <p className="p-6 pt-0 text-on-surface-variant text-sm leading-relaxed border-t border-outline-variant/10 text-justify">
-                                {faq.answer}
-                            </p>
-                        </div>
-                    </div>
-                ))}
-            </div>
+                <div className="max-w-3xl mx-auto space-y-4">
+                    {faqs.map((faq, index) => {
+                        const isOpen = activeIndex === index;
+                        return (
+                            <div
+                                key={index}
+                                className={`bg-white rounded border overflow-hidden transition-all duration-300 shadow-none md:shadow-sm ${
+                                    isOpen ? 'border-primary' : 'border-outline-variant/30 hover:border-primary'
+                                }`}
+                            >
+                                <button
+                                    onClick={() => toggleFaq(index)}
+                                    className={`w-full flex justify-between items-center p-6 text-left font-bold focus:outline-none cursor-pointer transition-colors ${
+                                        isOpen ? 'bg-surface-container-low text-primary' : 'bg-white hover:bg-surface-container-low text-primary'
+                                    }`}
+                                >
+                                    <span className="text-base font-bold uppercase tracking-tight leading-snug">{faq.question}</span>
+                                    <span
+                                        className="material-symbols-outlined text-secondary transition-transform duration-300 shrink-0 ml-4 text-2xl"
+                                        style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                                    >
+                                        keyboard_arrow_down
+                                    </span>
+                                </button>
+                                <div
+                                    className="transition-all duration-300 ease-in-out overflow-hidden"
+                                    style={{
+                                        maxHeight: isOpen ? '400px' : '0px',
+                                        opacity: isOpen ? 1 : 0
+                                    }}
+                                >
+                                    <p className="p-6 pt-3 text-secondary text-sm leading-relaxed border-t border-outline-variant/20 text-justify">
+                                        {faq.answer}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </main>
         </div>
     );
 }
