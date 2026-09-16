@@ -140,58 +140,58 @@ export default function Careers() {
         : filteredVacancies.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
 
     return (
-        <div className="w-full">
+        <div className="w-full bg-background text-on-surface">
             {/* Hero */}
             <section className="relative h-[350px] md:h-[400px] flex items-center bg-primary overflow-hidden">
                 <div className="absolute inset-0 opacity-40">
                     <div className="w-full h-full bg-center bg-cover" style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuAvuTpPHQiUF8AWDoCwA4kqw_PO_GQciyHYZ8UcxUpNMoSTKtKgmeCsjUtPRy9N_6fmkTxz4wHWCiinoDWX5xGH3XndC_T9cZGpZR7GmNCH6bkTai9vH9HeYpxzDGiJaSE3nHS83YN11K6NdHITWQUDqojLbj9_zLg1jRpabOHsEcdKnNG5Gukd7eGD8EIz3yd68DpqgwQx9MU0oECY1nTFkgeWhf4LkQDGSzS0qckA3BZRYTyKCTQsTw')" }}></div>
                 </div>
-                <div className="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+                <div className="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
                     <div className="max-w-2xl text-white">
-                        <p className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant">Employer Brand</p>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight uppercase">ENGINEERING CAREERS</h1>
-                        <p className="text-lg text-primary-fixed font-medium max-w-lg leading-relaxed text-justify">Defining structural reliability and industrial excellence for the global market.</p>
+                        <span className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant font-mono block">Employer Brand</span>
+                        <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight uppercase">ENGINEERING CAREERS</h1>
+                        <p className="text-base md:text-lg text-white/80 font-light max-w-lg leading-relaxed text-justify">Defining structural reliability and industrial excellence for the global market.</p>
                     </div>
                 </div>
             </section>
 
-            <div className="max-w-container-max mx-auto px-margin-desktop py-24 space-y-32">
+            <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24 space-y-24">
                 {/* Section 1: Why Join Us */}
-                <section className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start" id="why-join-us">
-                    <div className="lg:col-span-5 space-y-10">
+                <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start" id="why-join-us">
+                    <div className="lg:col-span-5 space-y-8">
                         <div>
-                            <h2 className="text-3xl font-bold text-primary uppercase tracking-tight relative pb-4">
+                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight relative pb-4">
                                 Why Join Us
-                                <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-tertiary"></span>
+                                <span className="absolute bottom-0 left-0 w-10 h-1 bg-tertiary"></span>
                             </h2>
-                            <p className="mt-8 text-on-surface-variant leading-relaxed text-sm text-justify">
+                            <p className="mt-6 text-secondary leading-relaxed text-sm text-justify">
                                 AR Engineering is an industrial leader in structural engineering. We seek individuals who value mathematical precision, operational reliability, and uncompromising safety standards.
                             </p>
                         </div>
-                        <div className="space-y-6">
-                            <div className="flex gap-4 p-5 bg-white border border-outline-variant rounded hover:border-tertiary transition-colors duration-300">
-                                <span className="material-symbols-outlined text-primary">verified</span>
+                        <div className="space-y-4">
+                            <div className="flex gap-4 p-6 bg-white border border-outline-variant/30 rounded group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
+                                <span className="material-symbols-outlined text-primary text-2xl">verified</span>
                                 <div>
-                                    <h4 className="font-bold text-primary uppercase text-sm tracking-wide mb-1">Industrial Standards</h4>
-                                    <p className="text-xs text-on-surface-variant text-justify">Work within a framework of rigorous ISO-certified protocols on critical national infrastructure.</p>
+                                    <h3 className="font-bold text-primary uppercase text-sm tracking-tight mb-1">Industrial Standards</h3>
+                                    <p className="text-xs text-secondary text-justify leading-relaxed">Work within a framework of rigorous ISO-certified protocols on critical national infrastructure.</p>
                                 </div>
                             </div>
-                            <div className="flex gap-4 p-5 bg-white border border-outline-variant rounded hover:border-tertiary transition-colors duration-300">
-                                <span className="material-symbols-outlined text-primary">engineering</span>
+                            <div className="flex gap-4 p-6 bg-white border border-outline-variant/30 rounded group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
+                                <span className="material-symbols-outlined text-primary text-2xl">engineering</span>
                                 <div>
-                                    <h4 className="font-bold text-primary uppercase text-sm tracking-wide mb-1">Engineering Focus</h4>
-                                    <p className="text-xs text-on-surface-variant text-justify">We prioritize technical expertise over corporate fluff. Your engineering skill is your primary asset.</p>
+                                    <h3 className="font-bold text-primary uppercase text-sm tracking-tight mb-1">Engineering Focus</h3>
+                                    <p className="text-xs text-secondary text-justify leading-relaxed">We prioritize technical expertise over corporate fluff. Your engineering skill is your primary asset.</p>
                                 </div>
                             </div>
                         </div>
-                        <ul className="space-y-3 font-mono text-xs">
-                            <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-lg">check</span> Continuing Technical Education</li>
-                            <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-lg">check</span> Comprehensive Health &amp; Life Insurance</li>
-                            <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-lg">check</span> Modern BIM/FEA Workstation Allocation</li>
+                        <ul className="space-y-3 font-mono text-xs text-secondary">
+                            <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-base">check</span> Continuing Technical Education</li>
+                            <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-base">check</span> Comprehensive Health &amp; Life Insurance</li>
+                            <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-base">check</span> Modern BIM/FEA Workstation Allocation</li>
                         </ul>
                     </div>
                     <div className="lg:col-span-7">
-                        <div className="aspect-[16/10] bg-surface-container rounded overflow-hidden border border-outline-variant/30">
+                        <div className="aspect-[16/10] bg-surface-container-low rounded overflow-hidden border border-outline-variant/30 shadow-none md:shadow-sm">
                             <img alt="Engineering professional" className="w-full h-full object-cover filter grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8yelI8zz3zZB_xOggCH44uFkZOchwr5JoCd_YwatDrH8n2bP7Fv04diGqoMNBFVXOMmzVXMm1Khsv2cD2J-0JkNKh8F3_z7DomR998JD4YQYPZ_UjxrXmIWGtoML1XMieoQUBHmdn4yp6fpzuwCxQHLj5ZUUIbQEb27rxJabHV_br09iEBSL1zbTfFXr_Y5NDva3iJXgqTJTFje6DCSKeQv2KRfD1T_jtIJ1E2FNjMq3V1JFqmuYHBw" />
                         </div>
                     </div>
@@ -201,18 +201,18 @@ export default function Careers() {
                 <section id="job-vacancies">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                         <div>
-                            <h2 className="text-3xl font-bold text-primary uppercase tracking-tight relative pb-4">
+                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight relative pb-4">
                                 Job Vacancies
-                                <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-tertiary"></span>
+                                <span className="absolute bottom-0 left-0 w-10 h-1 bg-tertiary"></span>
                             </h2>
                         </div>
                         <div className="w-full md:w-auto">
                             <div className="relative">
                                 <span className="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-sm">search</span>
                                 <input 
-                                    className="pl-10 pr-4 py-2 bg-white border border-outline-variant rounded text-xs font-semibold w-full md:w-64 placeholder:text-outline focus:border-primary focus:ring-1 focus:ring-primary" 
-                                    placeholder="FILTER BY DISCIPLINE..." 
-                                    type="text" 
+                                    className="w-full md:w-64 pl-10 pr-4 py-2 bg-background border border-outline-variant/30 rounded text-xs text-on-surface placeholder:text-outline-variant focus:border-primary focus:ring-1 focus:ring-primary transition-all font-mono"
+                                    placeholder="FILTER BY DISCIPLINE..."
+                                    type="text"
                                     value={searchQuery}
                                     onChange={handleSearchChange}
                                 />
@@ -225,32 +225,34 @@ export default function Careers() {
                             <div 
                                 key={vacancy.id || idx} 
                                 onClick={() => handleJobCardClick(vacancy.title)} 
-                                className="bg-white border border-outline-variant p-8 rounded flex flex-col h-full cursor-pointer group hover:border-primary hover:-translate-y-1 transition-all duration-300"
+                                className="bg-white border border-outline-variant/30 p-6 rounded flex flex-col h-full cursor-pointer group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md"
                             >
-                                <div className="flex justify-between items-start mb-8">
-                                    <span className="text-[10px] font-bold text-tertiary border border-tertiary px-2 py-0.5 rounded uppercase tracking-tighter">
+                                <div className="flex justify-between items-start mb-6">
+                                    <span className="bg-primary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded font-mono tracking-wider shadow-sm">
                                         {vacancy.type}
                                     </span>
-                                    <span className="text-[10px] font-bold text-outline-variant uppercase font-mono tracking-wider">
+                                    <span className="text-[10px] font-bold text-secondary uppercase font-mono tracking-wider">
                                         Ref: {vacancy.ref}
                                     </span>
                                 </div>
-                                <h3 className="text-xl font-bold text-primary mb-3 uppercase tracking-tight">{vacancy.title}</h3>
-                                <p className="text-xs text-on-surface-variant mb-10 leading-relaxed text-justify">{vacancy.description}</p>
-                                <div className="mt-auto flex items-center justify-between pt-6 border-t border-outline-variant/30">
-                                    <span className="text-[11px] font-bold uppercase tracking-widest text-primary group-hover:text-tertiary transition-colors">Apply Details</span>
-                                    <span className="material-symbols-outlined text-primary group-hover:translate-x-1 transition-transform">chevron_right</span>
+                                <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{vacancy.title}</h3>
+                                <p className="text-xs text-secondary mb-6 leading-relaxed text-justify flex-grow">{vacancy.description}</p>
+                                <div className="mt-auto flex items-center justify-between pt-4 border-t border-outline-variant/30">
+                                    <span className="text-[11px] font-bold uppercase tracking-wider font-mono text-tertiary group-hover:text-primary transition-colors flex items-center gap-1">
+                                        Apply Details
+                                        <span className="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">chevron_right</span>
+                                    </span>
                                 </div>
                             </div>
                         ))}
                         {filteredVacancies.length === 0 && (
-                            <div className="col-span-full text-center py-12 text-sm text-on-surface-variant font-mono uppercase">
+                            <div className="col-span-full text-center py-12 text-sm text-secondary font-mono uppercase">
                                 No Job Vacancies match your criteria.
                             </div>
                         )}
                     </div>
 
-                    {/* Pagination & Show All Bar (Always visible to ensure 'See All' capability works out-of-the-box) */}
+                    {/* Pagination & Show All Bar */}
                     {filteredVacancies.length > 0 && (
                         <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-12 border-t border-outline-variant/30 pt-6">
                             <div className="flex items-center gap-2 font-mono text-[10px] sm:text-xs">
@@ -260,7 +262,7 @@ export default function Careers() {
                                         setCurrentPage(prev => Math.max(prev - 1, 1));
                                         document.getElementById('job-vacancies').scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="px-4 py-2.5 rounded border border-outline-variant hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white"
+                                    className="px-4 py-2.5 rounded border border-outline-variant/30 hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant/30 transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white font-mono text-xs cursor-pointer shadow-none md:shadow-sm"
                                 >
                                     <span className="material-symbols-outlined text-sm">chevron_left</span> Prev
                                 </button>
@@ -272,10 +274,10 @@ export default function Careers() {
                                             setCurrentPage(pageNum);
                                             document.getElementById('job-vacancies').scrollIntoView({ behavior: 'smooth' });
                                         }}
-                                        className={`w-10 h-10 rounded font-bold transition-all ${
+                                        className={`w-10 h-10 rounded font-bold font-mono text-xs transition-all flex items-center justify-center cursor-pointer ${
                                             currentPage === pageNum
-                                                ? 'bg-primary text-white shadow-md'
-                                                : 'bg-white border border-outline-variant hover:border-primary text-primary'
+                                                ? 'bg-primary text-white shadow-sm'
+                                                : 'bg-white border border-outline-variant/30 hover:border-primary text-primary shadow-none md:shadow-sm'
                                         }`}
                                     >
                                         {pageNum}
@@ -283,7 +285,7 @@ export default function Careers() {
                                 ))}
 
                                 {showAll && (
-                                    <span className="text-on-surface-variant font-mono uppercase px-3 py-2 bg-surface-container rounded border border-outline-variant/20">
+                                    <span className="text-secondary font-mono uppercase px-3 py-2 bg-surface-container rounded border border-outline-variant/20 text-xs">
                                         Showing All Results ({filteredVacancies.length})
                                     </span>
                                 )}
@@ -294,7 +296,7 @@ export default function Careers() {
                                         setCurrentPage(prev => Math.min(prev + 1, totalPages));
                                         document.getElementById('job-vacancies').scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="px-4 py-2.5 rounded border border-outline-variant hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white"
+                                    className="px-4 py-2.5 rounded border border-outline-variant/30 hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant/30 transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white font-mono text-xs cursor-pointer shadow-none md:shadow-sm"
                                 >
                                     Next <span className="material-symbols-outlined text-sm">chevron_right</span>
                                 </button>
@@ -305,7 +307,7 @@ export default function Careers() {
                                     setShowAll(!showAll);
                                     setCurrentPage(1);
                                 }}
-                                className="bg-[#0b1519] border border-outline-variant/30 text-sky-400 hover:text-white hover:bg-sky-950/20 px-5 py-2.5 rounded text-xs font-bold uppercase tracking-widest font-mono transition-all shadow-md flex items-center gap-1.5"
+                                className="border border-primary text-primary hover:bg-surface-container font-mono font-bold text-xs px-5 py-2.5 rounded uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer"
                             >
                                 <span className="material-symbols-outlined text-sm">
                                     {showAll ? 'pages' : 'unfold_more'}
@@ -317,26 +319,26 @@ export default function Careers() {
                 </section>
 
                 {/* Section 3: Internship */}
-                <section className="bg-primary text-white p-12 lg:p-20 rounded relative overflow-hidden" id="internship">
+                <section className="bg-primary text-white p-8 md:p-12 lg:p-16 rounded relative overflow-hidden border border-outline-variant/20 shadow-none md:shadow-md" id="internship">
                     <div className="absolute top-0 right-0 p-10 opacity-5 pointer-events-none">
                         <span className="material-symbols-outlined text-[240px]">architecture</span>
                     </div>
                     <div className="max-w-3xl relative z-10">
-                        <h2 className="text-3xl font-bold uppercase tracking-tight mb-8">Internship Program</h2>
-                        <p className="text-base text-primary-fixed opacity-90 mb-10 leading-relaxed text-justify">
+                        <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-6">Internship Program</h2>
+                        <p className="text-sm sm:text-base text-white/85 mb-8 leading-relaxed text-justify max-w-2xl">
                             Designed for final-year engineering students. We provide 6-month immersive rotations within our structural and civil divisions to build practical technical competencies.
                         </p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-12 border-l border-white/20 pl-8 font-mono">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 border-l border-white/20 pl-6 font-mono">
                             <div>
-                                <h4 className="text-xs font-bold uppercase tracking-widest text-tertiary mb-2">Summer Cohort</h4>
-                                <p className="text-xs opacity-80 leading-relaxed text-justify">Applications for the 2025 cycle are currently being processed. Closing date: March 1st.</p>
+                                <h4 className="text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Summer Cohort</h4>
+                                <p className="text-xs text-white/75 leading-relaxed text-justify">Applications for the 2025 cycle are currently being processed. Closing date: March 1st.</p>
                             </div>
                             <div>
-                                <h4 className="text-xs font-bold uppercase tracking-widest text-tertiary mb-2">Prerequisites</h4>
-                                <p className="text-xs opacity-80 leading-relaxed text-justify">Enrollment in an accredited Engineering program (Civil, Structural, or Mechanical).</p>
+                                <h4 className="text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Prerequisites</h4>
+                                <p className="text-xs text-white/75 leading-relaxed text-justify">Enrollment in an accredited Engineering program (Civil, Structural, or Mechanical).</p>
                             </div>
                         </div>
-                        <button className="px-10 py-3 border border-white text-white text-xs font-bold uppercase tracking-widest hover:bg-white hover:text-primary transition-all duration-200" onClick={() => handleJobCardClick('Graduate Intern Program')}>
+                        <button className="border border-white/30 hover:bg-white/10 text-white font-mono font-bold text-xs px-8 py-4 rounded uppercase tracking-widest transition-all backdrop-blur-sm cursor-pointer" onClick={() => handleJobCardClick('Graduate Intern Program')}>
                             Program Inquiry
                         </button>
                     </div>
@@ -344,46 +346,46 @@ export default function Careers() {
 
                 {/* Application Section */}
                 <section ref={formRef} className="max-w-4xl mx-auto" id="application-form">
-                    <div className="bg-white border border-outline-variant p-8 md:p-16 rounded shadow-sm">
-                        <div className="mb-16 pb-8 border-b border-outline-variant/30">
-                            <h2 className="text-3xl font-bold text-primary uppercase tracking-tight mb-4">Application Portal v2</h2>
-                            <p className="text-on-surface-variant text-sm">Please complete all mandatory fields and attach your technical dossier for review.</p>
+                    <div className="bg-white border border-outline-variant/30 p-6 md:p-10 lg:p-12 rounded shadow-none md:shadow-sm">
+                        <div className="mb-12 pb-6 border-b border-outline-variant/30">
+                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight mb-2">Application Portal v2</h2>
+                            <p className="text-secondary text-sm">Please complete all mandatory fields and attach your technical dossier for review.</p>
                         </div>
                         
                         {isSubmitted && (
-                            <div className="mb-8 p-4 bg-primary text-white rounded text-xs font-bold uppercase tracking-widest flex items-center gap-3">
-                                <span className="material-symbols-outlined">check_circle</span> Application Transmitted Successfully.
+                            <div className="mb-8 p-4 bg-primary text-white rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-3 shadow-sm">
+                                <span className="material-symbols-outlined text-base">check_circle</span> Application Transmitted Successfully.
                             </div>
                         )}
                         
-                        <form className="space-y-12" id="job-app-form" onSubmit={handleFormSubmit}>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-primary uppercase tracking-widest block font-mono">Legal Full Name</label>
-                                    <input 
-                                        className="w-full px-4 py-3 bg-white border border-outline-variant rounded text-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary" 
-                                        required 
-                                        type="text" 
+                        <form className="space-y-8" id="job-app-form" onSubmit={handleFormSubmit}>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-1">
+                                    <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Legal Full Name</label>
+                                    <input
+                                        className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2.5 text-on-surface transition-all"
+                                        required
+                                        type="text"
                                         value={formName}
                                         onChange={e => setFormName(e.target.value)}
                                     />
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-primary uppercase tracking-widest block font-mono">Corporate Email Address</label>
-                                    <input 
-                                        className="w-full px-4 py-3 bg-white border border-outline-variant rounded text-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary" 
-                                        required 
-                                        type="email" 
+                                <div className="space-y-1">
+                                    <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Corporate Email Address</label>
+                                    <input
+                                        className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2.5 text-on-surface transition-all"
+                                        required
+                                        type="email"
                                         value={formEmail}
                                         onChange={e => setFormEmail(e.target.value)}
                                     />
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-primary uppercase tracking-widest block font-mono">Specified Position</label>
-                                    <select 
-                                        value={selectedPosition} 
-                                        onChange={(e) => setSelectedPosition(e.target.value)} 
-                                        className="w-full px-4 py-3 bg-white border border-outline-variant rounded text-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary" 
+                                <div className="space-y-1">
+                                    <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Specified Position</label>
+                                    <select
+                                        value={selectedPosition}
+                                        onChange={(e) => setSelectedPosition(e.target.value)}
+                                        className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2.5 text-on-surface transition-all"
                                         required
                                     >
                                         <option value="">Select vacancy...</option>
@@ -393,28 +395,28 @@ export default function Careers() {
                                         <option value="Graduate Intern Program">Graduate Intern Program</option>
                                     </select>
                                 </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-bold text-primary uppercase tracking-widest block font-mono">LinkedIn / Professional Link</label>
-                                    <input 
-                                        className="w-full px-4 py-3 bg-white border border-outline-variant rounded text-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary" 
-                                        type="url" 
+                                <div className="space-y-1">
+                                    <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">LinkedIn / Professional Link</label>
+                                    <input
+                                        className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2.5 text-on-surface transition-all"
+                                        type="url"
                                         value={formLinkedin}
                                         onChange={e => setFormLinkedin(e.target.value)}
                                     />
                                 </div>
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-[10px] font-bold text-primary uppercase tracking-widest block font-mono">Technical Dossier (PDF/DOCX)</label>
-                                <div 
+                            <div className="space-y-1">
+                                <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Technical Dossier (PDF/DOCX)</label>
+                                <div
                                     onClick={() => fileInputRef.current?.click()}
-                                    className="file-upload-zone rounded-lg p-10 flex flex-col items-center justify-center cursor-pointer bg-background/30 hover:bg-background/50 transition-colors border border-dashed border-outline-variant"
+                                    className="file-upload-zone rounded p-8 flex flex-col items-center justify-center cursor-pointer bg-background/50 hover:bg-surface-container-low transition-colors border border-dashed border-outline-variant/40"
                                 >
                                     <input ref={fileInputRef} accept=".pdf,.docx,.doc" className="hidden" type="file" onChange={handleFileChange} />
-                                    <span className="material-symbols-outlined text-3xl text-outline mb-3">upload_file</span>
+                                    <span className="material-symbols-outlined text-3xl text-outline mb-2">upload_file</span>
                                     <p className="text-xs font-bold text-on-surface uppercase tracking-wider mb-1">Upload Documents</p>
-                                    <p className="text-[10px] text-outline-variant uppercase font-mono">Size limit: 10 megabytes</p>
+                                    <p className="text-[10px] text-secondary uppercase font-mono">Size limit: 10 megabytes</p>
                                     {fileName && (
-                                        <div className="mt-6 px-4 py-2 bg-primary text-white rounded text-[10px] font-bold uppercase tracking-wider flex items-center gap-2">
+                                        <div className="mt-4 px-3 py-1.5 bg-primary text-white rounded text-[10px] font-bold uppercase font-mono tracking-wider flex items-center gap-2 shadow-sm">
                                             <span className="material-symbols-outlined text-sm">attach_file</span>
                                             <span className="truncate max-w-[180px]">{fileName}</span>
                                             <button className="ml-2 hover:text-tertiary" onClick={resetFile} type="button">
@@ -424,20 +426,20 @@ export default function Careers() {
                                     )}
                                 </div>
                             </div>
-                            <div className="space-y-2">
-                                <label className="text-[10px] font-bold text-primary uppercase tracking-widest block font-mono">Executive Summary / Experience Overview</label>
-                                <textarea 
-                                    className="w-full px-4 py-3 bg-white border border-outline-variant rounded text-sm transition-all focus:border-primary focus:ring-1 focus:ring-primary" 
-                                    placeholder="Summarize your engineering expertise..." 
+                            <div className="space-y-1">
+                                <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Executive Summary / Experience Overview</label>
+                                <textarea
+                                    className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2.5 text-on-surface transition-all"
+                                    placeholder="Summarize your engineering expertise..."
                                     rows="4"
                                     value={formSummary}
                                     onChange={e => setFormSummary(e.target.value)}
                                 ></textarea>
                             </div>
-                            <div className="flex flex-col md:flex-row items-center gap-6 pt-6">
-                                <button 
+                            <div className="flex flex-col md:flex-row items-center gap-6 pt-4">
+                                <button
                                     disabled={submitting}
-                                    className="px-12 py-4 bg-tertiary text-white text-xs font-bold uppercase tracking-[.2em] hover:brightness-110 active:scale-95 transition-all w-full md:w-auto shadow-sm disabled:opacity-50" 
+                                    className="py-4 px-10 bg-primary text-white rounded font-bold font-mono text-xs tracking-widest uppercase hover:brightness-110 shadow-md transition-all transform hover:-translate-y-0.5 active:translate-y-0 w-full md:w-auto disabled:opacity-50 cursor-pointer"
                                     type="submit"
                                 >
                                     {submitting ? 'TRANSMITTING...' : 'Transmit Application'}
