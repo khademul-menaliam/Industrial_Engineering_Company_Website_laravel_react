@@ -8,6 +8,7 @@
     --font-sans: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
     --font-heading: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
     --font-body: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     
     --text-sm: 0.8rem;
     --text-base: 0.9rem;
@@ -35,6 +36,8 @@
     --color-on-tertiary: #ffffff;
     --color-tertiary-container: #680008;
     --color-on-tertiary-container: #ff655c;
+
+    --color-midnight: #0c0f24;
 
     --color-background: #f8f9fa;
     --color-on-background: #191c1d;
@@ -75,6 +78,7 @@
     --spacing-container-max: 1280px;
 
     /* Border Radius */
+    --radius-standard: 4px;
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --radius-full: 9999px;
