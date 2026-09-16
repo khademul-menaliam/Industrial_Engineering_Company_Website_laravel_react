@@ -238,14 +238,14 @@ export default function Portfolio() {
 
                 <div className="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
                     <div className="max-w-2xl text-white">
-                        <p className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant font-mono flex items-center gap-2">
+                        <p className="text-[10px] md:text-[11px] font-bold uppercase tracking-wider mb-4 text-outline-variant font-mono flex items-center gap-2">
                             <span className="w-2 h-2 bg-tertiary"></span>
                             PROJECT ARCHIVE // VERIFIED DEPLOYMENTS
                         </p>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight uppercase">
+                        <h1 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight uppercase">
                             ENGINEERING PORTFOLIO
                         </h1>
-                        <p className="text-base md:text-lg text-primary-fixed font-medium leading-relaxed text-justify">
+                        <p className="text-base md:text-lg text-white/90 font-medium leading-relaxed text-justify">
                             Rigorous structural reinforcements, automated fire safety grids, and lifecycle mechanical infrastructure deployed across high-consequence industrial facilities.
                         </p>
                     </div>
@@ -253,7 +253,7 @@ export default function Portfolio() {
             </section>
 
             {/* 2. FILTER TOOLBAR & INTRO BAR */}
-            <section className="border-b border-outline-variant/30 bg-surface-container-lowest sticky top-0 z-20 shadow-xs">
+            <section className="border-b border-outline-variant/30 bg-surface-container-low sticky top-0 z-20 shadow-none md:shadow-xs">
                 <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     {/* Category Filter Tabs */}
                     <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-hide">
@@ -267,15 +267,15 @@ export default function Portfolio() {
                                 <button
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
-                                    className={`px-4 py-2 text-xs font-bold uppercase transition-all font-mono whitespace-nowrap rounded flex items-center gap-2 ${
+                                    className={`px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all font-mono whitespace-nowrap rounded flex items-center gap-2 cursor-pointer ${
                                         isActive
-                                            ? 'bg-primary text-white shadow-sm'
-                                            : 'bg-surface hover:bg-surface-container text-secondary hover:text-primary border border-outline-variant/40'
+                                            ? 'bg-primary text-white shadow-none md:shadow-sm'
+                                            : 'bg-white hover:bg-surface-container text-primary border border-outline-variant/30'
                                     }`}
                                 >
                                     <span>{tab}</span>
                                     <span className={`text-[10px] px-1.5 py-0.5 rounded font-mono ${
-                                        isActive ? 'bg-tertiary text-white' : 'bg-surface-container-high text-on-surface-variant'
+                                        isActive ? 'bg-tertiary text-white' : 'bg-surface-container text-secondary'
                                     }`}>
                                         {count}
                                     </span>
@@ -293,17 +293,17 @@ export default function Portfolio() {
             </section>
 
             {/* 3. PROJECT CATALOG GRID */}
-            <section className="py-16 md:py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+            <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProjects.map((p) => {
                         const isSelected = selectedProject?.id === p.id;
                         return (
                             <div 
                                 key={p.id || p.ref} 
-                                className={`bg-white rounded-lg overflow-hidden flex flex-col group border transition-all duration-300 ${
+                                className={`bg-white rounded overflow-hidden flex flex-col group border transition-all duration-300 ${
                                     isSelected 
-                                        ? 'border-tertiary shadow-xl ring-2 ring-tertiary/20' 
-                                        : 'border-outline-variant/30 hover:border-tertiary/60 hover:shadow-lg'
+                                        ? 'border-tertiary shadow-none md:shadow-sm ring-1 ring-tertiary'
+                                        : 'border-outline-variant/30 hover:border-primary shadow-none md:shadow-sm md:hover:shadow-md'
                                 }`}
                             >
                                 {/* Project Image Box */}
@@ -314,11 +314,11 @@ export default function Portfolio() {
                                         src={p.img} 
                                     />
                                     {/* Tech Reference Badge */}
-                                    <div className="absolute top-3 left-3 bg-primary/95 text-white text-[10px] font-mono px-3 py-1 uppercase tracking-widest font-bold backdrop-blur-sm rounded-sm">
+                                    <div className="absolute top-3 left-3 bg-primary text-white text-[10px] font-mono px-3 py-1 uppercase tracking-widest font-bold backdrop-blur-sm rounded">
                                         {p.ref}
                                     </div>
                                     {/* Status Badge */}
-                                    <div className="absolute top-3 right-3 bg-white/95 text-primary text-[10px] font-mono px-2.5 py-1 uppercase tracking-wider font-bold shadow-sm rounded-sm flex items-center gap-1.5">
+                                    <div className="absolute top-3 right-3 bg-white text-primary text-[10px] font-mono px-2.5 py-1 uppercase tracking-wider font-bold shadow-none md:shadow-sm rounded flex items-center gap-1.5 border border-outline-variant/30">
                                         <span className={`w-1.5 h-1.5 rounded-full ${p.status.toLowerCase().includes('active') ? 'bg-amber-500' : 'bg-emerald-500'}`}></span>
                                         {p.status}
                                     </div>
@@ -330,7 +330,7 @@ export default function Portfolio() {
                                         <span className="text-tertiary text-xs font-mono font-bold uppercase tracking-wider">
                                             {p.category}
                                         </span>
-                                        <span className="text-[10px] text-outline font-bold uppercase tracking-wider font-mono">
+                                        <span className="text-[10px] text-secondary font-bold uppercase tracking-wider font-mono">
                                             {p.years}
                                         </span>
                                     </div>
@@ -347,7 +347,7 @@ export default function Portfolio() {
                                     {p.tags && p.tags.length > 0 && (
                                         <div className="flex flex-wrap gap-1.5 mb-6">
                                             {p.tags.map((tag, tIdx) => (
-                                                <span key={tIdx} className="text-[10px] font-mono bg-surface-container text-on-surface-variant px-2 py-0.5 rounded">
+                                                <span key={tIdx} className="text-[10px] font-mono bg-surface-container text-secondary px-2 py-0.5 rounded">
                                                     {tag}
                                                 </span>
                                             ))}
@@ -356,12 +356,12 @@ export default function Portfolio() {
 
                                     {/* Card Footer Actions */}
                                     <div className="flex justify-between items-center border-t border-outline-variant/20 pt-4 mt-auto">
-                                        <div className="text-[11px] font-mono text-outline uppercase">
+                                        <div className="text-[11px] font-mono text-secondary uppercase">
                                             Owner: <span className="text-primary font-bold">{p.owner.split(' ')[0]}</span>
                                         </div>
                                         <button 
                                             onClick={() => handleSelectProject(p)}
-                                            className="text-tertiary hover:text-primary font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all font-mono"
+                                            className="text-tertiary hover:text-primary font-bold text-xs uppercase tracking-wider flex items-center gap-1 group-hover:gap-2 transition-all font-mono cursor-pointer"
                                         >
                                             View Specs <span className="material-symbols-outlined text-sm">arrow_forward</span>
                                         </button>
@@ -375,14 +375,14 @@ export default function Portfolio() {
 
             {/* 4. CASE STUDY & TECHNICAL BLUEPRINT DETAIL SECTION */}
             <section className="bg-white border-t border-outline-variant/30" id="detail">
-                <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-16 md:py-24">
+                <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24">
                     {/* Section Eyebrow */}
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 border-b border-outline-variant/30 pb-6">
                         <div>
                             <span className="text-xs font-bold text-tertiary uppercase tracking-[0.2em] font-mono block mb-2">
                                 FEATURED CASE STUDY // {selectedProject.ref}
                             </span>
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
+                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
                                 TECHNICAL SPECIFICATION ANALYSIS
                             </h2>
                         </div>
@@ -396,7 +396,7 @@ export default function Portfolio() {
 
                     <div className="grid lg:grid-cols-12 gap-8 items-stretch">
                         {/* Left: High Contrast Technical Image & Overlay */}
-                        <div className="lg:col-span-6 relative bg-primary rounded-lg overflow-hidden flex flex-col justify-end min-h-[420px] shadow-lg border border-outline-variant/30">
+                        <div className="lg:col-span-6 relative bg-primary rounded overflow-hidden flex flex-col justify-end min-h-[420px] shadow-none md:shadow-sm border border-outline-variant/30">
                             <img 
                                 alt={selectedProject.title} 
                                 className="absolute inset-0 w-full h-full object-cover opacity-50 grayscale contrast-125" 
@@ -405,13 +405,13 @@ export default function Portfolio() {
                             <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/80 to-transparent"></div>
 
                             <div className="relative z-10 p-8 md:p-10 space-y-4 text-white">
-                                <span className="inline-block bg-tertiary text-white text-[11px] font-mono px-3 py-1 uppercase tracking-widest font-bold rounded-sm">
+                                <span className="inline-block bg-tertiary text-white text-[11px] font-mono px-3 py-1 uppercase tracking-widest font-bold rounded">
                                     DEPLOYMENT TIMELINE: {selectedProject.years}
                                 </span>
                                 <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight leading-tight">
                                     {selectedProject.title}
                                 </h3>
-                                <p className="text-xs md:text-sm text-primary-fixed leading-relaxed text-justify max-w-lg">
+                                <p className="text-xs md:text-sm text-white/90 leading-relaxed text-justify max-w-lg">
                                     {selectedProject.desc}
                                 </p>
                                 <div className="pt-2 flex flex-wrap gap-2">
@@ -425,23 +425,23 @@ export default function Portfolio() {
                         </div>
 
                         {/* Right: Technical Data Cards & Solutions */}
-                        <div className="lg:col-span-6 bg-surface-container-lowest p-8 md:p-10 rounded-lg border border-outline-variant/30 flex flex-col justify-between space-y-8">
+                        <div className="lg:col-span-6 bg-surface-container-low p-8 md:p-10 rounded border border-outline-variant/30 flex flex-col justify-between space-y-8 shadow-none md:shadow-sm">
                             {/* 4 Metadata Chips */}
-                            <div className="grid grid-cols-2 gap-px bg-outline-variant/40 border border-outline-variant/40 rounded overflow-hidden">
+                            <div className="grid grid-cols-2 gap-px bg-outline-variant/30 border border-outline-variant/30 rounded overflow-hidden">
                                 <div className="bg-white p-5">
-                                    <span className="text-outline text-[10px] font-mono uppercase block mb-1">Asset Owner</span>
+                                    <span className="text-secondary text-[10px] font-mono font-bold uppercase tracking-wider block mb-1">Asset Owner</span>
                                     <span className="text-primary font-bold text-sm uppercase">{selectedProject.owner}</span>
                                 </div>
                                 <div className="bg-white p-5">
-                                    <span className="text-outline text-[10px] font-mono uppercase block mb-1">Safety Tier</span>
+                                    <span className="text-secondary text-[10px] font-mono font-bold uppercase tracking-wider block mb-1">Safety Tier</span>
                                     <span className="text-primary font-bold text-sm uppercase">{selectedProject.tier}</span>
                                 </div>
                                 <div className="bg-white p-5">
-                                    <span className="text-outline text-[10px] font-mono uppercase block mb-1">Core Protocol</span>
+                                    <span className="text-secondary text-[10px] font-mono font-bold uppercase tracking-wider block mb-1">Core Protocol</span>
                                     <span className="text-primary font-bold text-sm uppercase">{selectedProject.protocol}</span>
                                 </div>
                                 <div className="bg-white p-5">
-                                    <span className="text-outline text-[10px] font-mono uppercase block mb-1">Current Status</span>
+                                    <span className="text-secondary text-[10px] font-mono font-bold uppercase tracking-wider block mb-1">Current Status</span>
                                     <div className="flex items-center gap-2 text-tertiary font-bold text-sm uppercase">
                                         <span className="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
                                         {selectedProject.status}
@@ -475,7 +475,7 @@ export default function Portfolio() {
                                     <span className="text-tertiary text-2xl md:text-3xl font-bold font-mono block">
                                         {selectedProject.stat1_val}
                                     </span>
-                                    <span className="text-outline text-[10px] font-bold uppercase tracking-wider font-mono block mt-1">
+                                    <span className="text-secondary text-[10px] font-bold uppercase tracking-wider font-mono block mt-1">
                                         {selectedProject.stat1_lbl}
                                     </span>
                                 </div>
@@ -483,7 +483,7 @@ export default function Portfolio() {
                                     <span className="text-primary text-2xl md:text-3xl font-bold font-mono block">
                                         {selectedProject.stat2_val}
                                     </span>
-                                    <span className="text-outline text-[10px] font-bold uppercase tracking-wider font-mono block mt-1">
+                                    <span className="text-secondary text-[10px] font-bold uppercase tracking-wider font-mono block mt-1">
                                         {selectedProject.stat2_lbl}
                                     </span>
                                 </div>
@@ -491,7 +491,7 @@ export default function Portfolio() {
                                     <span className="text-primary text-2xl md:text-3xl font-bold font-mono block">
                                         {selectedProject.stat3_val}
                                     </span>
-                                    <span className="text-outline text-[10px] font-bold uppercase tracking-wider font-mono block mt-1">
+                                    <span className="text-secondary text-[10px] font-bold uppercase tracking-wider font-mono block mt-1">
                                         {selectedProject.stat3_lbl}
                                     </span>
                                 </div>
@@ -502,21 +502,21 @@ export default function Portfolio() {
             </section>
 
             {/* 5. DOCUMENTATION & OPERATIONAL LOGS */}
-            <section className="py-20 bg-surface-container-low border-t border-outline-variant/30">
+            <section className="py-24 bg-surface-container-low border-t border-outline-variant/30">
                 <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 border-b border-outline-variant/30 pb-6">
                         <div>
                             <span className="text-xs font-bold text-tertiary uppercase tracking-[0.2em] font-mono block mb-2">
                                 FIELD VERIFICATION
                             </span>
-                            <h3 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
                                 OPERATIONAL LOGS &amp; SITE SURVEYS
-                            </h3>
+                            </h2>
                             <p className="text-secondary mt-1 text-xs text-justify max-w-xl">
                                 Visual telemetry from site inspection, computational stress simulation, to final safety commissioning.
                             </p>
                         </div>
-                        <div className="text-xs font-mono text-outline">
+                        <div className="text-xs font-mono text-secondary">
                             ARCHIVE RECORDS: 4 ENTRIES
                         </div>
                     </div>
@@ -526,7 +526,7 @@ export default function Portfolio() {
                             <div 
                                 key={idx} 
                                 onClick={() => setPreviewImage(item)}
-                                className="bg-white rounded-lg overflow-hidden border border-outline-variant/30 group cursor-pointer hover:shadow-lg transition-all duration-300 flex flex-col"
+                                className="bg-white rounded overflow-hidden border border-outline-variant/30 group cursor-pointer shadow-none md:shadow-sm md:hover:shadow-md hover:border-primary transition-all duration-300 flex flex-col"
                             >
                                 <div className="aspect-[4/3] bg-surface-container overflow-hidden relative">
                                     <img 
@@ -545,9 +545,9 @@ export default function Portfolio() {
                                     <span className="text-[10px] font-mono font-bold text-tertiary uppercase mb-1">
                                         {item.category}
                                     </span>
-                                    <h4 className="text-xs font-bold text-primary uppercase leading-snug">
+                                    <h3 className="text-xs font-bold text-primary uppercase leading-snug">
                                         {item.title}
-                                    </h4>
+                                    </h3>
                                 </div>
                             </div>
                         ))}
@@ -562,14 +562,14 @@ export default function Portfolio() {
                     onClick={() => setPreviewImage(null)}
                 >
                     <div 
-                        className="bg-white rounded-lg overflow-hidden max-w-3xl w-full border border-outline-variant/30 shadow-2xl relative"
+                        className="bg-white rounded overflow-hidden max-w-3xl w-full border border-outline-variant/30 shadow-2xl relative"
                         onClick={(e) => e.stopPropagation()}
                     >
                         <div className="relative aspect-video bg-black">
                             <img alt={previewImage.title} className="w-full h-full object-contain" src={previewImage.img} />
                             <button 
                                 onClick={() => setPreviewImage(null)}
-                                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 text-white hover:bg-tertiary flex items-center justify-center transition-colors"
+                                className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/60 text-white hover:bg-tertiary flex items-center justify-center transition-colors cursor-pointer"
                             >
                                 <span className="material-symbols-outlined text-lg">close</span>
                             </button>
@@ -579,27 +579,27 @@ export default function Portfolio() {
                                 <span className="text-xs font-mono text-tertiary font-bold uppercase block mb-1">
                                     {previewImage.category} // {previewImage.ref}
                                 </span>
-                                <h3 className="text-base font-bold text-primary uppercase">
+                                <h3 className="text-base font-bold text-primary uppercase tracking-tight">
                                     {previewImage.title}
                                 </h3>
                             </div>
-                            <span className="text-xs font-mono text-outline">AR INSPECTION ARCHIVE</span>
+                            <span className="text-xs font-mono text-secondary">AR INSPECTION ARCHIVE</span>
                         </div>
                     </div>
                 </div>
             )}
 
             {/* 6. BRAND CONSISTENT CTA SECTION (MATCHING SERVICES & ABOUT) */}
-            <section className="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-16">
-                <div className="bg-white p-8 md:p-12 rounded-lg border border-outline-variant/30 shadow-lg flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+            <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div className="bg-white p-8 md:p-12 rounded border border-outline-variant/30 shadow-none md:shadow-sm flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
                     <div className="max-w-xl">
                         <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
                             <span className="w-2 h-2 bg-tertiary"></span>
                             <span className="text-xs font-mono font-bold text-tertiary uppercase tracking-widest">TACTICAL ENGAGEMENT</span>
                         </div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
+                        <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
                             HAVE A MISSION-CRITICAL PROJECT?
-                        </h3>
+                        </h2>
                         <p className="text-secondary text-xs md:text-sm leading-relaxed text-justify">
                             Deploy our licensed structural engineers and certified life-safety team to evaluate your industrial facility, blueprint compliance, and lifecycle integrity.
                         </p>
@@ -607,13 +607,13 @@ export default function Portfolio() {
                     <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
                         <Link 
                             to="/contact" 
-                            className="w-full md:w-auto text-center bg-tertiary text-white px-8 py-4 rounded font-mono font-bold text-[11px] uppercase tracking-widest shadow-md hover:brightness-110 transition-all"
+                            className="w-full md:w-auto text-center bg-tertiary text-white text-xs font-mono font-bold px-8 py-4 rounded uppercase tracking-widest hover:bg-opacity-90 transition-colors shadow-none md:shadow-sm"
                         >
                             Request Site Audit
                         </Link>
                         <Link 
                             to="/services" 
-                            className="w-full md:w-auto text-center border-2 border-primary text-primary px-8 py-4 rounded font-mono font-bold text-[11px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all"
+                            className="w-full md:w-auto text-center border border-primary text-primary hover:bg-surface-container font-mono font-bold text-xs px-6 py-3 rounded uppercase tracking-wider transition-all"
                         >
                             Explore Capabilities
                         </Link>
