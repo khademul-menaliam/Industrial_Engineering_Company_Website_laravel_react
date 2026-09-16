@@ -39,8 +39,8 @@ export default function Footer() {
             });
     }, []);
     return (
-        <footer className="w-full bg-[#0c0f24] text-white border-t border-white/10">
-            <div className="w-full py-20 px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
+        <footer className="w-full bg-midnight text-white border-t border-white/10">
+            <div className="w-full py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
                 <div className="col-span-1">
                     <div className="font-display-lg text-xl font-bold text-white mb-2 uppercase tracking-tighter flex items-center">
                         <img 
@@ -133,7 +133,7 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="w-full border-t border-white/10 py-8 px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="w-full border-t border-white/10 py-8 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
                 <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
                     <span className="font-mono text-[11px] text-[#8d9aa1] uppercase tracking-widest">© 2026 AR ENGINEERING</span>
                     <span className="font-mono text-[10px] text-[#8d9aa1]/70 uppercase tracking-widest flex items-center gap-1">
