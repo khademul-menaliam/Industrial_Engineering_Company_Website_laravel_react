@@ -42,12 +42,12 @@ export default function ServiceDetail() {
     if (error || !service) {
         return (
             <div className="w-full min-h-[60vh] flex items-center justify-center px-margin-mobile">
-                <div className="max-w-md w-full bg-white p-8 rounded-lg border border-outline-variant/30 text-center shadow-lg">
+                <div className="max-w-md w-full bg-white p-8 rounded border border-outline-variant/30 text-center shadow-none md:shadow-sm">
                     <span className="material-symbols-outlined text-5xl text-tertiary mb-4">
                         error
                     </span>
                     <h2 className="text-xl font-bold text-primary mb-2 uppercase tracking-tight">Access Denied</h2>
-                    <p className="text-sm text-secondary mb-6">{error || 'The requested service profile does not exist.'}</p>
+                    <p className="text-sm text-secondary mb-6 leading-relaxed">{error || 'The requested service profile does not exist.'}</p>
                     <Link to="/services" className="inline-block bg-primary text-white px-6 py-3 rounded text-xs font-bold uppercase tracking-wider hover:brightness-110 transition-all font-mono">
                         Return to Hierarchy
                     </Link>
@@ -70,7 +70,7 @@ export default function ServiceDetail() {
 
     return (
         <div className="w-full bg-background text-on-surface">
-            <main className="max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-12">
+            <main className="max-w-container-max mx-auto w-full px-margin-mobile md:px-margin-desktop py-12 md:py-16">
                 {/* Breadcrumb */}
                 <div className="flex items-center gap-2 text-secondary text-xs font-mono mb-8 flex-wrap">
                     <Link className="hover:text-tertiary transition-colors" to="/services">Services</Link>
@@ -85,9 +85,9 @@ export default function ServiceDetail() {
                     <div className="lg:col-span-8 flex flex-col gap-8">
                         {/* Hero Section */}
                         <section className="border-b border-outline-variant/30 pb-6">
-                            <span className="inline-block bg-tertiary/10 text-tertiary border border-tertiary/20 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider mb-3 font-mono">
+                            <span className="inline-block bg-tertiary/10 text-tertiary border border-tertiary/20 px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider mb-3 font-mono">
                                 {service.tag || 'Operational Profile'}
-                              </span>
+                            </span>
                             <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3 uppercase tracking-tight">
                                 {service.title}
                             </h1>
@@ -97,14 +97,14 @@ export default function ServiceDetail() {
                         </section>
 
                         {/* Deep Dive Image Card */}
-                        <section className="bg-white border border-outline-variant/30 rounded-lg overflow-hidden shadow-sm">
+                        <section className="bg-white border border-outline-variant/30 rounded overflow-hidden shadow-none md:shadow-sm">
                             <div className="h-64 md:h-96 w-full bg-surface-container-low relative">
                                 <img 
                                     className="w-full h-full object-cover" 
                                     alt={service.detail_title || service.title} 
                                     src={service.hero_image || service.image} 
-                                								/>
-                                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 border border-outline-variant/30 rounded flex items-center gap-2 shadow-md">
+                                />
+                                <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-3 py-1.5 border border-outline-variant/30 rounded flex items-center gap-2 shadow-none md:shadow-sm">
                                     <span className="material-symbols-outlined text-tertiary text-xs animate-pulse">
                                         fiber_manual_record
                                     </span>
@@ -114,7 +114,7 @@ export default function ServiceDetail() {
                                 </div>
                             </div>
                             <div className="p-6 md:p-8">
-                                <h2 className="text-lg md:text-xl font-bold text-primary border-b border-outline-variant/30 pb-2 mb-4 uppercase tracking-tight">
+                                <h2 className="text-xl md:text-2xl font-bold text-primary border-b border-outline-variant/30 pb-3 mb-4 uppercase tracking-tight">
                                     {service.detail_title || 'Engineering Precision & Redundancy'}
                                 </h2>
                                 <p className="text-sm text-secondary leading-relaxed mb-6 whitespace-pre-line text-justify">
@@ -124,7 +124,7 @@ export default function ServiceDetail() {
                                 {badgeList.length > 0 && (
                                     <div className="flex flex-wrap gap-2">
                                         {badgeList.map((badge, idx) => (
-                                            <span key={idx} className="bg-surface border border-outline-variant/50 text-secondary px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider font-mono">
+                                            <span key={idx} className="bg-surface-container border border-outline-variant/30 text-secondary px-2.5 py-1 rounded text-[10px] font-bold uppercase tracking-wider font-mono">
                                                 {badge}
                                             </span>
                                         ))}
@@ -137,16 +137,16 @@ export default function ServiceDetail() {
                     {/* Sidebar / Widgets */}
                     <div className="lg:col-span-4 flex flex-col gap-6">
                         {/* CTA Card */}
-                        <div className="bg-white border border-outline-variant/30 rounded-lg p-6 shadow-sm">
-                            <h3 className="text-lg font-bold text-primary mb-3 uppercase tracking-tight">Initiate Project Assessment</h3>
+                        <div className="bg-white border border-outline-variant/30 rounded p-6 shadow-none md:shadow-sm">
+                            <h3 className="text-base font-bold text-primary mb-3 uppercase tracking-tight">Initiate Project Assessment</h3>
                             <p className="text-xs text-secondary leading-relaxed mb-6 text-justify">
                                 Secure your facility with enterprise-grade industrial infrastructure. Schedule a comprehensive site audit with our engineering division.
                             </p>
                             <div className="flex flex-col gap-3">
-                                <Link to="/contact" className="w-full bg-tertiary text-white py-3 rounded font-mono font-bold text-xs uppercase tracking-wider text-center hover:brightness-110 transition-all shadow-md flex justify-center items-center gap-2">
+                                <Link to="/contact" className="w-full bg-tertiary text-white py-3.5 rounded font-mono font-bold text-xs uppercase tracking-widest text-center hover:bg-opacity-90 transition-colors shadow-none md:shadow-sm flex justify-center items-center gap-2">
                                     Request Site Audit <span className="material-symbols-outlined text-sm">arrow_forward</span>
                                 </Link>
-                                <Link to="/contact" className="w-full bg-transparent text-secondary border border-outline-variant/80 py-3 rounded font-mono font-bold text-xs uppercase tracking-wider text-center hover:bg-surface transition-all flex justify-center items-center gap-2">
+                                <Link to="/contact" className="w-full bg-transparent text-primary border border-primary py-3 rounded font-mono font-bold text-xs uppercase tracking-wider text-center hover:bg-surface-container transition-all flex justify-center items-center gap-2">
                                     <span className="material-symbols-outlined text-sm">call</span> Contact HQ
                                 </Link>
                             </div>
@@ -156,12 +156,12 @@ export default function ServiceDetail() {
                         {specs.length > 0 && (
                             <div className="grid grid-cols-1 gap-3">
                                 {specs.map((spec, idx) => (
-                                    <div key={idx} className="bg-white border border-outline-variant/30 rounded-lg p-4 flex items-start gap-4 shadow-sm">
+                                    <div key={idx} className="bg-white border border-outline-variant/30 rounded p-4 flex items-start gap-4 shadow-none md:shadow-sm">
                                         <span className="material-symbols-outlined text-tertiary text-xl mt-0.5">
                                             {spec.icon || 'verified_user'}
                                         </span>
                                         <div>
-                                            <div className="text-[10px] font-bold uppercase tracking-widest text-secondary font-mono mb-0.5">
+                                            <div className="text-[10px] font-bold uppercase tracking-wider text-secondary font-mono mb-0.5">
                                                 {spec.label}
                                             </div>
                                             <div className="text-sm font-bold text-primary uppercase">
@@ -175,7 +175,7 @@ export default function ServiceDetail() {
 
                         {/* Operational Metrics */}
                         {metrics.length > 0 && (
-                            <div className="bg-white border border-outline-variant/30 rounded-lg p-6 shadow-sm">
+                            <div className="bg-white border border-outline-variant/30 rounded p-6 shadow-none md:shadow-sm">
                                 <h3 className="text-xs font-bold text-primary mb-4 border-b border-outline-variant/30 pb-2 uppercase tracking-widest font-mono">
                                     Operational Metrics
                                 </h3>
@@ -184,7 +184,7 @@ export default function ServiceDetail() {
                                         <div key={idx}>
                                             <div className="flex justify-between text-[10px] font-bold uppercase tracking-wider font-mono mb-1.5">
                                                 <span className="text-secondary">{metric.label}</span>
-                                                <span className="text-primary">{metric.percentage}%</span>
+                                                <span className="text-primary font-mono font-bold">{metric.percentage}%</span>
                                             </div>
                                             <div className="w-full bg-surface-container h-1.5 rounded-full overflow-hidden">
                                                 <div 
