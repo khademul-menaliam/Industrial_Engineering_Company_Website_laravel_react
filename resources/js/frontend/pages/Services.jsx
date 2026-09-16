@@ -221,7 +221,7 @@ export default function Services() {
             {/* HERO / INTRO */}
             <section className="pt-16 pb-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
                 <div className="border-l-4 border-tertiary pl-6">
-                    <h2 className="text-xs font-bold text-tertiary uppercase tracking-[0.2em] mb-2 font-mono">{introTitle}</h2>
+                    <span className="text-xs font-bold text-tertiary uppercase tracking-[0.2em] mb-2 font-mono block">{introTitle}</span>
                     <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3 uppercase tracking-tight">{introHeading}</h1>
                     <p className="text-base text-secondary max-w-3xl leading-relaxed text-justify">
                         {introDescription}
@@ -238,7 +238,7 @@ export default function Services() {
 
                 if (cat.slug === 'consulting') {
                     return (
-                        <section key={cat.slug} id={cat.slug} className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+                        <section key={cat.slug} id={cat.slug} className="py-24 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
                             <div className="max-w-container-max mx-auto">
                                 <div className="flex items-center gap-4 mb-10">
                                     <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
@@ -251,7 +251,7 @@ export default function Services() {
                                         const isColSpan2 = service.is_col_span_2 || (idx === serviceList.length - 1 && serviceList.length % 3 === 2);
                                         if (isColSpan2) {
                                             return (
-                                                <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300 md:col-span-2 lg:col-span-2">
+                                                <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded overflow-hidden flex flex-col group border border-outline-variant/30 hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md md:col-span-2 lg:col-span-2">
                                                     <div className="flex flex-col md:flex-row h-full">
                                                         <div className="md:w-5/12 h-48 md:h-auto bg-surface-container-low overflow-hidden relative">
                                                             <img 
@@ -259,7 +259,7 @@ export default function Services() {
                                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0" 
                                                                 src={service.image} 
                                                             />
-                                                            <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-md">
+                                                            <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-none md:shadow-sm">
                                                                 <span className="material-symbols-outlined text-xl">{service.icon || 'air'}</span>
                                                             </div>
                                                         </div>
@@ -275,14 +275,14 @@ export default function Services() {
                                             );
                                         }
                                         return (
-                                            <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300">
+                                            <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded overflow-hidden flex flex-col group border border-outline-variant/30 hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
                                                 <div className="h-44 bg-surface-container-low overflow-hidden relative">
                                                     <img 
                                                         alt={service.title} 
                                                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0" 
                                                         src={service.image} 
                                                     />
-                                                    <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-md">
+                                                    <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-none md:shadow-sm">
                                                         <span className="material-symbols-outlined text-xl">{service.icon || 'settings'}</span>
                                                     </div>
                                                 </div>
@@ -316,7 +316,7 @@ export default function Services() {
                         <Link 
                             key={key} 
                             to={`/services/${service.slug}`} 
-                            className="bg-background p-4 sm:p-5 rounded-lg flex flex-col sm:flex-row gap-4 border border-outline-variant/30 group hover:border-tertiary transition-all duration-300 hover:shadow-md flex-1 w-full"
+                            className="bg-white p-4 sm:p-5 rounded flex flex-col sm:flex-row gap-4 border border-outline-variant/30 group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md flex-1 w-full"
                         >
                             <div className="w-full sm:w-28 md:w-32 h-36 sm:h-auto min-h-[96px] flex-shrink-0 rounded overflow-hidden bg-surface-container-low relative">
                                 {service.image && (
@@ -341,7 +341,7 @@ export default function Services() {
                     );
 
                     return (
-                        <section key={cat.slug} id={cat.slug} className="py-20 bg-white border-y border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
+                        <section key={cat.slug} id={cat.slug} className="py-24 bg-white border-y border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
                             <div className="max-w-container-max mx-auto">
                                 <div className="flex items-center gap-4 mb-10">
                                     <h2 className="text-xs font-bold text-tertiary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
@@ -358,7 +358,7 @@ export default function Services() {
                                             <Link 
                                                 key={featuredDsi.id || 'featured'} 
                                                 to={`/services/${featuredDsi.slug}`} 
-                                                className="group relative rounded-lg overflow-hidden shadow-sm border border-outline-variant/20 flex flex-col justify-end w-full min-h-[360px] lg:min-h-[380px]"
+                                                className="group relative rounded overflow-hidden shadow-none md:shadow-sm md:hover:shadow-md border border-outline-variant/30 flex flex-col justify-end w-full min-h-[360px] lg:min-h-[380px] transition-all duration-300 hover:border-primary"
                                             >
                                                 <img 
                                                     alt={featuredDsi.title} 
@@ -368,13 +368,13 @@ export default function Services() {
                                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
                                                 <div className="relative p-6 md:p-8 z-10 w-full">
                                                     {featuredDsi.tag && (
-                                                        <span className="bg-tertiary text-white px-2.5 py-1 rounded-sm text-[10px] font-bold uppercase tracking-wider mb-3 inline-block font-mono">
+                                                        <span className="bg-primary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded font-mono tracking-wider shadow-sm mb-3 inline-block">
                                                             {featuredDsi.tag}
                                                         </span>
                                                     )}
                                                     <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{featuredDsi.title}</h3>
                                                     <p className="text-gray-300 text-xs max-w-md leading-relaxed mb-6 text-justify">{featuredDsi.short_description}</p>
-                                                    <span className="inline-flex items-center bg-white/10 hover:bg-white/20 text-white px-4 py-2.5 rounded text-[11px] font-bold uppercase tracking-widest transition-colors backdrop-blur-sm font-mono w-fit">
+                                                    <span className="inline-flex items-center border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded font-mono font-bold text-xs uppercase tracking-wider transition-all backdrop-blur-sm w-fit">
                                                         View Project Details
                                                     </span>
                                                 </div>
@@ -410,7 +410,7 @@ export default function Services() {
                     const sidePanelMaintenance = serviceList.find(s => s.is_featured) || serviceList[serviceList.length - 1];
                     const gridMaintenance = serviceList.filter(s => s !== sidePanelMaintenance);
                     return (
-                        <section key={cat.slug} id={cat.slug} className="py-20 bg-surface px-margin-mobile md:px-margin-desktop">
+                        <section key={cat.slug} id={cat.slug} className="py-24 bg-surface px-margin-mobile md:px-margin-desktop">
                             <div className="max-w-container-max mx-auto">
                                 <div className="flex items-center gap-4 mb-10">
                                     <h2 className="text-xs font-bold text-secondary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
@@ -421,7 +421,7 @@ export default function Services() {
                                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                                     {/* High-Contrast Side Panel */}
                                     {sidePanelMaintenance && (
-                                        <Link to={`/services/${sidePanelMaintenance.slug}`} className="lg:col-span-4 bg-primary p-8 rounded-lg text-white shadow-xl relative overflow-hidden flex flex-col justify-between min-h-[300px]">
+                                        <Link to={`/services/${sidePanelMaintenance.slug}`} className="lg:col-span-4 bg-primary p-6 md:p-8 rounded text-white shadow-none md:shadow-md relative overflow-hidden flex flex-col justify-between min-h-[300px] border border-outline-variant/20">
                                             <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
                                                 <span className="material-symbols-outlined text-[120px]">{sidePanelMaintenance.icon || 'settings_suggest'}</span>
                                             </div>
@@ -431,7 +431,7 @@ export default function Services() {
                                                     {zeroDowntimeDesc}
                                                 </p>
                                             </div>
-                                            <span className="w-full text-center bg-tertiary text-white py-3.5 rounded font-mono font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all shadow-md">
+                                            <span className="w-full text-center bg-tertiary text-white px-6 py-3.5 rounded font-mono font-bold text-xs uppercase tracking-widest hover:bg-opacity-90 transition-colors">
                                                 View details
                                             </span>
                                         </Link>
@@ -445,7 +445,7 @@ export default function Services() {
                                                 <Link 
                                                     key={service.id || idx} 
                                                     to={`/services/${service.slug}`}
-                                                    className={`bg-white rounded-lg overflow-hidden flex group hover:shadow-md border border-outline-variant/30 transition-all duration-300 min-h-[6rem] ${isLast ? 'sm:col-span-2' : ''}`}
+                                                    className={`bg-white rounded overflow-hidden flex group hover:border-primary border border-outline-variant/30 transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md min-h-[6rem] ${isLast ? 'sm:col-span-2' : ''}`}
                                                 >
                                                     <img 
                                                         alt={service.title} 
@@ -473,7 +473,7 @@ export default function Services() {
 
                 // Standard New Categories Layout
                 return (
-                    <section key={cat.slug} id={cat.slug} className="py-16 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+                    <section key={cat.slug} id={cat.slug} className="py-24 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
                         <div className="max-w-container-max mx-auto">
                             <div className="flex items-center gap-4 mb-10">
                                 <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
@@ -488,14 +488,14 @@ export default function Services() {
                             )}
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                                 {serviceList.map((service, idx) => (
-                                    <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded-lg overflow-hidden flex flex-col group border border-outline-variant/30 hover:shadow-lg transition-all duration-300">
+                                    <Link key={service.id || idx} to={`/services/${service.slug}`} className="bg-white rounded overflow-hidden flex flex-col group border border-outline-variant/30 hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
                                         <div className="h-44 bg-surface-container-low overflow-hidden relative">
                                             <img 
                                                 alt={service.title} 
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0" 
                                                 src={service.image} 
                                             />
-                                            <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-md">
+                                            <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-none md:shadow-sm">
                                                 <span className="material-symbols-outlined text-xl">{service.icon || 'settings'}</span>
                                             </div>
                                         </div>
@@ -515,17 +515,17 @@ export default function Services() {
             })}
 
             {/* CTA SECTION */}
-            <section className="py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-16">
-                <div className="bg-white p-8 md:p-10 rounded-lg border border-outline-variant/30 shadow-lg flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+            <section className="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div className="bg-white p-6 md:p-10 rounded border border-outline-variant/30 shadow-none md:shadow-sm flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
                     <div>
-                        <h3 className="text-2xl font-bold text-primary mb-2 uppercase tracking-tight">{ctaTitle}</h3>
+                        <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2 uppercase tracking-tight">{ctaTitle}</h2>
                         <p className="text-secondary text-sm text-justify">{ctaDesc}</p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
-                        <Link to="/contact" className="w-full md:w-auto text-center bg-tertiary text-white px-8 py-4 rounded font-mono font-bold text-[11px] uppercase tracking-widest shadow-md hover:brightness-110 transition-all">
+                        <Link to="/contact" className="w-full sm:w-auto text-center bg-tertiary text-white px-8 py-4 rounded font-mono font-bold text-xs uppercase tracking-widest hover:bg-opacity-90 transition-colors inline-flex items-center justify-center">
                             Request Site Audit
                         </Link>
-                        <Link to="/contact" className="w-full md:w-auto text-center border-2 border-primary text-primary px-8 py-4 rounded font-mono font-bold text-[11px] uppercase tracking-widest hover:bg-primary hover:text-white transition-all">
+                        <Link to="/contact" className="w-full sm:w-auto text-center border border-primary text-primary hover:bg-surface-container font-mono font-bold text-xs px-6 py-4 rounded uppercase tracking-wider transition-all inline-flex items-center justify-center">
                             Contact HQ
                         </Link>
                     </div>
