@@ -157,38 +157,38 @@ export default function About() {
     const getVal = (key) => settings[key] || FALLBACK_SETTINGS[key];
 
     return (
-        <div className="w-full bg-[#fafbfc]">
+        <div className="w-full bg-background text-on-surface">
             {/* Hero Banner */}
             <section className="relative w-full h-[450px] md:h-[550px] overflow-hidden flex items-center">
                 <div className="absolute inset-0 z-0 bg-cover bg-center filter brightness-50" style={{ backgroundImage: `url('${getVal('about_hero_image')}')` }}></div>
                 <div className="absolute inset-0 z-10 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent"></div>
                 
-                <div className="relative z-30 px-margin-desktop max-w-container-max mx-auto w-full">
+                <div className="relative z-30 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
                     <div className="space-y-6 max-w-3xl">
                         <span className="inline-block border-l-4 border-tertiary pl-4 text-white text-xs uppercase tracking-widest bg-primary/20 backdrop-blur-sm py-1 font-mono">
                             {getVal('about_hero_subtitle')}
                         </span>
-                        <h1 className="text-4xl md:text-6xl text-white font-bold uppercase tracking-tight leading-none">
+                        <h1 className="text-3xl md:text-4xl text-white font-bold uppercase tracking-tight leading-tight">
                             {getVal('about_hero_title')}
                         </h1>
                         <p className="text-white/80 text-base md:text-lg font-light max-w-xl leading-relaxed text-justify">
                             {getVal('about_hero_description')}
                         </p>
                         <div className="pt-8 flex flex-wrap gap-4">
-                            <Link to="/services" className="bg-tertiary text-white px-8 py-4 rounded font-bold text-xs uppercase tracking-widest hover:brightness-110 shadow-lg transition-all transform hover:-translate-y-0.5 active:translate-y-0">OUR CAPABILITIES</Link>
-                            <Link to="/portfolio" className="border border-white/30 text-white px-8 py-4 rounded font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition-all">VIEW PORTFOLIO</Link>
+                            <Link to="/services" className="bg-tertiary text-white text-xs font-mono font-bold px-8 py-4 rounded uppercase tracking-widest hover:bg-opacity-90 transition-colors inline-flex items-center justify-center">OUR CAPABILITIES</Link>
+                            <Link to="/portfolio" className="border border-white/30 hover:bg-white/10 text-white font-mono font-bold text-xs px-8 py-4 rounded uppercase tracking-widest transition-all inline-flex items-center justify-center backdrop-blur-sm">VIEW PORTFOLIO</Link>
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* History Narrative & Counter Stats */}
-            <section className="py-24 px-margin-desktop max-w-container-max mx-auto">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                     <div className="lg:col-span-7 space-y-8">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-1 bg-tertiary"></div>
-                            <h2 className="text-3xl font-bold text-primary uppercase tracking-tight">
+                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
                                 {getVal('about_story_title')}
                             </h2>
                         </div>
@@ -199,37 +199,37 @@ export default function About() {
                         </div>
                     </div>
                     <div className="lg:col-span-5">
-                        <div className="bg-white border border-outline-variant p-8 md:p-12 rounded-xl shadow-sm space-y-8 divide-y divide-outline-variant/30">
+                        <div className="bg-white border border-outline-variant/30 p-6 md:p-8 rounded shadow-none md:shadow-sm space-y-8 divide-y divide-outline-variant/30">
                             <div className="pb-6">
-                                <span className="text-tertiary font-bold text-5xl block font-mono">
+                                <span className="text-tertiary font-bold text-4xl md:text-5xl block font-mono">
                                     {getVal('about_stat1_number')}
                                 </span>
                                 <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat1_label')}
                                 </span>
-                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed text-justify">
+                                <p className="text-[11px] text-secondary mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat1_desc')}
                                 </p>
                             </div>
                             <div className="py-6">
-                                <span className="text-tertiary font-bold text-5xl block font-mono">
+                                <span className="text-tertiary font-bold text-4xl md:text-5xl block font-mono">
                                     {getVal('about_stat2_number')}
                                 </span>
                                 <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat2_label')}
                                 </span>
-                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed text-justify">
+                                <p className="text-[11px] text-secondary mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat2_desc')}
                                 </p>
                             </div>
                             <div className="pt-6">
-                                <span className="text-tertiary font-bold text-5xl block font-mono">
+                                <span className="text-tertiary font-bold text-4xl md:text-5xl block font-mono">
                                     {getVal('about_stat3_number')}
                                 </span>
                                 <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat3_label')}
                                 </span>
-                                <p className="text-[11px] text-on-surface-variant mt-2 leading-relaxed text-justify">
+                                <p className="text-[11px] text-secondary mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat3_desc')}
                                 </p>
                             </div>
@@ -239,23 +239,23 @@ export default function About() {
             </section>
 
             {/* Strategic Pillars (Core Directives) */}
-            <section className="py-24 px-margin-desktop bg-surface-container-low border-t border-b border-outline-variant/30">
+            <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low border-t border-b border-outline-variant/30">
                 <div className="max-w-container-max mx-auto">
                     <div className="text-center mb-16">
-                        <span className="text-tertiary text-xs font-bold tracking-widest mb-4 block uppercase font-mono">CORE DIRECTIVES</span>
-                        <h2 className="text-3xl font-bold text-primary uppercase tracking-tight">Strategic Pillars</h2>
-                        <div className="w-24 h-1.5 bg-tertiary mx-auto mt-4 rounded-full"></div>
+                        <span className="text-tertiary text-xs font-bold tracking-widest mb-3 block uppercase font-mono">CORE DIRECTIVES</span>
+                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Strategic Pillars</h2>
+                        <div className="w-24 h-1 bg-tertiary mx-auto mt-4"></div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {pillars.map((pillar, idx) => (
-                            <div key={pillar.id || idx} className="pillar-card bg-white p-8 rounded-xl border border-outline-variant/30 hover:shadow-xl flex flex-col h-full group transition-all duration-300 hover:border-primary">
-                                <div className="mb-8 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
+                            <div key={pillar.id || idx} className="bg-white p-6 rounded border border-outline-variant/30 hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md flex flex-col h-full group">
+                                <div className="mb-6 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
                                     <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
                                 </div>
-                                <h3 className="text-lg font-bold text-primary mb-4 border-b border-outline-variant/30 pb-4 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">
+                                <h3 className="text-base font-bold text-primary mb-3 border-b border-outline-variant/30 pb-3 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">
                                     {pillar.title}
                                 </h3>
-                                <p className="text-on-surface-variant text-xs sm:text-sm leading-relaxed flex-grow font-light text-justify">
+                                <p className="text-secondary text-xs sm:text-sm leading-relaxed flex-grow font-light text-justify">
                                     {pillar.description}
                                 </p>
                             </div>
@@ -265,13 +265,13 @@ export default function About() {
             </section>
 
             {/* MESSAGE FROM LEADERSHIP */}
-            <section className="bg-primary text-white py-24 border-b border-white/10">
-                <div className="max-w-container-max mx-auto px-margin-desktop space-y-16">
-                    {/* CEO Message */}
-                    <div className="bg-surface/5 border border-white/10 rounded-xl p-8 md:p-16 shadow-2xl flex flex-col lg:flex-row items-center gap-12">
+            <section className="bg-primary text-white py-24 border-b border-white/10 px-margin-mobile md:px-margin-desktop">
+                <div className="max-w-container-max mx-auto space-y-12">
+                    {/* CEO Message Feature Box */}
+                    <div className="bg-surface/5 border border-white/10 rounded p-8 md:p-12 shadow-none md:shadow-lg flex flex-col lg:flex-row items-center gap-8 md:gap-12">
                         {/* Grayscale to color portrait */}
                         <div className="w-full lg:w-1/3 flex justify-center shrink-0">
-                            <div className="relative group rounded-xl overflow-hidden border border-white/20 shadow-xl max-w-[280px]">
+                            <div className="relative group rounded overflow-hidden border border-white/20 shadow-none md:shadow-md max-w-[280px]">
                                 <img 
                                     className="w-full h-80 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" 
                                     alt={getVal('about_ceo_name')} 
@@ -288,9 +288,9 @@ export default function About() {
                         {/* Statement */}
                         <div className="flex-grow space-y-6">
                             <span className="material-symbols-outlined text-tertiary text-5xl opacity-40 select-none block" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-                            <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight leading-relaxed">
+                            <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight leading-relaxed">
                                 A MESSAGE FROM OUR LEADERSHIP
-                            </h3>
+                            </h2>
                             <p className="text-white/85 text-sm sm:text-base leading-relaxed text-justify">
                                 "{getVal('about_ceo_message')}"
                             </p>
@@ -305,10 +305,10 @@ export default function About() {
                     </div>
 
                     {/* 2 ADVISORS MESSAGES */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
                         {advisors.map((advisor, index) => (
-                            <div key={advisor.id || index} className="bg-surface/5 border border-white/10 rounded-xl p-8 shadow-xl flex flex-col sm:flex-row gap-6 items-center sm:items-start group hover:border-tertiary transition-all duration-300">
-                                <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-white/20 shadow-lg bg-[#0b1519]">
+                            <div key={advisor.id || index} className="bg-surface/5 border border-white/10 rounded p-6 md:p-8 shadow-none md:shadow-md flex flex-col sm:flex-row gap-6 items-center sm:items-start group hover:border-tertiary transition-all duration-300">
+                                <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-white/20 shadow-none md:shadow-md bg-surface-container-low">
                                     {advisor.image ? (
                                         <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src={advisor.image} alt={advisor.name} />
                                     ) : (
@@ -323,7 +323,7 @@ export default function About() {
                                         "{advisor.message}"
                                     </p>
                                     <div className="pt-2">
-                                        <h4 className="text-sm font-bold text-white uppercase">{advisor.name}</h4>
+                                        <h3 className="text-sm font-bold text-white uppercase tracking-tight">{advisor.name}</h3>
                                         <p className="text-[10px] text-tertiary font-mono uppercase tracking-wider mt-0.5">{advisor.role}</p>
                                     </div>
                                 </div>
@@ -334,16 +334,16 @@ export default function About() {
             </section>
 
             {/* OUR LEADERSHIP TEAM */}
-            <section className="py-24 px-margin-desktop max-w-container-max mx-auto">
+            <section className="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-16">
-                    <span className="text-tertiary text-xs font-bold tracking-[.25em] mb-4 block uppercase font-mono">
+                    <span className="text-tertiary text-xs font-bold tracking-widest mb-3 block uppercase font-mono">
                         Expert Personnel
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
+                    <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
                         Our Leadership Team
                     </h2>
-                    <div className="w-24 h-1.5 bg-tertiary mx-auto mt-4 rounded-full" />
+                    <div className="w-24 h-1 bg-tertiary mx-auto mt-4" />
                 </div>
 
                 {/* Team Grid */}
@@ -351,10 +351,10 @@ export default function About() {
                     {team.map((member, index) => (
                         <div 
                             key={member.id || index}
-                            className="group bg-white border border-outline-variant/30 rounded-xl p-6 sm:p-7 flex flex-col md:flex-row items-center md:items-stretch gap-6 sm:gap-7 shadow-sm hover:shadow-xl hover:border-primary transition-all duration-300"
+                            className="group bg-white border border-outline-variant/30 rounded p-6 sm:p-7 flex flex-col md:flex-row items-center md:items-stretch gap-6 sm:gap-7 shadow-none md:shadow-sm md:hover:shadow-md hover:border-primary transition-all duration-300"
                         >
                             {/* Profile Image Frame */}
-                            <div className="w-full sm:w-60 md:w-52 aspect-square md:aspect-auto md:h-full min-h-[220px] rounded-xl overflow-hidden shrink-0 bg-[#fafbfc] border border-outline-variant/50 relative">
+                            <div className="w-full sm:w-60 md:w-52 aspect-square md:aspect-auto md:h-full min-h-[220px] rounded overflow-hidden shrink-0 bg-surface-container-low border border-outline-variant/30 relative">
                                 {member.image ? (
                                     <img 
                                         className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out" 
@@ -362,7 +362,7 @@ export default function About() {
                                         src={member.image} 
                                     />
                                 ) : (
-                                    <div className="w-full h-full flex items-center justify-center text-outline-variant bg-[#fafbfc]">
+                                    <div className="w-full h-full flex items-center justify-center text-outline-variant bg-surface-container-low">
                                         <span className="material-symbols-outlined text-5xl">account_circle</span>
                                     </div>
                                 )}
@@ -372,24 +372,24 @@ export default function About() {
                             <div className="flex-1 flex flex-col justify-center text-center md:text-left space-y-4">
                                 <div>
                                     {/* Role Badge */}
-                                    <span className="inline-block bg-tertiary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded font-mono tracking-wider mb-2 shadow-sm">
+                                    <span className="inline-block bg-primary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded font-mono tracking-wider mb-2 shadow-sm">
                                         {member.role}
                                     </span>
                                     
                                     {/* Member Name */}
-                                    <h3 className="font-bold text-primary uppercase text-xl tracking-tight">
+                                    <h3 className="font-bold text-primary uppercase text-base tracking-tight">
                                         {member.name}
                                     </h3>
                                     
                                     {/* Bio Paragraph */}
                                     <div 
-                                        className="text-xs sm:text-sm text-on-surface-variant leading-relaxed font-light mt-3 whitespace-pre-line text-justify danger-html"
+                                        className="text-xs sm:text-sm text-secondary leading-relaxed font-light mt-3 whitespace-pre-line text-justify danger-html"
                                         dangerouslySetInnerHTML={{ __html: member.bio }}
                                     />
                                 </div>
 
                                 {/* Social Links Footer */}
-                                <div className="flex items-center justify-center md:justify-start gap-5 pt-3.5 font-mono text-[11px] font-semibold text-on-surface-variant border-t border-outline-variant/10">
+                                <div className="flex items-center justify-center md:justify-start gap-5 pt-3.5 font-mono text-[11px] font-semibold text-secondary border-t border-outline-variant/10">
                                     {member.linkedin && (
                                         <a 
                                             href={member.linkedin} 
@@ -419,11 +419,12 @@ export default function About() {
 
 
             {/* HISTORICAL TIMELINE */}
-            <section className="py-24 bg-surface-container-low border-t border-b border-outline-variant/30">
-                <div className="max-w-4xl mx-auto px-margin-desktop">
+            <section className="py-24 bg-surface-container-low border-t border-b border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
+                <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16">
-                        <span className="text-tertiary text-xs font-bold tracking-[.25em] mb-4 block uppercase font-mono">Corporate Growth</span>
-                        <h2 className="text-3xl font-bold text-primary uppercase tracking-tight">Milestones Timeline</h2>
+                        <span className="text-tertiary text-xs font-bold tracking-widest mb-3 block uppercase font-mono">Corporate Growth</span>
+                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Milestones Timeline</h2>
+                        <div className="w-24 h-1 bg-tertiary mx-auto mt-4" />
                     </div>
 
                     <div className="relative border-l-2 border-outline-variant/50 ml-4 md:ml-32 space-y-12">
@@ -433,15 +434,15 @@ export default function About() {
                                     <div className="w-1.5 h-1.5 bg-transparent group-hover:bg-tertiary rounded-full transition-colors duration-300"></div>
                                 </div>
 
-                                <span className="absolute -left-4 md:-left-32 top-0.5 bg-[#0b1519] border border-outline-variant/30 text-sky-400 font-bold font-mono text-xs px-3 py-1 rounded-md uppercase select-none shadow-sm">
+                                <span className="absolute -left-4 md:-left-32 top-0.5 bg-primary border border-outline-variant/30 text-white font-bold font-mono text-xs px-3 py-1 rounded uppercase select-none shadow-sm">
                                     {mile.year}
                                 </span>
 
                                 <div className="space-y-2">
-                                    <h3 className="text-lg font-bold text-primary uppercase tracking-tight group-hover:text-tertiary transition-colors duration-300">
+                                    <h3 className="text-base font-bold text-primary uppercase tracking-tight group-hover:text-tertiary transition-colors duration-300">
                                         {mile.title}
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-on-surface-variant leading-relaxed max-w-2xl font-light text-justify">
+                                    <p className="text-xs sm:text-sm text-secondary leading-relaxed max-w-2xl font-light text-justify">
                                         {mile.desc}
                                     </p>
                                 </div>
