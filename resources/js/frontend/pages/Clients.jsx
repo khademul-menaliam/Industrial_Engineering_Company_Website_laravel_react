@@ -41,45 +41,46 @@ export default function Clients() {
     }
 
     return (
-        <div className="w-full">
+        <div className="w-full bg-background text-on-surface">
             {/* Hero Section */}
             <section className="relative h-[350px] md:h-[400px] flex items-center bg-primary overflow-hidden">
                 <div className="absolute inset-0 opacity-40">
                     <div className="w-full h-full bg-center bg-cover" style={{ backgroundImage: `url('${settings.hero_bg}')` }}></div>
                 </div>
-                <div className="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
+                <div className="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
                     <div className="max-w-2xl text-white">
-                        <p className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant">{settings.hero_subtitle}</p>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight uppercase">{settings.hero_title}</h1>
-                        <p className="text-lg text-primary-fixed font-medium max-w-lg leading-relaxed text-justify">{settings.hero_desc}</p>
+                        <span className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant font-mono block">{settings.hero_subtitle}</span>
+                        <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight uppercase">{settings.hero_title}</h1>
+                        <p className="text-base md:text-lg text-white/80 font-light max-w-lg leading-relaxed text-justify">{settings.hero_desc}</p>
                     </div>
                 </div>
             </section>
 
             {/* Solution Partners Section */}
             {partners.length > 0 && (
-                <section className="py-24 md:py-32 bg-surface-container-low border-b border-outline-variant">
-                    <div className="max-w-container-max mx-auto px-margin-desktop">
-                        <div className="text-center mb-20">
-                            <h2 className="text-2xl font-bold text-primary uppercase">Solution Partners</h2>
+                <section className="py-24 bg-surface-container-low border-b border-outline-variant/30 px-margin-mobile md:px-margin-desktop">
+                    <div className="max-w-container-max mx-auto">
+                        <div className="text-center mb-16">
+                            <span className="text-tertiary text-xs font-bold tracking-widest mb-3 block uppercase font-mono">Strategic Alliances</span>
+                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Solution Partners</h2>
                             <div className="h-1 w-16 bg-tertiary mx-auto mt-4"></div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
                             {partners.map((partner, i) => (
-                                <div key={partner.id || i} className="group bg-surface-container-lowest rounded p-10 flex flex-col h-full border border-outline-variant hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                    <span className="material-symbols-outlined text-tertiary text-4xl mb-6 select-none" style={{ fontVariationSettings: "'FILL' 1" }}>handshake</span>
+                                <div key={partner.id || i} className="group bg-white rounded p-6 flex flex-col h-full border border-outline-variant/30 hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
+                                    <span className="material-symbols-outlined text-tertiary text-3xl mb-4 select-none" style={{ fontVariationSettings: "'FILL' 1" }}>handshake</span>
                                     <div className="flex-grow">
-                                        <h3 className="text-xs font-bold text-tertiary font-mono mb-2 uppercase tracking-wide">{partner.type}</h3>
-                                        <p className="text-xs text-on-surface-variant leading-relaxed mb-10 text-justify">
+                                        <span className="bg-primary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded font-mono tracking-wider shadow-sm mb-3 inline-block">{partner.type}</span>
+                                        <p className="text-xs text-secondary leading-relaxed mb-6 text-justify">
                                             {partner.desc}
                                         </p>
                                     </div>
-                                    <div className="flex items-center gap-4 mt-auto pt-8 border-t border-outline-variant/30">
-                                        <div className="w-16 h-12 rounded bg-white p-1 border border-outline-variant/30 flex items-center justify-center shrink-0">
+                                    <div className="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/30">
+                                        <div className="w-16 h-12 rounded bg-surface-container-low p-1.5 border border-outline-variant/30 flex items-center justify-center shrink-0">
                                             <img className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt={partner.name} src={partner.logo} />
                                         </div>
                                         <div>
-                                            <h4 className="text-[11px] text-primary font-bold uppercase tracking-wider line-clamp-2">{partner.name}</h4>
+                                            <h3 className="text-xs text-primary font-bold uppercase tracking-tight line-clamp-2">{partner.name}</h3>
                                         </div>
                                     </div>
                                 </div>
@@ -91,18 +92,18 @@ export default function Clients() {
 
             {/* Clients Directory Section (Static Logo Grid) */}
             {clients.length > 0 && (
-                <section className="py-24 bg-background" id="client-section">
-                    <div className="max-w-container-max mx-auto px-margin-desktop text-center">
+                <section className="py-24 bg-background px-margin-mobile md:px-margin-desktop" id="client-section">
+                    <div className="max-w-container-max mx-auto text-center">
                         <div className="mb-16">
-                            <h2 className="text-tertiary text-xs font-bold uppercase tracking-widest font-mono mb-2">{settings.clients_section_subtitle}</h2>
-                            <h3 className="text-2xl font-bold text-primary uppercase">{settings.clients_section_title}</h3>
+                            <span className="text-tertiary text-xs font-bold uppercase tracking-widest font-mono mb-2 block">{settings.clients_section_subtitle}</span>
+                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">{settings.clients_section_title}</h2>
                             <div className="h-1 w-16 bg-tertiary mx-auto mt-4"></div>
                         </div>
                         
-                        <div className="flex flex-wrap justify-center gap-8 items-center">
+                        <div className="flex flex-wrap justify-center gap-6 items-center">
                             {paginatedClients.map((c, i) => (
                                 <div key={i} className="group flex flex-col items-center gap-3 w-36 md:w-40 shrink-0">
-                                    <div className="w-full h-20 bg-white p-3 rounded-lg border border-outline-variant/30 flex items-center justify-center shadow-sm hover:shadow transition-shadow">
+                                    <div className="w-full h-20 bg-white p-3 rounded border border-outline-variant/30 flex items-center justify-center shadow-none md:shadow-sm group-hover:border-primary transition-all duration-300">
                                         <img className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100" alt={c.name} src={c.logo} />
                                     </div>
                                     <span className="text-xs font-mono font-bold text-secondary uppercase tracking-wider text-center line-clamp-1 w-full">{c.name}</span>
@@ -118,12 +119,12 @@ export default function Clients() {
                                         setCurrentPage(prev => Math.max(prev - 1, 1));
                                         document.getElementById('client-section')?.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="px-4 py-2.5 rounded border border-outline-variant hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white cursor-pointer"
+                                    className="px-4 py-2.5 rounded border border-outline-variant/30 hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant/30 transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white font-mono text-xs cursor-pointer shadow-none md:shadow-sm"
                                 >
                                     <span className="material-symbols-outlined text-sm">chevron_left</span> Prev
                                 </button>
                                 
-                                <span className="text-secondary font-bold px-3">
+                                <span className="text-secondary font-bold font-mono px-3 text-xs">
                                     Page {currentPage} of {totalPages}
                                 </span>
 
@@ -133,7 +134,7 @@ export default function Clients() {
                                         setCurrentPage(prev => Math.min(prev + 1, totalPages));
                                         document.getElementById('client-section')?.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="px-4 py-2.5 rounded border border-outline-variant hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white cursor-pointer"
+                                    className="px-4 py-2.5 rounded border border-outline-variant/30 hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant/30 transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white font-mono text-xs cursor-pointer shadow-none md:shadow-sm"
                                 >
                                     Next <span className="material-symbols-outlined text-sm">chevron_right</span>
                                 </button>
@@ -143,48 +144,18 @@ export default function Clients() {
                 </section>
             )}
 
-            {/* Testimonials Section (Hidden for now, will add later)
-            {testimonials.length > 0 && (
-                <section className="py-24 md:py-32 bg-surface-container-low border-y border-outline-variant">
-                    <div className="max-w-container-max mx-auto px-margin-desktop">
-                        <div className="text-center mb-20">
-                            <h2 className="text-2xl font-bold text-primary uppercase">{settings.testimonials_section_title}</h2>
-                            <div className="h-1 w-16 bg-tertiary mx-auto mt-4"></div>
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-                            {testimonials.map((t, i) => (
-                                <div key={i} className="bg-surface-container-lowest rounded p-10 flex flex-col h-full border border-outline-variant hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                    <span className="material-symbols-outlined text-tertiary text-4xl mb-6 select-none" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-                                    <div className="flex-grow">
-                                        <p className="text-sm text-primary leading-relaxed mb-10 italic">
-                                            "{t.quote}"
-                                        </p>
-                                    </div>
-                                    <div className="flex items-center gap-4 mt-auto pt-8 border-t border-outline-variant/30">
-                                        <img className="w-12 h-12 rounded-full object-cover grayscale" alt={t.author} src={t.avatar} />
-                                        <div>
-                                            <h4 className="text-[11px] text-primary font-bold uppercase tracking-wider">{t.author}</h4>
-                                            <p className="text-[10px] text-on-surface-variant uppercase font-mono mt-0.5">{t.role}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            )}
-            */}
-
             {/* Call to Action */}
-            <section className="py-24 bg-primary text-white text-center relative overflow-hidden">
-                <div className="absolute inset-0 opacity-5 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-                <div className="max-w-3xl mx-auto px-margin-desktop relative z-10">
-                    <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6">{settings.cta_title}</h2>
-                    <p className="text-primary-fixed mb-10 leading-relaxed max-w-xl mx-auto text-base text-justify">
+            <section className="py-24 bg-primary text-white text-center relative overflow-hidden px-margin-mobile md:px-margin-desktop">
+                <div className="max-w-3xl mx-auto relative z-10">
+                    <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">{settings.cta_title}</h2>
+                    <p className="text-white/85 mb-8 leading-relaxed max-w-xl mx-auto text-sm sm:text-base text-justify">
                         {settings.cta_desc}
                     </p>
-                    <Link to={settings.cta_button_link || "/contact"} className="px-10 py-4 bg-tertiary text-white text-sm font-bold uppercase tracking-widest hover:brightness-110 transition-all rounded shadow-sm inline-flex items-center gap-2">
-                        {settings.cta_button_text} <span className="material-symbols-outlined">arrow_forward</span>
+                    <Link
+                        to={settings.cta_button_link || "/contact"}
+                        className="bg-tertiary text-white text-xs font-mono font-bold px-8 py-4 rounded uppercase tracking-widest hover:bg-opacity-90 transition-colors inline-flex items-center justify-center gap-2 cursor-pointer shadow-none md:shadow-sm"
+                    >
+                        {settings.cta_button_text} <span className="material-symbols-outlined text-sm">arrow_forward</span>
                     </Link>
                 </div>
             </section>
