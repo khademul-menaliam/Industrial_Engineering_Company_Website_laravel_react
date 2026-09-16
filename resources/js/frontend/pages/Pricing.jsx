@@ -53,63 +53,66 @@ export default function Pricing() {
     ];
 
     return (
-        <div className="py-24 bg-surface max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-            <div className="text-center mb-16">
-                <span className="text-secondary font-semibold text-xs tracking-widest uppercase">Investment & Tenders</span>
-                <h1 className="text-white font-bold text-3xl md:text-5xl uppercase tracking-tight mt-4">Transparent Pricing Models</h1>
-                <p className="text-on-surface-variant text-base md:text-lg max-w-xl mx-auto mt-4 text-justify">
-                    Tailored engineering consulting tiers for global industrial systems and structural integrity audits.
-                </p>
-            </div>
+        <div className="w-full bg-background text-on-surface">
+            <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24">
+                <div className="text-center mb-16 max-w-2xl mx-auto">
+                    <span className="text-xs font-bold uppercase tracking-widest text-tertiary font-mono mb-3 block">Investment &amp; Tenders</span>
+                    <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 uppercase tracking-tight">Transparent Pricing Models</h1>
+                    <div className="w-24 h-1 bg-tertiary mx-auto mb-6"></div>
+                    <p className="text-secondary text-sm md:text-base leading-relaxed text-justify">
+                        Tailored engineering consulting tiers for global industrial systems and structural integrity audits.
+                    </p>
+                </div>
 
-            <div className="grid md:grid-cols-3 gap-8 items-stretch">
-                {plans.map((plan, index) => (
-                    <div 
-                        key={index} 
-                        className={`rounded-xl p-8 border flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 ${
-                            plan.featured 
-                                ? 'bg-surface-container-highest border-primary shadow-2xl relative shadow-primary/10' 
-                                : 'bg-surface-container-lowest border-outline-variant/30 hover:border-outline'
-                        }`}
-                    >
-                        {plan.featured && (
-                            <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary px-4 py-1 rounded-full text-xs font-semibold tracking-widest uppercase">
-                                Recommended v2
-                            </span>
-                        )}
-
-                        <div>
-                            <h3 className="text-xl font-bold uppercase tracking-wider text-white mb-2">{plan.name}</h3>
-                            <p className="text-on-surface-variant text-sm mb-6 leading-relaxed text-justify">{plan.description}</p>
-                            
-                            <div className="flex items-baseline gap-2 mb-8">
-                                <span className="text-4xl md:text-5xl font-bold text-white tracking-tight">{plan.price}</span>
-                                <span className="text-on-surface-variant text-sm font-mono-data">{plan.period}</span>
-                            </div>
-
-                            <ul className="space-y-4 mb-8">
-                                {plan.features.map((feature, fIndex) => (
-                                    <li key={fIndex} className="flex items-center gap-3 text-sm text-on-surface-variant font-mono-data">
-                                        <span className="material-symbols-outlined text-secondary text-lg">check_circle</span>
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        <Link 
-                            to={plan.link}
-                            className={`w-full py-4 rounded-lg font-bold text-center block text-sm tracking-wider uppercase transition-all ${
-                                plan.featured 
-                                    ? 'bg-secondary text-on-secondary hover:brightness-110 shadow-lg shadow-secondary/20' 
-                                    : 'border border-primary text-primary hover:bg-primary hover:text-on-primary'
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+                    {plans.map((plan, index) => (
+                        <div
+                            key={index}
+                            className={`rounded p-8 flex flex-col justify-between transition-all duration-300 shadow-none md:shadow-sm ${
+                                plan.featured
+                                    ? 'bg-white border-2 border-tertiary relative md:hover:shadow-md ring-1 ring-tertiary/20'
+                                    : 'bg-white border border-outline-variant/30 hover:border-primary md:hover:shadow-md'
                             }`}
                         >
-                            {plan.buttonText}
-                        </Link>
-                    </div>
-                ))}
-            </div>
+                            {plan.featured && (
+                                <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-tertiary text-white px-4 py-1 rounded font-mono text-[10px] font-bold tracking-widest uppercase shadow-sm whitespace-nowrap">
+                                    Recommended v2
+                                </span>
+                            )}
+
+                            <div>
+                                <h3 className="text-base font-bold uppercase tracking-tight text-primary mb-2">{plan.name}</h3>
+                                <p className="text-secondary text-xs leading-relaxed mb-6 text-justify">{plan.description}</p>
+
+                                <div className="flex items-baseline gap-2 mb-8 border-b border-outline-variant/30 pb-6">
+                                    <span className="text-3xl md:text-4xl font-bold text-primary font-mono tracking-tight">{plan.price}</span>
+                                    <span className="text-secondary text-xs font-mono uppercase">{plan.period}</span>
+                                </div>
+
+                                <ul className="space-y-3 mb-8">
+                                    {plan.features.map((feature, fIndex) => (
+                                        <li key={fIndex} className="flex items-start gap-2.5 text-xs text-secondary font-mono">
+                                            <span className={`material-symbols-outlined text-base shrink-0 mt-0.5 ${plan.featured ? 'text-tertiary' : 'text-primary'}`}>check_circle</span>
+                                            <span className="leading-snug">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <Link
+                                to={plan.link}
+                                className={`w-full text-center block font-mono font-bold text-xs uppercase transition-all ${
+                                    plan.featured
+                                        ? 'bg-tertiary text-white py-4 rounded tracking-widest hover:bg-opacity-90 shadow-none md:shadow-sm'
+                                        : 'border border-primary text-primary hover:bg-surface-container py-3.5 rounded tracking-wider'
+                                }`}
+                            >
+                                {plan.buttonText}
+                            </Link>
+                        </div>
+                    ))}
+                </div>
+            </main>
         </div>
     );
 }
