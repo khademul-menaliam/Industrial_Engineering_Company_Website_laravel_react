@@ -238,7 +238,7 @@ export default function Services() {
 
                 if (cat.slug === 'consulting') {
                     return (
-                        <section key={cat.slug} id={cat.slug} className="py-24 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+                        <section key={cat.slug} id={cat.slug} className="py-24 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/30">
                             <div className="max-w-container-max mx-auto">
                                 <div className="flex items-center gap-4 mb-10">
                                     <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
@@ -473,7 +473,7 @@ export default function Services() {
 
                 // Standard New Categories Layout
                 return (
-                    <section key={cat.slug} id={cat.slug} className="py-24 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/20">
+                    <section key={cat.slug} id={cat.slug} className="py-24 bg-surface px-margin-mobile md:px-margin-desktop border-t border-outline-variant/30">
                         <div className="max-w-container-max mx-auto">
                             <div className="flex items-center gap-4 mb-10">
                                 <h2 className="text-xs font-bold text-primary uppercase tracking-[0.3em] flex-shrink-0 font-mono">
