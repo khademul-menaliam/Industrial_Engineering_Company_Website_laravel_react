@@ -19,27 +19,6 @@ export default function SystemCommands() {
     const [authError, setAuthError] = useState('');
     const [verifying, setVerifying] = useState(false);
 
-    useEffect(() => {
-        const stored = localStorage.getItem('console_password');
-        if (stored) {
-            verifyPasswordOnMount(stored);
-        }
-    }, []);
-
-    const verifyPasswordOnMount = async (pwd) => {
-        try {
-            const res = await api.post('/admin/commands/verify-password', { password: pwd });
-            if (res.data.success) {
-                setConsolePassword(pwd);
-                setIsAuthenticated(true);
-            } else {
-                localStorage.removeItem('console_password');
-            }
-        } catch (err) {
-            localStorage.removeItem('console_password');
-        }
-    };
-
     const handleAuthSubmit = async (e) => {
         e.preventDefault();
         setVerifying(true);
@@ -49,7 +28,6 @@ export default function SystemCommands() {
             if (res.data.success) {
                 setConsolePassword(inputPassword);
                 setIsAuthenticated(true);
-                localStorage.setItem('console_password', inputPassword);
             }
         } catch (err) {
             setAuthError(err.response?.data?.message || 'Authentication failed. Please try again.');
@@ -62,7 +40,6 @@ export default function SystemCommands() {
         setIsAuthenticated(false);
         setConsolePassword('');
         setInputPassword('');
-        localStorage.removeItem('console_password');
     };
 
     const commandsList = [
@@ -248,7 +225,7 @@ export default function SystemCommands() {
             console.error('Artisan Command Error:', error);
             if (error.response?.status === 401) {
                 setIsAuthenticated(false);
-                localStorage.removeItem('console_password');
+                setConsolePassword('');
                 alert('Console session expired or password updated. Please re-authenticate.');
                 return;
             }
@@ -260,46 +237,15 @@ export default function SystemCommands() {
         }
     };
 
-    const handleCustomCommandSubmit = async (e) => {
+    const handleCustomCommandSubmit = (e) => {
         e.preventDefault();
         if (!customCommand.trim()) return;
 
         const cmdText = customCommand.trim();
         setCustomCommand('');
 
-        setRunningCommand('custom');
         addLog('input', `guest@ar-system-admin:~$ ${cmdText}`);
-        addLog('info', `Starting custom command execution: ${cmdText}...`);
-
-        try {
-            const response = await api.post('/admin/commands/run', {
-                command: 'custom',
-                custom_command: cmdText,
-                console_password: consolePassword
-            });
-            const data = response.data;
-
-            if (data.success) {
-                addLog('output', data.output);
-                addLog('success', `Success: ${data.message || 'Command executed.'}`);
-            } else {
-                addLog('error', data.output || 'No output details provided.');
-                addLog('error', `Execution failed: ${data.message || 'Error occurred.'}`);
-            }
-        } catch (error) {
-            console.error('Artisan Command Error:', error);
-            if (error.response?.status === 401) {
-                setIsAuthenticated(false);
-                localStorage.removeItem('console_password');
-                alert('Console session expired or password updated. Please re-authenticate.');
-                return;
-            }
-            const errorMsg = error.response?.data?.output || error.response?.data?.message || error.message;
-            addLog('error', errorMsg);
-            addLog('error', `Fatal: Command execution aborted.`);
-        } finally {
-            setRunningCommand(null);
-        }
+        addLog('error', 'Arbitrary custom command execution is strictly disabled for security. Please execute commands using the authorized control panel buttons.');
     };
 
     const confirmDangerousCommand = () => {

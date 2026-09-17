@@ -199,8 +199,8 @@ Route::middleware(['auth'])->group(function () {
         Route::delete('/{id}', [AdminClientManagerController::class, 'destroy']);
     });
 
-    // Secure API endpoints for Admin Command Runner
-    Route::prefix('api/admin/commands')->group(function () {
+    // Secure API endpoints for Admin Command Runner (rate-limited)
+    Route::prefix('api/admin/commands')->middleware('throttle:5,1')->group(function () {
         Route::post('/run', [AdminCommandController::class, 'runCommand']);
         Route::post('/verify-password', [AdminCommandController::class, 'verifyPassword']);
     });
