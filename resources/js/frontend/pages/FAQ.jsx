@@ -55,7 +55,7 @@ export default function FAQ() {
                                         isOpen ? 'bg-surface-container-low text-primary' : 'bg-white hover:bg-surface-container-low text-primary'
                                     }`}
                                 >
-                                    <span className="text-base font-bold uppercase tracking-tight leading-snug">{faq.question}</span>
+                                    <span className="text-xl font-bold uppercase tracking-tight leading-snug">{faq.question}</span>
                                     <span
                                         className="material-symbols-outlined text-secondary transition-transform duration-300 shrink-0 ml-4 text-2xl"
                                         style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
@@ -70,7 +70,7 @@ export default function FAQ() {
                                         opacity: isOpen ? 1 : 0
                                     }}
                                 >
-                                    <p className="p-6 pt-3 text-secondary text-sm leading-relaxed border-t border-outline-variant/30 text-justify">
+                                    <p className="p-6 pt-3 text-secondary text-base leading-relaxed border-t border-outline-variant/30 text-justify">
                                         {faq.answer}
                                     </p>
                                 </div>
