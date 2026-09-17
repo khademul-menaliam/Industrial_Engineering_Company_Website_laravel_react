@@ -397,7 +397,7 @@ export default function ServicesManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Intro Tag/Title</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.services_intro_title || ''}
                                 onChange={e => setSettings({ ...settings, services_intro_title: e.target.value })}
                             />
@@ -406,7 +406,7 @@ export default function ServicesManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Intro Heading</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.services_intro_heading || ''}
                                 onChange={e => setSettings({ ...settings, services_intro_heading: e.target.value })}
                             />
@@ -415,7 +415,7 @@ export default function ServicesManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Intro Description</label>
                             <textarea
                                 rows="3"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.services_intro_description || ''}
                                 onChange={e => setSettings({ ...settings, services_intro_description: e.target.value })}
                             />
@@ -430,7 +430,7 @@ export default function ServicesManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Promo Title</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.zero_downtime_title || ''}
                                 onChange={e => setSettings({ ...settings, zero_downtime_title: e.target.value })}
                             />
@@ -439,7 +439,7 @@ export default function ServicesManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Action Button Link</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.zero_downtime_link || ''}
                                 onChange={e => setSettings({ ...settings, zero_downtime_link: e.target.value })}
                             />
@@ -448,7 +448,7 @@ export default function ServicesManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Promo Description</label>
                             <textarea
                                 rows="3"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.zero_downtime_description || ''}
                                 onChange={e => setSettings({ ...settings, zero_downtime_description: e.target.value })}
                             />
@@ -463,7 +463,7 @@ export default function ServicesManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">CTA Heading</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.services_cta_title || ''}
                                 onChange={e => setSettings({ ...settings, services_cta_title: e.target.value })}
                             />
@@ -472,7 +472,7 @@ export default function ServicesManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">CTA Description</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.services_cta_description || ''}
                                 onChange={e => setSettings({ ...settings, services_cta_description: e.target.value })}
                             />
@@ -636,7 +636,7 @@ export default function ServicesManager() {
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Category Name</label>
                                 <input
                                     type="text" required
-                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     value={catName}
                                     onChange={e => setCatName(e.target.value)}
                                 />
@@ -645,7 +645,7 @@ export default function ServicesManager() {
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Slug / Identifier</label>
                                 <input
                                     type="text" placeholder="e.g. consulting"
-                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     value={catSlug}
                                     onChange={e => setCatSlug(e.target.value)}
                                 />
@@ -654,7 +654,7 @@ export default function ServicesManager() {
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sort Order Index</label>
                                 <input
                                     type="number" required
-                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     value={catSortOrder}
                                     onChange={e => setCatSortOrder(e.target.value)}
                                 />
@@ -663,7 +663,7 @@ export default function ServicesManager() {
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Description</label>
                                 <textarea
                                     rows="2"
-                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     value={catDesc}
                                     onChange={e => setCatDesc(e.target.value)}
                                 />
@@ -727,7 +727,7 @@ export default function ServicesManager() {
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Service Title</label>
                                         <input
                                             type="text" required
-                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                             value={formTitle}
                                             onChange={e => setFormTitle(e.target.value)}
                                         />
@@ -736,7 +736,7 @@ export default function ServicesManager() {
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Detail URL Slug</label>
                                         <input
                                             type="text" placeholder="e.g. fire-protection"
-                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                             value={formSlug}
                                             onChange={e => setFormSlug(e.target.value)}
                                         />
@@ -744,7 +744,7 @@ export default function ServicesManager() {
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Category</label>
                                         <select
-                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                             value={formCategory}
                                             onChange={e => setFormCategory(e.target.value)}
                                         >
@@ -757,7 +757,7 @@ export default function ServicesManager() {
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Material Icon Symbol</label>
                                         <input
                                             type="text" placeholder="e.g. architecture"
-                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                             value={formIcon}
                                             onChange={e => setFormIcon(e.target.value)}
                                         />
@@ -766,7 +766,7 @@ export default function ServicesManager() {
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Asset Tag/Label</label>
                                         <input
                                             type="text" placeholder="e.g. Tactical Asset"
-                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                             value={formTag}
                                             onChange={e => setFormTag(e.target.value)}
                                         />
@@ -775,7 +775,7 @@ export default function ServicesManager() {
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sorting Index</label>
                                         <input
                                             type="number"
-                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                             value={formSortOrder}
                                             onChange={e => setFormSortOrder(e.target.value)}
                                         />
@@ -785,7 +785,7 @@ export default function ServicesManager() {
                                     <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Short Card Description</label>
                                     <textarea
                                         rows="2"
-                                        className="w-full bg-background border border-outline-variant/30 rounded p-3 text-white text-xs focus:border-primary focus:outline-none"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         value={formShortDesc}
                                         onChange={e => setFormShortDesc(e.target.value)}
                                     />
@@ -825,7 +825,7 @@ export default function ServicesManager() {
                                             <label className="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider">File Image Upload</label>
                                             <input
                                                 type="file" accept="image/*"
-                                                className="w-full text-xs text-on-surface-variant file:bg-primary/10 file:border-0 file:text-primary file:px-3 file:py-1.5 file:rounded file:text-xs file:font-semibold file:cursor-pointer"
+                                                className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2.5 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer"
                                                 onChange={e => setFormImageFile(e.target.files[0])}
                                             />
                                             <div className="text-center text-[9px] text-on-surface-variant font-mono uppercase py-1">OR</div>
@@ -846,7 +846,7 @@ export default function ServicesManager() {
                                             <label className="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider">File Image Upload</label>
                                             <input
                                                 type="file" accept="image/*"
-                                                className="w-full text-xs text-on-surface-variant file:bg-primary/10 file:border-0 file:text-primary file:px-3 file:py-1.5 file:rounded file:text-xs file:font-semibold file:cursor-pointer"
+                                                className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer"
                                                 onChange={e => setFormHeroImageFile(e.target.files[0])}
                                             />
                                             <div className="text-center text-[9px] text-on-surface-variant font-mono uppercase py-1">OR</div>
@@ -872,7 +872,7 @@ export default function ServicesManager() {
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Deep Dive Heading Title</label>
                                         <input
                                             type="text" placeholder="e.g. Engineering Precision & Redundancy"
-                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                             value={formDetailTitle}
                                             onChange={e => setFormDetailTitle(e.target.value)}
                                         />
@@ -881,7 +881,7 @@ export default function ServicesManager() {
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Details Badges (Comma Separated)</label>
                                         <input
                                             type="text" placeholder="e.g. Safe Mode Enabled, Dual-Loop Verified"
-                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                             value={formBadges}
                                             onChange={e => setFormBadges(e.target.value)}
                                         />
@@ -891,7 +891,7 @@ export default function ServicesManager() {
                                     <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Deep Dive Detailed Paragraph Description</label>
                                     <textarea
                                         rows="4"
-                                        className="w-full bg-background border border-outline-variant/30 rounded p-3 text-white text-xs focus:border-primary focus:outline-none"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         value={formDetailDesc}
                                         onChange={e => setFormDetailDesc(e.target.value)}
                                     />

@@ -23,9 +23,9 @@ export default function Products() {
                 <input 
                     type="text" 
                     placeholder="Search specifications, components..." 
-                    className="flex-grow max-w-md px-4 py-2.5 bg-surface-container border border-outline-variant/50 rounded-lg text-white text-sm focus:outline-none focus:border-primary"
+                    className="flex-grow max-w-md px-4 py-2.5 bg-background border border-outline-variant/30 rounded-lg text-white text-sm focus:border-primary focus:outline-none transition-all"
                 />
-                <select className="px-4 py-2.5 bg-surface-container border border-outline-variant/50 rounded-lg text-white text-sm focus:outline-none focus:border-primary">
+                <select className="px-4 py-2.5 bg-background border border-outline-variant/30 rounded-lg text-white text-sm focus:border-primary focus:outline-none transition-all">
                     <option>All Categories</option>
                     <option>Structural</option>
                     <option>Fire Safety</option>
