@@ -43,7 +43,7 @@ export default function Navbar() {
                     <div className="relative group py-2">
                         <button className={`flex items-center font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap cursor-pointer ${isCompanyRoute ? 'text-white' : 'text-[#8d9aa1]'}`}>
                             Company
-                            <span className="material-symbols-outlined text-sm select-none transition-transform duration-200 group-hover:rotate-180">keyboard_arrow_down</span>
+                            <span className="material-symbols-outlined text-sm select-none transition-transform duration-200 group-hover:rotate-180 mb-2">keyboard_arrow_down</span>
                         </button>
                         <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-midnight border border-white/10 rounded shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200 z-50">
                             <Link className={`block px-4 py-2.5 hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap ${location.pathname === '/about' ? 'text-white bg-white/10 font-bold' : 'text-[#8d9aa1]'}`} to="/about">About Us</Link>
