@@ -15,10 +15,10 @@ export default function HowWeWork() {
                 <div className="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
                     <div className="max-w-3xl">
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">System Workflow 5.0</span>
+                            <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">System Workflow</span>
                         </div>
-                        <h1 className="text-primary font-bold text-4xl md:text-5xl mb-6 leading-tight uppercase tracking-tight">
-                            Operational Integrity through <span className="text-tertiary underline decoration-2 underline-offset-8">Methodology.</span>
+                        <h1 className="text-primary font-bold text-4xl md:text-5xl mb-0 leading-tight uppercase tracking-tight">
+                            Operational Integrity through <span className="text-tertiary underline decoration-1 underline-offset-8">Methodology.</span>
                         </h1>
                         <p className="text-secondary max-w-xl mb-10 text-base leading-relaxed text-justify">
                             A rigorous five-phase execution framework designed for high-consequence industrial environments. From initial site scanning and BIM modeling to final engineering commissioning.
@@ -51,13 +51,13 @@ export default function HowWeWork() {
                         <a className="font-mono text-xs text-secondary hover:text-primary transition-colors py-4 uppercase font-bold tracking-wider" href="#phase4">04. Procurement</a>
                         <a className="font-mono text-xs text-secondary hover:text-primary transition-colors py-4 uppercase font-bold tracking-wider" href="#phase5">05. Installation</a>
                     </div>
-                    <div className="hidden md:flex items-center gap-4 border-l border-outline-variant/30 pl-8">
+                    {/* <div className="hidden md:flex items-center gap-4 border-l border-outline-variant/30 pl-8">
                         <div className="flex items-center gap-2">
                             <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
                             <span className="font-mono text-[10px] text-secondary font-bold">NODE_01: SYNCED</span>
                         </div>
                         <div className="text-secondary font-mono text-[10px] font-bold">VER: 5.0.0-STABLE</div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 
@@ -77,7 +77,7 @@ export default function HowWeWork() {
                             <span className="w-8 h-[2px] bg-tertiary"></span>
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 01</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Client Requirement &amp; Site Survey</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Client Requirement &amp; Site Survey</h2>
                         <p className="text-secondary text-sm leading-relaxed text-justify">
                             Infrastructure analysis begins with client requirements and detailed site evaluations. We deploy advanced scanning and inspection techniques to build the foundational data required for exact engineering solutions.
                         </p>
