@@ -16,7 +16,7 @@ export default function Settings() {
                             <p className="text-sm font-semibold text-white">Live Data Synchronization</p>
                             <p className="text-xs text-on-surface-variant">Sync stress telemetry with the digital twin server in real-time.</p>
                         </div>
-                        <input type="checkbox" defaultChecked className="rounded bg-surface-container border-outline-variant text-primary focus:ring-primary" />
+                        <input type="checkbox" defaultChecked className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface" />
                     </div>
                 </div>
 
@@ -25,9 +25,9 @@ export default function Settings() {
                     <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Backup Target</h4>
                     <div className="space-y-2">
                         <label className="block text-xs font-semibold text-on-surface-variant uppercase tracking-wider">Backup Node URI</label>
-                        <input 
-                            type="text" 
-                            defaultValue="https://backup-us-east.titanprecision-v2.com" 
+                        <input
+                            type="text"
+                            defaultValue="https://backup-us-east.titanprecision-v2.com"
                             className="w-full px-4 py-2.5 bg-surface-container border border-outline-variant/50 rounded-lg text-white text-sm focus:outline-none focus:border-primary"
                         />
                     </div>
@@ -41,7 +41,7 @@ export default function Settings() {
                             <p className="text-sm font-semibold text-white">Weekly Compliance Summary</p>
                             <p className="text-xs text-on-surface-variant">Send weekly ISO audit PDF summaries to the strategic board.</p>
                         </div>
-                        <input type="checkbox" defaultChecked className="rounded bg-surface-container border-outline-variant text-primary focus:ring-primary" />
+                        <input type="checkbox" defaultChecked className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface" />
                     </div>
                 </div>
 

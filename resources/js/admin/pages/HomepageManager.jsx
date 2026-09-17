@@ -345,21 +345,21 @@ export default function HomepageManager() {
                         <h3 className="font-bold text-lg uppercase tracking-wider text-white">Capabilities Section Header</h3>
                         <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Section Title</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Section Title</label>
                                 <input
                                     type="text"
                                     value={settings.capabilities_section_title || ''}
                                     onChange={e => handleSettingChange('capabilities_section_title', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Section Subtitle</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Section Subtitle</label>
                                 <input
                                     type="text"
                                     value={settings.capabilities_section_subtitle || ''}
                                     onChange={e => handleSettingChange('capabilities_section_subtitle', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                         </div>
@@ -449,12 +449,12 @@ export default function HomepageManager() {
                                 </button>
                             </div>
                             <div className="space-y-1 max-w-md">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Title</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Title</label>
                                 <input
                                     type="text"
                                     value={settings.process_section_title || ''}
                                     onChange={e => handleSettingChange('process_section_title', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                         </form>
@@ -536,21 +536,21 @@ export default function HomepageManager() {
                             </div>
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Title</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Title</label>
                                     <input
                                         type="text"
                                         value={settings.leadership_section_title || ''}
                                         onChange={e => handleSettingChange('leadership_section_title', e.target.value)}
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Subtitle</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Subtitle</label>
                                     <input
                                         type="text"
                                         value={settings.leadership_section_subtitle || ''}
                                         onChange={e => handleSettingChange('leadership_section_subtitle', e.target.value)}
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                             </div>
@@ -613,21 +613,21 @@ export default function HomepageManager() {
                         <h3 className="font-bold text-lg uppercase tracking-wider text-white">Competencies Header Settings</h3>
                         <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Title</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Title</label>
                                 <input
                                     type="text"
                                     value={settings.competencies_section_title || ''}
                                     onChange={e => handleSettingChange('competencies_section_title', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Subtitle</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Subtitle</label>
                                 <input
                                     type="text"
                                     value={settings.competencies_section_subtitle || ''}
                                     onChange={e => handleSettingChange('competencies_section_subtitle', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                         </div>
@@ -727,21 +727,21 @@ export default function HomepageManager() {
                             </div>
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Title</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Title</label>
                                     <input
                                         type="text"
                                         value={settings.projects_section_title || ''}
                                         onChange={e => handleSettingChange('projects_section_title', e.target.value)}
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Subtitle</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Subtitle</label>
                                     <input
                                         type="text"
                                         value={settings.projects_section_subtitle || ''}
                                         onChange={e => handleSettingChange('projects_section_subtitle', e.target.value)}
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                             </div>
@@ -812,49 +812,49 @@ export default function HomepageManager() {
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Section Title</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Welcome Section Title</label>
                                 <input
                                     type="text"
                                     value={settings.welcome_section_title || ''}
                                     onChange={e => handleSettingChange('welcome_section_title', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Section Tagline</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Welcome Section Tagline</label>
                                 <input
                                     type="text"
                                     value={settings.welcome_section_tagline || ''}
                                     onChange={e => handleSettingChange('welcome_section_tagline', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                         </div>
                         <div className="space-y-1">
-                            <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Paragraph 1</label>
+                            <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Welcome Paragraph 1</label>
                             <textarea
                                 value={settings.welcome_section_p1 || ''}
                                 onChange={e => handleSettingChange('welcome_section_p1', e.target.value)}
                                 rows="2"
-                                className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                             />
                         </div>
                         <div className="space-y-1">
-                            <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Paragraph 2</label>
+                            <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Welcome Paragraph 2</label>
                             <textarea
                                 value={settings.welcome_section_p2 || ''}
                                 onChange={e => handleSettingChange('welcome_section_p2', e.target.value)}
                                 rows="3"
-                                className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                             />
                         </div>
                         <div className="space-y-1">
-                            <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Welcome Paragraph 3</label>
+                            <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Welcome Paragraph 3</label>
                             <textarea
                                 value={settings.welcome_section_p3 || ''}
                                 onChange={e => handleSettingChange('welcome_section_p3', e.target.value)}
                                 rows="3"
-                                className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                             />
                         </div>
                         <div className="pt-2">
@@ -875,16 +875,16 @@ export default function HomepageManager() {
                             <p className="text-xs text-on-surface-variant mt-1">Section header and list of client names appearing on the footer scroll.</p>
                         </div>
                         <div className="space-y-1 max-w-md">
-                            <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Clients Section Title</label>
+                            <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Clients Section Title</label>
                             <input
                                 type="text"
                                 value={settings.clients_section_title || ''}
                                 onChange={e => handleSettingChange('clients_section_title', e.target.value)}
-                                className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                             />
                         </div>
                         <div className="space-y-3 pt-2">
-                            <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Clients Names</label>
+                            <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Clients Names</label>
                             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                                 {(settings.clients_list || []).map((client, idx) => (
                                     <div key={idx} className="flex gap-2 items-center">
@@ -892,7 +892,7 @@ export default function HomepageManager() {
                                             type="text"
                                             value={client}
                                             onChange={e => handleClientsChange(idx, e.target.value)}
-                                            className="flex-grow bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="flex-grow bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                         <button
                                             type="button"
@@ -919,39 +919,39 @@ export default function HomepageManager() {
                         <h3 className="font-bold text-lg uppercase tracking-wider text-white">Contact & Headquarters Section</h3>
                         <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Form Section Title</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Form Section Title</label>
                                 <input
                                     type="text"
                                     value={settings.contact_section_title || ''}
                                     onChange={e => handleSettingChange('contact_section_title', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Form Section Description</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Form Section Description</label>
                                 <textarea
                                     value={settings.contact_section_description || ''}
                                     onChange={e => handleSettingChange('contact_section_description', e.target.value)}
                                     rows="2"
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 ></textarea>
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Headquarters Address (nl formatted)</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Headquarters Address (nl formatted)</label>
                                 <textarea
                                     value={settings.contact_headquarters_address || ''}
                                     onChange={e => handleSettingChange('contact_headquarters_address', e.target.value)}
                                     rows="2"
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 ></textarea>
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Support Support Phone</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Support Support Phone</label>
                                 <input
                                     type="text"
                                     value={settings.contact_support_phone || ''}
                                     onChange={e => handleSettingChange('contact_support_phone', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                         </div>
@@ -962,7 +962,7 @@ export default function HomepageManager() {
                         <h3 className="font-bold text-lg uppercase tracking-wider text-white">Footer Offices & Contact</h3>
                         <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono mb-1">Corporate Office Address</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 mb-1">Corporate Office Address</label>
                                 <RichTextEditor
                                     value={settings.footer_corporate_office || ''}
                                     onChange={value => handleSettingChange('footer_corporate_office', value)}
@@ -970,7 +970,7 @@ export default function HomepageManager() {
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono mb-1">Registered Office Address</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 mb-1">Registered Office Address</label>
                                 <RichTextEditor
                                     value={settings.footer_registered_office || ''}
                                     onChange={value => handleSettingChange('footer_registered_office', value)}
@@ -978,16 +978,16 @@ export default function HomepageManager() {
                                 />
                             </div>
                             <div className="space-y-1 md:col-span-2">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Footer Email Address</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Footer Email Address</label>
                                 <input
                                     type="email"
                                     value={settings.footer_email || ''}
                                     onChange={e => handleSettingChange('footer_email', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1 md:col-span-2">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono mb-1">Footer Company Description</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 mb-1">Footer Company Description</label>
                                 <RichTextEditor
                                     value={settings.footer_description || ''}
                                     onChange={value => handleSettingChange('footer_description', value)}
@@ -1001,53 +1001,53 @@ export default function HomepageManager() {
                                 <p className="text-xs text-on-surface-variant mb-4 font-mono">Provide URLs to your corporate social media pages. Leave blank to hide the icon from the footer.</p>
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Facebook Page URL</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Facebook Page URL</label>
                                         <input
                                             type="url"
                                             value={settings.social_facebook || ''}
                                             onChange={e => handleSettingChange('social_facebook', e.target.value)}
                                             placeholder="https://facebook.com/your-page"
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">LinkedIn Company URL</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">LinkedIn Company URL</label>
                                         <input
                                             type="url"
                                             value={settings.social_linkedin || ''}
                                             onChange={e => handleSettingChange('social_linkedin', e.target.value)}
                                             placeholder="https://linkedin.com/company/your-company"
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Twitter / X URL</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Twitter / X URL</label>
                                         <input
                                             type="url"
                                             value={settings.social_twitter || ''}
                                             onChange={e => handleSettingChange('social_twitter', e.target.value)}
                                             placeholder="https://x.com/your-handle"
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">YouTube Channel URL</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">YouTube Channel URL</label>
                                         <input
                                             type="url"
                                             value={settings.social_youtube || ''}
                                             onChange={e => handleSettingChange('social_youtube', e.target.value)}
                                             placeholder="https://youtube.com/c/your-channel"
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Instagram Profile URL</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Instagram Profile URL</label>
                                         <input
                                             type="url"
                                             value={settings.social_instagram || ''}
                                             onChange={e => handleSettingChange('social_instagram', e.target.value)}
                                             placeholder="https://instagram.com/your-profile"
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                 </div>
@@ -1060,57 +1060,57 @@ export default function HomepageManager() {
                         <h3 className="font-bold text-lg uppercase tracking-wider text-white">Call To Action (CTA) Section</h3>
                         <div className="grid md:grid-cols-2 gap-4">
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">CTA Title</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">CTA Title</label>
                                 <input
                                     type="text"
                                     value={settings.cta_section_title || ''}
                                     onChange={e => handleSettingChange('cta_section_title', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">CTA Subtitle</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">CTA Subtitle</label>
                                 <input
                                     type="text"
                                     value={settings.cta_section_subtitle || ''}
                                     onChange={e => handleSettingChange('cta_section_subtitle', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Primary Button Text</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Primary Button Text</label>
                                 <input
                                     type="text"
                                     value={settings.cta_primary_btn_text || ''}
                                     onChange={e => handleSettingChange('cta_primary_btn_text', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Primary Button Link</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Primary Button Link</label>
                                 <input
                                     type="text"
                                     value={settings.cta_primary_btn_link || ''}
                                     onChange={e => handleSettingChange('cta_primary_btn_link', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Secondary Button Text</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Secondary Button Text</label>
                                 <input
                                     type="text"
                                     value={settings.cta_secondary_btn_text || ''}
                                     onChange={e => handleSettingChange('cta_secondary_btn_text', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                             <div className="space-y-1">
-                                <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Secondary Button Link</label>
+                                <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Secondary Button Link</label>
                                 <input
                                     type="text"
                                     value={settings.cta_secondary_btn_link || ''}
                                     onChange={e => handleSettingChange('cta_secondary_btn_link', e.target.value)}
-                                    className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                 />
                             </div>
                         </div>
@@ -1151,7 +1151,7 @@ export default function HomepageManager() {
                             {/* Slide / Leader / Service / Competency / Project Titles */}
                             {['slide', 'service', 'leader', 'competency', 'project'].includes(editingItem.type) && (
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">
                                         {editingItem.type === 'leader' ? 'Full Name' : 'Title'}
                                     </label>
                                     <input
@@ -1159,7 +1159,7 @@ export default function HomepageManager() {
                                         required
                                         value={formData.title || formData.name || ''}
                                         onChange={e => handleFormChange(editingItem.type === 'leader' ? 'name' : 'title', e.target.value)}
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                             )}
@@ -1167,14 +1167,14 @@ export default function HomepageManager() {
                             {/* Service Icon */}
                             {editingItem.type === 'service' && (
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Material Icon Name</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Material Icon Name</label>
                                     <input
                                         type="text"
                                         required
                                         value={formData.icon || ''}
                                         onChange={e => handleFormChange('icon', e.target.value)}
                                         placeholder="e.g. water_pump, detector_smoke, engineering"
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                             )}
@@ -1183,24 +1183,24 @@ export default function HomepageManager() {
                             {editingItem.type === 'process' && (
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Step Number</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Step Number</label>
                                         <input
                                             type="text"
                                             required
                                             value={formData.step_number || ''}
                                             onChange={e => handleFormChange('step_number', e.target.value)}
                                             placeholder="e.g. 01"
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Step Title</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Step Title</label>
                                         <input
                                             type="text"
                                             required
                                             value={formData.title || ''}
                                             onChange={e => handleFormChange('title', e.target.value)}
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                 </div>
@@ -1209,14 +1209,14 @@ export default function HomepageManager() {
                             {/* Leader designation/title */}
                             {editingItem.type === 'leader' && (
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Designation / Role</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Designation / Role</label>
                                     <input
                                         type="text"
                                         required
                                         value={formData.title || ''}
                                         onChange={e => handleFormChange('title', e.target.value)}
                                         placeholder="e.g. Chief Executive Officer"
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                             )}
@@ -1224,7 +1224,7 @@ export default function HomepageManager() {
                             {/* Descriptions / Subtitles / Quotes */}
                             {['slide', 'service', 'leader', 'process', 'project'].includes(editingItem.type) && (
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono mb-1">
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1 mb-1">
                                         {editingItem.type === 'slide' ? 'Subtitle' : editingItem.type === 'leader' ? 'Personal Quote' : 'Description'}
                                     </label>
                                     <RichTextEditor
@@ -1247,7 +1247,7 @@ export default function HomepageManager() {
                             {/* Competency bullets */}
                             {editingItem.type === 'competency' && (
                                 <div className="space-y-3">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Bullet Items List</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Bullet Items List</label>
                                     <div className="space-y-2">
                                         {(formData.items || []).map((bullet, idx) => (
                                             <div key={idx} className="flex gap-2">
@@ -1257,7 +1257,7 @@ export default function HomepageManager() {
                                                     value={bullet}
                                                     onChange={e => handleCompetencyItemChange(idx, e.target.value)}
                                                     placeholder="Bullet item spec"
-                                                    className="flex-grow bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                                    className="flex-grow bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                                 />
                                                 <button
                                                     type="button"
@@ -1283,21 +1283,21 @@ export default function HomepageManager() {
                             {editingItem.type === 'competency' && (
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Button Text</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Button Text</label>
                                         <input
                                             type="text"
                                             value={formData.button_text || ''}
                                             onChange={e => handleFormChange('button_text', e.target.value)}
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                     <div className="space-y-1">
-                                        <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Button Link</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Button Link</label>
                                         <input
                                             type="text"
                                             value={formData.button_link || ''}
                                             onChange={e => handleFormChange('button_link', e.target.value)}
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         />
                                     </div>
                                 </div>
@@ -1306,12 +1306,12 @@ export default function HomepageManager() {
                             {/* Project Link */}
                             {editingItem.type === 'project' && (
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Project Case Study Link</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Project Case Study Link</label>
                                     <input
                                         type="text"
                                         value={formData.link || ''}
                                         onChange={e => handleFormChange('link', e.target.value)}
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                             )}
@@ -1323,12 +1323,12 @@ export default function HomepageManager() {
 
                                     {/* Upload file */}
                                     <div className="space-y-1">
-                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase font-mono">Upload New Image File</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Upload New Image File</label>
                                         <input
                                             type="file"
                                             accept="image/*"
                                             onChange={e => setImageFile(e.target.files[0])}
-                                            className="w-full bg-surface-container border border-outline-variant/50 rounded text-xs text-white file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-primary file:text-on-primary hover:file:brightness-110 cursor-pointer"
+                                            className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer"
                                         />
                                     </div>
 
@@ -1336,7 +1336,7 @@ export default function HomepageManager() {
 
                                     {/* Remote URL */}
                                     <div className="space-y-1">
-                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase font-mono">Image URL Path</label>
+                                        <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Image URL Path</label>
                                         <input
                                             type="text"
                                             value={formData.image_url || ''}
@@ -1351,12 +1351,12 @@ export default function HomepageManager() {
                             {/* Order & Status */}
                             <div className="grid grid-cols-2 gap-4 border-t border-outline-variant/20 pt-4">
                                 <div className="space-y-1">
-                                    <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Sort Order Index</label>
+                                    <label className="block text-[10px] font-bold text-on-surface-variant uppercase tracking-wider mb-1">Sort Order Index</label>
                                     <input
                                         type="number"
                                         value={formData.sort_order || 0}
                                         onChange={e => handleFormChange('sort_order', parseInt(e.target.value) || 0)}
-                                        className="w-full bg-surface-container border border-outline-variant/50 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-primary"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     />
                                 </div>
                                 <div className="flex items-center gap-2 mt-6">
@@ -1365,9 +1365,9 @@ export default function HomepageManager() {
                                         id="modal_is_active"
                                         checked={!!formData.is_active}
                                         onChange={e => handleFormChange('is_active', e.target.checked)}
-                                        className="rounded bg-surface-container border-outline-variant text-primary focus:ring-primary h-4 w-4"
+                                        className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface h-4 w-4"
                                     />
-                                    <label htmlFor="modal_is_active" className="text-xs font-bold text-on-surface-variant uppercase font-mono select-none">
+                                    <label htmlFor="modal_is_active" className="text-xs font-bold text-on-surface-variant uppercase tracking-wider select-none">
                                         Active / Visible
                                     </label>
                                 </div>

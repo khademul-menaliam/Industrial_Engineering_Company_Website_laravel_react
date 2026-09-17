@@ -426,7 +426,7 @@ export default function ClientsManager() {
                             </div>
                             <div className="flex gap-4">
                                 <label className="flex items-center gap-2 cursor-pointer">
-                                    <input type="checkbox" name="is_active" checked={clientForm.is_active} onChange={handleClientInputChange} className="w-5 h-5 rounded border-outline-variant/50 text-primary bg-surface-container" />
+                                    <input type="checkbox" name="is_active" checked={clientForm.is_active} onChange={handleClientInputChange} className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface" />
                                     <span className="text-sm font-medium text-white">Active</span>
                                 </label>
                             </div>
@@ -519,7 +519,7 @@ export default function ClientsManager() {
                             </div>
                             <div className="flex gap-4">
                                 <label className="flex items-center gap-2 cursor-pointer">
-                                    <input type="checkbox" name="is_active" checked={testimonialForm.is_active} onChange={handleTestimonialInputChange} className="w-5 h-5 rounded border-outline-variant/50 text-primary bg-surface-container" />
+                                    <input type="checkbox" name="is_active" checked={testimonialForm.is_active} onChange={handleTestimonialInputChange} className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface" />
                                     <span className="text-sm font-medium text-white">Active</span>
                                 </label>
                             </div>
@@ -613,7 +613,7 @@ export default function ClientsManager() {
                             </div>
                             <div className="flex gap-4">
                                 <label className="flex items-center gap-2 cursor-pointer">
-                                    <input type="checkbox" name="is_active" checked={partnerForm.is_active} onChange={handlePartnerInputChange} className="w-5 h-5 rounded border-outline-variant/50 text-primary bg-surface-container" />
+                                    <input type="checkbox" name="is_active" checked={partnerForm.is_active} onChange={handlePartnerInputChange} className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface" />
                                     <span className="text-sm font-medium text-white">Active</span>
                                 </label>
                             </div>
