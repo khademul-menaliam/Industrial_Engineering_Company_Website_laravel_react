@@ -1,13 +1,25 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
+    const location = useLocation();
+
+    const isCompanyRoute =
+        location.pathname === '/about' ||
+        location.pathname.startsWith('/how-we-work') ||
+        location.pathname.startsWith('/faq');
+
+    useEffect(() => {
+        if (isCompanyRoute) {
+            setIsMobileAboutOpen(true);
+        }
+    }, [location.pathname]);
 
     return (
         <header className="w-full top-0 sticky shadow-lg bg-midnight z-50">
-            <nav className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20 ">
+            <nav className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto h-20">
                 <Link to="/" className="flex items-center whitespace-nowrap gap-1">
                     <img 
                         src="/logo.png" 
@@ -22,25 +34,25 @@ export default function Navbar() {
                 
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex items-center gap-4">
-                    <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/services">Services</Link>
+                    <Link className={`font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap ${location.pathname === '/services' ? 'text-white' : 'text-[#8d9aa1]'}`} to="/services">Services</Link>
                     {/* <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/portfolio">Projects</Link> */}
-                    <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/clients">Partners</Link>
-                    <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/careers">Careers</Link>
+                    <Link className={`font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap ${location.pathname === '/clients' ? 'text-white' : 'text-[#8d9aa1]'}`} to="/clients">Partners</Link>
+                    <Link className={`font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap ${location.pathname === '/careers' ? 'text-white' : 'text-[#8d9aa1]'}`} to="/careers">Careers</Link>
                     
                     {/* Company Dropdown */}
                     <div className="relative group py-2">
-                        <button className="flex items-center text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap cursor-pointer">
+                        <button className={`flex items-center font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap cursor-pointer ${isCompanyRoute ? 'text-white' : 'text-[#8d9aa1]'}`}>
                             Company
-                            <span className="material-symbols-outlined text-sm select-none">keyboard_arrow_down</span>
+                            <span className="material-symbols-outlined text-sm select-none transition-transform duration-200 group-hover:rotate-180">keyboard_arrow_down</span>
                         </button>
                         <div className="absolute left-1/2 -translate-x-1/2 mt-2 w-48 bg-midnight border border-white/10 rounded shadow-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 translate-y-1 transition-all duration-200 z-50">
-                            <Link className="block px-4 py-2.5 text-[#8d9aa1] hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap" to="/about">About Us</Link>
-                            <Link className="block px-4 py-2.5 text-[#8d9aa1] hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap" to="/how-we-work">How It Works</Link>
-                            <Link className="block px-4 py-2.5 text-[#8d9aa1] hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap" to="/faq">FAQ</Link>
+                            <Link className={`block px-4 py-2.5 hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap ${location.pathname === '/about' ? 'text-white bg-white/10 font-bold' : 'text-[#8d9aa1]'}`} to="/about">About Us</Link>
+                            <Link className={`block px-4 py-2.5 hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap ${location.pathname === '/how-we-work' ? 'text-white bg-white/10 font-bold' : 'text-[#8d9aa1]'}`} to="/how-we-work">How It Works</Link>
+                            <Link className={`block px-4 py-2.5 hover:text-white hover:bg-white/5 transition-colors text-xs uppercase tracking-widest whitespace-nowrap ${location.pathname === '/faq' ? 'text-white bg-white/10 font-bold' : 'text-[#8d9aa1]'}`} to="/faq">FAQ</Link>
                         </div>
                     </div>
 
-                    <Link className="text-[#8d9aa1] font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap" to="/contact">Contact</Link>
+                    <Link className={`font-medium hover:text-white transition-colors duration-200 text-xs uppercase tracking-widest whitespace-nowrap ${location.pathname === '/contact' ? 'text-white' : 'text-[#8d9aa1]'}`} to="/contact">Contact</Link>
                 </div>
                 
                 {/* Desktop Download Button & Mobile Toggle */}
@@ -101,7 +113,7 @@ export default function Navbar() {
                     {/* Links */}
                     <nav className="flex flex-col gap-4">
                         <Link 
-                            className="text-[#8d9aa1] font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap" 
+                            className={`font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap ${location.pathname === '/services' ? 'text-white font-bold' : 'text-[#8d9aa1]'}`}
                             to="/services"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
@@ -115,14 +127,14 @@ export default function Navbar() {
                             Projects
                         </Link> */}
                         <Link 
-                            className="text-[#8d9aa1] font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap" 
+                            className={`font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap ${location.pathname === '/clients' ? 'text-white font-bold' : 'text-[#8d9aa1]'}`}
                             to="/clients"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             Partners
                         </Link>
                         <Link 
-                            className="text-[#8d9aa1] font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap" 
+                            className={`font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap ${location.pathname === '/careers' ? 'text-white font-bold' : 'text-[#8d9aa1]'}`}
                             to="/careers"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
@@ -133,7 +145,7 @@ export default function Navbar() {
                         <div className="border-b border-white/5">
                             <button 
                                 onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                                className="w-full flex items-center justify-between text-[#8d9aa1] font-semibold hover:text-white py-2 text-sm uppercase tracking-widest cursor-pointer"
+                                className={`w-full flex items-center justify-between font-semibold hover:text-white py-2 text-sm uppercase tracking-widest cursor-pointer ${isCompanyRoute ? 'text-white' : 'text-[#8d9aa1]'}`}
                             >
                                 <span className="whitespace-nowrap">Company</span>
                                 <span className={`material-symbols-outlined transition-transform duration-200 ${isMobileAboutOpen ? 'rotate-180' : ''}`}>
@@ -145,21 +157,21 @@ export default function Navbar() {
                             }`}>
                                 <div className="flex flex-col gap-2 pl-4 pb-3">
                                     <Link 
-                                        className="text-[#8d9aa1] hover:text-white py-1.5 text-xs uppercase tracking-widest whitespace-nowrap" 
+                                        className={`py-1.5 text-xs uppercase tracking-widest whitespace-nowrap transition-colors ${location.pathname === '/about' ? 'text-white font-bold' : 'text-[#8d9aa1] hover:text-white'}`}
                                         to="/about"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         About Us
                                     </Link>
                                     <Link 
-                                        className="text-[#8d9aa1] hover:text-white py-1.5 text-xs uppercase tracking-widest whitespace-nowrap" 
+                                        className={`py-1.5 text-xs uppercase tracking-widest whitespace-nowrap transition-colors ${location.pathname === '/how-we-work' ? 'text-white font-bold' : 'text-[#8d9aa1] hover:text-white'}`}
                                         to="/how-we-work"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
                                         How It Works
                                     </Link>
                                     <Link 
-                                        className="text-[#8d9aa1] hover:text-white py-1.5 text-xs uppercase tracking-widest whitespace-nowrap" 
+                                        className={`py-1.5 text-xs uppercase tracking-widest whitespace-nowrap transition-colors ${location.pathname === '/faq' ? 'text-white font-bold' : 'text-[#8d9aa1] hover:text-white'}`}
                                         to="/faq"
                                         onClick={() => setIsMobileMenuOpen(false)}
                                     >
@@ -170,7 +182,7 @@ export default function Navbar() {
                         </div>
 
                         <Link 
-                            className="text-[#8d9aa1] font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap" 
+                            className={`font-semibold hover:text-white py-2 text-sm uppercase tracking-widest border-b border-white/5 whitespace-nowrap ${location.pathname === '/contact' ? 'text-white font-bold' : 'text-[#8d9aa1]'}`}
                             to="/contact"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >

@@ -50,7 +50,7 @@ export default function Clients() {
                 <div className="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
                     <div className="max-w-2xl text-white">
                         <span className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant font-mono block">{settings.hero_subtitle}</span>
-                        <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight uppercase">{settings.hero_title}</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight uppercase">{settings.hero_title}</h1>
                         <p className="text-base md:text-lg text-white/80 font-light max-w-lg leading-relaxed text-justify">{settings.hero_desc}</p>
                     </div>
                 </div>
@@ -62,7 +62,7 @@ export default function Clients() {
                     <div className="max-w-container-max mx-auto">
                         <div className="text-center mb-16">
                             <span className="text-tertiary text-xs font-bold tracking-widest mb-3 block uppercase font-mono">Strategic Alliances</span>
-                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Solution Partners</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Solution Partners</h2>
                             <div className="h-1 w-16 bg-tertiary mx-auto mt-4"></div>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
@@ -96,7 +96,7 @@ export default function Clients() {
                     <div className="max-w-container-max mx-auto text-center">
                         <div className="mb-16">
                             <span className="text-tertiary text-xs font-bold uppercase tracking-widest font-mono mb-2 block">{settings.clients_section_subtitle}</span>
-                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">{settings.clients_section_title}</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">{settings.clients_section_title}</h2>
                             <div className="h-1 w-16 bg-tertiary mx-auto mt-4"></div>
                         </div>
                         
@@ -147,7 +147,7 @@ export default function Clients() {
             {/* Call to Action */}
             <section className="py-24 bg-primary text-white text-center relative overflow-hidden px-margin-mobile md:px-margin-desktop">
                 <div className="max-w-3xl mx-auto relative z-10">
-                    <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">{settings.cta_title}</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-4">{settings.cta_title}</h2>
                     <p className="text-white/85 mb-8 leading-relaxed max-w-xl mx-auto text-sm sm:text-base text-justify">
                         {settings.cta_desc}
                     </p>

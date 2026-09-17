@@ -17,7 +17,7 @@ export default function HowWeWork() {
                         <div className="flex items-center gap-3 mb-6">
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">System Workflow 5.0</span>
                         </div>
-                        <h1 className="text-primary font-bold text-3xl md:text-4xl mb-6 leading-tight uppercase tracking-tight">
+                        <h1 className="text-primary font-bold text-4xl md:text-5xl mb-6 leading-tight uppercase tracking-tight">
                             Operational Integrity through <span className="text-tertiary underline decoration-2 underline-offset-8">Methodology.</span>
                         </h1>
                         <p className="text-secondary max-w-xl mb-10 text-base leading-relaxed text-justify">
@@ -77,7 +77,7 @@ export default function HowWeWork() {
                             <span className="w-8 h-[2px] bg-tertiary"></span>
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 01</span>
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Client Requirement &amp; Site Survey</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Client Requirement &amp; Site Survey</h2>
                         <p className="text-secondary text-sm leading-relaxed text-justify">
                             Infrastructure analysis begins with client requirements and detailed site evaluations. We deploy advanced scanning and inspection techniques to build the foundational data required for exact engineering solutions.
                         </p>
@@ -107,7 +107,7 @@ export default function HowWeWork() {
                             <span className="w-8 h-[2px] bg-tertiary"></span>
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 02</span>
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">BIM Modeling &amp; Design</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">BIM Modeling &amp; Design</h2>
                         <p className="text-secondary text-sm leading-relaxed text-justify">
                             We design using advanced Building Information Modeling (BIM) to create precision digital twins of all Mechanical, Electrical, Plumbing (MEP), and Fire Safety layouts before execution.
                         </p>
@@ -154,7 +154,7 @@ export default function HowWeWork() {
                             <span className="w-8 h-[2px] bg-tertiary"></span>
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 03</span>
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Documentation &amp; Approval</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Documentation &amp; Approval</h2>
                         <p className="text-secondary text-sm leading-relaxed text-justify">
                             Drafting comprehensive shop drawings and compiling exhaustive technical submittals for regulatory clearances and client sign-offs.
                         </p>
@@ -184,7 +184,7 @@ export default function HowWeWork() {
                             <span className="w-8 h-[2px] bg-tertiary"></span>
                             <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 04</span>
                         </div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Procurement &amp; Supply</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Procurement &amp; Supply</h2>
                         <p className="text-secondary text-sm leading-relaxed text-justify">
                             Sourcing and supplying authenticated, high-performance equipment and machinery in collaboration with global solution partners (like FIREX, NAFFCO, NITTAN, Lackeby, and Waterfall Pumps).
                         </p>
@@ -238,7 +238,7 @@ export default function HowWeWork() {
                                 <span className="w-8 h-[2px] bg-tertiary"></span>
                                 <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">PHASE 05</span>
                             </div>
-                            <h2 className="text-2xl md:text-3xl font-bold mb-6 uppercase tracking-tight text-white">Installation &amp; Commissioning</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase tracking-tight text-white">Installation &amp; Commissioning</h2>
                             <p className="text-sm text-white/80 mb-10 leading-relaxed text-justify">
                                 Deploying specialized execution teams to perform physical installations, followed by comprehensive testing, commissioning, and validation processes.
                             </p>
