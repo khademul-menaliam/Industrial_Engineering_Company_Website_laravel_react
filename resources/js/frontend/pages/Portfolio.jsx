@@ -355,7 +355,7 @@ export default function Portfolio() {
                                     )}
 
                                     {/* Card Footer Actions */}
-                                    <div className="flex justify-between items-center border-t border-outline-variant/20 pt-4 mt-auto">
+                                    <div className="flex justify-between items-center border-t border-outline-variant/30 pt-4 mt-auto">
                                         <div className="text-[11px] font-mono text-secondary uppercase">
                                             Owner: <span className="text-primary font-bold">{p.owner.split(' ')[0]}</span>
                                         </div>
