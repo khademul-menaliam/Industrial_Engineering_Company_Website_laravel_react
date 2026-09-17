@@ -329,7 +329,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Hero Title</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_hero_title || ''}
                                 onChange={e => setSettings({ ...settings, about_hero_title: e.target.value })}
                             />
@@ -338,7 +338,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Hero Subtitle</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_hero_subtitle || ''}
                                 onChange={e => setSettings({ ...settings, about_hero_subtitle: e.target.value })}
                             />
@@ -347,7 +347,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Hero Description</label>
                             <textarea
                                 rows="2"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_hero_description || ''}
                                 onChange={e => setSettings({ ...settings, about_hero_description: e.target.value })}
                             />
@@ -360,7 +360,7 @@ export default function AboutManager() {
                             <input
                                 ref={heroFileRef}
                                 type="file" accept="image/*"
-                                className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2.5 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-background file:text-white hover:file:bg-primary/10"
+                                className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2.5 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer"
                             />
                         </div>
                     </div>
@@ -373,7 +373,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Narrative Title</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_story_title || ''}
                                 onChange={e => setSettings({ ...settings, about_story_title: e.target.value })}
                             />
@@ -382,7 +382,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Paragraph 1</label>
                             <textarea
                                 rows="3"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_story_p1 || ''}
                                 onChange={e => setSettings({ ...settings, about_story_p1: e.target.value })}
                             />
@@ -391,7 +391,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Paragraph 2</label>
                             <textarea
                                 rows="3"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_story_p2 || ''}
                                 onChange={e => setSettings({ ...settings, about_story_p2: e.target.value })}
                             />
@@ -400,7 +400,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Paragraph 3</label>
                             <textarea
                                 rows="3"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_story_p3 || ''}
                                 onChange={e => setSettings({ ...settings, about_story_p3: e.target.value })}
                             />
@@ -410,16 +410,16 @@ export default function AboutManager() {
                         <div className="p-4 border border-outline-variant/30 rounded-xl space-y-3 bg-background/50">
                             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono border-b border-outline-variant/20 pb-1">Stat Metric 1</h4>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Number/Value</label>
-                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat1_number || ''} onChange={e => setSettings({...settings, about_stat1_number: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Number/Value</label>
+                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat1_number || ''} onChange={e => setSettings({...settings, about_stat1_number: e.target.value})}/>
                             </div>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Short Label</label>
-                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat1_label || ''} onChange={e => setSettings({...settings, about_stat1_label: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Short Label</label>
+                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat1_label || ''} onChange={e => setSettings({...settings, about_stat1_label: e.target.value})}/>
                             </div>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Description</label>
-                                <textarea rows="2" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat1_desc || ''} onChange={e => setSettings({...settings, about_stat1_desc: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Description</label>
+                                <textarea rows="2" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat1_desc || ''} onChange={e => setSettings({...settings, about_stat1_desc: e.target.value})}/>
                             </div>
                         </div>
 
@@ -427,16 +427,16 @@ export default function AboutManager() {
                         <div className="p-4 border border-outline-variant/30 rounded-xl space-y-3 bg-background/50">
                             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono border-b border-outline-variant/20 pb-1">Stat Metric 2</h4>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Number/Value</label>
-                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat2_number || ''} onChange={e => setSettings({...settings, about_stat2_number: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Number/Value</label>
+                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat2_number || ''} onChange={e => setSettings({...settings, about_stat2_number: e.target.value})}/>
                             </div>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Short Label</label>
-                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat2_label || ''} onChange={e => setSettings({...settings, about_stat2_label: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Short Label</label>
+                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat2_label || ''} onChange={e => setSettings({...settings, about_stat2_label: e.target.value})}/>
                             </div>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Description</label>
-                                <textarea rows="2" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat2_desc || ''} onChange={e => setSettings({...settings, about_stat2_desc: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Description</label>
+                                <textarea rows="2" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat2_desc || ''} onChange={e => setSettings({...settings, about_stat2_desc: e.target.value})}/>
                             </div>
                         </div>
 
@@ -444,16 +444,16 @@ export default function AboutManager() {
                         <div className="p-4 border border-outline-variant/30 rounded-xl space-y-3 bg-background/50">
                             <h4 className="text-xs font-bold text-white uppercase tracking-wider font-mono border-b border-outline-variant/20 pb-1">Stat Metric 3</h4>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Number/Value</label>
-                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat3_number || ''} onChange={e => setSettings({...settings, about_stat3_number: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Number/Value</label>
+                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat3_number || ''} onChange={e => setSettings({...settings, about_stat3_number: e.target.value})}/>
                             </div>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Short Label</label>
-                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat3_label || ''} onChange={e => setSettings({...settings, about_stat3_label: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Short Label</label>
+                                <input type="text" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat3_label || ''} onChange={e => setSettings({...settings, about_stat3_label: e.target.value})}/>
                             </div>
                             <div className="space-y-1">
-                                <label className="text-[10px] text-on-surface-variant font-bold">Description</label>
-                                <textarea rows="2" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs" value={settings.about_stat3_desc || ''} onChange={e => setSettings({...settings, about_stat3_desc: e.target.value})}/>
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Description</label>
+                                <textarea rows="2" className="w-full bg-background border border-outline-variant/30 rounded p-2 text-white text-xs focus:border-primary focus:outline-none transition-all" value={settings.about_stat3_desc || ''} onChange={e => setSettings({...settings, about_stat3_desc: e.target.value})}/>
                             </div>
                         </div>
                     </div>
@@ -466,7 +466,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">CEO Name</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_ceo_name || ''}
                                 onChange={e => setSettings({ ...settings, about_ceo_name: e.target.value })}
                             />
@@ -475,7 +475,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">CEO Role Title</label>
                             <input
                                 type="text"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_ceo_role || ''}
                                 onChange={e => setSettings({ ...settings, about_ceo_role: e.target.value })}
                             />
@@ -484,7 +484,7 @@ export default function AboutManager() {
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">CEO Signature Message</label>
                             <textarea
                                 rows="3"
-                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none transition-all"
                                 value={settings.about_ceo_message || ''}
                                 onChange={e => setSettings({ ...settings, about_ceo_message: e.target.value })}
                             />
@@ -707,16 +707,16 @@ export default function AboutManager() {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Pillar Title</label>
-                                            <input type="text" required placeholder="e.g. Mission" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formTitle} onChange={e => setFormTitle(e.target.value)}/>
+                                            <input type="text" required placeholder="e.g. Mission" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formTitle} onChange={e => setFormTitle(e.target.value)}/>
                                         </div>
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Icon Tag (Material icon)</label>
-                                            <input type="text" required placeholder="e.g. rocket_launch" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formIcon} onChange={e => setFormIcon(e.target.value)}/>
+                                            <input type="text" required placeholder="e.g. rocket_launch" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formIcon} onChange={e => setFormIcon(e.target.value)}/>
                                         </div>
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Description Text</label>
-                                        <textarea rows="4" required className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formDescription} onChange={e => setFormDescription(e.target.value)}/>
+                                        <textarea rows="4" required className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formDescription} onChange={e => setFormDescription(e.target.value)}/>
                                     </div>
                                 </>
                             )}
@@ -727,20 +727,20 @@ export default function AboutManager() {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Advisor Name</label>
-                                            <input type="text" required placeholder="e.g. Dr. Aris Thorne" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formName} onChange={e => setFormName(e.target.value)}/>
+                                            <input type="text" required placeholder="e.g. Dr. Aris Thorne" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formName} onChange={e => setFormName(e.target.value)}/>
                                         </div>
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Advisor Role</label>
-                                            <input type="text" required placeholder="e.g. Senior Structural Advisor" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formRole} onChange={e => setFormRole(e.target.value)}/>
+                                            <input type="text" required placeholder="e.g. Senior Structural Advisor" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formRole} onChange={e => setFormRole(e.target.value)}/>
                                         </div>
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Advisory Message</label>
-                                        <textarea rows="4" required className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formMessage} onChange={e => setFormMessage(e.target.value)}/>
+                                        <textarea rows="4" required className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formMessage} onChange={e => setFormMessage(e.target.value)}/>
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block">Headshot Avatar Image</label>
-                                        <input ref={modalFileRef} type="file" accept="image/*" className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2 file:px-3 file:rounded file:bg-background file:text-white hover:file:bg-primary/10"/>
+                                        <input ref={modalFileRef} type="file" accept="image/*" className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer"/>
                                     </div>
                                 </>
                             )}
@@ -751,30 +751,30 @@ export default function AboutManager() {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Member Name</label>
-                                            <input type="text" required placeholder="e.g. Sarah Chen, PhD" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formName} onChange={e => setFormName(e.target.value)}/>
+                                            <input type="text" required placeholder="e.g. Sarah Chen, PhD" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formName} onChange={e => setFormName(e.target.value)}/>
                                         </div>
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Role Title</label>
-                                            <input type="text" required placeholder="e.g. Lead Material Analyst" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formRole} onChange={e => setFormRole(e.target.value)}/>
+                                            <input type="text" required placeholder="e.g. Lead Material Analyst" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formRole} onChange={e => setFormRole(e.target.value)}/>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">LinkedIn Profile (URL)</label>
-                                            <input type="url" placeholder="https://..." className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formLinkedin} onChange={e => setFormLinkedin(e.target.value)}/>
+                                            <input type="url" placeholder="https://..." className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formLinkedin} onChange={e => setFormLinkedin(e.target.value)}/>
                                         </div>
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Email Address</label>
-                                            <input type="email" placeholder="s.chen@..." className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formEmail} onChange={e => setFormEmail(e.target.value)}/>
+                                            <input type="email" placeholder="s.chen@..." className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formEmail} onChange={e => setFormEmail(e.target.value)}/>
                                         </div>
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Short Biography</label>
-                                        <textarea rows="3" required className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formBio} onChange={e => setFormBio(e.target.value)}/>
+                                        <textarea rows="3" required className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formBio} onChange={e => setFormBio(e.target.value)}/>
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block">Avatar Headshot Image</label>
-                                        <input ref={modalFileRef} type="file" accept="image/*" className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2 file:px-3 file:rounded file:bg-background file:text-white hover:file:bg-primary/10"/>
+                                        <input ref={modalFileRef} type="file" accept="image/*" className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2 file:px-3 file:rounded file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer"/>
                                     </div>
                                 </>
                             )}
@@ -785,16 +785,16 @@ export default function AboutManager() {
                                     <div className="grid grid-cols-2 gap-4">
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Year</label>
-                                            <input type="text" required placeholder="e.g. 2026" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formYear} onChange={e => setFormYear(e.target.value)}/>
+                                            <input type="text" required placeholder="e.g. 2026" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formYear} onChange={e => setFormYear(e.target.value)}/>
                                         </div>
                                         <div className="space-y-1">
                                             <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Milestone Title</label>
-                                            <input type="text" required placeholder="e.g. Expansion" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formTitle} onChange={e => setFormTitle(e.target.value)}/>
+                                            <input type="text" required placeholder="e.g. Expansion" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formTitle} onChange={e => setFormTitle(e.target.value)}/>
                                         </div>
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Detailed Description</label>
-                                        <textarea rows="4" required className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formDescription} onChange={e => setFormDescription(e.target.value)}/>
+                                        <textarea rows="4" required className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formDescription} onChange={e => setFormDescription(e.target.value)}/>
                                     </div>
                                 </>
                             )}
@@ -802,7 +802,7 @@ export default function AboutManager() {
                             {/* Sort order (common field) */}
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sorting Index Order</label>
-                                <input type="number" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs" value={formSortOrder} onChange={e => setFormSortOrder(e.target.value)}/>
+                                <input type="number" className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all" value={formSortOrder} onChange={e => setFormSortOrder(e.target.value)}/>
                             </div>
 
                             <div className="pt-4 border-t border-outline-variant/30 flex justify-end gap-2">

@@ -330,7 +330,7 @@ export default function CareersManager() {
                                     <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Reference (Ref)</label>
                                     <input
                                         type="text" required placeholder="e.g. AR-204"
-                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         value={formRef}
                                         onChange={e => setFormRef(e.target.value)}
                                     />
@@ -338,7 +338,7 @@ export default function CareersManager() {
                                 <div className="space-y-1">
                                     <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Employment Type</label>
                                     <select
-                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                         value={formType}
                                         onChange={e => setFormType(e.target.value)}
                                     >
@@ -354,7 +354,7 @@ export default function CareersManager() {
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Vacancy Title</label>
                                 <input
                                     type="text" required placeholder="e.g. Senior BIM Architect"
-                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     value={formTitle}
                                     onChange={e => setFormTitle(e.target.value)}
                                 />
@@ -363,7 +363,7 @@ export default function CareersManager() {
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sorting Index</label>
                                 <input
                                     type="number" required
-                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     value={formSortOrder}
                                     onChange={e => setFormSortOrder(e.target.value)}
                                 />
@@ -372,7 +372,7 @@ export default function CareersManager() {
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Role Description</label>
                                 <textarea
                                     rows="4" required placeholder="Describe the responsibilities and prerequisites..."
-                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none transition-all"
                                     value={formDesc}
                                     onChange={e => setFormDesc(e.target.value)}
                                 />
