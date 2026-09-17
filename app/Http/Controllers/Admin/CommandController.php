@@ -79,27 +79,41 @@ class CommandController extends Controller
             'params' => [],
             'title' => 'Build Assets (Vite)'
         ],
-        'custom' => [
-            'command' => 'custom',
-            'params' => [],
-            'title' => 'Custom Artisan Command'
-        ],
     ];
+
+    /**
+     * Retrieve the configured console secondary password securely without a dangerous fallback.
+     */
+    private function getConsolePassword(): ?string
+    {
+        $password = env('COMMAND_CONSOLE_PASSWORD');
+        if (empty($password) || !is_string($password)) {
+            return null;
+        }
+        return $password;
+    }
 
     /**
      * Execute the requested command securely.
      */
     public function runCommand(Request $request): JsonResponse
     {
+        $expectedPassword = $this->getConsolePassword();
+        if ($expectedPassword === null) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Command console secondary password is not configured on the server. Please set COMMAND_CONSOLE_PASSWORD in your .env file.'
+            ], 403);
+        }
+
         $request->validate([
             'command' => 'required|string',
             'console_password' => 'required|string',
         ]);
 
         $password = $request->input('console_password');
-        $expected = env('COMMAND_CONSOLE_PASSWORD', 'admin123');
 
-        if ($password !== $expected) {
+        if (!is_string($password) || !hash_equals($expectedPassword, $password)) {
             return response()->json([
                 'success' => false,
                 'message' => 'Invalid or expired console authorization password.'
@@ -108,6 +122,14 @@ class CommandController extends Controller
 
         $key = $request->input('command');
 
+        // Reject custom / arbitrary command execution
+        if ($key === 'custom' || $request->has('custom_command')) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Arbitrary custom command execution is strictly disabled for security.'
+            ], 403);
+        }
+
         if (!array_key_exists($key, $this->allowedCommands)) {
             return response()->json([
                 'success' => false,
@@ -115,57 +137,22 @@ class CommandController extends Controller
             ], 403);
         }
 
+        // Disable destructive migrate:fresh in production environment
+        if ($key === 'migrate_fresh_seed' && app()->environment('production')) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Destructive database operations (migrate:fresh) are strictly disabled in production.'
+            ], 403);
+        }
+
         $commandConfig = $this->allowedCommands[$key];
         $command = $commandConfig['command'];
         $params = $commandConfig['params'];
-
-        if ($key === 'custom') {
-            $request->validate([
-                'custom_command' => 'required|string',
-            ]);
-
-            $customCmd = $request->input('custom_command');
-            
-            // Clean command string
-            $customCmd = trim($customCmd);
-            if (str_starts_with($customCmd, 'php artisan ')) {
-                $customCmd = substr($customCmd, 12);
-            } elseif (str_starts_with($customCmd, 'artisan ')) {
-                $customCmd = substr($customCmd, 8);
-            } elseif (str_starts_with($customCmd, 'php ')) {
-                $customCmd = substr($customCmd, 4);
-            }
-            $customCmd = trim($customCmd);
-
-            try {
-                Log::info("Admin user initiated execution of custom Artisan command: {$customCmd}");
-                
-                $exitCode = Artisan::call($customCmd);
-                $output = Artisan::output();
-
-                return response()->json([
-                    'success' => $exitCode === 0,
-                    'exit_code' => $exitCode,
-                    'output' => $output ?: 'Command executed successfully with no output.',
-                    'message' => "Custom command executed successfully."
-                ]);
-            } catch (\Throwable $e) {
-                Log::error("Error running custom Artisan command '{$customCmd}': " . $e->getMessage(), [
-                    'exception' => $e
-                ]);
-
-                return response()->json([
-                    'success' => false,
-                    'exit_code' => 500,
-                    'output' => $e->getMessage() . "\n" . $e->getTraceAsString(),
-                    'message' => "Failed to execute custom command '{$customCmd}'."
-                ], 500);
-            }
-        }
+        $userId = $request->user()?->id ?? 'unknown';
 
         if ($key === 'npm_run_build') {
             try {
-                Log::info("Admin user initiated execution of shell command: npm run build");
+                Log::info("Admin user #{$userId} initiated execution of shell command: npm run build");
                 
                 @set_time_limit(300);
                 @ini_set('memory_limit', '1024M');
@@ -185,15 +172,18 @@ class CommandController extends Controller
                     'message' => "Shell command 'npm run build' executed successfully."
                 ]);
             } catch (\Throwable $e) {
-                Log::error("Error running shell command 'npm run build': " . $e->getMessage(), [
+                Log::error("Error running shell command 'npm run build' for user #{$userId}: " . $e->getMessage(), [
                     'exception' => $e
                 ]);
 
-                $userFriendlyMsg = $e->getMessage();
+                $userFriendlyMsg = app()->environment('production')
+                    ? 'Command execution failed. Details logged server-side.'
+                    : $e->getMessage();
+
                 if (str_contains(strtolower($e->getMessage()), 'proc_open') || !function_exists('proc_open')) {
                     $userFriendlyMsg = "ERROR: PHP process execution ('proc_open') is disabled on this server's hosting environment.\n\n" .
-                                       "You cannot run Node/Vite build commands directly on this shared hosting provider (ezyro.com).\n" .
-                                       "FIX: Run 'npm run build' locally on your computer, and then upload the compiled 'public/build' folder to your server using FTP or the hosting File Manager.";
+                                       "You cannot run Node/Vite build commands directly on this shared hosting provider.\n" .
+                                       "FIX: Run 'npm run build' locally on your computer, and then upload the compiled 'public/build' folder using FTP or File Manager.";
                 }
 
                 return response()->json([
@@ -207,7 +197,7 @@ class CommandController extends Controller
 
         if ($key === 'storage_link') {
             try {
-                Log::info("Admin user initiated execution of Artisan command: php artisan storage:link");
+                Log::info("Admin user #{$userId} initiated execution of Artisan command: php artisan storage:link");
                 $exitCode = Artisan::call($command, $params);
                 $output = Artisan::output();
 
@@ -241,12 +231,15 @@ class CommandController extends Controller
                     ]);
                 }
 
-                $errorDetail = $e->getMessage();
-                if (str_contains(strtolower($errorDetail), 'exec')) {
-                    $errorDetail = "ERROR: PHP function 'exec()' is disabled by your hosting provider (ezyro.com).\n" .
+                $errorDetail = app()->environment('production')
+                    ? 'Storage link execution failed. Details logged server-side.'
+                    : $e->getMessage();
+
+                if (str_contains(strtolower($e->getMessage()), 'exec')) {
+                    $errorDetail = "ERROR: PHP function 'exec()' is disabled by your hosting provider.\n" .
                                    "Laravel's default storage:link command requires exec() to generate symlinks.\n\n" .
                                    "PHP symlink() fallback failed. Your host has disabled symlink creation.\n" .
-                                   "FIX: Create the storage symlink manually using a custom PHP file or your hosting File Manager link tool.";
+                                   "FIX: Create the storage symlink manually using a custom PHP file or hosting File Manager link tool.";
                 }
 
                 return response()->json([
@@ -259,7 +252,7 @@ class CommandController extends Controller
         }
 
         try {
-            Log::info("Admin user initiated execution of Artisan command: php artisan {$command}");
+            Log::info("Admin user #{$userId} initiated execution of Artisan command: php artisan {$command}");
             
             // Execute the Artisan command
             $exitCode = Artisan::call($command, $params);
@@ -272,14 +265,18 @@ class CommandController extends Controller
                 'message' => "Artisan command '{$command}' executed successfully."
             ]);
         } catch (\Throwable $e) {
-            Log::error("Error running Artisan command '{$command}': " . $e->getMessage(), [
+            Log::error("Error running Artisan command '{$command}' for user #{$userId}: " . $e->getMessage(), [
                 'exception' => $e
             ]);
+
+            $outputMsg = app()->environment('production')
+                ? 'Command execution failed. Details logged server-side.'
+                : $e->getMessage();
 
             return response()->json([
                 'success' => false,
                 'exit_code' => 500,
-                'output' => $e->getMessage() . "\n" . $e->getTraceAsString(),
+                'output' => $outputMsg,
                 'message' => "Failed to execute '{$command}'."
             ], 500);
         }
@@ -290,14 +287,21 @@ class CommandController extends Controller
      */
     public function verifyPassword(Request $request): JsonResponse
     {
+        $expectedPassword = $this->getConsolePassword();
+        if ($expectedPassword === null) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Command console secondary password is not configured on the server. Please set COMMAND_CONSOLE_PASSWORD in your .env file.'
+            ], 403);
+        }
+
         $request->validate([
             'password' => 'required|string',
         ]);
 
         $password = $request->input('password');
-        $expected = env('COMMAND_CONSOLE_PASSWORD', 'admin123');
 
-        if ($password === $expected) {
+        if (is_string($password) && hash_equals($expectedPassword, $password)) {
             return response()->json([
                 'success' => true,
                 'message' => 'Console authorized successfully.'
