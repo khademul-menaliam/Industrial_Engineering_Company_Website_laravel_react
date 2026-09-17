@@ -93,8 +93,8 @@ export default function SystemCommands() {
                     command: 'php artisan config:clear',
                     desc: 'Resets the environment and configuration cache, reloading .env files immediately.',
                     icon: 'settings_suggest',
-                    color: 'text-blue-400',
-                    bg: 'bg-blue-500/10',
+                    color: 'text-primary',
+                    bg: 'bg-primary/10',
                 },
                 {
                     key: 'config_cache',
@@ -102,8 +102,8 @@ export default function SystemCommands() {
                     command: 'php artisan config:cache',
                     desc: 'Combines all configuration files into a single cached file for rapid load times.',
                     icon: 'tune',
-                    color: 'text-sky-400',
-                    bg: 'bg-sky-500/10',
+                    color: 'text-primary',
+                    bg: 'bg-primary/10',
                 },
                 {
                     key: 'route_clear',
@@ -231,7 +231,7 @@ export default function SystemCommands() {
         addLog('info', `Starting execution: ${cmdInfo.title}...`);
 
         try {
-            const response = await api.post('/admin/commands/run', { 
+            const response = await api.post('/admin/commands/run', {
                 command: commandKey,
                 console_password: consolePassword
             });
@@ -266,13 +266,13 @@ export default function SystemCommands() {
 
         const cmdText = customCommand.trim();
         setCustomCommand('');
-        
+
         setRunningCommand('custom');
         addLog('input', `guest@ar-system-admin:~$ ${cmdText}`);
         addLog('info', `Starting custom command execution: ${cmdText}...`);
 
         try {
-            const response = await api.post('/admin/commands/run', { 
+            const response = await api.post('/admin/commands/run', {
                 command: 'custom',
                 custom_command: cmdText,
                 console_password: consolePassword
@@ -333,7 +333,7 @@ export default function SystemCommands() {
                 <div className="bg-surface border border-outline-variant/30 rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl space-y-6 relative overflow-hidden animate-in fade-in zoom-in-95 duration-200">
                     {/* Top warning line */}
                     <div className="absolute top-0 left-0 right-0 h-1.5 bg-primary"></div>
-                    
+
                     <div className="text-center space-y-4">
                         <div className="w-16 h-16 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center mx-auto text-primary animate-pulse">
                             <span className="material-symbols-outlined text-3xl">security</span>
@@ -419,7 +419,7 @@ export default function SystemCommands() {
 
             {/* Split layout */}
             <div className="grid lg:grid-cols-12 gap-8 items-start">
-                
+
                 {/* Available Commands Panel */}
                 <div className="lg:col-span-7 space-y-8">
                     {commandsList.map((group, groupIdx) => (
@@ -427,7 +427,7 @@ export default function SystemCommands() {
                             <h4 className="text-xs font-bold text-on-surface-variant uppercase tracking-widest pl-1">
                                 {group.group}
                             </h4>
-                            
+
                             <div className="grid gap-4">
                                 {group.items.map((cmd) => {
                                     const isRunning = runningCommand === cmd.key;
@@ -472,7 +472,7 @@ export default function SystemCommands() {
                                                     disabled={isAnyRunning}
                                                     className={`px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all shrink-0 flex items-center gap-2 ${
                                                         cmd.isDangerous
-                                                            ? isAnyRunning 
+                                                            ? isAnyRunning
                                                                 ? 'bg-outline-variant/20 text-on-surface-variant cursor-not-allowed'
                                                                 : 'bg-error text-white hover:brightness-110'
                                                             : isAnyRunning
@@ -528,9 +528,9 @@ export default function SystemCommands() {
                     </div>
 
                     {/* Styled Terminal Box */}
-                    <div className="bg-[#0b0e14] border border-outline-variant/40 rounded-xl overflow-hidden shadow-2xl flex flex-col">
+                    <div className="bg-surface-container-lowest border border-outline-variant/40 rounded-xl overflow-hidden shadow-2xl flex flex-col">
                         {/* Terminal Header */}
-                        <div className="bg-[#121820] px-4 py-3 flex items-center justify-between border-b border-outline-variant/20">
+                        <div className="bg-surface-container px-4 py-3 flex items-center justify-between border-b border-outline-variant/20">
                             <div className="flex gap-1.5 items-center">
                                 <span className="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
                                 <span className="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
@@ -543,14 +543,14 @@ export default function SystemCommands() {
                         </div>
 
                         {/* Terminal Body */}
-                        <div className="p-5 h-[450px] overflow-y-auto font-mono text-xs leading-relaxed space-y-3.5 flex flex-col justify-start select-text bg-[#0c0f17]">
+                        <div className="p-5 h-[450px] overflow-y-auto font-mono text-xs leading-relaxed space-y-3.5 flex flex-col justify-start select-text bg-background">
                             {logs.map((log, idx) => {
                                 let style = 'text-white/90';
-                                if (log.type === 'input') style = 'text-sky-400 font-bold';
+                                if (log.type === 'input') style = 'text-primary font-bold';
                                 if (log.type === 'error') style = 'text-rose-400 font-bold border-l-2 border-rose-500 pl-2 bg-rose-500/5 py-1';
                                 if (log.type === 'success') style = 'text-emerald-400 font-bold border-l-2 border-emerald-500 pl-2 bg-emerald-500/5 py-1';
                                 if (log.type === 'info') style = 'text-yellow-500/80';
-                                
+
                                 return (
                                     <div key={idx} className="space-y-1">
                                         <div className="flex justify-between items-center text-[9px] text-white/20 select-none">
@@ -564,10 +564,10 @@ export default function SystemCommands() {
                                 );
                             })}
                             <div ref={terminalEndRef} />
-                            
+
                             {/* Interactive prompt line when idle */}
                             {!runningCommand && (
-                                <form onSubmit={handleCustomCommandSubmit} className="flex items-center gap-1.5 text-sky-400 font-bold pt-2 w-full">
+                                <form onSubmit={handleCustomCommandSubmit} className="flex items-center gap-1.5 text-primary font-bold pt-2 w-full">
                                     <span className="shrink-0 select-none">guest@ar-system-admin:~$</span>
                                     <input
                                         type="text"
@@ -600,7 +600,7 @@ export default function SystemCommands() {
                     <div className="bg-surface border border-error/30 rounded-2xl p-6 md:p-8 max-w-md w-full shadow-2xl space-y-6 relative overflow-hidden animate-in fade-in zoom-in-95 duration-150">
                         {/* Red danger gradient background detail */}
                         <div className="absolute top-0 left-0 right-0 h-1.5 bg-error"></div>
-                        
+
                         <div className="flex items-start gap-4">
                             <div className="p-3 bg-error/15 text-error rounded-xl shrink-0">
                                 <span className="material-symbols-outlined text-2xl">warning</span>

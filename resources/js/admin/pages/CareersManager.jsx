@@ -101,8 +101,8 @@ export default function CareersManager() {
             is_active: formIsActive
         };
 
-        const endpoint = currentVacancy 
-            ? `/api/admin/careers/vacancies/${currentVacancy.id}` 
+        const endpoint = currentVacancy
+            ? `/api/admin/careers/vacancies/${currentVacancy.id}`
             : '/api/admin/careers/vacancies';
 
         axios.post(endpoint, payload)
@@ -170,8 +170,8 @@ export default function CareersManager() {
                 <button
                     onClick={() => setActiveTab('vacancies')}
                     className={`px-6 py-3.5 text-xs font-bold uppercase tracking-widest border-b-2 shrink-0 transition-all ${
-                        activeTab === 'vacancies' 
-                            ? 'border-sky-500 text-sky-400 bg-sky-950/20' 
+                        activeTab === 'vacancies'
+                            ? 'border-primary text-primary bg-primary/10'
                             : 'border-transparent text-on-surface-variant hover:text-white hover:bg-surface-container'
                     }`}
                 >
@@ -180,8 +180,8 @@ export default function CareersManager() {
                 <button
                     onClick={() => setActiveTab('applications')}
                     className={`px-6 py-3.5 text-xs font-bold uppercase tracking-widest border-b-2 shrink-0 transition-all ${
-                        activeTab === 'applications' 
-                            ? 'border-sky-500 text-sky-400 bg-sky-950/20' 
+                        activeTab === 'applications'
+                            ? 'border-primary text-primary bg-primary/10'
                             : 'border-transparent text-on-surface-variant hover:text-white hover:bg-surface-container'
                     }`}
                 >
@@ -198,7 +198,7 @@ export default function CareersManager() {
                         </span>
                         <button
                             onClick={handleOpenAddModal}
-                            className="w-full sm:w-auto bg-sky-500 hover:brightness-110 text-white px-5 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 transition-all shadow-md"
+                            className="w-full sm:w-auto bg-primary hover:brightness-110 text-white px-5 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 transition-all shadow-md"
                         >
                             <span className="material-symbols-outlined text-sm">add</span> Add Vacancy
                         </button>
@@ -210,7 +210,7 @@ export default function CareersManager() {
                                 <div className="space-y-4">
                                     <div className="flex justify-between items-start border-b border-outline-variant/20 pb-3 gap-2">
                                         <div>
-                                            <span className="bg-sky-500/10 text-sky-400 border border-sky-500/20 text-[9px] font-mono font-bold uppercase px-2 py-0.5 rounded">
+                                            <span className="bg-primary/10 text-primary border border-primary/20 text-[9px] font-mono font-bold uppercase px-2 py-0.5 rounded">
                                                 {v.type}
                                             </span>
                                             <h4 className="font-bold text-white uppercase text-base tracking-tight mt-2">{v.title}</h4>
@@ -227,7 +227,7 @@ export default function CareersManager() {
                                 <div className="pt-6 border-t border-outline-variant/30 flex gap-2 mt-4">
                                     <button
                                         onClick={() => handleOpenEditModal(v)}
-                                        className="flex-grow bg-[#0b1519] border border-outline-variant/30 text-sky-400 hover:text-white hover:bg-sky-950/20 py-2 rounded text-xs font-semibold font-mono tracking-wider transition-all flex items-center justify-center gap-1.5"
+                                        className="flex-grow bg-background border border-outline-variant/30 text-primary hover:text-white hover:bg-primary/10 py-2 rounded text-xs font-semibold font-mono tracking-wider transition-all flex items-center justify-center gap-1.5"
                                     >
                                         <span className="material-symbols-outlined text-sm">edit</span> Modify
                                     </button>
@@ -260,7 +260,7 @@ export default function CareersManager() {
 
                     <div className="overflow-x-auto bg-surface border border-outline-variant/30 rounded-xl shadow-lg">
                         <table className="w-full text-left text-xs text-on-surface-variant">
-                            <thead className="bg-[#0b1519] uppercase tracking-wider font-mono text-[10px] text-sky-400 border-b border-outline-variant/30">
+                            <thead className="bg-background uppercase tracking-wider font-mono text-[10px] text-primary border-b border-outline-variant/30">
                                 <tr>
                                     <th className="px-6 py-4">Applicant Name</th>
                                     <th className="px-6 py-4">Email Address</th>
@@ -272,11 +272,11 @@ export default function CareersManager() {
                             </thead>
                             <tbody className="divide-y divide-outline-variant/10">
                                 {applications.map(app => (
-                                    <tr key={app.id} className="hover:bg-sky-950/5">
+                                    <tr key={app.id} className="hover:bg-primary/5">
                                         <td className="px-6 py-4">
                                             <div className="font-bold text-white uppercase">{app.name}</div>
                                             {app.linkedin && (
-                                                <a href={app.linkedin} target="_blank" rel="noopener noreferrer" className="text-[10px] text-sky-400 hover:underline font-mono inline-flex items-center gap-0.5 mt-0.5">
+                                                <a href={app.linkedin} target="_blank" rel="noopener noreferrer" className="text-[10px] text-primary hover:underline font-mono inline-flex items-center gap-0.5 mt-0.5">
                                                     LinkedIn <span className="material-symbols-outlined text-[10px]">open_in_new</span>
                                                 </a>
                                             )}
@@ -285,7 +285,7 @@ export default function CareersManager() {
                                         <td className="px-6 py-4 font-bold text-white uppercase">{app.position}</td>
                                         <td className="px-6 py-4">
                                             {app.dossier_path ? (
-                                                <a href={app.dossier_path} target="_blank" rel="noopener noreferrer" className="bg-sky-500/10 border border-sky-500/20 text-sky-400 hover:bg-sky-500 hover:text-white px-3 py-1.5 rounded font-mono font-bold uppercase tracking-wider text-[9px] inline-flex items-center gap-1 transition-all">
+                                                <a href={app.dossier_path} target="_blank" rel="noopener noreferrer" className="bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white px-3 py-1.5 rounded font-mono font-bold uppercase tracking-wider text-[9px] inline-flex items-center gap-1 transition-all">
                                                     <span className="material-symbols-outlined text-xs">download</span> Download Resume
                                                 </a>
                                             ) : (
@@ -296,7 +296,7 @@ export default function CareersManager() {
                                             {new Date(app.created_at).toLocaleString()}
                                         </td>
                                         <td className="px-6 py-4 text-right">
-                                            <button 
+                                            <button
                                                 onClick={() => handleDeleteApplication(app.id)}
                                                 className="text-red-400 hover:text-red-500 font-semibold font-mono uppercase tracking-wider"
                                             >
@@ -314,7 +314,7 @@ export default function CareersManager() {
             {/* VACANCY ADD/EDIT MODAL */}
             {showModal && (
                 <div className="fixed inset-0 bg-[#000000]/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm overflow-y-auto">
-                    <div className="bg-[#111d23] border border-outline-variant/30 rounded-xl w-full max-w-lg shadow-2xl flex flex-col">
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl w-full max-w-lg shadow-2xl flex flex-col">
                         <div className="h-16 border-b border-outline-variant/30 px-4 sm:px-6 flex items-center justify-between">
                             <h3 className="font-bold text-white uppercase text-xs sm:text-sm tracking-widest font-mono">
                                 {currentVacancy ? `Modify Vacancy: ${currentVacancy.ref}` : 'Add New Vacancy'}
@@ -328,17 +328,17 @@ export default function CareersManager() {
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-1">
                                     <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Reference (Ref)</label>
-                                    <input 
+                                    <input
                                         type="text" required placeholder="e.g. AR-204"
-                                        className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                         value={formRef}
                                         onChange={e => setFormRef(e.target.value)}
                                     />
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Employment Type</label>
-                                    <select 
-                                        className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                    <select
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                         value={formType}
                                         onChange={e => setFormType(e.target.value)}
                                     >
@@ -352,36 +352,36 @@ export default function CareersManager() {
                             </div>
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Vacancy Title</label>
-                                <input 
+                                <input
                                     type="text" required placeholder="e.g. Senior BIM Architect"
-                                    className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                     value={formTitle}
                                     onChange={e => setFormTitle(e.target.value)}
                                 />
                             </div>
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sorting Index</label>
-                                <input 
+                                <input
                                     type="number" required
-                                    className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                     value={formSortOrder}
                                     onChange={e => setFormSortOrder(e.target.value)}
                                 />
                             </div>
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Role Description</label>
-                                <textarea 
+                                <textarea
                                     rows="4" required placeholder="Describe the responsibilities and prerequisites..."
-                                    className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                     value={formDesc}
                                     onChange={e => setFormDesc(e.target.value)}
                                 />
                             </div>
                             <div className="pt-2">
                                 <label className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider cursor-pointer">
-                                    <input 
-                                        type="checkbox" 
-                                        className="rounded bg-[#0b1519] border-outline-variant/30 text-sky-500 focus:ring-sky-500 focus:ring-offset-[#111d23]" 
+                                    <input
+                                        type="checkbox"
+                                        className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface"
                                         checked={formIsActive}
                                         onChange={e => setFormIsActive(e.target.checked)}
                                     />
@@ -400,7 +400,7 @@ export default function CareersManager() {
                                 <button
                                     type="submit"
                                     disabled={savingVacancy}
-                                    className="bg-sky-500 hover:brightness-110 text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-lg disabled:opacity-50 transition-all"
+                                    className="bg-primary hover:brightness-110 text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-lg disabled:opacity-50 transition-all"
                                 >
                                     {savingVacancy ? 'Saving...' : 'Save Vacancy'}
                                 </button>
@@ -413,8 +413,8 @@ export default function CareersManager() {
             {/* CUSTOM TOAST NOTIFICATION */}
             {toast && (
                 <div className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-lg shadow-2xl border transition-all duration-300 transform translate-y-0 animate-bounce ${
-                    toast.type === 'success' 
-                        ? 'bg-emerald-950/90 border-emerald-500/50 text-emerald-300' 
+                    toast.type === 'success'
+                        ? 'bg-emerald-950/90 border-emerald-500/50 text-emerald-300'
                         : 'bg-rose-950/90 border-rose-500/50 text-rose-300'
                 }`}>
                     <span className="material-symbols-outlined">
@@ -430,7 +430,7 @@ export default function CareersManager() {
             {/* CUSTOM CONFIRMATION MODAL */}
             {confirmModal.isOpen && (
                 <div className="fixed inset-0 bg-[#000000]/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-                    <div className="bg-[#111d23] border border-outline-variant/30 rounded-xl w-full max-w-md shadow-2xl overflow-hidden">
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl w-full max-w-md shadow-2xl overflow-hidden">
                         <div className="p-6 text-center space-y-4">
                             <div className="w-16 h-16 bg-red-500/10 border border-red-500/20 text-red-500 rounded-full flex items-center justify-center mx-auto">
                                 <span className="material-symbols-outlined text-3xl">warning</span>
@@ -442,7 +442,7 @@ export default function CareersManager() {
                                 {confirmModal.message}
                             </p>
                         </div>
-                        <div className="bg-[#0b1519] px-6 py-4 flex justify-end gap-3 border-t border-outline-variant/20">
+                        <div className="bg-background px-6 py-4 flex justify-end gap-3 border-t border-outline-variant/20">
                             <button
                                 onClick={() => setConfirmModal({ isOpen: false, title: '', message: '', onConfirm: null })}
                                 className="bg-transparent border border-outline-variant/80 hover:bg-surface-container text-on-surface-variant hover:text-white px-4 py-2.5 rounded text-xs font-bold uppercase tracking-wider font-mono transition-all"

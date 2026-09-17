@@ -45,7 +45,7 @@ export default function ClientsManager() {
                 axios.get('/api/admin/clients/testimonials'),
                 axios.get('/api/admin/clients/partners')
             ]);
-            
+
             if (clientsRes.data.success) {
                 setClients(clientsRes.data.data.data);
                 setClientPagination(clientsRes.data.data);
@@ -93,7 +93,7 @@ export default function ClientsManager() {
         setSaving(true);
         try {
             const formData = new FormData();
-            
+
             // Append settings
             if (settings) {
                 Object.keys(settings).forEach(key => {
@@ -111,11 +111,11 @@ export default function ClientsManager() {
             const res = await axios.post('/api/admin/clients/settings', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
-            
+
             if (res.data.hero_bg) {
                 setSettings(prev => ({ ...prev, hero_bg: res.data.hero_bg }));
             }
-            
+
             showToast('Settings updated successfully.');
             setHeroBgFile(null); // Reset file input
         } catch (error) {
@@ -247,7 +247,7 @@ export default function ClientsManager() {
     const confirmDelete = async () => {
         if (!deleteModal.id) return;
         const { type, id } = deleteModal;
-        
+
         let endpoint = '';
         if (type === 'client') endpoint = `/api/admin/clients/${id}`;
         else if (type === 'testimonial') endpoint = `/api/admin/clients/testimonials/${id}`;
@@ -277,7 +277,7 @@ export default function ClientsManager() {
         <div className="space-y-6">
             {/* Status alerts */}
             {message && (
-                <div className="p-4 bg-[#cfe6f2] border border-[#b4cad6] rounded-lg text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <div className="p-4 bg-secondary-container/20 border border-secondary-container text-secondary rounded-lg text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                     <span className="material-symbols-outlined">check_circle</span> {message}
                 </div>
             )}
