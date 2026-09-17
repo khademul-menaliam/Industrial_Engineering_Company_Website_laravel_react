@@ -65,13 +65,13 @@ export default function Clients() {
                             <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Solution Partners</h2>
                             <div className="h-1 w-16 bg-tertiary mx-auto mt-4"></div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+                        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6 items-stretch">
                             {partners.map((partner, i) => (
                                 <div key={partner.id || i} className="group bg-white rounded p-6 flex flex-col h-full border border-outline-variant/30 hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
                                     <span className="material-symbols-outlined text-tertiary text-3xl mb-4 select-none" style={{ fontVariationSettings: "'FILL' 1" }}>handshake</span>
                                     <div className="flex-grow">
                                         <span className="bg-primary text-white text-[10px] font-bold uppercase px-2.5 py-1 rounded font-mono tracking-wider shadow-sm mb-3 inline-block">{partner.type}</span>
-                                        <p className="text-xs text-secondary leading-relaxed mb-6 text-justify">
+                                        <p className="text-sm text-secondary leading-relaxed mb-6 text-justify">
                                             {partner.desc}
                                         </p>
                                     </div>

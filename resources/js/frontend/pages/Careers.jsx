@@ -164,7 +164,7 @@ export default function Careers() {
                                 Why Join Us
                                 <span className="absolute bottom-0 left-0 w-10 h-1 bg-tertiary"></span>
                             </h2>
-                            <p className="mt-6 text-secondary leading-relaxed text-sm text-justify">
+                            <p className="mt-6 text-secondary leading-relaxed text-base text-justify">
                                 AR Engineering is an industrial leader in structural engineering. We seek individuals who value mathematical precision, operational reliability, and uncompromising safety standards.
                             </p>
                         </div>
@@ -173,18 +173,18 @@ export default function Careers() {
                                 <span className="material-symbols-outlined text-primary text-2xl">verified</span>
                                 <div>
                                     <h3 className="font-bold text-primary uppercase text-sm tracking-tight mb-1">Industrial Standards</h3>
-                                    <p className="text-xs text-secondary text-justify leading-relaxed">Work within a framework of rigorous ISO-certified protocols on critical national infrastructure.</p>
+                                    <p className="text-sm text-secondary text-justify leading-relaxed">Work within a framework of rigorous ISO-certified protocols on critical national infrastructure.</p>
                                 </div>
                             </div>
                             <div className="flex gap-4 p-6 bg-white border border-outline-variant/30 rounded group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
                                 <span className="material-symbols-outlined text-primary text-2xl">engineering</span>
                                 <div>
                                     <h3 className="font-bold text-primary uppercase text-sm tracking-tight mb-1">Engineering Focus</h3>
-                                    <p className="text-xs text-secondary text-justify leading-relaxed">We prioritize technical expertise over corporate fluff. Your engineering skill is your primary asset.</p>
+                                    <p className="text-sm text-secondary text-justify leading-relaxed">We prioritize technical expertise over corporate fluff. Your engineering skill is your primary asset.</p>
                                 </div>
                             </div>
                         </div>
-                        <ul className="space-y-3 font-mono text-xs text-secondary">
+                        <ul className="space-y-3 font-mono text-sm text-secondary">
                             <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-base">check</span> Continuing Technical Education</li>
                             <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-base">check</span> Comprehensive Health &amp; Life Insurance</li>
                             <li className="flex items-center gap-3 font-medium"><span className="material-symbols-outlined text-tertiary text-base">check</span> Modern BIM/FEA Workstation Allocation</li>
@@ -235,8 +235,8 @@ export default function Careers() {
                                         Ref: {vacancy.ref}
                                     </span>
                                 </div>
-                                <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{vacancy.title}</h3>
-                                <p className="text-xs text-secondary mb-6 leading-relaxed text-justify flex-grow">{vacancy.description}</p>
+                                <h3 className="text-xl font-bold text-primary mb-2 uppercase tracking-tight">{vacancy.title}</h3>
+                                <p className="text-base text-secondary mb-6 leading-relaxed text-justify flex-grow">{vacancy.description}</p>
                                 <div className="mt-auto flex items-center justify-between pt-4 border-t border-outline-variant/30">
                                     <span className="text-[11px] font-bold uppercase tracking-wider font-mono text-tertiary group-hover:text-primary transition-colors flex items-center gap-1">
                                         Apply Details
@@ -348,8 +348,8 @@ export default function Careers() {
                 <section ref={formRef} className="max-w-4xl mx-auto" id="application-form">
                     <div className="bg-white border border-outline-variant/30 p-6 md:p-10 lg:p-12 rounded shadow-none md:shadow-sm">
                         <div className="mb-12 pb-6 border-b border-outline-variant/30">
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight mb-2">Application Portal v2</h2>
-                            <p className="text-secondary text-sm">Please complete all mandatory fields and attach your technical dossier for review.</p>
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight mb-2">Application Portal</h2>
+                            <p className="text-secondary text-base">Please complete all mandatory fields and attach your technical dossier for review.</p>
                         </div>
                         
                         {isSubmitted && (

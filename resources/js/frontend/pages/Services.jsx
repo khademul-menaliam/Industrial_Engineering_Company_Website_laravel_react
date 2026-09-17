@@ -287,8 +287,8 @@ export default function Services() {
                                                     </div>
                                                 </div>
                                                 <div className="p-6 flex flex-col flex-grow">
-                                                    <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{service.title}</h3>
-                                                    <p className="text-xs text-secondary leading-relaxed mb-6 flex-grow text-justify">{service.short_description}</p>
+                                                    <h3 className="text-xl font-bold text-primary mb-2 uppercase tracking-tight">{service.title}</h3>
+                                                    <p className="text-sm text-secondary leading-relaxed mb-6 flex-grow text-justify">{service.short_description}</p>
                                                     <span className="inline-flex items-center text-tertiary text-[11px] font-bold uppercase tracking-wider hover:text-primary transition-colors font-mono">
                                                         View Details <span className="material-symbols-outlined text-sm ml-1">arrow_forward</span>
                                                     </span>
@@ -330,9 +330,9 @@ export default function Services() {
                             <div className="flex flex-col justify-center flex-grow py-0.5">
                                 <div className="flex items-center gap-2 mb-1.5">
                                     <span className="material-symbols-outlined text-tertiary text-base">{service.icon || 'settings'}</span>
-                                    <h4 className="font-bold text-primary text-sm uppercase tracking-tight">{service.title}</h4>
+                                    <h4 className="font-bold text-primary text-base uppercase tracking-tight">{service.title}</h4>
                                 </div>
-                                <p className="text-xs text-secondary leading-relaxed mb-3 line-clamp-2 text-justify">{service.short_description}</p>
+                                <p className="text-sm text-secondary leading-relaxed mb-3 line-clamp-2 text-justify">{service.short_description}</p>
                                 <span className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary mt-auto font-mono flex items-center gap-1">
                                     Explore <span className="material-symbols-outlined text-[11px]">arrow_forward</span>
                                 </span>
@@ -373,7 +373,7 @@ export default function Services() {
                                                         </span>
                                                     )}
                                                     <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{featuredDsi.title}</h3>
-                                                    <p className="text-white/80 text-xs max-w-md leading-relaxed mb-6 text-justify">{featuredDsi.short_description}</p>
+                                                    <p className="text-white/80 text-sm max-w-md leading-relaxed mb-6 text-justify">{featuredDsi.short_description}</p>
                                                     <span className="inline-flex items-center border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded font-mono font-bold text-xs uppercase tracking-wider transition-all backdrop-blur-sm w-fit">
                                                         View Project Details
                                                     </span>
@@ -427,7 +427,7 @@ export default function Services() {
                                             </div>
                                             <div>
                                                 <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">{zeroDowntimeTitle}</h3>
-                                                <p className="text-white/80 text-xs mb-10 leading-relaxed text-justify">
+                                                <p className="text-white/80 text-base mb-10 leading-relaxed text-justify">
                                                     {zeroDowntimeDesc}
                                                 </p>
                                             </div>
@@ -456,8 +456,8 @@ export default function Services() {
                                                         <span className="material-symbols-outlined text-tertiary text-xl absolute right-4 top-4 opacity-30 group-hover:opacity-100 transition-opacity">
                                                             {service.icon || 'settings_suggest'}
                                                         </span>
-                                                        <h4 className="text-sm font-bold text-primary mb-1 uppercase tracking-tight max-w-[85%]">{service.title}</h4>
-                                                        <span className="text-tertiary text-[10px] font-bold uppercase tracking-wider hover:text-primary font-mono mt-1">
+                                                        <h4 className="text-xl font-bold text-primary mb-1 uppercase tracking-tight max-w-[85%]">{service.title}</h4>
+                                                        <span className="text-tertiary text-[12px] font-bold uppercase tracking-wider hover:text-primary font-mono mt-1">
                                                             Details
                                                         </span>
                                                     </div>
