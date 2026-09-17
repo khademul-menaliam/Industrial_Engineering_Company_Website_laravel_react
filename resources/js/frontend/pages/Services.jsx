@@ -373,7 +373,7 @@ export default function Services() {
                                                         </span>
                                                     )}
                                                     <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{featuredDsi.title}</h3>
-                                                    <p className="text-gray-300 text-xs max-w-md leading-relaxed mb-6 text-justify">{featuredDsi.short_description}</p>
+                                                    <p className="text-white/80 text-xs max-w-md leading-relaxed mb-6 text-justify">{featuredDsi.short_description}</p>
                                                     <span className="inline-flex items-center border border-white/30 hover:bg-white/10 text-white px-6 py-3 rounded font-mono font-bold text-xs uppercase tracking-wider transition-all backdrop-blur-sm w-fit">
                                                         View Project Details
                                                     </span>
@@ -427,7 +427,7 @@ export default function Services() {
                                             </div>
                                             <div>
                                                 <h3 className="text-2xl font-bold mb-4 uppercase tracking-tight">{zeroDowntimeTitle}</h3>
-                                                <p className="text-gray-300 text-xs mb-10 leading-relaxed text-justify">
+                                                <p className="text-white/80 text-xs mb-10 leading-relaxed text-justify">
                                                     {zeroDowntimeDesc}
                                                 </p>
                                             </div>
