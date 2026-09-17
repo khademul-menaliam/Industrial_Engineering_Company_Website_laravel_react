@@ -7,6 +7,7 @@ export default function Pagination({
     onPrev,
     onNext,
     className = '',
+    buttonClassName = '',
     ...props
 }) {
     const handlePrev = () => {
@@ -23,8 +24,10 @@ export default function Pagination({
         }
     };
 
+    const hasCustomBg = /\bbg-/.test(buttonClassName);
+    const defaultBg = hasCustomBg ? '' : 'bg-surface-container-lowest';
     const buttonClass =
-        'px-4 py-2.5 rounded border border-outline-variant hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant transition-colors flex items-center gap-1 font-bold uppercase tracking-wider bg-white font-mono text-xs cursor-pointer';
+        `px-4 py-2.5 rounded border border-outline-variant hover:border-primary text-primary disabled:opacity-30 disabled:hover:border-outline-variant transition-colors flex items-center gap-1 font-bold uppercase tracking-wider ${defaultBg} font-mono text-xs cursor-pointer ${buttonClassName}`.trim();
 
     return (
         <div
