@@ -116,8 +116,8 @@ export default function ContactManager() {
                 <button
                     onClick={() => setActiveTab('settings')}
                     className={`px-6 py-3.5 text-xs font-bold uppercase tracking-widest border-b-2 shrink-0 transition-all ${
-                        activeTab === 'settings' 
-                            ? 'border-sky-500 text-sky-400 bg-sky-950/20' 
+                        activeTab === 'settings'
+                            ? 'border-primary text-primary bg-primary/10'
                             : 'border-transparent text-on-surface-variant hover:text-white hover:bg-surface-container'
                     }`}
                 >
@@ -126,8 +126,8 @@ export default function ContactManager() {
                 <button
                     onClick={() => setActiveTab('inquiries')}
                     className={`px-6 py-3.5 text-xs font-bold uppercase tracking-widest border-b-2 shrink-0 transition-all ${
-                        activeTab === 'inquiries' 
-                            ? 'border-sky-500 text-sky-400 bg-sky-950/20' 
+                        activeTab === 'inquiries'
+                            ? 'border-primary text-primary bg-primary/10'
                             : 'border-transparent text-on-surface-variant hover:text-white hover:bg-surface-container'
                     }`}
                 >
@@ -138,111 +138,111 @@ export default function ContactManager() {
             {/* TAB 1: COORDINATES SETTINGS */}
             {activeTab === 'settings' && (
                 <form onSubmit={handleSaveSettings} className="bg-surface border border-outline-variant/30 rounded-xl p-4 sm:p-6 md:p-8 space-y-6 max-w-4xl shadow-xl">
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-sky-400 font-mono border-b border-outline-variant/30 pb-3 mb-6">
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-primary font-mono border-b border-outline-variant/30 pb-3 mb-6">
                         Page Title & Callout settings
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Page Title Heading</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_title || ''}
                                 onChange={e => setSettings({ ...settings, contact_title: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Page Title Subtitle</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_subtitle || ''}
                                 onChange={e => setSettings({ ...settings, contact_subtitle: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Safety Urgent Banner Title</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_urgent_title || ''}
                                 onChange={e => setSettings({ ...settings, contact_urgent_title: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Safety Urgent Action Button</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_urgent_btn || ''}
                                 onChange={e => setSettings({ ...settings, contact_urgent_btn: e.target.value })}
                             />
                         </div>
                         <div className="sm:col-span-2 space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Safety Urgent Description</label>
-                            <textarea 
+                            <textarea
                                 rows="2"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_urgent_description || ''}
                                 onChange={e => setSettings({ ...settings, contact_urgent_description: e.target.value })}
                             />
                         </div>
                     </div>
 
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-sky-400 font-mono border-b border-outline-variant/30 pb-3 pt-6 mb-6">
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-primary font-mono border-b border-outline-variant/30 pb-3 pt-6 mb-6">
                         Coordinates & Maps settings
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Office Phone Support</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_phone || ''}
                                 onChange={e => setSettings({ ...settings, contact_phone: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Office Phone Hours</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_phone_hours || ''}
                                 onChange={e => setSettings({ ...settings, contact_phone_hours: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Office Email Address</label>
-                            <input 
+                            <input
                                 type="email"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_email || ''}
                                 onChange={e => setSettings({ ...settings, contact_email: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Expected Response Time</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_response_time || ''}
                                 onChange={e => setSettings({ ...settings, contact_response_time: e.target.value })}
                             />
                         </div>
                         <div className="sm:col-span-2 space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Office Maps Cover URL</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_map_image || ''}
                                 onChange={e => setSettings({ ...settings, contact_map_image: e.target.value })}
                             />
                         </div>
                         <div className="sm:col-span-2 space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Office Physical Address</label>
-                            <textarea 
+                            <textarea
                                 rows="3"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.contact_address || ''}
                                 onChange={e => setSettings({ ...settings, contact_address: e.target.value })}
                             />
@@ -253,7 +253,7 @@ export default function ContactManager() {
                         <button
                             type="submit"
                             disabled={saving}
-                            className="w-full sm:w-auto bg-sky-500 hover:brightness-110 text-white px-8 py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 transition-all"
+                            className="w-full sm:w-auto bg-primary hover:brightness-110 text-white px-8 py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 transition-all"
                         >
                             {saving ? 'Saving Config...' : 'Save coordinates'}
                         </button>
@@ -277,7 +277,7 @@ export default function ContactManager() {
                                             <h4 className="font-bold text-white uppercase text-base tracking-tight">{inq.name}</h4>
                                             <p className="text-xs text-on-surface-variant font-mono">{inq.email}</p>
                                         </div>
-                                        <button 
+                                        <button
                                             onClick={() => handleDeleteInquiry(inq.id)}
                                             className="text-red-400 hover:text-red-500 p-1.5 bg-red-500/10 rounded border border-red-500/20 transition-all"
                                             title="Delete Message"
@@ -287,13 +287,13 @@ export default function ContactManager() {
                                     </div>
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                                         <div className="font-mono text-on-surface-variant">
-                                            Interest: <span className="text-sky-400 font-bold uppercase">{inq.department}</span>
+                                            Interest: <span className="text-primary font-bold uppercase">{inq.department}</span>
                                         </div>
                                         <div className="font-mono text-on-surface-variant sm:text-right">
                                             Sent: <span className="text-white">{new Date(inq.created_at).toLocaleString()}</span>
                                         </div>
                                     </div>
-                                    <p className="text-xs text-on-surface-variant bg-[#0b1519] p-4 rounded border border-outline-variant/10 whitespace-pre-line leading-relaxed">
+                                    <p className="text-xs text-on-surface-variant bg-background p-4 rounded border border-outline-variant/10 whitespace-pre-line leading-relaxed">
                                         {inq.details}
                                     </p>
                                 </div>
@@ -312,8 +312,8 @@ export default function ContactManager() {
             {/* CUSTOM TOAST NOTIFICATION */}
             {toast && (
                 <div className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-lg shadow-2xl border transition-all duration-300 transform translate-y-0 animate-bounce ${
-                    toast.type === 'success' 
-                        ? 'bg-emerald-950/90 border-emerald-500/50 text-emerald-300' 
+                    toast.type === 'success'
+                        ? 'bg-emerald-950/90 border-emerald-500/50 text-emerald-300'
                         : 'bg-rose-950/90 border-rose-500/50 text-rose-300'
                 }`}>
                     <span className="material-symbols-outlined">
@@ -329,7 +329,7 @@ export default function ContactManager() {
             {/* CUSTOM CONFIRMATION MODAL */}
             {confirmModal.isOpen && (
                 <div className="fixed inset-0 bg-[#000000]/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-                    <div className="bg-[#111d23] border border-outline-variant/30 rounded-xl w-full max-w-md shadow-2xl overflow-hidden">
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl w-full max-w-md shadow-2xl overflow-hidden">
                         <div className="p-6 text-center space-y-4">
                             <div className="w-16 h-16 bg-red-500/10 border border-red-500/20 text-red-500 rounded-full flex items-center justify-center mx-auto">
                                 <span className="material-symbols-outlined text-3xl">warning</span>
@@ -341,7 +341,7 @@ export default function ContactManager() {
                                 {confirmModal.message}
                             </p>
                         </div>
-                        <div className="bg-[#0b1519] px-6 py-4 flex justify-end gap-3 border-t border-outline-variant/20">
+                        <div className="bg-background px-6 py-4 flex justify-end gap-3 border-t border-outline-variant/20">
                             <button
                                 onClick={() => setConfirmModal({ isOpen: false, title: '', message: '', onConfirm: null })}
                                 className="bg-transparent border border-outline-variant/80 hover:bg-surface-container text-on-surface-variant hover:text-white px-4 py-2.5 rounded text-xs font-bold uppercase tracking-wider font-mono transition-all"

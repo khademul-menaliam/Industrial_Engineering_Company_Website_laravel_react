@@ -249,7 +249,7 @@ export default function HomepageManager() {
         <div className="space-y-6">
             {/* Status alerts */}
             {message && (
-                <div className="p-4 bg-[#cfe6f2] border border-[#b4cad6] rounded-lg text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <div className="p-4 bg-secondary-container/20 border border-secondary-container text-secondary rounded-lg text-primary text-xs font-bold uppercase tracking-widest flex items-center gap-2">
                     <span className="material-symbols-outlined">check_circle</span> {message}
                 </div>
             )}
@@ -994,7 +994,7 @@ export default function HomepageManager() {
                                     placeholder="Enter footer company description..."
                                 />
                             </div>
-                            
+
                             {/* Social Media Links */}
                             <div className="space-y-1 md:col-span-2 pt-6 border-t border-outline-variant/20">
                                 <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-2">Social Media Links</h4>
@@ -1229,10 +1229,10 @@ export default function HomepageManager() {
                                     </label>
                                     <RichTextEditor
                                         value={
-                                            editingItem.type === 'slide' 
-                                                ? (formData.subtitle || '') 
-                                                : editingItem.type === 'leader' 
-                                                    ? (formData.quote || '') 
+                                            editingItem.type === 'slide'
+                                                ? (formData.subtitle || '')
+                                                : editingItem.type === 'leader'
+                                                    ? (formData.quote || '')
                                                     : (formData.description || '')
                                         }
                                         onChange={value => {
@@ -1320,7 +1320,7 @@ export default function HomepageManager() {
                             {['slide', 'service', 'leader', 'competency', 'project'].includes(editingItem.type) && (
                                 <div className="space-y-3 border-t border-outline-variant/20 pt-3">
                                     <h5 className="text-xs font-bold text-white uppercase tracking-wider">Image Configuration</h5>
-                                    
+
                                     {/* Upload file */}
                                     <div className="space-y-1">
                                         <label className="block text-[10px] font-bold text-on-surface-variant uppercase font-mono">Upload New Image File</label>
