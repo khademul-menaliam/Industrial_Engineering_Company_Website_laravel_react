@@ -149,7 +149,7 @@ export default function Careers() {
                 <div className="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
                     <div className="max-w-2xl text-white">
                         <span className="text-xs font-bold tracking-[.3em] uppercase mb-4 text-outline-variant font-mono block">Employer Brand</span>
-                        <h1 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight uppercase">ENGINEERING CAREERS</h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight uppercase">ENGINEERING CAREERS</h1>
                         <p className="text-base md:text-lg text-white/80 font-light max-w-lg leading-relaxed text-justify">Defining structural reliability and industrial excellence for the global market.</p>
                     </div>
                 </div>
@@ -160,7 +160,7 @@ export default function Careers() {
                 <section className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start" id="why-join-us">
                     <div className="lg:col-span-5 space-y-8">
                         <div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight relative pb-4">
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight relative pb-4">
                                 Why Join Us
                                 <span className="absolute bottom-0 left-0 w-10 h-1 bg-tertiary"></span>
                             </h2>
@@ -201,7 +201,7 @@ export default function Careers() {
                 <section id="job-vacancies">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
                         <div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight relative pb-4">
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight relative pb-4">
                                 Job Vacancies
                                 <span className="absolute bottom-0 left-0 w-10 h-1 bg-tertiary"></span>
                             </h2>
@@ -324,7 +324,7 @@ export default function Careers() {
                         <span className="material-symbols-outlined text-[240px]">architecture</span>
                     </div>
                     <div className="max-w-3xl relative z-10">
-                        <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-6">Internship Program</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6">Internship Program</h2>
                         <p className="text-sm sm:text-base text-white/85 mb-8 leading-relaxed text-justify max-w-2xl">
                             Designed for final-year engineering students. We provide 6-month immersive rotations within our structural and civil divisions to build practical technical competencies.
                         </p>
@@ -348,7 +348,7 @@ export default function Careers() {
                 <section ref={formRef} className="max-w-4xl mx-auto" id="application-form">
                     <div className="bg-white border border-outline-variant/30 p-6 md:p-10 lg:p-12 rounded shadow-none md:shadow-sm">
                         <div className="mb-12 pb-6 border-b border-outline-variant/30">
-                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight mb-2">Application Portal v2</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight mb-2">Application Portal v2</h2>
                             <p className="text-secondary text-sm">Please complete all mandatory fields and attach your technical dossier for review.</p>
                         </div>
                         

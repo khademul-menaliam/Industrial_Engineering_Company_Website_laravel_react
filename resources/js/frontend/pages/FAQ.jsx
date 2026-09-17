@@ -32,7 +32,7 @@ export default function FAQ() {
             <main className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-24">
                 <div className="text-center mb-16 max-w-2xl mx-auto">
                     <span className="text-xs font-bold uppercase tracking-widest text-tertiary font-mono mb-3 block">Support &amp; Compliance</span>
-                    <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 uppercase tracking-tight">Frequently Asked Questions</h1>
+                    <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4 uppercase tracking-tight">Frequently Asked Questions</h1>
                     <div className="w-24 h-1 bg-tertiary mx-auto mb-6"></div>
                     <p className="text-secondary text-sm md:text-base leading-relaxed text-justify">
                         Technical details, compliance protocols, and system integration specs for AR Engineering solutions.

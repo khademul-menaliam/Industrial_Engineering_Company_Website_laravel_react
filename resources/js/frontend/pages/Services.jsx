@@ -221,8 +221,8 @@ export default function Services() {
             {/* HERO / INTRO */}
             <section className="pt-16 pb-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
                 <div className="border-l-4 border-tertiary pl-6">
-                    <span className="text-xs font-bold text-tertiary uppercase tracking-[0.2em] mb-2 font-mono block">{introTitle}</span>
-                    <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3 uppercase tracking-tight">{introHeading}</h1>
+                    <span className="text-sm font-bold text-tertiary uppercase tracking-[0.2em] mb-2 font-mono block">{introTitle}</span>
+                    <h1 className="text-4xl md:text-5xl font-bold text-primary mb-3 uppercase tracking-tight">{introHeading}</h1>
                     <p className="text-base text-secondary max-w-3xl leading-relaxed text-justify">
                         {introDescription}
                     </p>
@@ -518,8 +518,8 @@ export default function Services() {
             <section className="py-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
                 <div className="bg-white p-6 md:p-10 rounded border border-outline-variant/30 shadow-none md:shadow-sm flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
                     <div>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary mb-2 uppercase tracking-tight">{ctaTitle}</h2>
-                        <p className="text-secondary text-sm text-justify">{ctaDesc}</p>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2 uppercase tracking-tight">{ctaTitle}</h2>
+                        <p className="text-secondary text-base text-justify">{ctaDesc}</p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full md:w-auto">
                         <Link to="/contact" className="w-full sm:w-auto text-center bg-tertiary text-white px-8 py-4 rounded font-mono font-bold text-xs uppercase tracking-widest hover:bg-opacity-90 transition-colors inline-flex items-center justify-center">

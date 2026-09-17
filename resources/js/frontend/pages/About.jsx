@@ -165,10 +165,10 @@ export default function About() {
                 
                 <div className="relative z-30 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
                     <div className="space-y-6 max-w-3xl">
-                        <span className="inline-block border-l-4 border-tertiary pl-4 text-white text-xs uppercase tracking-widest bg-primary/20 backdrop-blur-sm py-1 font-mono">
+                        <span className="inline-block border-l-4 border-tertiary pl-4 text-white text-sm uppercase tracking-widest bg-primary/20 backdrop-blur-sm py-1 font-mono">
                             {getVal('about_hero_subtitle')}
                         </span>
-                        <h1 className="text-3xl md:text-4xl text-white font-bold uppercase tracking-tight leading-tight">
+                        <h1 className="text-4xl md:text-5xl text-white font-bold uppercase tracking-tight leading-tight">
                             {getVal('about_hero_title')}
                         </h1>
                         <p className="text-white/80 text-base md:text-lg font-light max-w-xl leading-relaxed text-justify">
@@ -188,7 +188,7 @@ export default function About() {
                     <div className="lg:col-span-7 space-y-8">
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-1 bg-tertiary"></div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
                                 {getVal('about_story_title')}
                             </h2>
                         </div>
@@ -242,8 +242,8 @@ export default function About() {
             <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low border-t border-b border-outline-variant/30">
                 <div className="max-w-container-max mx-auto">
                     <div className="text-center mb-16">
-                        <span className="text-tertiary text-xs font-bold tracking-widest mb-3 block uppercase font-mono">CORE DIRECTIVES</span>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Strategic Pillars</h2>
+                        <span className="text-tertiary text-sm font-bold tracking-widest mb-3 block uppercase font-mono">CORE DIRECTIVES</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Strategic Pillars</h2>
                         <div className="w-24 h-1 bg-tertiary mx-auto mt-4"></div>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -288,7 +288,7 @@ export default function About() {
                         {/* Statement */}
                         <div className="flex-grow space-y-6">
                             <span className="material-symbols-outlined text-tertiary text-5xl opacity-40 select-none block" style={{ fontVariationSettings: "'FILL' 1" }}>format_quote</span>
-                            <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight leading-relaxed">
+                            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight leading-relaxed">
                                 A MESSAGE FROM OUR LEADERSHIP
                             </h2>
                             <p className="text-white/85 text-sm sm:text-base leading-relaxed text-justify">
@@ -340,7 +340,7 @@ export default function About() {
                     <span className="text-tertiary text-xs font-bold tracking-widest mb-3 block uppercase font-mono">
                         Expert Personnel
                     </span>
-                    <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
                         Our Leadership Team
                     </h2>
                     <div className="w-24 h-1 bg-tertiary mx-auto mt-4" />
@@ -423,7 +423,7 @@ export default function About() {
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-16">
                         <span className="text-tertiary text-xs font-bold tracking-widest mb-3 block uppercase font-mono">Corporate Growth</span>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">Milestones Timeline</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Milestones Timeline</h2>
                         <div className="w-24 h-1 bg-tertiary mx-auto mt-4" />
                     </div>
 

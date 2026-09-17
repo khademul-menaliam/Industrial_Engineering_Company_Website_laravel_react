@@ -195,7 +195,7 @@ export default function Home() {
                         ></div>
                         <div className="absolute inset-0 bg-primary opacity-65"></div>
                         <div className="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center flex flex-col items-center gap-6">
-                            <h1 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl max-w-4xl uppercase tracking-tight">
+                            <h1 className="text-white font-bold text-4xl md:text-5xl lg:text-5xl max-w-4xl uppercase tracking-tight">
                                 {slide.title}
                             </h1>
                             <div
@@ -230,7 +230,7 @@ export default function Home() {
                 <div className="max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                     <div className="lg:col-span-5 space-y-4">
                         <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono">ABOUT US</span>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary leading-tight uppercase tracking-tight">
+                        <h2 className="font-bold text-primary leading-tight uppercase tracking-tight text-3xl md:text-4xl">
                             {getSetting('welcome_section_title')}
                         </h2>
                         <p className="text-xs font-mono font-bold text-secondary uppercase tracking-widest pt-4">
@@ -254,10 +254,10 @@ export default function Home() {
             {/* Core Engineering Capabilities Services Section */}
             <section className="py-24 px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
                 <div className="mb-16 text-center">
-                    <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 uppercase tracking-tight">
                         {getSetting('capabilities_section_title')}
                     </h2>
-                    <p className="text-secondary text-sm max-w-3xl mx-auto leading-relaxed">
+                    <p className="text-secondary text-base max-w-3xl mx-auto leading-relaxed">
                         {getSetting('capabilities_section_subtitle')}
                     </p>
                 </div>
@@ -293,7 +293,7 @@ export default function Home() {
             {/* Process Section */}
             <section className="bg-surface-container py-24 px-margin-mobile md:px-margin-desktop border-y border-outline-variant/30 w-full">
                 <div className="w-full max-w-container-max mx-auto">
-                    <h2 className="text-2xl md:text-3xl font-bold text-primary mb-16 text-center uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold text-primary mb-16 text-center uppercase tracking-tight">
                         {getSetting('process_section_title')}
                     </h2>
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6 relative">
@@ -317,10 +317,10 @@ export default function Home() {
             {/* Strategic Leadership Section */}
             <section className="py-24 bg-background px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
                 <div className="text-center mb-16">
-                    <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
                         {getSetting('leadership_section_title')}
                     </h2>
-                    <p className="text-secondary text-sm mt-3 max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-secondary text-base mt-3 max-w-2xl mx-auto leading-relaxed">
                         {getSetting('leadership_section_subtitle')}
                     </p>
                 </div>
@@ -351,10 +351,10 @@ export default function Home() {
                 <div className="max-w-container-max mx-auto">
                     <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                         <div>
-                            <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+                            <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
                                 {getSetting('competencies_section_title')}
                             </h2>
-                            <p className="text-secondary text-sm mt-2 max-w-xl leading-relaxed">
+                            <p className="text-secondary text-base mt-2 max-w-xl leading-relaxed">
                                 {getSetting('competencies_section_subtitle')}
                             </p>
                         </div>
@@ -415,10 +415,10 @@ export default function Home() {
             {activeProjects && activeProjects.length > 0 && (
                 <section className="py-24 bg-surface px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
                     <div className="mb-16 text-center">
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 uppercase tracking-tight">
                             {getSetting('projects_section_title')}
                         </h2>
-                        <p className="text-secondary text-sm max-w-3xl mx-auto leading-relaxed">
+                        <p className="text-secondary text-base max-w-3xl mx-auto leading-relaxed">
                             {getSetting('projects_section_subtitle')}
                         </p>
                     </div>
@@ -490,10 +490,10 @@ export default function Home() {
             <section className="py-24 bg-surface px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto">
                 <div className="flex flex-col lg:flex-row gap-16 items-start">
                     <div className="flex-1">
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary mb-3 uppercase tracking-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary mb-3 uppercase tracking-tight">
                             {getSetting('contact_section_title')}
                         </h2>
-                        <p className="text-secondary text-sm mb-8 leading-relaxed text-justify">
+                        <p className="text-secondary text-base mb-8 leading-relaxed text-justify">
                             {getSetting('contact_section_description')}
                         </p>
                         <div className="flex flex-col sm:flex-row gap-6">
@@ -564,8 +564,8 @@ export default function Home() {
             <section className="py-24 bg-surface-container px-margin-mobile md:px-margin-desktop w-full border-t border-outline-variant/30">
                 <div className="max-w-container-max mx-auto">
                     <div className="mb-16 text-center">
-                        <span className="text-xs font-bold text-tertiary uppercase tracking-widest font-mono mb-2 block">OUR ADVANTAGES</span>
-                        <h2 className="text-2xl md:text-3xl font-bold text-primary uppercase tracking-tight">
+                        <span className="text-sm font-bold text-tertiary uppercase tracking-widest font-mono mb-2 block">OUR ADVANTAGES</span>
+                        <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">
                             WHY CHOOSE AR ENGINEERING
                         </h2>
                         <div className="h-1 w-12 bg-tertiary mx-auto mt-4"></div>
@@ -601,7 +601,7 @@ export default function Home() {
             <section className="py-24 bg-primary relative overflow-hidden w-full">
                 <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                     <div className="text-white">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-2 uppercase tracking-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-2 uppercase tracking-tight">
                             {getSetting('cta_section_title')}
                         </h2>
                         <p className="text-on-primary-container text-xs md:text-sm max-w-xl leading-relaxed text-justify">

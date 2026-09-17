@@ -89,7 +89,7 @@ export default function Contact() {
                 {/* Page Title */}
                 <div className="mb-16">
                     <span className="text-xs font-bold uppercase tracking-widest text-tertiary font-mono mb-3 block">{getVal('contact_subtitle')}</span>
-                    <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 uppercase tracking-tight">
+                    <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4 uppercase tracking-tight">
                         {getVal('contact_title')} <span className="text-tertiary">AR Engineering</span>
                     </h1>
                     <div className="w-24 h-1 bg-tertiary"></div>
@@ -100,7 +100,7 @@ export default function Contact() {
                     <div className="flex items-center gap-6">
                         <span className="material-symbols-outlined text-4xl md:text-5xl shrink-0" style={{ fontVariationSettings: "'FILL' 1" }}>report_problem</span>
                         <div>
-                            <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-tight">{getVal('contact_urgent_title')}</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight">{getVal('contact_urgent_title')}</h2>
                             <p className="text-sm opacity-95 mt-1 leading-relaxed text-justify">{getVal('contact_urgent_description')}</p>
                         </div>
                     </div>
@@ -115,7 +115,7 @@ export default function Contact() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                     {/* Left Pane: Contact Form Card */}
                     <div className="bg-white rounded border border-outline-variant/30 p-8 md:p-12 order-2 lg:order-1 shadow-none md:shadow-sm">
-                        <h2 className="text-2xl md:text-3xl font-bold mb-8 text-primary uppercase tracking-tight">Send a Message</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary uppercase tracking-tight">Send a Message</h2>
                         
                         {isSubmitted && (
                             <div className="mb-6 p-4 bg-primary text-white rounded text-xs font-bold uppercase font-mono tracking-wider flex items-center gap-2 shadow-sm">
@@ -202,7 +202,7 @@ export default function Contact() {
                     {/* Right Pane: Info & Map Card */}
                     <div className="flex flex-col gap-8 order-1 lg:order-2">
                         <div className="bg-white rounded p-8 md:p-12 border border-outline-variant/30 shadow-none md:shadow-sm">
-                            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-primary uppercase tracking-tight">Corporate Headquarters</h2>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary uppercase tracking-tight">Corporate Headquarters</h2>
                             <div className="space-y-8">
                                 <div className="flex items-start gap-6">
                                     <div className="bg-surface-container-low p-3 rounded border border-outline-variant/30 shrink-0">
