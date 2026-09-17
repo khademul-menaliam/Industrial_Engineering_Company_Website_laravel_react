@@ -15,14 +15,14 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Enter t
         if (editorRef.current) {
             isEditingRef.current = true;
             let html = editorRef.current.innerHTML;
-            
+
             // Clean up empty lines or standard empty structures
             if (html === '<br>' || html === '<div><br></div>' || html === '<p><br></p>' || html.trim() === '') {
                 html = '';
             }
-            
+
             onChange(html);
-            
+
             // Reset editing ref asynchronously
             setTimeout(() => {
                 isEditingRef.current = false;
@@ -36,9 +36,9 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Enter t
     };
 
     return (
-        <div className="border border-outline-variant/40 rounded-lg overflow-hidden bg-[#152229] transition-all focus-within:border-primary/70">
+        <div className="border border-outline-variant/40 rounded-lg overflow-hidden bg-surface-container-low transition-all focus-within:border-primary/70">
             {/* Toolbar */}
-            <div className="flex flex-wrap gap-1 p-2 bg-[#19272f] border-b border-outline-variant/30 text-white select-none">
+            <div className="flex flex-wrap gap-1 p-2 bg-surface-container border-b border-outline-variant/30 text-white select-none">
                 <button
                     type="button"
                     onClick={() => executeCommand('bold')}
@@ -71,9 +71,9 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Enter t
                 >
                     <span className="material-symbols-outlined text-base">format_strikethrough</span>
                 </button>
-                
+
                 <div className="w-px h-5 bg-outline-variant/20 my-auto mx-1"></div>
-                
+
                 <button
                     type="button"
                     onClick={() => executeCommand('insertUnorderedList')}
@@ -90,9 +90,9 @@ export default function RichTextEditor({ value, onChange, placeholder = 'Enter t
                 >
                     <span className="material-symbols-outlined text-base">format_list_numbered</span>
                 </button>
-                
+
                 <div className="w-px h-5 bg-outline-variant/20 my-auto mx-1"></div>
-                
+
                 <button
                     type="button"
                     onClick={() => executeCommand('justifyLeft')}

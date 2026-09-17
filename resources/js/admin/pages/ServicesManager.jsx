@@ -48,7 +48,7 @@ export default function ServicesManager() {
     const [formIsFeatured, setFormIsFeatured] = useState(false);
     const [formIsActive, setFormIsActive] = useState(true);
     const [formSortOrder, setFormSortOrder] = useState(0);
-    
+
     // File inputs
     const [formImageFile, setFormImageFile] = useState(null);
     const [formHeroImageFile, setFormHeroImageFile] = useState(null);
@@ -156,8 +156,8 @@ export default function ServicesManager() {
             is_active: catIsActive
         };
 
-        const endpoint = currentCategory 
-            ? `/api/admin/services/categories/${currentCategory.id}` 
+        const endpoint = currentCategory
+            ? `/api/admin/services/categories/${currentCategory.id}`
             : '/api/admin/services/categories';
 
         axios.post(endpoint, payload)
@@ -204,7 +204,7 @@ export default function ServicesManager() {
         setFormIsFeatured(false);
         setFormIsActive(true);
         setFormSortOrder(services.length + 1);
-        
+
         setFormImageFile(null);
         setFormHeroImageFile(null);
         setFormImageUrl('');
@@ -215,7 +215,7 @@ export default function ServicesManager() {
         setFormBadges('');
         setFormSpecs([]);
         setFormMetrics([]);
-        
+
         setShowModal(true);
     };
 
@@ -230,7 +230,7 @@ export default function ServicesManager() {
         setFormIsFeatured(!!service.is_featured);
         setFormIsActive(!!service.is_active);
         setFormSortOrder(service.sort_order || 0);
-        
+
         setFormImageFile(null);
         setFormHeroImageFile(null);
         setFormImageUrl(service.image || '');
@@ -306,8 +306,8 @@ export default function ServicesManager() {
         formData.append('technical_specs', JSON.stringify(formSpecs));
         formData.append('metrics', JSON.stringify(formMetrics));
 
-        const endpoint = currentService 
-            ? `/api/admin/services/${currentService.id}` 
+        const endpoint = currentService
+            ? `/api/admin/services/${currentService.id}`
             : '/api/admin/services';
 
         axios.post(endpoint, formData, {
@@ -353,8 +353,8 @@ export default function ServicesManager() {
                 <button
                     onClick={() => setActiveTab('settings')}
                     className={`px-6 py-3.5 text-xs font-bold uppercase tracking-widest border-b-2 shrink-0 transition-all ${
-                        activeTab === 'settings' 
-                            ? 'border-sky-500 text-sky-400 bg-sky-950/20' 
+                        activeTab === 'settings'
+                            ? 'border-primary text-primary bg-primary/10'
                             : 'border-transparent text-on-surface-variant hover:text-white hover:bg-surface-container'
                     }`}
                 >
@@ -363,8 +363,8 @@ export default function ServicesManager() {
                 <button
                     onClick={() => setActiveTab('categories')}
                     className={`px-6 py-3.5 text-xs font-bold uppercase tracking-widest border-b-2 shrink-0 transition-all ${
-                        activeTab === 'categories' 
-                            ? 'border-sky-500 text-sky-400 bg-sky-950/20' 
+                        activeTab === 'categories'
+                            ? 'border-primary text-primary bg-primary/10'
                             : 'border-transparent text-on-surface-variant hover:text-white hover:bg-surface-container'
                     }`}
                 >
@@ -375,8 +375,8 @@ export default function ServicesManager() {
                         key={cat.id}
                         onClick={() => setActiveTab(cat.slug)}
                         className={`px-6 py-3.5 text-xs font-bold uppercase tracking-widest border-b-2 shrink-0 transition-all ${
-                            activeTab === cat.slug 
-                                ? 'border-sky-500 text-sky-400 bg-sky-950/20' 
+                            activeTab === cat.slug
+                                ? 'border-primary text-primary bg-primary/10'
                                 : 'border-transparent text-on-surface-variant hover:text-white hover:bg-surface-container'
                         }`}
                     >
@@ -388,91 +388,91 @@ export default function ServicesManager() {
             {/* TAB CONTENT: GENERAL SETTINGS */}
             {activeTab === 'settings' && (
                 <form onSubmit={handleSaveSettings} className="bg-surface border border-outline-variant/30 rounded-xl p-4 sm:p-6 md:p-8 space-y-6 max-w-4xl shadow-xl">
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-sky-400 font-mono border-b border-outline-variant/30 pb-3 mb-6">
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-primary font-mono border-b border-outline-variant/30 pb-3 mb-6">
                         Services Page settings
                     </h3>
-                    
+
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Intro Tag/Title</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.services_intro_title || ''}
                                 onChange={e => setSettings({ ...settings, services_intro_title: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Intro Heading</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.services_intro_heading || ''}
                                 onChange={e => setSettings({ ...settings, services_intro_heading: e.target.value })}
                             />
                         </div>
                         <div className="sm:col-span-2 space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Intro Description</label>
-                            <textarea 
+                            <textarea
                                 rows="3"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.services_intro_description || ''}
                                 onChange={e => setSettings({ ...settings, services_intro_description: e.target.value })}
                             />
                         </div>
                     </div>
 
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-sky-400 font-mono border-b border-outline-variant/30 pb-3 pt-6 mb-6">
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-primary font-mono border-b border-outline-variant/30 pb-3 pt-6 mb-6">
                         Maintenance Side Panel Settings
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Promo Title</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.zero_downtime_title || ''}
                                 onChange={e => setSettings({ ...settings, zero_downtime_title: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Action Button Link</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.zero_downtime_link || ''}
                                 onChange={e => setSettings({ ...settings, zero_downtime_link: e.target.value })}
                             />
                         </div>
                         <div className="sm:col-span-2 space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">Promo Description</label>
-                            <textarea 
+                            <textarea
                                 rows="3"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.zero_downtime_description || ''}
                                 onChange={e => setSettings({ ...settings, zero_downtime_description: e.target.value })}
                             />
                         </div>
                     </div>
 
-                    <h3 className="text-sm font-bold uppercase tracking-widest text-sky-400 font-mono border-b border-outline-variant/30 pb-3 pt-6 mb-6">
+                    <h3 className="text-sm font-bold uppercase tracking-widest text-primary font-mono border-b border-outline-variant/30 pb-3 pt-6 mb-6">
                         Call To Action (CTA) Section settings
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">CTA Heading</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.services_cta_title || ''}
                                 onChange={e => setSettings({ ...settings, services_cta_title: e.target.value })}
                             />
                         </div>
                         <div className="space-y-2">
                             <label className="text-xs font-bold text-on-surface-variant uppercase tracking-wider">CTA Description</label>
-                            <input 
+                            <input
                                 type="text"
-                                className="w-full bg-[#0b1519] border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-sky-500 focus:outline-none"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-3 text-white text-sm focus:border-primary focus:outline-none"
                                 value={settings.services_cta_description || ''}
                                 onChange={e => setSettings({ ...settings, services_cta_description: e.target.value })}
                             />
@@ -483,7 +483,7 @@ export default function ServicesManager() {
                         <button
                             type="submit"
                             disabled={savingSettings}
-                            className="w-full sm:w-auto bg-sky-500 hover:brightness-110 text-white px-8 py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 transition-all"
+                            className="w-full sm:w-auto bg-primary hover:brightness-110 text-white px-8 py-3.5 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 shadow-lg disabled:opacity-50 transition-all"
                         >
                             {savingSettings ? 'Saving Settings...' : 'Save General Config'}
                         </button>
@@ -500,7 +500,7 @@ export default function ServicesManager() {
                         </span>
                         <button
                             onClick={handleOpenAddCategoryModal}
-                            className="w-full sm:w-auto bg-sky-500 hover:brightness-110 text-white px-5 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 transition-all shadow-md"
+                            className="w-full sm:w-auto bg-primary hover:brightness-110 text-white px-5 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 transition-all shadow-md"
                         >
                             <span className="material-symbols-outlined text-sm">add</span> Create Category
                         </button>
@@ -508,7 +508,7 @@ export default function ServicesManager() {
 
                     <div className="overflow-x-auto bg-surface border border-outline-variant/30 rounded-xl shadow-lg">
                         <table className="w-full text-left text-xs text-on-surface-variant">
-                            <thead className="bg-[#0b1519] uppercase tracking-wider font-mono text-[10px] text-sky-400 border-b border-outline-variant/30">
+                            <thead className="bg-background uppercase tracking-wider font-mono text-[10px] text-primary border-b border-outline-variant/30">
                                 <tr>
                                     <th className="px-6 py-4">Category Name</th>
                                     <th className="px-6 py-4">Slug / Route</th>
@@ -519,9 +519,9 @@ export default function ServicesManager() {
                             </thead>
                             <tbody className="divide-y divide-outline-variant/10">
                                 {categories.map(cat => (
-                                    <tr key={cat.id} className="hover:bg-sky-950/5">
+                                    <tr key={cat.id} className="hover:bg-primary/5">
                                         <td className="px-6 py-4 font-bold text-white uppercase">{cat.name}</td>
-                                        <td className="px-6 py-4 font-mono text-sky-400">{cat.slug}</td>
+                                        <td className="px-6 py-4 font-mono text-primary">{cat.slug}</td>
                                         <td className="px-6 py-4 font-mono">{cat.sort_order}</td>
                                         <td className="px-6 py-4">
                                             <span className={`text-[9px] font-mono font-bold uppercase px-1.5 py-0.5 rounded ${cat.is_active ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'}`}>
@@ -529,13 +529,13 @@ export default function ServicesManager() {
                                             </span>
                                         </td>
                                         <td className="px-6 py-4 text-right space-x-2">
-                                            <button 
+                                            <button
                                                 onClick={() => handleOpenEditCategoryModal(cat)}
-                                                className="text-sky-400 hover:text-white font-semibold font-mono uppercase tracking-wider"
+                                                className="text-primary hover:text-white font-semibold font-mono uppercase tracking-wider"
                                             >
                                                 Edit
                                             </button>
-                                            <button 
+                                            <button
                                                 onClick={() => handleDeleteCategory(cat.id)}
                                                 className="text-red-400 hover:text-red-500 font-semibold font-mono uppercase tracking-wider ml-4"
                                             >
@@ -559,7 +559,7 @@ export default function ServicesManager() {
                         </span>
                         <button
                             onClick={handleOpenAddModal}
-                            className="w-full sm:w-auto bg-sky-500 hover:brightness-110 text-white px-5 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 transition-all shadow-md"
+                            className="w-full sm:w-auto bg-primary hover:brightness-110 text-white px-5 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center justify-center gap-2 transition-all shadow-md"
                         >
                             <span className="material-symbols-outlined text-sm">add</span> Create Service Profile
                         </button>
@@ -569,7 +569,7 @@ export default function ServicesManager() {
                         {listByCategory(activeTab).map(service => (
                             <div key={service.id} className="bg-surface border border-outline-variant/30 rounded-xl overflow-hidden flex flex-col justify-between shadow-lg">
                                 <div>
-                                    <div className="h-40 bg-[#0b1519] relative">
+                                    <div className="h-40 bg-background relative">
                                         {service.image ? (
                                             <img src={service.image} alt={service.title} className="w-full h-full object-cover opacity-80" />
                                         ) : (
@@ -577,7 +577,7 @@ export default function ServicesManager() {
                                                 <span className="material-symbols-outlined text-4xl">{service.icon}</span>
                                             </div>
                                         )}
-                                        <div className="absolute top-3 left-3 bg-[#0b1519]/90 border border-outline-variant/30 rounded-full w-9 h-9 flex items-center justify-center text-sky-400">
+                                        <div className="absolute top-3 left-3 bg-background/90 border border-outline-variant/30 rounded-full w-9 h-9 flex items-center justify-center text-primary">
                                             <span className="material-symbols-outlined text-base">{service.icon}</span>
                                         </div>
                                         {service.is_featured && (
@@ -593,14 +593,14 @@ export default function ServicesManager() {
                                                 {service.is_active ? 'Active' : 'Inactive'}
                                             </span>
                                         </div>
-                                        <p className="text-xs text-on-surface-variant font-mono font-bold">Slug: <span className="text-sky-400">/services/{service.slug}</span></p>
+                                        <p className="text-xs text-on-surface-variant font-mono font-bold">Slug: <span className="text-primary">/services/{service.slug}</span></p>
                                         <p className="text-xs text-on-surface-variant line-clamp-3 leading-relaxed">{service.short_description}</p>
                                     </div>
                                 </div>
                                 <div className="p-6 border-t border-outline-variant/30 flex gap-2">
                                     <button
                                         onClick={() => handleOpenEditModal(service)}
-                                        className="flex-grow bg-[#0b1519] border border-outline-variant/30 text-sky-400 hover:text-white hover:bg-sky-950/20 py-2.5 rounded text-xs font-semibold font-mono tracking-wider transition-all flex items-center justify-center gap-1.5"
+                                        className="flex-grow bg-background border border-outline-variant/30 text-primary hover:text-white hover:bg-primary/10 py-2.5 rounded text-xs font-semibold font-mono tracking-wider transition-all flex items-center justify-center gap-1.5"
                                     >
                                         <span className="material-symbols-outlined text-sm">edit</span> Modify Profile
                                     </button>
@@ -621,7 +621,7 @@ export default function ServicesManager() {
             {/* CATEGORY FORM MODAL */}
             {showCategoryModal && (
                 <div className="fixed inset-0 bg-[#000000]/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm overflow-y-auto">
-                    <div className="bg-[#111d23] border border-outline-variant/30 rounded-xl w-full max-w-lg shadow-2xl flex flex-col">
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl w-full max-w-lg shadow-2xl flex flex-col">
                         <div className="h-16 border-b border-outline-variant/30 px-4 sm:px-6 flex items-center justify-between">
                             <h3 className="font-bold text-white uppercase text-xs sm:text-sm tracking-widest font-mono">
                                 {currentCategory ? `Modify Category: ${currentCategory.name}` : 'Create New Category'}
@@ -634,45 +634,45 @@ export default function ServicesManager() {
                         <form onSubmit={handleSaveCategory} className="p-4 sm:p-6 space-y-4">
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Category Name</label>
-                                <input 
+                                <input
                                     type="text" required
-                                    className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                     value={catName}
                                     onChange={e => setCatName(e.target.value)}
                                 />
                             </div>
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Slug / Identifier</label>
-                                <input 
+                                <input
                                     type="text" placeholder="e.g. consulting"
-                                    className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                     value={catSlug}
                                     onChange={e => setCatSlug(e.target.value)}
                                 />
                             </div>
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sort Order Index</label>
-                                <input 
+                                <input
                                     type="number" required
-                                    className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                     value={catSortOrder}
                                     onChange={e => setCatSortOrder(e.target.value)}
                                 />
                             </div>
                             <div className="space-y-1">
                                 <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Description</label>
-                                <textarea 
+                                <textarea
                                     rows="2"
-                                    className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                    className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                     value={catDesc}
                                     onChange={e => setCatDesc(e.target.value)}
                                 />
                             </div>
                             <div className="pt-2">
                                 <label className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider cursor-pointer">
-                                    <input 
-                                        type="checkbox" 
-                                        className="rounded bg-[#0b1519] border-outline-variant/30 text-sky-500 focus:ring-sky-500 focus:ring-offset-[#111d23]" 
+                                    <input
+                                        type="checkbox"
+                                        className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface"
                                         checked={catIsActive}
                                         onChange={e => setCatIsActive(e.target.checked)}
                                     />
@@ -691,7 +691,7 @@ export default function ServicesManager() {
                                 <button
                                     type="submit"
                                     disabled={savingCategory}
-                                    className="bg-sky-500 hover:brightness-110 text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-lg disabled:opacity-50 transition-all"
+                                    className="bg-primary hover:brightness-110 text-white px-6 py-2.5 rounded text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-lg disabled:opacity-50 transition-all"
                                 >
                                     {savingCategory ? 'Saving...' : 'Save Category'}
                                 </button>
@@ -704,9 +704,9 @@ export default function ServicesManager() {
             {/* SERVICE FORM MODAL */}
             {showModal && (
                 <div className="fixed inset-0 bg-[#000000]/80 z-50 flex items-center justify-center p-2 sm:p-4 backdrop-blur-sm overflow-y-auto">
-                    <div className="bg-[#111d23] border border-outline-variant/30 rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col">
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl flex flex-col">
                         {/* Modal Header */}
-                        <div className="h-16 border-b border-outline-variant/30 px-4 sm:px-6 flex items-center justify-between sticky top-0 bg-[#111d23] z-10">
+                        <div className="h-16 border-b border-outline-variant/30 px-4 sm:px-6 flex items-center justify-between sticky top-0 bg-surface z-10">
                             <h3 className="font-bold text-white uppercase text-xs sm:text-sm tracking-widest font-mono">
                                 {currentService ? `Modify Profile: ${currentService.title}` : 'Create New Service Profile'}
                             </h3>
@@ -719,32 +719,32 @@ export default function ServicesManager() {
                         <form onSubmit={handleSaveService} className="p-4 sm:p-6 space-y-6 flex-grow">
                             {/* Section 1: Basic Fields */}
                             <div className="space-y-4">
-                                <h4 className="text-xs font-bold uppercase tracking-widest text-sky-400 font-mono border-b border-outline-variant/20 pb-1.5">
+                                <h4 className="text-xs font-bold uppercase tracking-widest text-primary font-mono border-b border-outline-variant/20 pb-1.5">
                                     Card Specifications
                                 </h4>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Service Title</label>
-                                        <input 
+                                        <input
                                             type="text" required
-                                            className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                             value={formTitle}
                                             onChange={e => setFormTitle(e.target.value)}
                                         />
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Detail URL Slug</label>
-                                        <input 
+                                        <input
                                             type="text" placeholder="e.g. fire-protection"
-                                            className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                             value={formSlug}
                                             onChange={e => setFormSlug(e.target.value)}
                                         />
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Category</label>
-                                        <select 
-                                            className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                        <select
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                             value={formCategory}
                                             onChange={e => setFormCategory(e.target.value)}
                                         >
@@ -755,27 +755,27 @@ export default function ServicesManager() {
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Material Icon Symbol</label>
-                                        <input 
+                                        <input
                                             type="text" placeholder="e.g. architecture"
-                                            className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                             value={formIcon}
                                             onChange={e => setFormIcon(e.target.value)}
                                         />
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Asset Tag/Label</label>
-                                        <input 
+                                        <input
                                             type="text" placeholder="e.g. Tactical Asset"
-                                            className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                             value={formTag}
                                             onChange={e => setFormTag(e.target.value)}
                                         />
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Sorting Index</label>
-                                        <input 
+                                        <input
                                             type="number"
-                                            className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                             value={formSortOrder}
                                             onChange={e => setFormSortOrder(e.target.value)}
                                         />
@@ -783,27 +783,27 @@ export default function ServicesManager() {
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Short Card Description</label>
-                                    <textarea 
+                                    <textarea
                                         rows="2"
-                                        className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-3 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-3 text-white text-xs focus:border-primary focus:outline-none"
                                         value={formShortDesc}
                                         onChange={e => setFormShortDesc(e.target.value)}
                                     />
                                 </div>
                                 <div className="flex gap-6 pt-2">
                                     <label className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider cursor-pointer">
-                                        <input 
-                                            type="checkbox" 
-                                            className="rounded bg-[#0b1519] border-outline-variant/30 text-sky-500 focus:ring-sky-500 focus:ring-offset-[#111d23]" 
+                                        <input
+                                            type="checkbox"
+                                            className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface"
                                             checked={formIsFeatured}
                                             onChange={e => setFormIsFeatured(e.target.checked)}
                                         />
                                         Featured Item Layout
                                     </label>
                                     <label className="flex items-center gap-2 text-xs font-bold text-white uppercase tracking-wider cursor-pointer">
-                                        <input 
-                                            type="checkbox" 
-                                            className="rounded bg-[#0b1519] border-outline-variant/30 text-sky-500 focus:ring-sky-500 focus:ring-offset-[#111d23]" 
+                                        <input
+                                            type="checkbox"
+                                            className="rounded bg-background border-outline-variant/30 text-primary focus:ring-primary focus:ring-offset-surface"
                                             checked={formIsActive}
                                             onChange={e => setFormIsActive(e.target.checked)}
                                         />
@@ -814,46 +814,46 @@ export default function ServicesManager() {
 
                             {/* Section 2: Media Assets */}
                             <div className="space-y-4 pt-4 border-t border-outline-variant/20">
-                                <h4 className="text-xs font-bold uppercase tracking-widest text-sky-400 font-mono border-b border-outline-variant/20 pb-1.5">
+                                <h4 className="text-xs font-bold uppercase tracking-widest text-primary font-mono border-b border-outline-variant/20 pb-1.5">
                                     Media assets
                                 </h4>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {/* Card Thumbnail */}
-                                    <div className="space-y-2 bg-[#0b1519] p-4 border border-outline-variant/20 rounded-lg">
-                                        <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest font-mono">1. Card Thumbnail</span>
+                                    <div className="space-y-2 bg-background p-4 border border-outline-variant/20 rounded-lg">
+                                        <span className="text-[10px] font-bold text-primary uppercase tracking-widest font-mono">1. Card Thumbnail</span>
                                         <div className="space-y-2 mt-2">
                                             <label className="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider">File Image Upload</label>
-                                            <input 
+                                            <input
                                                 type="file" accept="image/*"
-                                                className="w-full text-xs text-on-surface-variant file:bg-sky-500/10 file:border-0 file:text-sky-400 file:px-3 file:py-1.5 file:rounded file:text-xs file:font-semibold file:cursor-pointer"
+                                                className="w-full text-xs text-on-surface-variant file:bg-primary/10 file:border-0 file:text-primary file:px-3 file:py-1.5 file:rounded file:text-xs file:font-semibold file:cursor-pointer"
                                                 onChange={e => setFormImageFile(e.target.files[0])}
                                             />
                                             <div className="text-center text-[9px] text-on-surface-variant font-mono uppercase py-1">OR</div>
                                             <label className="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider">Image Remote URL</label>
-                                            <input 
+                                            <input
                                                 type="text"
-                                                className="w-full bg-[#111d23] border border-outline-variant/30 rounded p-2 text-white text-[11px] focus:border-sky-500 focus:outline-none"
+                                                className="w-full bg-surface border border-outline-variant/30 rounded p-2 text-white text-[11px] focus:border-primary focus:outline-none"
                                                 value={formImageUrl}
                                                 onChange={e => setFormImageUrl(e.target.value)}
                                             />
                                         </div>
                                     </div>
-                                    
+
                                     {/* Detail Hero Image */}
-                                    <div className="space-y-2 bg-[#0b1519] p-4 border border-outline-variant/20 rounded-lg">
-                                        <span className="text-[10px] font-bold text-sky-400 uppercase tracking-widest font-mono">2. Detail Page Hero Cover</span>
+                                    <div className="space-y-2 bg-background p-4 border border-outline-variant/20 rounded-lg">
+                                        <span className="text-[10px] font-bold text-primary uppercase tracking-widest font-mono">2. Detail Page Hero Cover</span>
                                         <div className="space-y-2 mt-2">
                                             <label className="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider">File Image Upload</label>
-                                            <input 
+                                            <input
                                                 type="file" accept="image/*"
-                                                className="w-full text-xs text-on-surface-variant file:bg-sky-500/10 file:border-0 file:text-sky-400 file:px-3 file:py-1.5 file:rounded file:text-xs file:font-semibold file:cursor-pointer"
+                                                className="w-full text-xs text-on-surface-variant file:bg-primary/10 file:border-0 file:text-primary file:px-3 file:py-1.5 file:rounded file:text-xs file:font-semibold file:cursor-pointer"
                                                 onChange={e => setFormHeroImageFile(e.target.files[0])}
                                             />
                                             <div className="text-center text-[9px] text-on-surface-variant font-mono uppercase py-1">OR</div>
                                             <label className="text-[9px] font-bold text-on-surface-variant uppercase tracking-wider">Image Remote URL</label>
-                                            <input 
+                                            <input
                                                 type="text"
-                                                className="w-full bg-[#111d23] border border-outline-variant/30 rounded p-2 text-white text-[11px] focus:border-sky-500 focus:outline-none"
+                                                className="w-full bg-surface border border-outline-variant/30 rounded p-2 text-white text-[11px] focus:border-primary focus:outline-none"
                                                 value={formHeroImageUrl}
                                                 onChange={e => setFormHeroImageUrl(e.target.value)}
                                             />
@@ -864,24 +864,24 @@ export default function ServicesManager() {
 
                             {/* Section 3: Deep Dive Details */}
                             <div className="space-y-4 pt-4 border-t border-outline-variant/20">
-                                <h4 className="text-xs font-bold uppercase tracking-widest text-sky-400 font-mono border-b border-outline-variant/20 pb-1.5">
+                                <h4 className="text-xs font-bold uppercase tracking-widest text-primary font-mono border-b border-outline-variant/20 pb-1.5">
                                     Deep Dive Profile (Detail Page Details)
                                 </h4>
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Deep Dive Heading Title</label>
-                                        <input 
+                                        <input
                                             type="text" placeholder="e.g. Engineering Precision & Redundancy"
-                                            className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                             value={formDetailTitle}
                                             onChange={e => setFormDetailTitle(e.target.value)}
                                         />
                                     </div>
                                     <div className="space-y-1">
                                         <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Details Badges (Comma Separated)</label>
-                                        <input 
+                                        <input
                                             type="text" placeholder="e.g. Safe Mode Enabled, Dual-Loop Verified"
-                                            className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                            className="w-full bg-background border border-outline-variant/30 rounded p-2.5 text-white text-xs focus:border-primary focus:outline-none"
                                             value={formBadges}
                                             onChange={e => setFormBadges(e.target.value)}
                                         />
@@ -889,9 +889,9 @@ export default function ServicesManager() {
                                 </div>
                                 <div className="space-y-1">
                                     <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Deep Dive Detailed Paragraph Description</label>
-                                    <textarea 
+                                    <textarea
                                         rows="4"
-                                        className="w-full bg-[#0b1519] border border-outline-variant/30 rounded p-3 text-white text-xs focus:border-sky-500 focus:outline-none"
+                                        className="w-full bg-background border border-outline-variant/30 rounded p-3 text-white text-xs focus:border-primary focus:outline-none"
                                         value={formDetailDesc}
                                         onChange={e => setFormDetailDesc(e.target.value)}
                                     />
@@ -901,41 +901,41 @@ export default function ServicesManager() {
                             {/* Section 4: Specifications List Editor */}
                             <div className="space-y-4 pt-4 border-t border-outline-variant/20">
                                 <div className="flex justify-between items-center border-b border-outline-variant/20 pb-1.5 gap-2">
-                                    <h4 className="text-xs font-bold uppercase tracking-widest text-sky-400 font-mono">
+                                    <h4 className="text-xs font-bold uppercase tracking-widest text-primary font-mono">
                                         Technical Specifications Lists
                                     </h4>
-                                    <button 
-                                        type="button" 
+                                    <button
+                                        type="button"
                                         onClick={handleAddSpec}
-                                        className="bg-sky-500/10 border border-sky-500/20 text-sky-400 hover:bg-sky-500 hover:text-white px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider font-mono transition-all"
+                                        className="bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider font-mono transition-all"
                                     >
                                         + Add Spec Item
                                     </button>
                                 </div>
                                 <div className="space-y-2">
                                     {formSpecs.map((spec, idx) => (
-                                        <div key={idx} className="flex flex-col sm:flex-row gap-2 items-start sm:items-center bg-[#0b1519] p-3 rounded border border-outline-variant/10 w-full">
-                                            <input 
+                                        <div key={idx} className="flex flex-col sm:flex-row gap-2 items-start sm:items-center bg-background p-3 rounded border border-outline-variant/10 w-full">
+                                            <input
                                                 type="text" placeholder="Label (e.g. Standard)" required
-                                                className="w-full sm:w-1/3 bg-[#111d23] border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
+                                                className="w-full sm:w-1/3 bg-surface border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
                                                 value={spec.label}
                                                 onChange={e => handleSpecChange(idx, 'label', e.target.value)}
                                             />
-                                            <input 
+                                            <input
                                                 type="text" placeholder="Value (e.g. NFPA 72 Compliance)" required
-                                                className="w-full sm:w-1/3 bg-[#111d23] border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
+                                                className="w-full sm:w-1/3 bg-surface border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
                                                 value={spec.value}
                                                 onChange={e => handleSpecChange(idx, 'value', e.target.value)}
                                             />
                                             <div className="flex gap-2 w-full sm:w-1/3 items-center">
-                                                <input 
+                                                <input
                                                     type="text" placeholder="Material Icon (e.g. timer)"
-                                                    className="w-full bg-[#111d23] border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
+                                                    className="w-full bg-surface border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
                                                     value={spec.icon}
                                                     onChange={e => handleSpecChange(idx, 'icon', e.target.value)}
                                                 />
-                                                <button 
-                                                    type="button" 
+                                                <button
+                                                    type="button"
                                                     onClick={() => handleRemoveSpec(idx)}
                                                     className="text-red-400 hover:text-red-500 p-1 shrink-0"
                                                 >
@@ -955,35 +955,35 @@ export default function ServicesManager() {
                             {/* Section 5: Metrics Lists Editor */}
                             <div className="space-y-4 pt-4 border-t border-outline-variant/20">
                                 <div className="flex justify-between items-center border-b border-outline-variant/20 pb-1.5 gap-2">
-                                    <h4 className="text-xs font-bold uppercase tracking-widest text-sky-400 font-mono">
+                                    <h4 className="text-xs font-bold uppercase tracking-widest text-primary font-mono">
                                         Operational Metrics
                                     </h4>
-                                    <button 
-                                        type="button" 
+                                    <button
+                                        type="button"
                                         onClick={handleAddMetric}
-                                        className="bg-sky-500/10 border border-sky-500/20 text-sky-400 hover:bg-sky-500 hover:text-white px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider font-mono transition-all"
+                                        className="bg-primary/10 border border-primary/20 text-primary hover:bg-primary hover:text-white px-3 py-1 rounded text-[10px] font-bold uppercase tracking-wider font-mono transition-all"
                                     >
                                         + Add Metric Progress Bar
                                     </button>
                                 </div>
                                 <div className="space-y-2">
                                     {formMetrics.map((m, idx) => (
-                                        <div key={idx} className="flex flex-col sm:flex-row gap-2 items-start sm:items-center bg-[#0b1519] p-3 rounded border border-outline-variant/10 w-full">
-                                            <input 
+                                        <div key={idx} className="flex flex-col sm:flex-row gap-2 items-start sm:items-center bg-background p-3 rounded border border-outline-variant/10 w-full">
+                                            <input
                                                 type="text" placeholder="Metric Name (e.g. Detection Accuracy)" required
-                                                className="w-full sm:w-2/3 bg-[#111d23] border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
+                                                className="w-full sm:w-2/3 bg-surface border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
                                                 value={m.label}
                                                 onChange={e => handleMetricChange(idx, 'label', e.target.value)}
                                             />
                                             <div className="flex gap-2 w-full sm:w-1/3 items-center">
-                                                <input 
+                                                <input
                                                     type="number" min="0" max="100" placeholder="Percentage (%)" required
-                                                    className="w-full bg-[#111d23] border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
+                                                    className="w-full bg-surface border border-outline-variant/30 rounded p-2 text-white text-xs focus:outline-none"
                                                     value={m.percentage}
                                                     onChange={e => handleMetricChange(idx, 'percentage', e.target.value)}
                                                 />
-                                                <button 
-                                                    type="button" 
+                                                <button
+                                                    type="button"
                                                     onClick={() => handleRemoveMetric(idx)}
                                                     className="text-red-400 hover:text-red-500 p-1 shrink-0"
                                                 >
@@ -1001,7 +1001,7 @@ export default function ServicesManager() {
                             </div>
 
                             {/* Modal Action Buttons */}
-                            <div className="pt-6 border-t border-outline-variant/30 flex justify-end gap-3 sticky bottom-0 bg-[#111d23] py-4">
+                            <div className="pt-6 border-t border-outline-variant/30 flex justify-end gap-3 sticky bottom-0 bg-surface py-4">
                                 <button
                                     type="button"
                                     onClick={() => setShowModal(false)}
@@ -1012,7 +1012,7 @@ export default function ServicesManager() {
                                 <button
                                     type="submit"
                                     disabled={savingService}
-                                    className="bg-sky-500 hover:brightness-110 text-white px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-lg disabled:opacity-50 transition-all"
+                                    className="bg-primary hover:brightness-110 text-white px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-lg disabled:opacity-50 transition-all"
                                 >
                                     {savingService ? 'Saving Profile...' : 'Save Profile'}
                                 </button>
@@ -1025,8 +1025,8 @@ export default function ServicesManager() {
             {/* CUSTOM TOAST NOTIFICATION */}
             {toast && (
                 <div className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-4 rounded-lg shadow-2xl border transition-all duration-300 transform translate-y-0 animate-bounce ${
-                    toast.type === 'success' 
-                        ? 'bg-emerald-950/90 border-emerald-500/50 text-emerald-300' 
+                    toast.type === 'success'
+                        ? 'bg-emerald-950/90 border-emerald-500/50 text-emerald-300'
                         : 'bg-rose-950/90 border-rose-500/50 text-rose-300'
                 }`}>
                     <span className="material-symbols-outlined">
@@ -1042,7 +1042,7 @@ export default function ServicesManager() {
             {/* CUSTOM CONFIRMATION MODAL */}
             {confirmModal.isOpen && (
                 <div className="fixed inset-0 bg-[#000000]/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-                    <div className="bg-[#111d23] border border-outline-variant/30 rounded-xl w-full max-w-md shadow-2xl overflow-hidden">
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl w-full max-w-md shadow-2xl overflow-hidden">
                         <div className="p-6 text-center space-y-4">
                             <div className="w-16 h-16 bg-red-500/10 border border-red-500/20 text-red-500 rounded-full flex items-center justify-center mx-auto">
                                 <span className="material-symbols-outlined text-3xl">warning</span>
@@ -1054,7 +1054,7 @@ export default function ServicesManager() {
                                 {confirmModal.message}
                             </p>
                         </div>
-                        <div className="bg-[#0b1519] px-6 py-4 flex justify-end gap-3 border-t border-outline-variant/20">
+                        <div className="bg-background px-6 py-4 flex justify-end gap-3 border-t border-outline-variant/20">
                             <button
                                 onClick={() => setConfirmModal({ isOpen: false, title: '', message: '', onConfirm: null })}
                                 className="bg-transparent border border-outline-variant/80 hover:bg-surface-container text-on-surface-variant hover:text-white px-4 py-2.5 rounded text-xs font-bold uppercase tracking-wider font-mono transition-all"
