@@ -90,7 +90,7 @@ export default function FaqManager() {
 
     return (
         <div className="space-y-6">
-            <div className="bg-surface p-6 rounded-2xl border border-outline-variant/30">
+            <div className="bg-surface p-6 rounded-xl border border-outline-variant/30">
                 <h3 className="text-lg font-bold text-white mb-4">
                     {isEditing ? 'Edit FAQ' : 'Add New FAQ'}
                 </h3>
@@ -103,7 +103,7 @@ export default function FaqManager() {
                             value={formData.question}
                             onChange={handleInputChange}
                             required
-                            className="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary transition-colors"
+                            className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-2.5 text-white text-sm focus:border-primary focus:outline-none transition-all"
                         />
                     </div>
                     <div>
@@ -114,7 +114,7 @@ export default function FaqManager() {
                             onChange={handleInputChange}
                             required
                             rows="4"
-                            className="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary transition-colors"
+                            className="w-full bg-background border border-outline-variant/30 rounded-lg p-4 text-white text-sm focus:border-primary focus:outline-none transition-all"
                         ></textarea>
                     </div>
                     <div className="flex gap-4">
@@ -125,7 +125,7 @@ export default function FaqManager() {
                                 name="order"
                                 value={formData.order}
                                 onChange={handleInputChange}
-                                className="w-full bg-surface-container border border-outline-variant/50 rounded-lg px-4 py-2 text-white focus:outline-none focus:border-primary transition-colors"
+                                className="w-full bg-background border border-outline-variant/30 rounded-lg px-4 py-2.5 text-white text-sm focus:border-primary focus:outline-none transition-all"
                             />
                         </div>
                         <div className="flex items-end mb-2">
@@ -144,7 +144,7 @@ export default function FaqManager() {
                     <div className="flex gap-3 pt-2">
                         <button
                             type="submit"
-                            className="px-6 py-2 bg-primary text-on-primary rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+                            className="bg-primary hover:brightness-110 text-white px-6 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider font-mono transition-all"
                         >
                             {isEditing ? 'Update FAQ' : 'Save FAQ'}
                         </button>
@@ -164,7 +164,7 @@ export default function FaqManager() {
                 </form>
             </div>
 
-            <div className="bg-surface rounded-2xl border border-outline-variant/30 overflow-hidden">
+            <div className="bg-surface rounded-xl border border-outline-variant/30 overflow-hidden">
                 <div className="p-6 border-b border-outline-variant/30 flex justify-between items-center">
                     <h3 className="text-lg font-bold text-white">Manage FAQs</h3>
                 </div>
@@ -180,11 +180,9 @@ export default function FaqManager() {
                                 <div className="flex-grow">
                                     <div className="flex items-center gap-3 mb-2">
                                         <h4 className="text-white font-bold">{faq.question}</h4>
-                                        {!faq.is_active && (
-                                            <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-error/20 text-error uppercase tracking-wider">
-                                                Inactive
-                                            </span>
-                                        )}
+                                        <span className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border ${faq.is_active ? 'bg-green-500/20 text-green-400 border-green-500/30' : 'bg-error/20 text-error border-error/30'}`}>
+                                            {faq.is_active ? 'Active' : 'Inactive'}
+                                        </span>
                                         <span className="px-2 py-0.5 rounded text-[10px] font-bold bg-surface-container-highest text-on-surface-variant uppercase tracking-wider">
                                             Order: {faq.order}
                                         </span>
@@ -240,7 +238,7 @@ export default function FaqManager() {
             {/* Custom Delete Confirmation Modal */}
             {deleteModal.isOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-all">
-                    <div className="bg-surface border border-outline-variant/30 rounded-2xl p-6 max-w-sm w-full shadow-2xl animate-in fade-in zoom-in-95 duration-200">
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl p-6 max-w-sm w-full shadow-2xl animate-in fade-in zoom-in-95 duration-200">
                         <div className="flex items-center gap-4 text-error mb-4">
                             <span className="material-symbols-outlined text-3xl">warning</span>
                             <h3 className="text-xl font-bold text-white">Confirm Deletion</h3>
