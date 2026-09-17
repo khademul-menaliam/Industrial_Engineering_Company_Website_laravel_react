@@ -38,7 +38,7 @@ export default function Products() {
             <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm border-collapse">
                     <thead>
-                        <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono-data text-xs">
+                        <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono text-xs">
                             <th className="pb-3">COMP ID</th>
                             <th className="pb-3">NAME</th>
                             <th className="pb-3">CATEGORY</th>
@@ -47,7 +47,7 @@ export default function Products() {
                             <th className="pb-3">QUANTITY</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-outline-variant/10 text-white font-mono-data">
+                    <tbody className="divide-y divide-outline-variant/10 text-white font-mono">
                         {products.map((p) => (
                             <tr key={p.id} className="hover:bg-surface-container-low transition-all">
                                 <td className="py-4 font-bold text-primary">{p.id}</td>

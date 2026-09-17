@@ -9,7 +9,7 @@ export default function Profile() {
                 </div>
                 <div>
                     <h3 className="text-xl font-bold text-white uppercase tracking-wider">System Administrator</h3>
-                    <p className="text-sm text-secondary font-mono-data uppercase tracking-widest mt-1">Super Admin Account</p>
+                    <p className="text-sm text-secondary font-mono uppercase tracking-widest mt-1">Super Admin Account</p>
                 </div>
             </div>
 

@@ -240,7 +240,7 @@ export default function HomepageManager() {
         return (
             <div className="flex flex-col items-center justify-center min-h-[400px] gap-4">
                 <span className="material-symbols-outlined text-4xl text-primary animate-spin">sync</span>
-                <span className="text-sm font-semibold text-on-surface-variant font-mono-data">RETRIEVING HOMEPAGE CONFIGURATION...</span>
+                <span className="text-sm font-semibold text-on-surface-variant font-mono">RETRIEVING HOMEPAGE CONFIGURATION...</span>
             </div>
         );
     }
@@ -304,10 +304,10 @@ export default function HomepageManager() {
                             <div key={slide.id} className="bg-surface-container-lowest border border-outline-variant/20 rounded-lg overflow-hidden flex flex-col justify-between">
                                 <div>
                                     <div className="h-40 bg-cover bg-center relative" style={{ backgroundImage: `url('${slide.image}')` }}>
-                                        <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data">
+                                        <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono">
                                             Order: {slide.sort_order}
                                         </div>
-                                        <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data font-bold ${slide.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                        <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono font-bold ${slide.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
                                             {slide.is_active ? 'Active' : 'Inactive'}
                                         </div>
                                     </div>
@@ -393,14 +393,14 @@ export default function HomepageManager() {
                                 <div key={service.id} className="bg-surface-container-lowest border border-outline-variant/20 rounded-lg overflow-hidden flex flex-col justify-between">
                                     <div>
                                         <div className="h-32 bg-cover bg-center relative" style={{ backgroundImage: `url('${service.image}')` }}>
-                                            <div className="absolute top-2 left-2 bg-tertiary px-2 py-0.5 rounded text-[10px] text-white font-mono-data flex items-center gap-1">
+                                            <div className="absolute top-2 left-2 bg-tertiary px-2 py-0.5 rounded text-[10px] text-white font-mono flex items-center gap-1">
                                                 <span className="material-symbols-outlined text-[10px]">{service.icon}</span>
                                                 {service.icon}
                                             </div>
-                                            <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data">
+                                            <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono">
                                                 Order: {service.sort_order}
                                             </div>
-                                            <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data font-bold ${service.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                            <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono font-bold ${service.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
                                                 {service.is_active ? 'Active' : 'Inactive'}
                                             </div>
                                         </div>
@@ -475,7 +475,7 @@ export default function HomepageManager() {
                         <div className="overflow-x-auto bg-surface-container-lowest border border-outline-variant/20 rounded-lg">
                             <table className="w-full text-left text-sm border-collapse">
                                 <thead>
-                                    <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono-data text-xs bg-surface-container">
+                                    <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono text-xs bg-surface-container">
                                         <th className="p-3">STEP #</th>
                                         <th className="p-3">TITLE</th>
                                         <th className="p-3">DESCRIPTION</th>
@@ -484,7 +484,7 @@ export default function HomepageManager() {
                                         <th className="p-3 text-right">ACTIONS</th>
                                     </tr>
                                 </thead>
-                                <tbody className="divide-y divide-outline-variant/10 text-white font-mono-data">
+                                <tbody className="divide-y divide-outline-variant/10 text-white font-mono">
                                     {processes.map(proc => (
                                         <tr key={proc.id} className="hover:bg-surface-container-low transition-all">
                                             <td className="p-3 font-bold text-tertiary">{proc.step_number}</td>
@@ -574,7 +574,7 @@ export default function HomepageManager() {
                                 <div key={leader.id} className="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/20 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
                                     <div className="flex gap-4">
                                         <div className="w-20 h-20 rounded overflow-hidden bg-cover bg-center shrink-0 border border-outline-variant/20 relative" style={{ backgroundImage: `url('${leader.image}')` }}>
-                                            <div className={`absolute bottom-1 left-1 backdrop-blur-sm px-1 py-0.5 rounded text-[8px] text-white font-mono-data font-bold ${leader.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                            <div className={`absolute bottom-1 left-1 backdrop-blur-sm px-1 py-0.5 rounded text-[8px] text-white font-mono font-bold ${leader.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
                                                 {leader.is_active ? 'Active' : 'Inactive'}
                                             </div>
                                         </div>
@@ -667,10 +667,10 @@ export default function HomepageManager() {
                                     <div key={comp.id} className="bg-surface-container-lowest border border-outline-variant/20 rounded-lg overflow-hidden flex flex-col justify-between">
                                         <div>
                                             <div className="h-32 bg-cover bg-center relative" style={{ backgroundImage: `url('${comp.image}')` }}>
-                                                <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data">
+                                                <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono">
                                                     Order: {comp.sort_order}
                                                 </div>
-                                                <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data font-bold ${comp.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                                <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono font-bold ${comp.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
                                                     {comp.is_active ? 'Active' : 'Inactive'}
                                                 </div>
                                             </div>
@@ -765,17 +765,17 @@ export default function HomepageManager() {
                                 <div key={proj.id} className="bg-surface-container-lowest border border-outline-variant/20 rounded-lg overflow-hidden flex flex-col justify-between">
                                     <div>
                                         <div className="h-44 bg-cover bg-center relative" style={{ backgroundImage: `url('${proj.image}')` }}>
-                                            <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data">
+                                            <div className="absolute top-2 right-2 bg-primary/80 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono">
                                                 Order: {proj.sort_order}
                                             </div>
-                                            <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono-data font-bold ${proj.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
+                                            <div className={`absolute bottom-2 left-2 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] text-white font-mono font-bold ${proj.is_active ? 'bg-green-600/90' : 'bg-red-600/90'}`}>
                                                 {proj.is_active ? 'Active' : 'Inactive'}
                                             </div>
                                         </div>
                                         <div className="p-4 space-y-2">
                                             <h4 className="font-bold text-white uppercase text-sm line-clamp-1">{proj.title}</h4>
                                             <p className="text-xs text-on-surface-variant line-clamp-3 leading-relaxed">{stripHtml(proj.description)}</p>
-                                            <div className="pt-2 text-[10px] text-tertiary font-mono-data font-bold">LINK: {proj.link}</div>
+                                            <div className="pt-2 text-[10px] text-tertiary font-mono font-bold">LINK: {proj.link}</div>
                                         </div>
                                     </div>
                                     <div className="p-4 border-t border-outline-variant/10 flex justify-end gap-2 bg-surface-container-low">
@@ -998,7 +998,7 @@ export default function HomepageManager() {
                             {/* Social Media Links */}
                             <div className="space-y-1 md:col-span-2 pt-6 border-t border-outline-variant/20">
                                 <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-2">Social Media Links</h4>
-                                <p className="text-xs text-on-surface-variant mb-4 font-mono-data">Provide URLs to your corporate social media pages. Leave blank to hide the icon from the footer.</p>
+                                <p className="text-xs text-on-surface-variant mb-4 font-mono">Provide URLs to your corporate social media pages. Leave blank to hide the icon from the footer.</p>
                                 <div className="grid md:grid-cols-2 gap-4">
                                     <div className="space-y-1">
                                         <label className="block text-xs font-bold text-on-surface-variant uppercase font-mono">Facebook Page URL</label>
@@ -1332,7 +1332,7 @@ export default function HomepageManager() {
                                         />
                                     </div>
 
-                                    <div className="text-center font-mono-data text-[10px] text-on-surface-variant">--- OR ---</div>
+                                    <div className="text-center font-mono text-[10px] text-on-surface-variant">--- OR ---</div>
 
                                     {/* Remote URL */}
                                     <div className="space-y-1">

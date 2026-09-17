@@ -33,7 +33,7 @@ export default function Notifications() {
                         </span>
                         <div className="flex-grow">
                             <p className="text-sm font-semibold text-white leading-relaxed">{n.text}</p>
-                            <span className="text-[10px] text-on-surface-variant font-mono-data mt-1 block">{n.time}</span>
+                            <span className="text-[10px] text-on-surface-variant font-mono mt-1 block">{n.time}</span>
                         </div>
                     </div>
                 ))}
