@@ -20,7 +20,7 @@ export default function Orders() {
             <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm border-collapse">
                     <thead>
-                        <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono-data text-xs">
+                        <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono text-xs">
                             <th className="pb-3">TENDER ID</th>
                             <th className="pb-3">CLIENT ORGANIZATION</th>
                             <th className="pb-3">DESIGN TIER</th>
@@ -29,7 +29,7 @@ export default function Orders() {
                             <th className="pb-3">DATE ISSUED</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-outline-variant/10 text-white font-mono-data">
+                    <tbody className="divide-y divide-outline-variant/10 text-white font-mono">
                         {orders.map((o) => (
                             <tr key={o.id} className="hover:bg-surface-container-low transition-all">
                                 <td className="py-4 font-bold text-primary">{o.id}</td>

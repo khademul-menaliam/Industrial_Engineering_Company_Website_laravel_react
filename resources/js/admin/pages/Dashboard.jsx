@@ -48,7 +48,7 @@ export default function Dashboard() {
                     <div className="overflow-x-auto">
                         <table className="w-full text-left text-sm border-collapse">
                             <thead>
-                                <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono-data text-xs">
+                                <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono text-xs">
                                     <th className="pb-3">SPEC ID</th>
                                     <th className="pb-3">AUDIT SPEC</th>
                                     <th className="pb-3">PRIORITY</th>
@@ -56,7 +56,7 @@ export default function Dashboard() {
                                     <th className="pb-3">DATE</th>
                                 </tr>
                             </thead>
-                            <tbody className="divide-y divide-outline-variant/10 text-white font-mono-data">
+                            <tbody className="divide-y divide-outline-variant/10 text-white font-mono">
                                 {alerts.map((alert) => (
                                     <tr key={alert.id} className="hover:bg-surface-container-low transition-all">
                                         <td className="py-4 font-bold text-primary">{alert.id}</td>

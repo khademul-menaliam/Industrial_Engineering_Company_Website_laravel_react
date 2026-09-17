@@ -20,7 +20,7 @@ export default function Users() {
             <div className="overflow-x-auto">
                 <table className="w-full text-left text-sm border-collapse">
                     <thead>
-                        <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono-data text-xs">
+                        <tr className="border-b border-outline-variant/30 text-on-surface-variant font-mono text-xs">
                             <th className="pb-3">NAME</th>
                             <th className="pb-3">EMAIL ADDRESS</th>
                             <th className="pb-3">SYSTEM ROLE</th>
@@ -28,7 +28,7 @@ export default function Users() {
                             <th className="pb-3">STATUS</th>
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-outline-variant/10 text-white font-mono-data">
+                    <tbody className="divide-y divide-outline-variant/10 text-white font-mono">
                         {users.map((u, index) => (
                             <tr key={index} className="hover:bg-surface-container-low transition-all">
                                 <td className="py-4 font-semibold text-white">{u.name}</td>
