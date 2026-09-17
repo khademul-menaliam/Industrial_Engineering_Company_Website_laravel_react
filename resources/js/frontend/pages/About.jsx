@@ -192,7 +192,7 @@ export default function About() {
                                 {getVal('about_story_title')}
                             </h2>
                         </div>
-                        <div className="space-y-6 text-on-surface-variant text-sm sm:text-base leading-relaxed text-justify">
+                        <div className="space-y-6 text-on-surface-variant text-sm sm:text-base md:text-lg leading-relaxed text-justify">
                             <p>{getVal('about_story_p1')}</p>
                             <p>{getVal('about_story_p2')}</p>
                             <p>{getVal('about_story_p3')}</p>
@@ -204,10 +204,10 @@ export default function About() {
                                 <span className="text-tertiary font-bold text-4xl md:text-5xl block font-mono">
                                     {getVal('about_stat1_number')}
                                 </span>
-                                <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
+                                <span className="text-primary font-bold text-sm uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat1_label')}
                                 </span>
-                                <p className="text-[11px] text-secondary mt-2 leading-relaxed text-justify">
+                                <p className="text-[12px] text-secondary mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat1_desc')}
                                 </p>
                             </div>
@@ -215,10 +215,10 @@ export default function About() {
                                 <span className="text-tertiary font-bold text-4xl md:text-5xl block font-mono">
                                     {getVal('about_stat2_number')}
                                 </span>
-                                <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
+                                <span className="text-primary font-bold text-sm uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat2_label')}
                                 </span>
-                                <p className="text-[11px] text-secondary mt-2 leading-relaxed text-justify">
+                                <p className="text-[12px] text-secondary mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat2_desc')}
                                 </p>
                             </div>
@@ -226,10 +226,10 @@ export default function About() {
                                 <span className="text-tertiary font-bold text-4xl md:text-5xl block font-mono">
                                     {getVal('about_stat3_number')}
                                 </span>
-                                <span className="text-primary font-bold text-xs uppercase tracking-widest font-mono mt-1 block">
+                                <span className="text-primary font-bold text-sm uppercase tracking-widest font-mono mt-1 block">
                                     {getVal('about_stat3_label')}
                                 </span>
-                                <p className="text-[11px] text-secondary mt-2 leading-relaxed text-justify">
+                                <p className="text-[12px] text-secondary mt-2 leading-relaxed text-justify">
                                     {getVal('about_stat3_desc')}
                                 </p>
                             </div>
@@ -252,10 +252,10 @@ export default function About() {
                                 <div className="mb-6 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
                                     <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
                                 </div>
-                                <h3 className="text-base font-bold text-primary mb-3 border-b border-outline-variant/30 pb-3 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">
+                                <h3 className="text-xl font-bold text-primary mb-3 border-b border-outline-variant/30 pb-3 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">
                                     {pillar.title}
                                 </h3>
-                                <p className="text-secondary text-xs sm:text-sm leading-relaxed flex-grow font-light text-justify">
+                                <p className="text-secondary text-base md:text-base leading-relaxed flex-grow font-light text-justify">
                                     {pillar.description}
                                 </p>
                             </div>
@@ -280,7 +280,7 @@ export default function About() {
                                 <div className="absolute inset-0 bg-gradient-to-t from-primary via-transparent to-transparent opacity-60"></div>
                                 <div className="absolute bottom-4 left-4 right-4 text-center">
                                     <h4 className="text-sm font-bold uppercase tracking-wide">{getVal('about_ceo_name')}</h4>
-                                    <p className="text-[10px] text-tertiary uppercase font-mono mt-0.5">{getVal('about_ceo_role')}</p>
+                                    <p className="text-[12px] text-tertiary uppercase font-mono mt-0.5">{getVal('about_ceo_role')}</p>
                                 </div>
                             </div>
                         </div>
@@ -305,7 +305,7 @@ export default function About() {
                     </div>
 
                     {/* 2 ADVISORS MESSAGES */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 pt-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 pt-4">
                         {advisors.map((advisor, index) => (
                             <div key={advisor.id || index} className="bg-surface/5 border border-white/10 rounded p-6 md:p-8 shadow-none md:shadow-md flex flex-col sm:flex-row gap-6 items-center sm:items-start group hover:border-tertiary transition-all duration-300">
                                 <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-white/20 shadow-none md:shadow-md bg-surface-container-low">
@@ -357,7 +357,7 @@ export default function About() {
                             <div className="w-full sm:w-60 md:w-52 aspect-square md:aspect-auto md:h-full min-h-[220px] rounded overflow-hidden shrink-0 bg-surface-container-low border border-outline-variant/30 relative">
                                 {member.image ? (
                                     <img 
-                                        className="w-full h-full object-cover object-top filter grayscale contrast-105 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-out" 
+                                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-all duration-500 ease-out" 
                                         alt={member.name} 
                                         src={member.image} 
                                     />
@@ -439,10 +439,10 @@ export default function About() {
                                 </span>
 
                                 <div className="space-y-2">
-                                    <h3 className="text-base font-bold text-primary uppercase tracking-tight group-hover:text-tertiary transition-colors duration-300">
+                                    <h3 className="text-xl font-bold text-primary uppercase tracking-tight group-hover:text-tertiary transition-colors duration-300">
                                         {mile.title}
                                     </h3>
-                                    <p className="text-xs sm:text-sm text-secondary leading-relaxed max-w-2xl font-light text-justify">
+                                    <p className="text-sm sm:text-base text-secondary leading-relaxed max-w-2xl font-light text-justify">
                                         {mile.desc}
                                     </p>
                                 </div>
