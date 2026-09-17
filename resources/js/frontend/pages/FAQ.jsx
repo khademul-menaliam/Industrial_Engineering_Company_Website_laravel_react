@@ -70,7 +70,7 @@ export default function FAQ() {
                                         opacity: isOpen ? 1 : 0
                                     }}
                                 >
-                                    <p className="p-6 pt-3 text-secondary text-sm leading-relaxed border-t border-outline-variant/20 text-justify">
+                                    <p className="p-6 pt-3 text-secondary text-sm leading-relaxed border-t border-outline-variant/30 text-justify">
                                         {faq.answer}
                                     </p>
                                 </div>

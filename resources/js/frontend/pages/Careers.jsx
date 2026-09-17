@@ -285,7 +285,7 @@ export default function Careers() {
                                 ))}
 
                                 {showAll && (
-                                    <span className="text-secondary font-mono uppercase px-3 py-2 bg-surface-container rounded border border-outline-variant/20 text-xs">
+                                    <span className="text-secondary font-mono uppercase px-3 py-2 bg-surface-container rounded border border-outline-variant/30 text-xs">
                                         Showing All Results ({filteredVacancies.length})
                                     </span>
                                 )}
@@ -319,7 +319,7 @@ export default function Careers() {
                 </section>
 
                 {/* Section 3: Internship */}
-                <section className="bg-primary text-white p-8 md:p-12 lg:p-16 rounded relative overflow-hidden border border-outline-variant/20 shadow-none md:shadow-md" id="internship">
+                <section className="bg-primary text-white p-8 md:p-12 lg:p-16 rounded relative overflow-hidden border border-outline-variant/30 shadow-none md:shadow-md" id="internship">
                     <div className="absolute top-0 right-0 p-10 opacity-5 pointer-events-none">
                         <span className="material-symbols-outlined text-[240px]">architecture</span>
                     </div>
@@ -409,7 +409,7 @@ export default function Careers() {
                                 <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Technical Dossier (PDF/DOCX)</label>
                                 <div
                                     onClick={() => fileInputRef.current?.click()}
-                                    className="file-upload-zone rounded p-8 flex flex-col items-center justify-center cursor-pointer bg-background/50 hover:bg-surface-container-low transition-colors border border-dashed border-outline-variant/40"
+                                    className="file-upload-zone rounded p-8 flex flex-col items-center justify-center cursor-pointer bg-background/50 hover:bg-surface-container-low transition-colors border border-dashed border-outline-variant/30"
                                 >
                                     <input ref={fileInputRef} accept=".pdf,.docx,.doc" className="hidden" type="file" onChange={handleFileChange} />
                                     <span className="material-symbols-outlined text-3xl text-outline mb-2">upload_file</span>
