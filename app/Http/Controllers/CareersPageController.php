@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vacancy;
 use App\Models\Application;
+use App\Models\ContactSetting;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
@@ -18,10 +19,13 @@ class CareersPageController extends Controller
             ->orderBy('sort_order')
             ->orderBy('id')
             ->get();
+
+        $settings = ContactSetting::where('group', 'careers')->pluck('value', 'key');
             
         return response()->json([
             'success' => true,
             'vacancies' => $vacancies,
+            'settings' => $settings,
         ]);
     }
 

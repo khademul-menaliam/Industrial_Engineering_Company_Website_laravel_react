@@ -134,6 +134,7 @@ Route::middleware(['auth'])->group(function () {
     // Secure API endpoints for Admin Careers Manager
     Route::prefix('api/admin/careers')->group(function () {
         Route::get('/', [AdminCareersManagerController::class, 'index']);
+        Route::post('/settings', [AdminCareersManagerController::class, 'updateSettings']);
         Route::post('/vacancies', [AdminCareersManagerController::class, 'storeVacancy']);
         Route::post('/vacancies/{id}', [AdminCareersManagerController::class, 'updateVacancy']);
         Route::delete('/vacancies/{id}', [AdminCareersManagerController::class, 'destroyVacancy']);

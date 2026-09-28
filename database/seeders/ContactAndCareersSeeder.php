@@ -88,5 +88,29 @@ class ContactAndCareersSeeder extends Seeder
         // Clean up old vacancies no longer in seeder
         $refs = array_column($vacancies, 'ref');
         DB::table('vacancies')->whereNotIn('ref', $refs)->delete();
+
+        // 3. Seed Career Settings into contact_settings
+        $careerSettings = [
+            'careers_image' => 'https://lh3.googleusercontent.com/aida-public/AB6AXuB8yelI8zz3zZB_xOggCH44uFkZOchwr5JoCd_YwatDrH8n2bP7Fv04diGqoMNBFVXOMmzVXMm1Khsv2cD2J-0JkNKh8F3_z7DomR998JD4YQYPZ_UjxrXmIWGtoML1XMieoQUBHmdn4yp6fpzuwCxQHLj5ZUUIbQEb27rxJabHV_br09iEBSL1zbTfFXr_Y5NDva3iJXgqTJTFje6DCSKeQv2KRfD1T_jtIJ1E2FNjMq3V1JFqmuYHBw',
+            'internship_title' => 'Internship Program',
+            'internship_description' => 'Designed for final-year engineering students. We provide 6-month immersive rotations within our structural and civil divisions to build practical technical competencies.',
+            'internship_cohort_title' => 'Summer Cohort',
+            'internship_cohort_desc' => 'Applications for the 2025 cycle are currently being processed. Closing date: March 1st.',
+            'internship_prereq_title' => 'Prerequisites',
+            'internship_prereq_desc' => 'Enrollment in an accredited Engineering program (Civil, Structural, or Mechanical).',
+            'internship_btn_text' => 'Program Inquiry',
+        ];
+
+        foreach ($careerSettings as $key => $val) {
+            DB::table('contact_settings')->updateOrInsert(
+                ['key' => $key],
+                [
+                    'value' => $val,
+                    'group' => 'careers',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]
+            );
+        }
     }
 }

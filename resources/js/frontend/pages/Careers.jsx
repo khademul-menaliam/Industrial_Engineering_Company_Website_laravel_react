@@ -25,8 +25,20 @@ const FALLBACK_VACANCIES = [
 
 const ITEMS_PER_PAGE = 6; // 2 rows on 3-column desktop layout
 
+const DEFAULT_SETTINGS = {
+    careers_image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB8yelI8zz3zZB_xOggCH44uFkZOchwr5JoCd_YwatDrH8n2bP7Fv04diGqoMNBFVXOMmzVXMm1Khsv2cD2J-0JkNKh8F3_z7DomR998JD4YQYPZ_UjxrXmIWGtoML1XMieoQUBHmdn4yp6fpzuwCxQHLj5ZUUIbQEb27rxJabHV_br09iEBSL1zbTfFXr_Y5NDva3iJXgqTJTFje6DCSKeQv2KRfD1T_jtIJ1E2FNjMq3V1JFqmuYHBw',
+    internship_title: 'Internship Program',
+    internship_description: 'Designed for final-year engineering students. We provide 6-month immersive rotations within our structural and civil divisions to build practical technical competencies.',
+    internship_cohort_title: 'Summer Cohort',
+    internship_cohort_desc: 'Applications for the 2025 cycle are currently being processed. Closing date: March 1st.',
+    internship_prereq_title: 'Prerequisites',
+    internship_prereq_desc: 'Enrollment in an accredited Engineering program (Civil, Structural, or Mechanical).',
+    internship_btn_text: 'Program Inquiry',
+};
+
 export default function Careers() {
     const [vacancies, setVacancies] = useState(FALLBACK_VACANCIES);
+    const [settings, setSettings] = useState(DEFAULT_SETTINGS);
     const [selectedPosition, setSelectedPosition] = useState('');
     const [fileName, setFileName] = useState('');
     const [dossierFile, setDossierFile] = useState(null);
@@ -48,12 +60,20 @@ export default function Careers() {
     useEffect(() => {
         axios.get('/api/careers')
             .then(res => {
-                if (res.data.success && res.data.vacancies && res.data.vacancies.length > 0) {
-                    setVacancies(res.data.vacancies);
+                if (res.data.success) {
+                    if (res.data.vacancies && res.data.vacancies.length > 0) {
+                        setVacancies(res.data.vacancies);
+                    }
+                    if (res.data.settings) {
+                        setSettings(prev => ({
+                            ...DEFAULT_SETTINGS,
+                            ...res.data.settings
+                        }));
+                    }
                 }
             })
             .catch(err => {
-                console.error('Error loading vacancies:', err);
+                console.error('Error loading vacancies & settings:', err);
             });
     }, []);
 
@@ -192,7 +212,7 @@ export default function Careers() {
                     </div>
                     <div className="lg:col-span-7">
                         <div className="aspect-[16/10] bg-surface-container-low rounded overflow-hidden border border-outline-variant/30 shadow-none md:shadow-sm">
-                            <img alt="Engineering professional" className="w-full h-full object-cover filter grayscale-0 md:grayscale contrast-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8yelI8zz3zZB_xOggCH44uFkZOchwr5JoCd_YwatDrH8n2bP7Fv04diGqoMNBFVXOMmzVXMm1Khsv2cD2J-0JkNKh8F3_z7DomR998JD4YQYPZ_UjxrXmIWGtoML1XMieoQUBHmdn4yp6fpzuwCxQHLj5ZUUIbQEb27rxJabHV_br09iEBSL1zbTfFXr_Y5NDva3iJXgqTJTFje6DCSKeQv2KRfD1T_jtIJ1E2FNjMq3V1JFqmuYHBw" />
+                            <img alt="Engineering professional" className="w-full h-full object-cover" src={settings.careers_image || DEFAULT_SETTINGS.careers_image} />
                         </div>
                     </div>
                 </section>
@@ -324,22 +344,22 @@ export default function Careers() {
                         <span className="material-symbols-outlined text-[240px]">architecture</span>
                     </div>
                     <div className="max-w-3xl relative z-10">
-                        <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6">Internship Program</h2>
+                        <h2 className="text-3xl md:text-4xl font-bold uppercase tracking-tight mb-6">{settings.internship_title || DEFAULT_SETTINGS.internship_title}</h2>
                         <p className="text-sm sm:text-base text-white/85 mb-8 leading-relaxed text-justify max-w-2xl">
-                            Designed for final-year engineering students. We provide 6-month immersive rotations within our structural and civil divisions to build practical technical competencies.
+                            {settings.internship_description || DEFAULT_SETTINGS.internship_description}
                         </p>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10 border-l border-white/20 pl-6 font-mono">
                             <div>
-                                <h4 className="text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Summer Cohort</h4>
-                                <p className="text-xs text-white/75 leading-relaxed text-justify">Applications for the 2025 cycle are currently being processed. Closing date: March 1st.</p>
+                                <h4 className="text-xs font-bold uppercase tracking-wider text-tertiary mb-2">{settings.internship_cohort_title || DEFAULT_SETTINGS.internship_cohort_title}</h4>
+                                <p className="text-xs text-white/75 leading-relaxed text-justify">{settings.internship_cohort_desc || DEFAULT_SETTINGS.internship_cohort_desc}</p>
                             </div>
                             <div>
-                                <h4 className="text-xs font-bold uppercase tracking-wider text-tertiary mb-2">Prerequisites</h4>
-                                <p className="text-xs text-white/75 leading-relaxed text-justify">Enrollment in an accredited Engineering program (Civil, Structural, or Mechanical).</p>
+                                <h4 className="text-xs font-bold uppercase tracking-wider text-tertiary mb-2">{settings.internship_prereq_title || DEFAULT_SETTINGS.internship_prereq_title}</h4>
+                                <p className="text-xs text-white/75 leading-relaxed text-justify">{settings.internship_prereq_desc || DEFAULT_SETTINGS.internship_prereq_desc}</p>
                             </div>
                         </div>
                         <button className="border border-white/30 hover:bg-white/10 text-white font-mono font-bold text-xs px-8 py-4 rounded uppercase tracking-widest transition-all backdrop-blur-sm cursor-pointer" onClick={() => handleJobCardClick('Graduate Intern Program')}>
-                            Program Inquiry
+                            {settings.internship_btn_text || DEFAULT_SETTINGS.internship_btn_text}
                         </button>
                     </div>
                 </section>
@@ -361,7 +381,7 @@ export default function Careers() {
                         <form className="space-y-8" id="job-app-form" onSubmit={handleFormSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-1">
-                                    <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Legal Full Name</label>
+                                    <label className="block text-[10px] font-mono font-bold text-primary mb-1 uppercase tracking-wider">Full Name</label>
                                     <input
                                         className="w-full rounded border border-outline-variant/30 focus:border-primary focus:ring-1 focus:ring-primary bg-background text-sm px-4 py-2.5 text-on-surface transition-all"
                                         required

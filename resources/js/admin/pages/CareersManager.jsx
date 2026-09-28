@@ -1,13 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+
+const defaultSettings = {
+    careers_image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB8yelI8zz3zZB_xOggCH44uFkZOchwr5JoCd_YwatDrH8n2bP7Fv04diGqoMNBFVXOMmzVXMm1Khsv2cD2J-0JkNKh8F3_z7DomR998JD4YQYPZ_UjxrXmIWGtoML1XMieoQUBHmdn4yp6fpzuwCxQHLj5ZUUIbQEb27rxJabHV_br09iEBSL1zbTfFXr_Y5NDva3iJXgqTJTFje6DCSKeQv2KRfD1T_jtIJ1E2FNjMq3V1JFqmuYHBw',
+    internship_title: 'Internship Program',
+    internship_description: 'Designed for final-year engineering students. We provide 6-month immersive rotations within our structural and civil divisions to build practical technical competencies.',
+    internship_cohort_title: 'Summer Cohort',
+    internship_cohort_desc: 'Applications for the 2025 cycle are currently being processed. Closing date: March 1st.',
+    internship_prereq_title: 'Prerequisites',
+    internship_prereq_desc: 'Enrollment in an accredited Engineering program (Civil, Structural, or Mechanical).',
+    internship_btn_text: 'Program Inquiry',
+};
 
 export default function CareersManager() {
     const [vacancies, setVacancies] = useState([]);
     const [applications, setApplications] = useState([]);
+    const [settings, setSettings] = useState(defaultSettings);
     const [loading, setLoading] = useState(true);
-    const [activeTab, setActiveTab] = useState('vacancies'); // vacancies, applications
+    const [activeTab, setActiveTab] = useState('vacancies'); // vacancies, applications, settings
     const [showModal, setShowModal] = useState(false);
     const [currentVacancy, setCurrentVacancy] = useState(null);
+
+    const overviewFileRef = useRef(null);
 
     // Vacancy Form States
     const [formRef, setFormRef] = useState('');
@@ -17,6 +31,7 @@ export default function CareersManager() {
     const [formSortOrder, setFormSortOrder] = useState(0);
     const [formIsActive, setFormIsActive] = useState(true);
     const [savingVacancy, setSavingVacancy] = useState(false);
+    const [savingSettings, setSavingSettings] = useState(false);
 
     // Toast and Confirm Modal states
     const [toast, setToast] = useState(null); // { message: '', type: 'success'|'error' }
@@ -38,6 +53,12 @@ export default function CareersManager() {
                 if (res.data.success) {
                     setVacancies(res.data.vacancies || []);
                     setApplications(res.data.applications || []);
+                    if (res.data.settings) {
+                        setSettings(prev => ({
+                            ...defaultSettings,
+                            ...res.data.settings
+                        }));
+                    }
                 }
                 setLoading(false);
             })
@@ -45,6 +66,38 @@ export default function CareersManager() {
                 console.error(err);
                 triggerToast('Failed to load career data.', 'error');
                 setLoading(false);
+            });
+    };
+
+    const handleSaveSettings = (e) => {
+        e.preventDefault();
+        setSavingSettings(true);
+
+        const formData = new FormData();
+        formData.append('settings', JSON.stringify(settings));
+
+        if (overviewFileRef.current?.files[0]) {
+            formData.append('careers_image_file', overviewFileRef.current.files[0]);
+        }
+
+        axios.post('/api/admin/careers/settings', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+            .then(res => {
+                triggerToast('Careers page & Internship settings updated successfully.', 'success');
+                if (res.data.settings) {
+                    setSettings(prev => ({
+                        ...defaultSettings,
+                        ...res.data.settings
+                    }));
+                }
+                if (overviewFileRef.current) overviewFileRef.current.value = '';
+                setSavingSettings(false);
+            })
+            .catch(err => {
+                console.error(err);
+                triggerToast('Failed to save settings.', 'error');
+                setSavingSettings(false);
             });
     };
 
@@ -187,6 +240,16 @@ export default function CareersManager() {
                 >
                     Applicant Profiles ({applications.length})
                 </button>
+                <button
+                    onClick={() => setActiveTab('settings')}
+                    className={`px-6 py-3.5 text-xs font-bold uppercase tracking-widest border-b-2 shrink-0 transition-all ${
+                        activeTab === 'settings'
+                            ? 'border-primary text-primary bg-primary/10'
+                            : 'border-transparent text-on-surface-variant hover:text-white hover:bg-surface-container'
+                    }`}
+                >
+                    Page & Internship CMS
+                </button>
             </div>
 
             {/* TAB 1: VACANCIES CRUD */}
@@ -309,6 +372,151 @@ export default function CareersManager() {
                         </table>
                     </div>
                 </div>
+            )}
+
+            {/* TAB 3: PAGE CONTENT & INTERNSHIP CMS */}
+            {activeTab === 'settings' && (
+                <form onSubmit={handleSaveSettings} className="space-y-8">
+                    {/* Careers Image Section */}
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl p-6 sm:p-8 space-y-6 shadow-lg">
+                        <div className="border-b border-outline-variant/20 pb-4">
+                            <h3 className="font-bold text-white uppercase text-base tracking-tight">Careers Overview Image</h3>
+                            <p className="text-xs text-on-surface-variant mt-1">Provide an image URL or upload an image file directly from your computer.</p>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                            {/* Option 1: URL input */}
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Option 1: Image URL</label>
+                                <input
+                                    type="url"
+                                    className="w-full bg-background border border-outline-variant/30 rounded-lg p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
+                                    placeholder="https://..."
+                                    value={settings.careers_image || ''}
+                                    onChange={e => setSettings({ ...settings, careers_image: e.target.value })}
+                                />
+                            </div>
+
+                            {/* Option 2: File Upload */}
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Option 2: Upload Image File</label>
+                                <input
+                                    ref={overviewFileRef}
+                                    type="file"
+                                    accept="image/*"
+                                    className="w-full text-xs text-on-surface-variant file:mr-4 file:py-2.5 file:px-4 file:rounded-md file:border-0 file:text-xs file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer bg-background p-1.5 rounded-lg border border-outline-variant/30"
+                                />
+                            </div>
+                        </div>
+
+                        {settings.careers_image && (
+                            <div className="pt-2">
+                                <span className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono mb-2">Current Image Preview</span>
+                                <div className="w-full max-w-sm h-48 rounded-xl overflow-hidden border border-outline-variant/30 shadow-md">
+                                    <img src={settings.careers_image} alt="Careers Image Preview" className="w-full h-full object-cover" />
+                                </div>
+                            </div>
+                        )}
+                    </div>
+
+                    {/* Internship Program CMS Section */}
+                    <div className="bg-surface border border-outline-variant/30 rounded-xl p-6 sm:p-8 space-y-6 shadow-lg">
+                        <div className="border-b border-outline-variant/20 pb-4">
+                            <h3 className="font-bold text-white uppercase text-base tracking-tight">Internship Program Wording (CMS)</h3>
+                            <p className="text-xs text-on-surface-variant mt-1">Easily update the title, descriptions, cohort timelines, and prerequisites for the Internship Program block.</p>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2 md:col-span-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Internship Section Title</label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="w-full bg-background border border-outline-variant/30 rounded-lg p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
+                                    value={settings.internship_title || ''}
+                                    onChange={e => setSettings({ ...settings, internship_title: e.target.value })}
+                                />
+                            </div>
+
+                            <div className="space-y-2 md:col-span-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Main Internship Description</label>
+                                <textarea
+                                    rows="3"
+                                    required
+                                    className="w-full bg-background border border-outline-variant/30 rounded-lg p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
+                                    value={settings.internship_description || ''}
+                                    onChange={e => setSettings({ ...settings, internship_description: e.target.value })}
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Cohort Subheading Title</label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="w-full bg-background border border-outline-variant/30 rounded-lg p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
+                                    value={settings.internship_cohort_title || ''}
+                                    onChange={e => setSettings({ ...settings, internship_cohort_title: e.target.value })}
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Cohort Details / Timeline</label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="w-full bg-background border border-outline-variant/30 rounded-lg p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
+                                    value={settings.internship_cohort_desc || ''}
+                                    onChange={e => setSettings({ ...settings, internship_cohort_desc: e.target.value })}
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Prerequisites Subheading Title</label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="w-full bg-background border border-outline-variant/30 rounded-lg p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
+                                    value={settings.internship_prereq_title || ''}
+                                    onChange={e => setSettings({ ...settings, internship_prereq_title: e.target.value })}
+                                />
+                            </div>
+
+                            <div className="space-y-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Prerequisites Description</label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="w-full bg-background border border-outline-variant/30 rounded-lg p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
+                                    value={settings.internship_prereq_desc || ''}
+                                    onChange={e => setSettings({ ...settings, internship_prereq_desc: e.target.value })}
+                                />
+                            </div>
+
+                            <div className="space-y-2 md:col-span-2">
+                                <label className="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider block font-mono">Program Action Button Text</label>
+                                <input
+                                    type="text"
+                                    required
+                                    className="w-full bg-background border border-outline-variant/30 rounded-lg p-3 text-white text-xs focus:border-primary focus:outline-none transition-all"
+                                    value={settings.internship_btn_text || ''}
+                                    onChange={e => setSettings({ ...settings, internship_btn_text: e.target.value })}
+                                />
+                            </div>
+                        </div>
+
+                        <div className="pt-4 border-t border-outline-variant/20 flex justify-end">
+                            <button
+                                type="submit"
+                                disabled={savingSettings}
+                                className="bg-primary hover:brightness-110 text-white px-8 py-3 rounded-lg text-xs font-bold uppercase tracking-wider font-mono flex items-center gap-2 shadow-lg disabled:opacity-50 transition-all cursor-pointer"
+                            >
+                                <span className="material-symbols-outlined text-sm">save</span>
+                                {savingSettings ? 'Saving Settings...' : 'Save Settings'}
+                            </button>
+                        </div>
+                    </div>
+                </form>
             )}
 
             {/* VACANCY ADD/EDIT MODAL */}
