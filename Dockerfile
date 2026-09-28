@@ -6,7 +6,7 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-FROM php:8.2-cli
+FROM php:8.3-cli
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libonig-dev \
@@ -25,7 +25,11 @@ WORKDIR /var/www/html
 COPY . .
 COPY --from=node_builder /app/public/build ./public/build
 
-RUN composer install --no-dev --optimize-autoloader
+# Copy .env.example for build time if .env doesn't exist
+RUN cp -n .env.example .env || true
+
+# Run composer install with PHP 8.3 and --no-scripts to prevent build-time artisan fails
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 RUN chmod -R 777 storage bootstrap/cache
 
