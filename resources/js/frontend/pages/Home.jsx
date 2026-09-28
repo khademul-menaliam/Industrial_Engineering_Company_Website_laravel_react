@@ -327,19 +327,23 @@ export default function Home() {
                 <div className="grid md:grid-cols-3 gap-8">
                     {activeLeaders.map((leader, index) => (
                         <div key={leader.id || index} className="bg-white p-6 md:p-8 rounded border border-outline-variant/30 flex flex-col gap-6 items-start group md:hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
-                            <div className="w-32 h-32 rounded overflow-hidden flex-shrink-0 border border-outline-variant/30 md:group-hover:border-primary transition-colors">
-                                <img className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-300" alt={leader.name} src={leader.image} />
-                            </div>
-                            <div>
-                                <span className="material-symbols-outlined text-primary text-3xl mb-2 opacity-50">format_quote</span>
-                                <div
-                                    className="text-xs italic text-on-surface-variant mb-4 leading-relaxed rich-text text-justify"
-                                    dangerouslySetInnerHTML={{ __html: leader.quote.startsWith('"') && leader.quote.endsWith('"') ? leader.quote : `"${leader.quote}"` }}
-                                />
-                                <div>
-                                    <h4 className="text-sm font-bold text-primary uppercase tracking-tight">{leader.name}</h4>
+                            {/* Header: Side-by-side on mobile & wide screens, stacked on medium 3-column layout */}
+                            <div className="flex flex-row md:flex-col lg:flex-col xl:flex-row items-center md:items-start xl:items-center gap-4 w-full">
+                                <div className="w-20 h-20 sm:w-24 sm:h-24 md:w-24 md:h-24 rounded overflow-hidden flex-shrink-0 border border-outline-variant/30 md:group-hover:border-primary transition-colors">
+                                    <img className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-300" alt={leader.name} src={leader.image} />
+                                </div>
+                                <div className="flex-grow min-w-0">
+                                    <h4 className="text-sm md:text-base font-bold text-primary uppercase tracking-tight leading-snug">{leader.name}</h4>
                                     <p className="text-[10px] text-tertiary uppercase tracking-widest font-mono mt-1 font-bold">{leader.title}</p>
                                 </div>
+                            </div>
+                            {/* Quote Section */}
+                            <div className="w-full pt-2 border-t border-outline-variant/20">
+                                <span className="material-symbols-outlined text-primary text-3xl mb-2 opacity-50">format_quote</span>
+                                <div
+                                    className="text-xs italic text-on-surface-variant leading-relaxed rich-text text-justify"
+                                    dangerouslySetInnerHTML={{ __html: leader.quote.startsWith('"') && leader.quote.endsWith('"') ? leader.quote : `"${leader.quote}"` }}
+                                />
                             </div>
                         </div>
                     ))}
