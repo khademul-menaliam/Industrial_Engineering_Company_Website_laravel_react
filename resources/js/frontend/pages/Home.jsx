@@ -326,9 +326,9 @@ export default function Home() {
                 </div>
                 <div className="grid md:grid-cols-3 gap-8">
                     {activeLeaders.map((leader, index) => (
-                        <div key={leader.id || index} className="bg-white p-6 md:p-8 rounded border border-outline-variant/30 flex flex-col gap-6 items-start group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
-                            <div className="w-32 h-32 rounded overflow-hidden flex-shrink-0 border border-outline-variant/30 group-hover:border-primary transition-colors">
-                                <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" alt={leader.name} src={leader.image} />
+                        <div key={leader.id || index} className="bg-white p-6 md:p-8 rounded border border-outline-variant/30 flex flex-col gap-6 items-start group md:hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
+                            <div className="w-32 h-32 rounded overflow-hidden flex-shrink-0 border border-outline-variant/30 md:group-hover:border-primary transition-colors">
+                                <img className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-300" alt={leader.name} src={leader.image} />
                             </div>
                             <div>
                                 <span className="material-symbols-outlined text-primary text-3xl mb-2 opacity-50">format_quote</span>
@@ -426,7 +426,7 @@ export default function Home() {
                         {activeProjects.map((project, index) => (
                             <div key={project.id || index} className="bg-white rounded overflow-hidden border border-outline-variant/30 group hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md">
                                 <div className="h-64 overflow-hidden relative">
-                                    <img alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale" src={project.image} />
+                                    <img alt={project.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale-0 md:grayscale md:group-hover:grayscale-0" src={project.image} />
                                 </div>
                                 <div className="p-6">
                                     <h3 className="text-base font-bold text-primary mb-2 uppercase tracking-tight">{project.title}</h3>
@@ -458,7 +458,7 @@ export default function Home() {
                                 <Link
                                     to="/clients"
                                     key={`group1-${index}`}
-                                    className="flex items-center gap-4 px-6 md:px-10 mx-2 grayscale hover:grayscale-0 transition-all duration-300"
+                                    className="flex items-center gap-4 px-6 md:px-10 mx-2 grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-300"
                                 >
                                     <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />
                                     <span className="font-mono text-base font-bold text-primary">{client.name}</span>
@@ -470,7 +470,7 @@ export default function Home() {
                                 <Link
                                     to="/clients"
                                     key={`group2-${index}`}
-                                    className="flex items-center gap-2 px-6 md:px-10 mx-2 grayscale hover:grayscale-0 transition-all duration-300"
+                                    className="flex items-center gap-2 px-6 md:px-10 mx-2 grayscale-0 md:grayscale md:hover:grayscale-0 transition-all duration-300"
                                     tabIndex={-1}
                                 >
                                     <img src={client.logo} alt={client.name} className="h-16 w-auto object-contain" />

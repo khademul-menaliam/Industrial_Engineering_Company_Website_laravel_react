@@ -256,7 +256,7 @@ export default function Services() {
                                                         <div className="md:w-5/12 h-48 md:h-auto bg-surface-container-low overflow-hidden relative">
                                                             <img 
                                                                 alt={service.title} 
-                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0" 
+                                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale-0 md:grayscale md:group-hover:grayscale-0" 
                                                                 src={service.image} 
                                                             />
                                                             <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-none md:shadow-sm">
@@ -279,7 +279,7 @@ export default function Services() {
                                                 <div className="h-44 bg-surface-container-low overflow-hidden relative">
                                                     <img 
                                                         alt={service.title} 
-                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0" 
+                                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale-0 md:grayscale md:group-hover:grayscale-0" 
                                                         src={service.image} 
                                                     />
                                                     <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-none md:shadow-sm">
@@ -322,7 +322,7 @@ export default function Services() {
                                 {service.image && (
                                     <img 
                                         alt={service.title} 
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-300" 
+                                        className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-300" 
                                         src={service.image} 
                                     />
                                 )}
@@ -362,7 +362,7 @@ export default function Services() {
                                             >
                                                 <img 
                                                     alt={featuredDsi.title} 
-                                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale hover:grayscale-0" 
+                                                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale-0 md:grayscale md:group-hover:grayscale-0" 
                                                     src={featuredDsi.image} 
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/50 to-transparent"></div>
@@ -449,7 +449,7 @@ export default function Services() {
                                                 >
                                                     <img 
                                                         alt={service.title} 
-                                                        className={`object-cover grayscale group-hover:grayscale-0 transition-all duration-500 shrink-0 ${isLast ? 'w-1/4 hidden sm:block' : 'w-1/3'}`} 
+                                                        className={`object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-500 shrink-0 ${isLast ? 'w-1/4 hidden sm:block' : 'w-1/3'}`} 
                                                         src={service.image} 
                                                     />
                                                     <div className="p-4 flex flex-col justify-center relative flex-grow">
@@ -492,7 +492,7 @@ export default function Services() {
                                         <div className="h-44 bg-surface-container-low overflow-hidden relative">
                                             <img 
                                                 alt={service.title} 
-                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale hover:grayscale-0" 
+                                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale-0 md:grayscale md:group-hover:grayscale-0" 
                                                 src={service.image} 
                                             />
                                             <div className="absolute top-4 left-4 w-10 h-10 bg-white text-tertiary rounded flex items-center justify-center shadow-none md:shadow-sm">

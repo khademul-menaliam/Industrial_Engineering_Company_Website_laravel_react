@@ -242,20 +242,29 @@ export default function About() {
             <section className="py-24 px-margin-mobile md:px-margin-desktop bg-surface-container-low border-t border-b border-outline-variant/30">
                 <div className="max-w-container-max mx-auto">
                     <div className="text-center mb-16">
-                        <span className="text-tertiary text-sm font-bold tracking-widest mb-3 block uppercase font-mono">CORE DIRECTIVES</span>
+                        <span className="text-tertiary text-xs md:text-sm font-bold tracking-widest mb-3 block uppercase font-mono">CORE DIRECTIVES</span>
                         <h2 className="text-3xl md:text-4xl font-bold text-primary uppercase tracking-tight">Strategic Pillars</h2>
-                        <div className="w-24 h-1 bg-tertiary mx-auto mt-4"></div>
+                        <div className="w-20 h-1 bg-tertiary mx-auto mt-4 rounded-full"></div>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                         {pillars.map((pillar, idx) => (
-                            <div key={pillar.id || idx} className="bg-white p-6 rounded border border-outline-variant/30 hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md flex flex-col h-full group">
-                                <div className="mb-6 w-12 h-12 rounded bg-primary text-on-primary flex items-center justify-center group-hover:bg-tertiary transition-colors duration-300">
-                                    <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
+                            <div 
+                                key={pillar.id || idx} 
+                                className="bg-white p-6 md:p-8 rounded-lg border border-outline-variant/30 md:hover:border-primary transition-all duration-300 shadow-none md:shadow-sm md:hover:shadow-md flex flex-col h-full group"
+                            >
+                                <div className="flex items-center justify-between mb-6">
+                                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-lg bg-primary text-on-primary flex items-center justify-center md:group-hover:bg-tertiary transition-colors duration-300 shadow-sm">
+                                        <span className="material-symbols-outlined text-2xl">{pillar.icon || 'star'}</span>
+                                    </div>
+                                    <span className="font-mono text-xs font-bold text-tertiary/70 tracking-wider">
+                                        0{idx + 1}
+                                    </span>
                                 </div>
-                                <h3 className="text-xl font-bold text-primary mb-3 border-b border-outline-variant/30 pb-3 group-hover:border-tertiary transition-colors duration-300 uppercase tracking-tight">
+
+                                <h3 className="text-lg md:text-xl font-bold text-primary mb-3 border-b border-outline-variant/30 pb-3 md:group-hover:border-tertiary md:group-hover:text-tertiary transition-colors duration-300 uppercase tracking-tight">
                                     {pillar.title}
                                 </h3>
-                                <p className="text-secondary text-base md:text-base leading-relaxed flex-grow font-light text-justify">
+                                <p className="text-secondary text-sm md:text-base leading-relaxed flex-grow font-normal text-justify">
                                     {pillar.description}
                                 </p>
                             </div>
@@ -273,7 +282,7 @@ export default function About() {
                         <div className="w-full lg:w-1/3 flex justify-center shrink-0">
                             <div className="relative group rounded overflow-hidden border border-white/20 shadow-none md:shadow-md max-w-[280px]">
                                 <img 
-                                    className="w-full h-80 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" 
+                                    className="w-full h-80 object-cover filter grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105" 
                                     alt={getVal('about_ceo_name')} 
                                     src={getVal('about_ceo_image')} 
                                 />
@@ -310,7 +319,7 @@ export default function About() {
                             <div key={advisor.id || index} className="bg-surface/5 border border-white/10 rounded p-6 md:p-8 shadow-none md:shadow-md flex flex-col sm:flex-row gap-6 items-center sm:items-start group hover:border-tertiary transition-all duration-300">
                                 <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 border-2 border-white/20 shadow-none md:shadow-md bg-surface-container-low">
                                     {advisor.image ? (
-                                        <img className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" src={advisor.image} alt={advisor.name} />
+                                        <img className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-500" src={advisor.image} alt={advisor.name} />
                                     ) : (
                                         <div className="w-full h-full flex items-center justify-center text-white/40">
                                             <span className="material-symbols-outlined text-3xl">account_circle</span>
