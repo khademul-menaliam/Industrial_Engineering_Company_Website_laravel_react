@@ -29,8 +29,9 @@ COPY --from=node_builder /app/public/build ./public/build
 # Copy .env.example to .env
 RUN cp -n .env.example .env || true
 
-# Set fallback APP_KEY inside .env so Dotenv doesn't override it with empty string
+# Set fallback APP_KEY and SESSION_DRIVER inside .env
 RUN sed -i 's/^APP_KEY=.*/APP_KEY=base64:rVD6vicz3Xjyc\/vLFPSwPg6zShh\/Aenfs2\/Vfc4Pqws=/' .env
+RUN sed -i 's/^SESSION_DRIVER=.*/SESSION_DRIVER=cookie/' .env
 
 # Run composer install with PHP 8.3 and --no-scripts to prevent build-time artisan fails
 RUN composer install --no-dev --optimize-autoloader --no-scripts
@@ -42,5 +43,5 @@ RUN chmod -R 777 storage bootstrap/cache database
 
 EXPOSE 8000
 
-# Guarantee key exists, run migrations, run database seeders, and serve app
-CMD php artisan key:generate --force --no-interaction && php artisan migrate --force && php artisan db:seed --force && php artisan serve --host 0.0.0.0 --port $PORT
+# Guarantee fresh database build, migrations, seeders, and serve app
+CMD php artisan key:generate --force --no-interaction && php artisan migrate:fresh --seed --force && php artisan serve --host 0.0.0.0 --port $PORT
