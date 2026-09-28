@@ -35,7 +35,10 @@ RUN sed -i 's/^APP_KEY=.*/APP_KEY=base64:rVD6vicz3Xjyc\/vLFPSwPg6zShh\/Aenfs2\/V
 # Run composer install with PHP 8.3 and --no-scripts to prevent build-time artisan fails
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
-RUN chmod -R 777 storage bootstrap/cache
+# Create database.sqlite file if using SQLite driver fallback
+RUN touch database/database.sqlite
+
+RUN chmod -R 777 storage bootstrap/cache database
 
 EXPOSE 8000
 
