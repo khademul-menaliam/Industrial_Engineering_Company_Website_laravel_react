@@ -26,13 +26,11 @@ WORKDIR /var/www/html
 COPY . .
 COPY --from=node_builder /app/public/build ./public/build
 
-# Default Environment Variables (Fallback if not set in Render UI)
-ENV APP_ENV=production
-ENV APP_DEBUG=false
-ENV APP_KEY=base64:rVD6vicz3Xjyc/vLFPSwPg6zShh/Aenfs2/Vfc4Pqws=
-
-# Copy .env.example for build time if .env doesn't exist
+# Copy .env.example to .env
 RUN cp -n .env.example .env || true
+
+# Set fallback APP_KEY inside .env so Dotenv doesn't override it with empty string
+RUN sed -i 's/^APP_KEY=.*/APP_KEY=base64:rVD6vicz3Xjyc\/vLFPSwPg6zShh\/Aenfs2\/Vfc4Pqws=/' .env
 
 # Run composer install with PHP 8.3 and --no-scripts to prevent build-time artisan fails
 RUN composer install --no-dev --optimize-autoloader --no-scripts
@@ -41,5 +39,5 @@ RUN chmod -R 777 storage bootstrap/cache
 
 EXPOSE 8000
 
-# Automatically run migrations on startup before starting the server
-CMD php artisan migrate --force && php artisan serve --host 0.0.0.0 --port $PORT
+# Guarantee key exists, run migrations, and serve app
+CMD php artisan key:generate --force --no-interaction && php artisan migrate --force && php artisan serve --host 0.0.0.0 --port $PORT
