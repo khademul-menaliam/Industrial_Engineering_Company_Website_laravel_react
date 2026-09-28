@@ -236,7 +236,7 @@ export default function Contact() {
                             {/* Inline Map */}
                             <div className="mt-12 w-full h-64 rounded overflow-hidden border border-outline-variant/30 shadow-none md:shadow-sm relative group">
                                 <img 
-                                    className="absolute inset-0 w-full h-full object-cover grayscale opacity-50 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500" 
+                                    className="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale opacity-100 md:opacity-50 md:group-hover:opacity-100 md:group-hover:grayscale-0 transition-all duration-500" 
                                     alt="Corporate office complex map" 
                                     src={getVal('contact_map_image')} 
                                 />

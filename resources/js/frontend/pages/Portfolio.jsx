@@ -310,7 +310,7 @@ export default function Portfolio() {
                                 <div className="relative h-56 bg-surface-container-low overflow-hidden">
                                     <img 
                                         alt={p.title} 
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" 
+                                        className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" 
                                         src={p.img} 
                                     />
                                     {/* Tech Reference Badge */}
@@ -531,7 +531,7 @@ export default function Portfolio() {
                                 <div className="aspect-[4/3] bg-surface-container overflow-hidden relative">
                                     <img 
                                         alt={item.title} 
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" 
+                                        className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" 
                                         src={item.img} 
                                     />
                                     <div className="absolute top-2 right-2 bg-primary/90 text-white text-[9px] font-mono px-2 py-0.5 rounded uppercase">

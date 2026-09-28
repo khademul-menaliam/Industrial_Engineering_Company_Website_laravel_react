@@ -77,7 +77,7 @@ export default function Clients() {
                                     </div>
                                     <div className="flex items-center gap-4 mt-auto pt-6 border-t border-outline-variant/30">
                                         <div className="w-16 h-12 rounded bg-surface-container-low p-1.5 border border-outline-variant/30 flex items-center justify-center shrink-0">
-                                            <img className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300" alt={partner.name} src={partner.logo} />
+                                            <img className="max-w-full max-h-full object-contain grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-300" alt={partner.name} src={partner.logo} />
                                         </div>
                                         <div>
                                             <h3 className="text-xs text-primary font-bold uppercase tracking-tight line-clamp-2">{partner.name}</h3>
@@ -103,8 +103,8 @@ export default function Clients() {
                         <div className="flex flex-wrap justify-center gap-6 items-center">
                             {paginatedClients.map((c, i) => (
                                 <div key={i} className="group flex flex-col items-center gap-3 w-36 md:w-40 shrink-0">
-                                    <div className="w-full h-20 bg-white p-3 rounded border border-outline-variant/30 flex items-center justify-center shadow-none md:shadow-sm group-hover:border-primary transition-all duration-300">
-                                        <img className="max-h-full max-w-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100" alt={c.name} src={c.logo} />
+                                    <div className="w-full h-20 bg-white p-3 rounded border border-outline-variant/30 flex items-center justify-center shadow-none md:shadow-sm md:group-hover:border-primary transition-all duration-300">
+                                        <img className="max-h-full max-w-full object-contain grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-300 opacity-100 md:opacity-70 md:group-hover:opacity-100" alt={c.name} src={c.logo} />
                                     </div>
                                     <span className="text-xs font-mono font-bold text-secondary uppercase tracking-wider text-center line-clamp-1 w-full">{c.name}</span>
                                 </div>

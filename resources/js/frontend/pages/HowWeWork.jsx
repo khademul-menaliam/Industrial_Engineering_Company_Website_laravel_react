@@ -68,7 +68,7 @@ export default function HowWeWork() {
                     <div className="relative group">
                         <div className="absolute -inset-1 bg-tertiary/10 border border-tertiary/20 rounded"></div>
                         <div className="relative overflow-hidden aspect-video bg-surface-container-low border border-outline-variant/30 rounded">
-                            <img alt="Client Requirement & Site Survey" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-2rpEZ2Hj7Ibj_lnCJ7PgWc8FvoA4tJW4rX_q1aUvdAK_O6wZifyId_Cf174TlqxjM6T-7eLRma3yML-HSoZvS1Eg1eTcu7Oto9QVgNBy7JYimyazny1pePk31aYvSl_xPPWhI05zAG-IbLCZfqah31QFjNYlwE7YtS0Hmev8LKb8FqkwHVCiVF7024V-YArVOcwGZUocmnxUN9FIiXnii0HqrvHAMRy9VNPHbVISk729T9qlIuIODQ" />
+                            <img alt="Client Requirement & Site Survey" className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-2rpEZ2Hj7Ibj_lnCJ7PgWc8FvoA4tJW4rX_q1aUvdAK_O6wZifyId_Cf174TlqxjM6T-7eLRma3yML-HSoZvS1Eg1eTcu7Oto9QVgNBy7JYimyazny1pePk31aYvSl_xPPWhI05zAG-IbLCZfqah31QFjNYlwE7YtS0Hmev8LKb8FqkwHVCiVF7024V-YArVOcwGZUocmnxUN9FIiXnii0HqrvHAMRy9VNPHbVISk729T9qlIuIODQ" />
                             <div className="absolute bottom-0 right-0 bg-primary text-white px-3 py-1 font-mono text-[10px] font-bold rounded">DATA_STREAMS: LIVE</div>
                         </div>
                     </div>
@@ -145,7 +145,7 @@ export default function HowWeWork() {
                     <div className="relative group">
                         <div className="absolute -inset-1 bg-tertiary/10 border border-tertiary/20 rounded"></div>
                         <div className="relative overflow-hidden aspect-video bg-surface-container-low border border-outline-variant/30 rounded">
-                            <img alt="Documentation & Approval Phase" className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuXbUOUCQffP5fj--QqtvpuRgWP_g_ELMK5NfRvfaMMXjUu7IVrQYoeZFegXXu2hJViGk6ZOOE-cPH-hh6it5VNhInH5-nYxigBqdWnaecgXAFc8GGsZLP20qNCxxnrlav0NwN9VH4FCQeYone2mtinu-Wsg3r2Q90ztbZpUG3STm3TecSnph_Ki-TbRSSClfupUizxnJp-OplKYqtQ-mrZ9RHwTbEM8jJz5jPB-s02SxsQKHJwg4ZTg" />
+                            <img alt="Documentation & Approval Phase" className="w-full h-full object-cover grayscale-0 md:grayscale md:group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuXbUOUCQffP5fj--QqtvpuRgWP_g_ELMK5NfRvfaMMXjUu7IVrQYoeZFegXXu2hJViGk6ZOOE-cPH-hh6it5VNhInH5-nYxigBqdWnaecgXAFc8GGsZLP20qNCxxnrlav0NwN9VH4FCQeYone2mtinu-Wsg3r2Q90ztbZpUG3STm3TecSnph_Ki-TbRSSClfupUizxnJp-OplKYqtQ-mrZ9RHwTbEM8jJz5jPB-s02SxsQKHJwg4ZTg" />
                             <div className="absolute bottom-0 right-0 bg-primary text-white px-3 py-1 font-mono text-[10px] font-bold rounded">REVIEWS: ACTIVE</div>
                         </div>
                     </div>
