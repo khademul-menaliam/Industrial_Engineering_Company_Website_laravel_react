@@ -26,6 +26,11 @@ WORKDIR /var/www/html
 COPY . .
 COPY --from=node_builder /app/public/build ./public/build
 
+# Default Environment Variables (Fallback if not set in Render UI)
+ENV APP_ENV=production
+ENV APP_DEBUG=false
+ENV APP_KEY=base64:rVD6vicz3Xjyc/vLFPSwPg6zShh/Aenfs2/Vfc4Pqws=
+
 # Copy .env.example for build time if .env doesn't exist
 RUN cp -n .env.example .env || true
 
