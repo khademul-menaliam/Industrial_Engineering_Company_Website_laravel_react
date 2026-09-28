@@ -42,5 +42,5 @@ RUN chmod -R 777 storage bootstrap/cache database
 
 EXPOSE 8000
 
-# Guarantee key exists, run migrations, and serve app
-CMD php artisan key:generate --force --no-interaction && php artisan migrate --force && php artisan serve --host 0.0.0.0 --port $PORT
+# Guarantee key exists, run migrations, run database seeders, and serve app
+CMD php artisan key:generate --force --no-interaction && php artisan migrate --force && php artisan db:seed --force && php artisan serve --host 0.0.0.0 --port $PORT
