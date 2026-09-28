@@ -4,6 +4,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR Engineering | Innovative Engineering Solutions</title>
+    <meta name="description" content="AR Engineering provides innovative industrial engineering solutions, MEP design, fire safety systems, simulation, and industrial maintenance services.">
+    <meta name="robots" content="index, follow">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AR Engineering">
+    <meta property="og:title" content="AR Engineering | Innovative Engineering Solutions">
+    <meta property="og:description" content="AR Engineering provides innovative industrial engineering solutions, MEP design, fire safety systems, simulation, and industrial maintenance services.">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AR Engineering | Innovative Engineering Solutions">
+    <meta name="twitter:description" content="AR Engineering provides innovative industrial engineering solutions, MEP design, fire safety systems, simulation, and industrial maintenance services.">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@@context": "https://schema.org",
+        "@@type": "Organization",
+        "name": "AR Engineering",
+        "description": "Innovative industrial engineering solutions, MEP design, simulation, fire safety, and maintenance services."
+    }
+    </script>
     
     <!-- Google Fonts - Baloo Tammudu 2 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "project": {
+    "name": "AR Engineering",
+    "domain": "UNRESOLVED",
+    "framework": "laravel",
+    "router": "laravel-react-router",
+    "language": "javascript",
+    "rendering": "CSR",
+    "renderingDetectedAutomatically": true,
+    "detectedAutomatically": true,
+    "userOverridden": false
+  },
+  "settings": {
+    "defaultLocale": "en_US",
+    "twitterHandle": "UNRESOLVED",
+    "sitemapPath": "/sitemap.xml",
+    "robotsPath": "/robots.txt"
+  },
+  "updatedAt": "2026-09-26T16:38:15Z"
+}

@@ -1,0 +1,405 @@
+{
+  "schemaVersion": "1.0",
+  "lastAuditTimestamp": "2026-09-28T02:43:25.924Z",
+  "globalStatus": {
+    "sitemap": "pending_domain",
+    "robots": "complete",
+    "gscVerified": false,
+    "cwvChecked": true,
+    "globalSeoHash": "sha256:8a60d5fa07a6f2800a345ce014fb843e3d7836834175eb29dbbd2ccf8fc79538"
+  },
+  "routes": {
+    "/": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:d1f62f4d0bf070c748e88e0b6dcd8ddd4b34b9a81e8fdbe7358680477b9eab67",
+      "issuesResolved": [
+        "Injected global SEO meta description, Open Graph, Twitter cards, and JSON-LD Organization schema into frontend root layout"
+      ],
+      "pendingIssues": []
+    },
+    "/about": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:2d42893e8c883a89c92d35e57c870190052e16a345d04ba7e0c6bce067960633",
+      "issuesResolved": [
+        "Verified heading hierarchy (h1 present) and image alt tags; inheriting global SEO metadata from root layout"
+      ],
+      "pendingIssues": []
+    },
+    "/services": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:cc12802c9fdcdf5d9ff8bb4e22911e42f4698f9f8afd872449bed14f756970b6",
+      "issuesResolved": [
+        "Verified services catalog layout and image accessibility"
+      ],
+      "pendingIssues": []
+    },
+    "/services/:slug": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "unresolved",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:5c03e74e1f6c855fb07c28a090f6294dd900ae0f01af9ada9fac3a8c3c2be590",
+      "issuesResolved": [
+        "Dynamic service detail route audited; concrete sitemap URL expansion pending database records"
+      ],
+      "pendingIssues": []
+    },
+    "/how-we-work": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:483d7226b94b425e4a1e979cde9b1eaa3827426a9dd31c271f89d24909b9645b",
+      "issuesResolved": [
+        "Verified process step structure, h1 heading, and image alt tags"
+      ],
+      "pendingIssues": []
+    },
+    "/clients": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:fc7108ac11ac1e4df5983df99ba50adfd981124d2a556d905668051129351435",
+      "issuesResolved": [
+        "Audited partner and client logo alt attributes and testimonials markup"
+      ],
+      "pendingIssues": []
+    },
+    "/careers": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:6a57ca45d46dc45f4aafee9b3ef13f7b3e7e41102bc3dad64e26416cf06624fc",
+      "issuesResolved": [
+        "Audited vacancy listings and careers page structure"
+      ],
+      "pendingIssues": []
+    },
+    "/portfolio": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:5a106e26044999637e1f58a3097226db31e5df2a9c9e7fbacea7ddc8dbd166ec",
+      "issuesResolved": [
+        "Verified portfolio gallery images, modal preview accessibility, and heading structure"
+      ],
+      "pendingIssues": []
+    },
+    "/contact": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:be6e11e4b718325e49c4f3ecf87234a32dcade808d1e0dbc568b765762f143e6",
+      "issuesResolved": [
+        "Verified contact form semantics and company contact info"
+      ],
+      "pendingIssues": []
+    },
+    "/faq": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:941772e4864b8687bfcdedc85b723c55104b3fc571df75b451ec1fc76c1a70be",
+      "issuesResolved": [
+        "Verified FAQ accordion structure and semantic layout"
+      ],
+      "pendingIssues": []
+    },
+    "/project-demo": {
+      "routeType": "page",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": true,
+      "status": "complete",
+      "metadataSource": {
+        "title": "inherited",
+        "description": "inherited"
+      },
+      "sitemapExpansionStatus": "complete",
+      "cwvImplementation": "checked",
+      "cwvMeasurement": "not_measured",
+      "lastAudited": "2026-09-28T02:43:25.924Z",
+      "contentHash": "sha256:b1449a5b53f1a34e6462ebf56256abb3cdcbe75d9faaf9df26c010129ff82fd7",
+      "issuesResolved": [
+        "Audited placeholder project demo page"
+      ],
+      "pendingIssues": []
+    },
+    "/admin-portal/login": {
+      "routeType": "auth",
+      "responseType": "html",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded authentication login view from sitemap & page SEO audit"
+      ],
+      "pendingIssues": []
+    },
+    "/admin-portal": {
+      "routeType": "admin",
+      "responseType": "html",
+      "isPublic": false,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded admin portal from sitemap & page SEO audit"
+      ],
+      "pendingIssues": []
+    },
+    "/api/home": {
+      "routeType": "api",
+      "responseType": "json",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded REST API endpoint from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    },
+    "/api/services": {
+      "routeType": "api",
+      "responseType": "json",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded REST API endpoint from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    },
+    "/api/services/{slug}": {
+      "routeType": "api",
+      "responseType": "json",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded REST API endpoint from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    },
+    "/api/contact": {
+      "routeType": "api",
+      "responseType": "json",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded REST API endpoint from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    },
+    "/api/careers": {
+      "routeType": "api",
+      "responseType": "json",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded REST API endpoint from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    },
+    "/api/about": {
+      "routeType": "api",
+      "responseType": "json",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded REST API endpoint from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    },
+    "/api/faqs": {
+      "routeType": "api",
+      "responseType": "json",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded REST API endpoint from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    },
+    "/api/clients": {
+      "routeType": "api",
+      "responseType": "json",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded REST API endpoint from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    },
+    "{prefix}/{path}": {
+      "routeType": "asset",
+      "responseType": "asset",
+      "isPublic": true,
+      "isRedirect": false,
+      "isSeoPageCandidate": false,
+      "status": "excluded",
+      "lastAudited": "2026-09-26T16:38:15Z",
+      "contentHash": "sha256:none",
+      "issuesResolved": [
+        "Excluded static storage asset fallback route from HTML sitemap & meta audit"
+      ],
+      "pendingIssues": []
+    }
+  },
+  "summary": {
+    "totalRoutes": 22,
+    "seoPageCandidates": 11,
+    "completedRoutes": 11,
+    "pendingRoutes": 0,
+    "excludedRoutes": 11
+  }
+}
