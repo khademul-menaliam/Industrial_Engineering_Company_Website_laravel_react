@@ -8,11 +8,11 @@ const FALLBACK_SETTINGS = {
     contact_urgent_title: 'URGENT: SAFETY INQUIRY',
     contact_urgent_description: 'For immediate structural failure concerns or site safety hazards, use our priority channel.',
     contact_urgent_btn: 'PRIORITY RESPONSE',
-    contact_address: "1280 Engineering Plaza\nSuite 400, Industrial District\nChicago, IL 60601",
-    contact_phone: '+1 (800) 555-0192',
+    contact_address: "House-15, Road -1, Block-A\nMohanagar Project, West Rampura\nDhaka-1219, Bangladesh",
+    contact_phone: '+880 1621 727549',
     contact_phone_hours: 'Mon - Fri: 8:00 AM - 6:00 PM CST',
-    contact_email: 'info@arengineeringbd.com',
-    contact_map_image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBxU7jTojfIGAD6pxvJSGDir2eB2D-tRFcfxCAfIMdI8aTEwS8z1PbjiaCDajjAknsLj1zOS3AFQ_LpHUky4Tfe7YsTKCltIvvEyF2Jv6K1K9pxmT80GNP8Dr-6SQImvY8i-hOA8RsIHrlByMI2rbargNC0ELEb77OjQpUrDQ2DTd2zMwEVyifZ_amef2R4LVlIxQZcjmGAIG8VYZhK9e-GoybaRkNkN4g2wzmHI4rQb_vSBGE_re5Q3Q',
+    contact_email: 'service@arengineeringbd.com',
+    contact_map_image: '',
     contact_response_time: '< 12 HOURS',
 };
 
@@ -203,50 +203,76 @@ export default function Contact() {
                     <div className="flex flex-col gap-8 order-1 lg:order-2">
                         <div className="bg-white rounded p-8 md:p-12 border border-outline-variant/30 shadow-none md:shadow-sm">
                             <h2 className="text-3xl md:text-4xl font-bold mb-8 text-primary uppercase tracking-tight">Corporate Headquarters</h2>
-                            <div className="space-y-8">
-                                <div className="flex items-start gap-6">
-                                    <div className="bg-surface-container-low p-3 rounded border border-outline-variant/30 shrink-0">
-                                        <span className="material-symbols-outlined text-secondary text-2xl">location_on</span>
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/20 hover:border-tertiary/30 hover:shadow-sm transition-all duration-300 group">
+                                    <div className="w-11 h-11 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center text-tertiary shrink-0 group-hover:bg-tertiary group-hover:text-white transition-all duration-300 shadow-sm">
+                                        <span className="material-symbols-outlined text-xl">location_on</span>
                                     </div>
                                     <div>
-                                        <span className="text-[10px] font-bold text-secondary mb-1 uppercase tracking-wider font-mono block">OFFICE ADDRESS</span>
-                                        <p className="text-base font-bold text-primary whitespace-pre-line">{getVal('contact_address')}</p>
+                                        <span className="text-[10px] font-bold text-tertiary mb-1 uppercase tracking-wider font-mono block">OFFICE ADDRESS</span>
+                                        <p className="text-sm md:text-base font-bold text-primary whitespace-pre-line leading-relaxed">{getVal('contact_address')}</p>
                                     </div>
                                 </div>
-                                <div className="flex items-start gap-6">
-                                    <div className="bg-surface-container-low p-3 rounded border border-outline-variant/30 shrink-0">
-                                        <span className="material-symbols-outlined text-secondary text-2xl">phone_in_talk</span>
+
+                                <div className="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/20 hover:border-tertiary/30 hover:shadow-sm transition-all duration-300 group">
+                                    <div className="w-11 h-11 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center text-tertiary shrink-0 group-hover:bg-tertiary group-hover:text-white transition-all duration-300 shadow-sm">
+                                        <span className="material-symbols-outlined text-xl">phone_in_talk</span>
                                     </div>
                                     <div>
-                                        <span className="text-[10px] font-bold text-secondary mb-1 uppercase tracking-wider font-mono block">TECHNICAL SUPPORT</span>
-                                        <p className="text-base font-bold text-primary">{getVal('contact_phone')}</p>
-                                        <p className="text-xs text-secondary font-mono mt-1">{getVal('contact_phone_hours')}</p>
+                                        <span className="text-[10px] font-bold text-tertiary mb-1 uppercase tracking-wider font-mono block">TECHNICAL SUPPORT</span>
+                                        <p className="text-sm md:text-base font-bold text-primary">{getVal('contact_phone')}</p>
+                                        <p className="text-xs text-secondary font-mono mt-1 flex items-center gap-1">
+                                            <span className="material-symbols-outlined text-xs">schedule</span>
+                                            {getVal('contact_phone_hours')}
+                                        </p>
                                     </div>
                                 </div>
-                                <div className="flex items-start gap-6">
-                                    <div className="bg-surface-container-low p-3 rounded border border-outline-variant/30 shrink-0">
-                                        <span className="material-symbols-outlined text-secondary text-2xl">mail</span>
+
+                                <div className="flex items-start gap-4 p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/20 hover:border-tertiary/30 hover:shadow-sm transition-all duration-300 group">
+                                    <div className="w-11 h-11 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center text-tertiary shrink-0 group-hover:bg-tertiary group-hover:text-white transition-all duration-300 shadow-sm">
+                                        <span className="material-symbols-outlined text-xl">mail</span>
                                     </div>
                                     <div>
-                                        <span className="text-[10px] font-bold text-secondary mb-1 uppercase tracking-wider font-mono block">GENERAL INQUIRIES</span>
-                                        <p className="text-base font-bold text-primary">{getVal('contact_email')}</p>
+                                        <span className="text-[10px] font-bold text-tertiary mb-1 uppercase tracking-wider font-mono block">GENERAL INQUIRIES</span>
+                                        <a href={`mailto:${getVal('contact_email')}`} className="text-sm md:text-base font-bold text-primary hover:text-tertiary transition-colors">{getVal('contact_email')}</a>
                                     </div>
                                 </div>
                             </div>
-                            {/* Inline Map */}
-                            <div className="mt-12 w-full h-64 rounded overflow-hidden border border-outline-variant/30 shadow-none md:shadow-sm relative group">
-                                <img 
-                                    className="absolute inset-0 w-full h-full object-cover grayscale-0 md:grayscale opacity-100 md:opacity-50 md:group-hover:opacity-100 md:group-hover:grayscale-0 transition-all duration-500" 
-                                    alt="Corporate office complex map" 
-                                    src={getVal('contact_map_image')} 
-                                />
-                                <div 
-                                    onClick={() => window.open('https://maps.google.com', '_blank')}
-                                    className="absolute bottom-4 right-4 bg-white/95 backdrop-blur px-4 py-2 rounded shadow-sm text-[10px] font-bold font-mono uppercase tracking-wider flex items-center gap-2 border border-outline-variant/30 cursor-pointer hover:bg-surface-container transition-colors text-primary"
-                                >
-                                    <span className="material-symbols-outlined text-secondary text-sm">explore</span>
-                                    OPEN IN MAPS
+                            {/* Map Container */}
+                            <div className="mt-8 w-full h-80 md:h-96 rounded-xl overflow-hidden border border-outline-variant/30 shadow-md relative group bg-surface-container-low">
+                                {(!getVal('contact_map_image') || getVal('contact_map_image').includes('googleusercontent.com/aida-public')) ? (
+                                    <iframe 
+                                        title="AR Engineering Office Location"
+                                        src={`https://maps.google.com/maps?q=${encodeURIComponent(getVal('contact_address') || 'Mohanagar Project, West Rampura, Dhaka-1219, Bangladesh')}&t=&z=15&ie=UTF8&iwloc=&output=embed`}
+                                        className="w-full h-full border-0 rounded-xl"
+                                        allowFullScreen=""
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                    ></iframe>
+                                ) : (
+                                    <img 
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                                        alt="Corporate office location map" 
+                                        src={getVal('contact_map_image')} 
+                                    />
+                                )}
+                                
+                                {/* Top Overlay Badge */}
+                                <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-lg shadow-sm text-[11px] font-bold font-mono tracking-wider flex items-center gap-2 border border-outline-variant/20 text-primary pointer-events-none">
+                                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                                    HEADQUARTERS MAP
                                 </div>
+
+                                {/* Bottom Right Button */}
+                                <a 
+                                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(getVal('contact_address') || 'Mohanagar Project, West Rampura, Dhaka-1219, Bangladesh')}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="absolute bottom-3 right-3 bg-white/95 hover:bg-tertiary hover:text-white backdrop-blur px-4 py-2 rounded-lg shadow-md text-[10px] font-bold font-mono uppercase tracking-wider flex items-center gap-2 border border-outline-variant/30 cursor-pointer transition-all duration-300 text-primary group-hover:shadow-lg"
+                                >
+                                    <span className="material-symbols-outlined text-tertiary group-hover:text-white text-sm transition-colors">explore</span>
+                                    OPEN IN GOOGLE MAPS
+                                </a>
                             </div>
                         </div>
                     </div>
