@@ -10,13 +10,15 @@
     --font-body: 'Baloo Tammudu 2', ui-sans-serif, system-ui, sans-serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     
-    --text-sm: 0.8rem;
-    --text-base: 0.9rem;
-    --text-xl: 1.066rem;
-    --text-2xl: 1.421rem;
-    --text-3xl: 1.894rem;
-    --text-4xl: 2.525rem;
-    --text-5xl: 3.366rem;
+    --text-xs: 0.8125rem;   /* ~13px */
+    --text-sm: 0.9375rem;   /* ~15px */
+    --text-base: 1.0625rem; /* ~17px */
+    --text-lg: 1.1875rem;   /* ~19px */
+    --text-xl: 1.25rem;     /* ~20px */
+    --text-2xl: 1.55rem;    /* ~24.8px */
+    --text-3xl: 2.05rem;    /* ~32.8px */
+    --text-4xl: 2.75rem;    /* ~44px */
+    --text-5xl: 3.5rem;     /* ~56px */
 
     --font-weight-normal: 400;
     --font-weight-bold: 700;
@@ -86,7 +88,7 @@
 
 @layer base {
     html {
-        font-size: 100%; /* 16px */
+        font-size: 100%; /* 16px base standard */
     }
 
     body {
@@ -102,27 +104,27 @@
     }
 
     h1 {
-        font-size: 3.366rem; /* 53.92px */
+        font-size: 3.5rem;
     }
 
     h2 {
-        font-size: 2.525rem; /* 40.32px */
+        font-size: 2.65rem;
     }
 
     h3 {
-        font-size: 1.894rem; /* 30.24px */
+        font-size: 1.95rem;
     }
 
     h4 {
-        font-size: 1.421rem; /* 22.72px */
+        font-size: 1.45rem;
     }
 
     h5 {
-        font-size: 1.066rem; /* 17.12px */
+        font-size: 1.15rem;
     }
 
     small {
-        font-size: 0.900rem; /* 9.6px */
+        font-size: 0.8125rem;
     }
 }
 
